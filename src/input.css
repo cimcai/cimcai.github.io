@@ -28,3 +28,8 @@
     font-style: normal;
     font-weight: bold;
 }
+
+.py-32 {
+  padding-top: 8rem ;
+  padding-bottom: 8rem ;
+}
