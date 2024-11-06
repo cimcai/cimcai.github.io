@@ -7,9 +7,15 @@
 }
 .cimc-standard {
     font-family: Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 20;
     font-style: normal;
     font-weight: normal;
+}
+.cimc-small {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
 }
 .cimc-heading {
     font-family: Helvetica, sans-serif;

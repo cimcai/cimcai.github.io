@@ -8,7 +8,7 @@ interface LibraryCellProps {
   description?: string;
 }
 
-function LibraryCell( {title, description, linkUrl, thumbnailUrl }: LibraryCellProps) {
+const LibraryCell: React.FC<LibraryCellProps> = ({title, description, linkUrl, thumbnailUrl }) => {
   return (
     <div className="rounded py-4 flex-col">
       <a href={linkUrl} target="_blank">
@@ -33,19 +33,21 @@ interface LibraryColumnProps {
   extraXPadding?: boolean;
 }
 
-function LibraryColumn( { columnCellsData, extraXPadding = false }: LibraryColumnProps) {
-  const columnCells = columnCellsData.map((cellData) => {
-    const {title, description, linkUrl, thumbnailUrl } = cellData
-    return <LibraryCell key={title} title={title} linkUrl={linkUrl} thumbnailUrl={thumbnailUrl} description={description}/>
-  })
+
+const LibraryColumn: React.FC<LibraryColumnProps> = ({ columnCellsData, extraXPadding = false }) => {
   return (
     <div className={`flex-1 py-4 md:w-1/3 ${extraXPadding ? "px-6" : ""}`}>
-      {columnCells}
+      {
+        columnCellsData.map((cellData) => {
+          const {title, description, linkUrl, thumbnailUrl } = cellData
+          return <LibraryCell title={title} linkUrl={linkUrl} thumbnailUrl={thumbnailUrl} description={description}/>
+        })
+      }
     </div>
   )
 }
 
-function Library() {
+const Library = () => {
   return (
     <div id="library" className="flex justify-center max-md:px-6">
       <div className="flex md:w-[729px] max-md:flex-col">
