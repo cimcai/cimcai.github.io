@@ -49,7 +49,7 @@ const LibraryColumn: React.FC<LibraryColumnProps> = ({ columnCellsData, extraXPa
 
 const Library = () => {
   return (
-    <div id="library" className="flex justify-center max-md:px-6">
+    <div id="library" className="flex justify-center max-md:px-6 bg-black text-white">
       <div className="flex md:w-[729px] max-md:flex-col">
         <LibraryColumn columnCellsData={column1} />
         <LibraryColumn columnCellsData={column2} extraXPadding/>

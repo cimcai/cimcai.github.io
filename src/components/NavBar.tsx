@@ -1,47 +1,54 @@
-import styled from 'styled-components'
-import tw from 'twin.macro'
-import { Link as LinkRouter } from 'react-router-dom'
+import styled from "styled-components"
+import tw from "twin.macro"
+import { Link } from "react-scroll"
+import { useEffect, useState } from "react";
 
 const NavbarContainer = styled.div`
   ${tw`
-    h-20
+    h-16
     w-screen
     flex
     items-center
     justify-center
     fixed
-    `}
+    max-md:pl-6
+  `}
 `
-
 const NavbarStyle = styled.div`
   max-width: 50em;
   ${tw`
-  w-[729px]
-  z-10
-  text-gray-200
-  flex
-  flex-row
-  justify-between
-  text-2xl
-    `}
+    w-[729px]
+    z-10
+    text-white
+    flex
+    flex-row
+    text-xl
+    gap-3
+  `}
 `
 
 interface NavbarProps {
   setClick?: (showMenu: boolean) => undefined;
+  shouldBeTransparent: boolean;
 }
 
-export default function Navbar({setClick}: NavbarProps) {
+export default function Navbar({shouldBeTransparent}: NavbarProps) {
+
+  const [backgroundColor, setBackgroundColor] = useState("");
+  useEffect(()=>{
+    if (shouldBeTransparent) {
+      setBackgroundColor("transparent")
+    } else {
+      setBackgroundColor("black")
+    }
+  }, [shouldBeTransparent])
   return (
     <>
-      <NavbarContainer>
+      <NavbarContainer css={{backgroundColor, transition: 'background-color 0.5s ease'}}>
         <NavbarStyle>
-          <LinkRouter to='/'>Home</LinkRouter>
-          <LinkRouter onClick={setClick ? ()=>setClick(false) : undefined} to='/mission'>Mission</LinkRouter>
-          <LinkRouter onClick={setClick ? ()=>setClick(false) : undefined} to='/projects'>Projects</LinkRouter>
-          <LinkRouter onClick={setClick ? ()=>setClick(false) : undefined} to='/events'>Events</LinkRouter>
-          <LinkRouter onClick={setClick ? ()=>setClick(false) : undefined} to='/library'>Library</LinkRouter>
-          <LinkRouter onClick={setClick ? ()=>setClick(false) : undefined} to='/contact'>Contact</LinkRouter>
-          <LinkRouter  onClick={setClick ? ()=>setClick(false) : undefined} to='/team'>Team</LinkRouter>
+          <Link to="home" className="select-none cursor-pointer" smooth duration={400} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Home</Link>
+          <Link to="mission" className="select-none cursor-pointer" smooth duration={400} offset={-64} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Mission</Link>
+          <Link to="library" className="select-none cursor-pointer" smooth duration={400} offset={-64} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Library</Link>
         </NavbarStyle>
       </NavbarContainer>
     </>

@@ -5,7 +5,7 @@ function Institute() {
         THE MISSING INSTITUTE
       </p>
       <p className="cimc-standard py-2 leading-snug">
-        To take on this challenge, we need an open, transdisciplinary, non-profit research initiative. This institute will integrate insights from philosophy, psychology, neuroscience, the arts, mathematics and AI into a unified framework, breaking down the conceptual barriers that have hindered progress in consciousness research. We envision this institute as a hub where academics, AI industry experts, and independent scholars conduct practical research in-house. 
+        To take on this challenge, we need an open, transdisciplinary, non-profit research initiative. This institute will integrate insights from philosophy, psychology, neuroscience, the arts, mathematics and AI into a unified framework, breaking down the conceptual barriers that have hindered progress in consciousness research. We envision this institute as a hub where academics, AI industry experts, and independent scholars conduct practical research in-house.
       </p>
       <p className="cimc-heading leading-tight py-4">
         MISSION OF THE CALIFORNIA INSTITUTE FOR MACHINE CONSCIOUSNESS

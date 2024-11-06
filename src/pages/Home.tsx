@@ -15,17 +15,15 @@ const HomeContainer = styled.div`
 
 
 export const Home = () => {
-  return (
-    <>
-      <HomeContainer id="/home">
-        <div className="flex bg-transparent justify-center items-center max-md:px-6 pt-60 md:pb-40 max-md:pb-6">
-          <CIMCLogo />
-        </div>
-        <ResponsiveCIMCLogo />
+return (
+    <HomeContainer>
+      <div id="home" className="flex bg-transparent justify-center items-center max-md:px-6 pt-60 md:pb-40 max-md:pb-6">
+        <CIMCLogo />
+      </div>
+      <ResponsiveCIMCLogo />
 
-        <Forward />
-      </HomeContainer>
-    </>
+      <Forward />
+    </HomeContainer>
   )
 }
 
