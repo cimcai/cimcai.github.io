@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import tw from "twin.macro"
-import { Link } from "react-scroll"
-import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom"
+import { CIMCRoutes } from "../App"
 
 const NavbarContainer = styled.div`
   ${tw`
@@ -12,6 +12,8 @@ const NavbarContainer = styled.div`
     justify-center
     fixed
     max-md:pl-6
+    bg-black
+    bg-opacity-80
   `}
 `
 const NavbarStyle = styled.div`
@@ -28,31 +30,34 @@ const NavbarStyle = styled.div`
 `
 
 interface NavbarProps {
+  routes: CIMCRoutes[];
   setClick?: (showMenu: boolean) => undefined;
-  shouldBeTransparent: boolean;
 }
 
-export default function Navbar({shouldBeTransparent}: NavbarProps) {
-
-  const [backgroundColor, setBackgroundColor] = useState("");
-  useEffect(()=>{
-    if (shouldBeTransparent) {
-      setBackgroundColor("transparent")
-    } else {
-      setBackgroundColor("black")
-    }
-  }, [shouldBeTransparent])
+export default function Navbar({routes}: NavbarProps) {
   return (
     <>
-      <NavbarContainer css={{backgroundColor, transition: 'background-color 0.5s ease'}}>
+      <NavbarContainer css={{transition: 'background-color 0.5s ease'}}>
         <NavbarStyle>
-          <Link to="home" className="select-none cursor-pointer" smooth duration={400} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Home</Link>
-          <Link to="mission" className="select-none cursor-pointer" smooth duration={400} offset={-64} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Mission</Link>
-          <Link to="projects" className="select-none cursor-pointer" smooth duration={400} offset={-64} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Projects</Link>
-          <Link to="team" className="select-none cursor-pointer" smooth duration={400} offset={-64} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Team</Link>
-          <Link to="library" className="select-none cursor-pointer" smooth duration={400} offset={-64} activeStyle={{textDecoration: 'underline', textUnderlinePosition: "under"}} spy saveHashHistory>Library</Link>
+          {routes.map((route) => (
+            <NavLink
+              key={route.path}
+              to={route.path}
+              className="select-none cursor-pointer underline-offset-4"
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  textDecorationLine: isActive ? "underline" : "",
+                  color: isPending ? "red" : "white",
+                  viewTransitionName: isTransitioning ? "fade" : "",
+                }
+              }}
+            >
+              {route.name}
+            </NavLink>
+          ))}
         </NavbarStyle>
       </NavbarContainer>
     </>
   )
 }
+

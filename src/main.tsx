@@ -1,19 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import GlobalStyles from './styles/GlobalStyles'
-import './styles/tailwind.css'
-import App from './App'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React from "react"
+import { createRoot } from "react-dom/client"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import GlobalStyles from "./styles/GlobalStyles"
+import "./styles/tailwind.css"
+import App, { routes } from "./App"
 
-ReactDOM.render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: routes.map((route) => ({
+      index: route.path === "/",
+      path: route.path === "/" ? undefined : route.path,
+      element: route.element,
+    })),
+  },
+])
+
+const container = document.getElementById("root")
+const root = createRoot(container!)
+root.render(
   <React.StrictMode>
     <GlobalStyles />
-    <BrowserRouter>
-      <Routes>
-        <Route path='/*' element={<App />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
-
-  document.getElementById('root'),
+    <RouterProvider router={router} />
+  </React.StrictMode>
 )

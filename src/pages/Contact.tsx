@@ -16,7 +16,7 @@ const ContactContainer = styled.div`
 const Contact = () => {
   return (
     <ContactContainer>
-      <div className="w-full">
+      <div className="md:w-[729px] max-md:w-full">
         <p className="cimc-heading py-4">
           CONTACT
         </p>
@@ -35,7 +35,6 @@ const Contact = () => {
         </p>
       </div>
     </ContactContainer>
-
   )
 }
 

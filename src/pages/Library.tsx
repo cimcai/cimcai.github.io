@@ -1,4 +1,6 @@
-import linksData from "../links.json"
+import styled from "styled-components";
+import linksData from "../data/links.json"
+import tw from "twin.macro";
 const { column1, column2, column3 } = linksData;
 
 interface LibraryCellProps {
@@ -8,7 +10,7 @@ interface LibraryCellProps {
   description?: string;
 }
 
-const LibraryCell: React.FC<LibraryCellProps> = ({title, description, linkUrl, thumbnailUrl }) => {
+const LibraryCell: React.FC<LibraryCellProps & React.RefAttributes<HTMLAnchorElement>> = ({title, description, linkUrl, thumbnailUrl }) => {
   return (
     <div className="rounded py-4 flex-col">
       <a href={linkUrl} target="_blank">
@@ -40,22 +42,42 @@ const LibraryColumn: React.FC<LibraryColumnProps> = ({ columnCellsData, extraXPa
       {
         columnCellsData.map((cellData) => {
           const {title, description, linkUrl, thumbnailUrl } = cellData
-          return <LibraryCell title={title} linkUrl={linkUrl} thumbnailUrl={thumbnailUrl} description={description}/>
+          return <LibraryCell key={title} title={title} linkUrl={linkUrl} thumbnailUrl={thumbnailUrl} description={description}/>
         })
       }
     </div>
   )
 }
 
+const LibraryContainer = styled.div`
+  ${tw`
+  bg-black
+  text-white
+    flex
+    md:justify-center
+    max-md:px-6
+    pt-16
+    pb-40
+  `}
+`
+const LibraryColumnContainer = styled.div`
+  ${tw`
+    flex
+    md:w-[729px]
+    max-md:flex-col
+  `}
+`
+
+
 const Library = () => {
   return (
-    <div id="library" className="flex justify-center max-md:px-6 bg-black text-white">
-      <div className="flex md:w-[729px] max-md:flex-col">
+    <LibraryContainer id="library">
+      <LibraryColumnContainer>
         <LibraryColumn columnCellsData={column1} />
         <LibraryColumn columnCellsData={column2} extraXPadding/>
         <LibraryColumn columnCellsData={column3} />
-      </div>
-    </div>
+      </LibraryColumnContainer>
+    </LibraryContainer>
   )
 }
 

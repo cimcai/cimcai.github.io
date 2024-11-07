@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import tw, { theme } from 'twin.macro'
 import { CIMCLogo, ResponsiveCIMCLogo } from '../components/CIMCLogo'
-import Forward from '../Forward'
+import Forward from '../components/Forward'
 
 const HomeContainer = styled.div`
   ${tw`
