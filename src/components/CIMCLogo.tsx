@@ -32,7 +32,7 @@ export function CIMCLogo({showName}: CIMCLogoProps): React.ReactNode {
       </LogoImageContainer>
       { showName ?
           <div className="py-6 leading-none whitespace-nowrap flex justify-center">
-            <span className={"md:text-xl font-bold max-md:text-sm"}>
+            <span className={"md:text-1.5xl font-bold max-md:text-sm"}>
               California Institute for Machine Consciousness
             </span>
           </div>

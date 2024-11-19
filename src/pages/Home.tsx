@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import tw, { theme } from 'twin.macro'
+import tw from 'twin.macro'
 import { CIMCLogo } from '../components/CIMCLogo'
 import Forward from '../components/Forward'
 
 const HomeContainer = styled.div`
   ${tw`
-      text-white
+      text-black
       selection:text-white
       selection:bg-gray-500
       to-black
+      bg-white
     `}
-    background-color: ${theme`colors.cimc_blue`};
 `
 
 const VideoContainer = styled.div`

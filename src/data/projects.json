@@ -1,0 +1,111 @@
+[
+  {
+    "topic": "Functionalist Metaphysics of Consciousness",
+    "projects": [
+      "What is consciousness? How does consciousness relate to mind, modeling, and reality?",
+      "How can we characterize phenomenology, functionality, and implementation?",
+      "Which systems can be conscious?",
+      "What are necessary and sufficient conditions for consciousness?",
+      "How can we test for consciousness?"
+    ]
+  },
+  {
+    "topic": "Formalization of Consciousness",
+    "projects": [
+      "Can we define the “strange loop” analytically and test this formalization?"
+    ]
+  },
+  {
+    "topic": "Emergence and role of self in learning agents",
+    "projects": [
+      "Under what conditions does a learning agent form a first person self?",
+      "How can we test for self models?",
+      "What constitutes a minimal self?"
+    ]
+  },
+  {
+    "topic": "Self-Organizing Learning Systems",
+    "projects": [
+      "Hypothesis: consciousness is discovered by the brain, as part of learning paradigm in a self organizing substrate",
+      "Understanding brain as a multi-way system",
+      "Can we get a self organizing system (eg. NCA) to learn complex sequence prediction tasks?",
+      "Can self organizing learning systems control agents?",
+      "Do we observe the discovery of self improving self reflexive structure?",
+      "What are the limitations of this paradigm?",
+      "Can we discover implications for consciousness in comparable systems in nature (ie. how much does it depend on architecture?)"
+    ]
+  },
+  {
+    "topic": "Architectures of Selfhood",
+    "projects": [
+      "Develop and study models of mind, self model, motivation, world model interaction"
+    ]
+  },
+  {
+    "topic": "Developmental Learning Architectures",
+    "projects": [
+      "Minimal self-improving models",
+      "Continuous anytime learning",
+      "Artificial pets",
+      "Social simulations"
+    ]
+  },
+  {
+    "topic": "Environments for intelligent behavior and interaction between humans and AI",
+    "projects": [
+      "Under what conditions do intelligence and agency emerge?",
+      "What is the role of embodiment for the formation of a mind?",
+      "How can we create artificial environments to evaluate AI, and to let humans and AI interact?"
+    ]
+  },
+  {
+    "topic": "Consciousness and selfhood in current foundation models",
+    "projects": [
+      "Do existing foundation models possess phenomenology?",
+      "Can the self of simulated interaction agents be compared to a personal self?",
+      "Can Interpretability help us understand the bounds and constraints of the possibilities of all possible simulacra or of individual simulacra?",
+      "Is Chain of Thought (CoT) a paradigm that can be compared to consciousness?",
+      "How does adding and removing certain modalities influence the appearance of consciousness?"
+    ]
+  },
+  {
+    "topic": "Extracting models of human psychology from foundation models",
+    "projects": [
+      "Creating virtual test subjects",
+      "Developing psychometrics for model personas",
+      "Comparing human and artificial psychology"
+    ]
+  },
+  {
+    "topic": "Transfer between Artificial Intelligence research, neuroscience and psychology",
+    "projects": [
+      "What can we learn from AI for understanding biological intelligence?"
+    ]
+  },
+  {
+    "topic": "Interaction between model and substrate constraints",
+    "projects": [
+      "How much does a model behavior depend on the substrate and its architecture?",
+      "Universality hypothesis?"
+    ]
+  },
+  {
+    "topic": "Empathetic AI",
+    "projects": [
+      "High-fidelity human-machine interfaces",
+      "User intention modeling",
+      "Feedback between human and AI systems",
+      "Human augmentation",
+      "Machine perception",
+      "Mechanisms for human machine extension"
+    ]
+  },
+  {
+    "topic": "Ethics at the interface of human and non human agents",
+    "projects": []
+  },
+  {
+    "topic": "Futurism: What developments should we expect, and how will they influence human society and identity?",
+    "projects": []
+  }
+]
