@@ -9,8 +9,10 @@ ${tw`
     justify-center
     items-center
     max-md:px-6
-    pt-24
-    pb-4
+    max-md:pt-24
+    md:pt-36
+    max-md:pb-4
+    md:pb-8
   `}
 `
 
@@ -28,11 +30,11 @@ export function CIMCLogo({showName}: CIMCLogoProps): React.ReactNode {
 	return (
     <LogoContainer >
       <LogoImageContainer>
-        <img className="select-none md:w-[480px]" src={logocimc} alt="CIMC" />
+        <img className="select-none" src={logocimc} alt="CIMC" />
       </LogoImageContainer>
       { showName ?
           <div className="py-6 leading-none whitespace-nowrap flex justify-center">
-            <span className={"md:text-1.5xl font-bold max-md:text-sm"}>
+            <span className={"md:text-cimc-logo font-bold max-md:text-lg"}>
               California Institute for Machine Consciousness
             </span>
           </div>

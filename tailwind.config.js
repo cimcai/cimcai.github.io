@@ -16,7 +16,7 @@ export default {
           letterSpacing: "-0.01em",
           fontWeight: "400",
         }],
-        "1.5xl": ["1.4rem", {
+        "cimc-logo": ["2.1rem", {
           lineHeight: "2rem",
           letterSpacing: "-0.01em",
           fontWeight: "700",
