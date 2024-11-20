@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import tw from "twin.macro";
+import projectsList from "../data/projects.json"
 
 const ProjectsContainer = styled.div`
   ${tw`
@@ -19,51 +20,48 @@ const ProjectStyle = styled.div`
       md:w-[729px]
     `}
 `
+interface ProjectsData {
+  topic: string;
+  projects: string[];
+}
+
+interface ProjectListProps {
+  projectsList: ProjectsData;
+}
+
+const ProjectList = ({projectsList}: ProjectListProps) => {
+  const {topic, projects} = projectsList
+  return (
+    <>
+      <p className="text-cimc-heading leading-tight py-4">
+        {topic}
+      </p>
+      <ul>
+        {
+          projects.map((project)=>{
+            return (
+              <li className="pb-4">
+                {project}
+              </li>
+            )
+          })
+        }
+      </ul>
+    </>
+  )
+}
+
 const Projects = () => {
   return(
     <ProjectsContainer id="projects">
       <ProjectStyle>
-        <p className="cimc-heading leading-tight py-4">
-          PROJECTS
-        </p>
-        <ul>
-          <li className="pb-4">
-            What is consciousness, how does it relate to mind, modeling, reality?
-          </li>
-          <li className="pb-4">
-            How can we characterize phenomenology, functionality and implementation?
-          </li>
-          <li className="pb-4">
-            Which systems can be conscious?
-          </li>
-          <li className="pb-4">
-            What are necessary and sufficient conditions?
-          </li>
-          <li className="pb-4">
-            How can we test for consciousness?
-          </li>
-          <li className="pb-4">
-            Hypothesis: consciousness is discovered by the brain, as part of learning paradigm in a self organizing substrate
-          </li>
-          <li className="pb-4">
-            Understanding the brain as a multiway system
-          </li>
-          <li className="pb-4">
-            Can we get a self organizing system (eg. NCA) to learn complex sequence prediction tasks?
-          </li>
-          <li className="pb-4">
-            Can self organizing learning systems control agents?
-          </li>
-          <li className="pb-4">
-            Do we observe the discovery of self improving self reflexive structure?
-          </li>
-          <li className="pb-4">
-            What are the limitations of this paradigm?
-          </li>
-          <li>
-            Can we discover implications for consciousness in comparable systems in nature (ie. how much does it depend on architecture?)
-          </li>
-        </ul>
+        {
+          projectsList.map((projectList) => {
+            return (
+              <ProjectList projectsList={projectList} />
+            )
+          })
+        }
       </ProjectStyle>
     </ProjectsContainer>
   )
