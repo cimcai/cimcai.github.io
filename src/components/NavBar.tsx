@@ -38,28 +38,26 @@ interface NavbarProps {
 
 export default function Navbar({routes}: NavbarProps) {
   return (
-    <>
-      <NavbarContainer css={{transition: 'background-color 0.5s ease'}}>
-        <NavbarStyle>
-          {routes.map((route) => (
-            <NavLink
-              key={route.path}
-              to={route.path}
-              className="select-none cursor-pointer underline-offset-4"
-              style={({ isActive, isPending, isTransitioning }) => {
-                return {
-                  textDecorationLine: isActive ? "underline" : "",
-                  color: isPending ? "red" : "white",
-                  viewTransitionName: isTransitioning ? "fade" : "",
-                }
-              }}
-            >
-              {route.name}
-            </NavLink>
-          ))}
-        </NavbarStyle>
-      </NavbarContainer>
-    </>
+    <NavbarContainer css={{transition: 'background-color 0.5s ease'}}>
+      <NavbarStyle>
+        {routes.map((route) => (
+          <NavLink
+            key={route.path}
+            to={route.path}
+            className="select-none cursor-pointer underline-offset-4"
+            style={({ isActive, isPending, isTransitioning }) => {
+              return {
+                textDecorationLine: isActive ? "underline" : "",
+                color: isPending ? "red" : "white",
+                viewTransitionName: isTransitioning ? "fade" : "",
+              }
+            }}
+          >
+            {route.name}
+          </NavLink>
+        ))}
+      </NavbarStyle>
+    </NavbarContainer>
   )
 }
 

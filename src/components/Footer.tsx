@@ -31,7 +31,7 @@ function Footer() {
                 </svg>
               </div>
               <div className="pl-[175px]  max-md:hidden">
-                <p className="leading-none cimc-logo-copy text-black">
+                <p className="leading-none text-cimc-forward text-black font-bold">
                   CALIFORNIA INSTITUTE
                   <br />
                   FOR MACHINE
@@ -47,9 +47,9 @@ function Footer() {
               <div className="space-y-4 mr-3">
                 <div className="sm:flex text-sm space-y-2 sm:space-y-0 sm:space-x-3">
                   <div className="cimc-normal leading-snug">
-                    <span className="cimc-heading">© 2024</span>
+                    <span className="text-cimc-heading">© 2024</span>
                     <br />
-                    <span className="cimc-sub-heading">California Institute for Machine Consciousness</span>
+                    <span className="text-cimc-subheading">California Institute for Machine Consciousness</span>
                   </div>
                 </div>
               </div>

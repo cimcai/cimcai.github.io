@@ -23,7 +23,7 @@ const Projects = () => {
   return(
     <ProjectsContainer id="projects">
       <ProjectStyle>
-        <p className="cimc-heading leading-tight py-4">
+        <p className="text-cimc-heading leading-tight py-4">
           PROJECTS
         </p>
         <ul>

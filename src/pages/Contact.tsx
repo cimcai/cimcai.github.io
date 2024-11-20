@@ -18,21 +18,21 @@ const Contact = () => {
   return (
     <ContactContainer>
       <div className="md:w-[729px] max-md:w-full">
-        <p className="cimc-heading py-4">
+        <p className="text-cimc-heading py-4">
           CONTACT
         </p>
-        <p className="cimc-standard leading-tight">
+        <p className="text-cimc-standard leading-tight">
           Please direct inquiries to
           <br/>
           <br/>
           Joscha Bach
           <br/>
-          <a href="mailto:joscha@cimc.ai">joscha@cimc.ai</a>
+          <a className="underline underline-offset-2" href="mailto:joscha@cimc.ai">joscha@cimc.ai</a>
           <br/>
           <br/>
           Erik Newton
           <br/>
-          <a href="mailto:erik@cimc.ai">erik@cimc.ai</a>
+          <a className="underline underline-offset-2" href="mailto:erik@cimc.ai">erik@cimc.ai</a>
         </p>
       </div>
     </ContactContainer>
