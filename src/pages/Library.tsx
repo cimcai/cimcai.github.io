@@ -11,19 +11,19 @@ interface LibraryCellProps {
 
 const LibraryCell: React.FC<LibraryCellProps & React.RefAttributes<HTMLAnchorElement>> = ({title, description, linkUrl, thumbnailUrl }) => {
   return (
-    <div className="flex-col md:pr-4 md:w-1/3 max-md:w-11/12">
+    <div className="flex-col md:pr-4 max-md:w-11/12">
       <div>
         <a href={linkUrl} target="_blank">
           {thumbnailUrl ? <img src={thumbnailUrl} alt={`${title} Thumbnail`} className="flex pb-2 max-md:w-9/12" /> : null}
         </a>
-        <div className={`pt-${thumbnailUrl ? 0 : 8} pt-${thumbnailUrl ? 0 : 6} leading-tight ${linkUrl ? "underline underline-offset-auto" : ""}`}>
+        <div className={`pt-${thumbnailUrl ? 0 : 8} leading-tight ${linkUrl ? "underline underline-offset-auto" : ""}`}>
           <a href={linkUrl} target="_blank">
             {title}
           </a>
         </div>
       </div>
       {description ?
-        <p className="pt-2 text-sm leading-tight">
+        <p className="pt-2 pb-6 text-sm leading-tight">
           {description}
         </p>
        : null}
@@ -32,42 +32,63 @@ const LibraryCell: React.FC<LibraryCellProps & React.RefAttributes<HTMLAnchorEle
 }
 
 
-interface LibraryCellRowProps {
-  topic: string;
-  linkData: LibraryCellProps[];
+interface LibrarySectionColumnProps {
+  columnData: LibraryCellProps[];
 }
-
-const LibraryCellsContainer = styled.div`
-  ${tw`
-    md:flex
-    flex-wrap
-    max-md:flex-1
-    pt-2
-    pb-4
-  `}
-`
-const LibraryRowContainer = styled.div`
-  ${tw`
-  `}
-`
-
-const LibraryRow: React.FC<LibraryCellRowProps> = ({topic, linkData }) => {
+const LibrarySectionColumn: React.FC<LibrarySectionColumnProps> = ({ columnData }) => {
   return (
-    <LibraryRowContainer>
-      <div className="pt-6 text-xl">
-        {topic}
-      </div>
-      <LibraryCellsContainer>
+    <div>
       {
-        linkData.map((cellData) => {
+        columnData.map((cellData) => {
           const {title, description, linkUrl, thumbnailUrl } = cellData
           return (
             <LibraryCell key={title} title={title} linkUrl={linkUrl} thumbnailUrl={thumbnailUrl} description={description}/>
           )
         })
       }
-      </LibraryCellsContainer>
-    </LibraryRowContainer>
+    </div>
+
+  )
+}
+
+const LibraryColumnsContainer = styled.div`
+  ${tw`
+    md:grid
+    gap-3
+  `}
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`
+
+const LibrarySectionContainer = styled.div`
+  ${tw`
+  `}
+`
+interface LibrarySectionProps {
+  topic: string;
+  linkData: LibraryCellProps[];
+}
+
+const LibrarySection: React.FC<LibrarySectionProps> = ({topic, linkData }) => {
+  const rowCount = Math.ceil(linkData.length / 3)
+  console.log("========rowCount:", rowCount)
+
+  const column1 = linkData.slice(0, rowCount)
+  const column2 = linkData.slice(rowCount, rowCount*2)
+  const column3 = linkData.slice(rowCount*2, linkData.length)
+
+  return (
+    <LibrarySectionContainer>
+      <div className="py-6 text-xl">
+        {topic}
+      </div>
+      <LibraryColumnsContainer>
+        <LibrarySectionColumn columnData={column1}/>
+        <LibrarySectionColumn columnData={column2}/>
+        <LibrarySectionColumn columnData={column3}/>
+        </LibraryColumnsContainer>
+    </LibrarySectionContainer>
   )
 }
 
@@ -82,7 +103,7 @@ const LibraryContainer = styled.div`
     pb-40
   `}
 `
-const LibraryColumnContainer = styled.div`
+const LibrarySectionsContainer = styled.div`
   ${tw`
     md:w-[729px]
   `}
@@ -91,16 +112,16 @@ const LibraryColumnContainer = styled.div`
 const Library = () => {
   return (
     <LibraryContainer id="library">
-      <LibraryColumnContainer>
+      <LibrarySectionsContainer>
       {
         linksData.map((linksData) => {
           const {topic, linkData} = linksData
           return (
-            <LibraryRow topic={topic} linkData={linkData} />
+            <LibrarySection topic={topic} linkData={linkData} />
           )
         })
       }
-      </LibraryColumnContainer>
+      </LibrarySectionsContainer>
     </LibraryContainer>
   )
 }
