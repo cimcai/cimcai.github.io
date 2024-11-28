@@ -5,37 +5,45 @@
       {
         "thumbnailUrl": "https://i.ytimg.com/vi/LlLbHm-bJQE/hqdefault.jpg",
         "linkUrl": "https://youtu.be/LlLbHm-bJQE",
-        "title": "Machine Consciousness"
+        "title": "Machine Consciousness",
+        "description": "Cognitive scientist and AI researcher Joscha Bach explores artificial intelligence and consciousness. Bach elaborates on the history and philosophical underpinnings of AI, tracing its roots from Aristotle to contemporary deep learning. He discusses the current challenges and limitations in machine learning, particularly in achieving human-like understanding and consciousness."
       },
       {
         "thumbnailUrl": "https://i.ytimg.com/vi/-rxXoiQyQVc/hqdefault.jpg",
         "linkUrl": "https://youtu.be/-rxXoiQyQVc",
-        "title": "FQXi: Reconciling Consciousness with Physicalism"
+        "title": "FQXi: Reconciling Consciousness with Physicalism",
+        "description": "Joscha Bach gives an introduction to the current debates about consciousness by going through the different metaphysical paradigms that people entertain. He then shows a computationalist perspective on the matter and dives into the structure of consciousness."
       },
       {
         "thumbnailUrl": "https://i.ytimg.com/vi/WRdJCFEqFTU/hqdefault.jpg",
         "linkUrl": "https://youtu.be/WRdJCFEqFTU",
-        "title": "33c3: Computational Metapsychology"
+        "title": "33c3: Computational Metapsychology",
+        "description": "“Minds cannot know truth, but they can generate meaning.” Bach dives into our epistemology and looks at certain structures in the brain to estimate and explain some of the inner workings of our mind."
       },
       {
         "thumbnailUrl": "https://i.ytimg.com/vi/K5nJ5l6dl2s/hqdefault.jpg",
         "linkUrl": "https://youtu.be/K5nJ5l6dl2s",
-        "title": "33c3: Machine Dreams"
+        "title": "33c3: Machine Dreams",
+        "description": "The TV series Westworld depicts a theme park in which humanoid robots are built by a perverse engineer-scientist to satisfy the desires of the theme park audience. We humans are built by a perverse evolution that needed a control system for social primates. In this talk, Bach addresses the notion of computation itself and elaborates on his conductor theory of consciousness."
       },
       {
         "thumbnailUrl": "https://i.ytimg.com/vi/e3K5UxWRRuY/hqdefault.jpg",
         "linkUrl": "https://youtu.be/e3K5UxWRRuY",
-        "title": "33c3: The Ghost in the Machine"
+        "title": "33c3: The Ghost in the Machine",
+        "description": "Starting out with mathematics, computational mathematics, models, and functions, Bach arrives at the notions of purpose, free will, and consciousness."
       },
       {
         "thumbnailUrl": "https://i.ytimg.com/vi/cs9Ls0m5QVE/hqdefault.jpg",
         "linkUrl": "https://youtu.be/cs9Ls0m5QVE",
-        "title": "33c3: Synthetic Sentience"
+        "title": "33c3: Synthetic Sentience",
+        "description": "Joscha Bach gives a rationalist interpretation of Genesis I, addresses the phenomenal and functional notions of consciousness, and arrives at the notion of Cyber-Animism by looking at Japanese Animism through the lens of computationalist metaphysics."
+
       },
       {
         "thumbnailUrl": "./joschapresentation.png",
         "linkUrl": "https://youtu.be/pkhuDqK1_MU",
-        "title": "A radical theory on consciousness"
+        "title": "A radical theory on consciousness",
+        "description": "Joscha Bach gives a phenomenal and functional account of consciousness and then looks at the differences between self-organizing brains and current AI paradigms."
       }
     ]
   },
