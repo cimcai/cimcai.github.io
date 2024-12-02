@@ -72,7 +72,6 @@ interface LibrarySectionProps {
 
 const LibrarySection: React.FC<LibrarySectionProps> = ({topic, linkData }) => {
   const rowCount = Math.ceil(linkData.length / 3)
-  console.log("========rowCount:", rowCount)
 
   const column1 = linkData.slice(0, rowCount)
   const column2 = linkData.slice(rowCount, rowCount*2)
