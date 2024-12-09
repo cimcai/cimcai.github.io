@@ -15,6 +15,12 @@
         "description": "Joscha Bach gives an introduction to the current debates about consciousness by going through the different metaphysical paradigms that people entertain. He then shows a computationalist perspective on the matter and dives into the structure of consciousness."
       },
       {
+        "thumbnailUrl": "./joschapresentation.png",
+        "linkUrl": "https://youtu.be/pkhuDqK1_MU",
+        "title": "A radical theory on consciousness",
+        "description": "Joscha Bach gives a phenomenal and functional account of consciousness and then looks at the differences between self-organizing brains and current AI paradigms."
+      },
+      {
         "thumbnailUrl": "https://i.ytimg.com/vi/WRdJCFEqFTU/hqdefault.jpg",
         "linkUrl": "https://youtu.be/WRdJCFEqFTU",
         "title": "33c3: Computational Metapsychology",
@@ -38,12 +44,6 @@
         "title": "33c3: Synthetic Sentience",
         "description": "Joscha Bach gives a rationalist interpretation of Genesis I, addresses the phenomenal and functional notions of consciousness, and arrives at the notion of Cyber-Animism by looking at Japanese Animism through the lens of computationalist metaphysics."
 
-      },
-      {
-        "thumbnailUrl": "./joschapresentation.png",
-        "linkUrl": "https://youtu.be/pkhuDqK1_MU",
-        "title": "A radical theory on consciousness",
-        "description": "Joscha Bach gives a phenomenal and functional account of consciousness and then looks at the differences between self-organizing brains and current AI paradigms."
       }
     ]
   },
