@@ -16,21 +16,20 @@ const LibraryCell: React.FC<LibraryCellProps & React.RefAttributes<HTMLAnchorEle
         <a href={linkUrl} target="_blank">
           {thumbnailUrl ? <img src={thumbnailUrl} alt={`${title} Thumbnail`} className="flex pb-2 max-md:w-9/12" /> : null}
         </a>
-        <div className={`pt-${thumbnailUrl ? 0 : 8} leading-tight ${linkUrl ? "underline underline-offset-auto" : ""}`}>
+        <div className={`pt-${thumbnailUrl ? 0 : 8} leading-tight ${linkUrl ? "underline underline-offset-auto pb-2" : ""}`}>
           <a href={linkUrl} target="_blank">
             {title}
           </a>
         </div>
       </div>
       {description ?
-        <p className="pt-2 pb-6 text-sm leading-tight">
+        <p className="pb-6 leading-tight">
           {description}
         </p>
        : null}
     </div>
   )
 }
-
 
 interface LibrarySectionColumnProps {
   columnData: LibraryCellProps[];
@@ -47,7 +46,6 @@ const LibrarySectionColumn: React.FC<LibrarySectionColumnProps> = ({ columnData 
         })
       }
     </div>
-
   )
 }
 
@@ -93,8 +91,8 @@ const LibrarySection: React.FC<LibrarySectionProps> = ({topic, linkData }) => {
 
 const LibraryContainer = styled.div`
   ${tw`
-  bg-black
-  text-white
+  bg-white
+    text-cimc-standard
     flex
     md:justify-center
     max-md:px-6

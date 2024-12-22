@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import botsun from '../assets/botsun.svg'
 
 const ContactContainer = styled.div`
   ${tw`
-    bg-[image:var(--image)]
-    bg-cover
     flex-col
+    bg-white
     `}
-  --image: url(${botsun})
 `
 
 function Footer() {

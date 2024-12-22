@@ -5,7 +5,6 @@ import projectsList from "../data/projects.json"
 const ProjectsContainer = styled.div`
   ${tw`
     bg-white
-    text-black
     selection:text-black
     selection:bg-gray-500
       flex
@@ -40,7 +39,7 @@ const ProjectList = ({projectsList}: ProjectListProps) => {
         {
           projects.map((project)=>{
             return (
-              <li className="pb-4">
+              <li className="text-cimc-standard pb-4">
                 {project}
               </li>
             )

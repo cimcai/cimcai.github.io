@@ -14,7 +14,7 @@ const TeamContainer = styled.div`
       pt-16
       pb-40
     `}
-  color: ${theme`colors.cimc_blue`};
+  color: ${theme`colors.cimc_dark`};
 `
 
 const ProfileContainer = styled.div`

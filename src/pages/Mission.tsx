@@ -6,7 +6,7 @@ import tw from 'twin.macro'
 const MissionContainer = styled.div`
   ${tw`
   bg-white
-  text-black
+    text-cimc-standard
   selection:text-black
   selection:bg-gray-500
     flex

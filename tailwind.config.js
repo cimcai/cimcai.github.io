@@ -8,31 +8,34 @@ export default {
     extend: {
       colors: {
         cimc_blue: "#626dd6",
+        cimc_dark: "#272727",
       },
       fontSize: {
         "cimc-forward": ["20px", {
-          fontFamily: "Helvetica, sans-serif",
-          lineHeight: "1.4rem",
+          fontFamily: "Questrial, sans-serif",
+          lineHeight: "28px",
           letterSpacing: "-0.01em",
           fontWeight: "400",
+          colors: "#272727",
         }],
         "cimc-heading": ["18px", {
-          fontFamily: "Helvetica, sans-serif",
+          fontFamily: "Questrial, sans-serif",
           lineHeight: "1.4rem",
           letterSpacing: "-0.01em",
           fontWeight: "700",
         }],
         "cimc-subheading": ["16px", {
-          fontFamily: "Helvetica, sans-serif",
+          fontFamily: "Questrial, sans-serif",
           lineHeight: "1.4rem",
           letterSpacing: "-0.01em",
           fontWeight: "700",
         }],
-        "cimc-standard": ["20", {
-          fontFamily: "Helvetica, sans-serif",
-          lineHeight: "1.2rem",
+        "cimc-standard": ["16px", {
+          fontFamily: "Questrial, sans-serif",
+          lineHeight: "28px",
           letterSpacing: "-0.01em",
           fontWeight: "400",
+          colors: "#272727",
         }],
         "cimc-logo": ["2.1rem", {
           lineHeight: "2rem",
