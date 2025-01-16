@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import tw, { theme } from "twin.macro"
 import profilesData from "../data/profiles.json"
+import portraitJoscha from "../../public/portraitJoscha.jpg"
+import portraitErik from "../../public/portraitErik.jpg"
 
 const TeamContainer = styled.div`
   ${tw`
@@ -78,8 +80,26 @@ const Team = () => {
     <>
       <TeamContainer id="team">
         <div className="md:w-[729px]">
-          <p className="text-cimc-heading py-4">
-            CORE TEAM
+          <p className="text-cimc-subheading py-4">
+            Core Team
+          </p>
+          <p className="text-cimc-heading leading-tight">
+            <div className="md:flex">
+              <div className="flex-1 md:w-1/2 pb-4">
+                <img src={portraitJoscha} alt="Joscha Portrait" className="flex rounded py-2 h-56" />
+                Joscha Bach
+                <p className="text-cimc-standard">
+                  Director
+                </p>
+              </div>
+              <div className="flex-1 md:w-1/2 pb-4">
+                <img src={portraitErik} alt="Erik Newton" className="flex rounded py-2 h-56" />
+                Erik Newton
+                <p className="text-cimc-standard">
+                President
+                </p>
+              </div>
+            </div>
           </p>
           <p className="text-cimc-subheading">
             Scientific Advisors
@@ -89,19 +109,8 @@ const Team = () => {
             <AdvisorProfileColumn columnCellsData={profilesData.slice(-2)} />
           </div>
 
-
-          <p className="text-cimc-standard leading-tight pt-4">
-            <span className="text-cimc-subheading">CEO</span>
-            <br/>
-            Joscha Bach
-            <br/>
-            <br/>
-            <span className="text-cimc-subheading">COO</span>
-            <br/>
-            Erik Newton
-            <br/>
-            <br/>
-            <span className="text-cimc-subheading">Board</span>
+          <p className="text-cimc-standard leading-normal pt-4">
+            <p className="text-cimc-heading">Board</p>
             <br/>
             Jim O’Neill
             <br/>
@@ -112,12 +121,12 @@ const Team = () => {
             Lou de Kerhuelvez
             <br/>
             <br/>
-            <span className="text-cimc-subheading">Board Observer</span>
+            <p className="text-cimc-heading">Board Observer</p>
             <br/>
             Christine Peterson
             <br/>
             <br/>
-            <span className="text-cimc-subheading">Organizational Advisors</span>
+            <p className="text-cimc-heading">Organizational Advisors</p>
             <br/>
             Jim Rutt
             <br/>
