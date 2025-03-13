@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import tw from 'twin.macro'
-import { CIMCLogo } from '../components/CIMCLogo'
-import Forward from '../components/Forward'
+import React from "react"
+import styled from "styled-components"
+import tw from "twin.macro"
+import { CIMCLogo } from "../components/CIMCLogo"
+import Forward from "../components/Forward"
 
 const HomeContainer = styled.div`
   ${tw`
@@ -26,12 +26,13 @@ const VideoContainer = styled.div`
 `
 
 export const Home = () => {
-return (
+  return (
     <HomeContainer id="home">
-      <CIMCLogo showName/>
+      <CIMCLogo showName />
       <VideoContainer>
         <video controls width={729} poster="joschamoc.jpg">
           <source src="./joschamoc.mp4" type="video/mp4" />
+          <track kind="captions" src="./joschamoc.vtt" label="English" />
         </video>
       </VideoContainer>
       <Forward />

@@ -1,7 +1,7 @@
-import Institute from "../components/Institute";
-import MissionStatement from "../components/MissionStatement";
-import styled from 'styled-components'
-import tw from 'twin.macro'
+import styled from "styled-components"
+import tw from "twin.macro"
+import Institute from "../components/Institute"
+import MissionStatement from "../components/MissionStatement"
 
 const MissionContainer = styled.div`
   ${tw`

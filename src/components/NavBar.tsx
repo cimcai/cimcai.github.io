@@ -1,7 +1,7 @@
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
-import { NavLink } from "react-router-dom"
-import { CIMCRoutes } from "../App"
+import type { CIMCRoutes } from "../App"
 
 const NavbarContainer = styled.div`
   ${tw`
@@ -32,13 +32,13 @@ const NavbarStyle = styled.div`
 `
 
 interface NavbarProps {
-  routes: CIMCRoutes[];
-  setClick?: (showMenu: boolean) => undefined;
+  routes: CIMCRoutes[]
+  setClick?: (showMenu: boolean) => undefined
 }
 
-export default function Navbar({routes}: NavbarProps) {
+export default function Navbar({ routes }: NavbarProps) {
   return (
-    <NavbarContainer css={{transition: 'background-color 0.5s ease'}}>
+    <NavbarContainer css={{ transition: "background-color 0.5s ease" }}>
       <NavbarStyle>
         {routes.map((route) => (
           <NavLink
@@ -60,4 +60,3 @@ export default function Navbar({routes}: NavbarProps) {
     </NavbarContainer>
   )
 }
-
