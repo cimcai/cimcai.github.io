@@ -409,10 +409,10 @@ function ResearchProposals() {
                 <p className="text-gray-600">
                   For questions, please contact{" "}
                   <a
-                    href="mailto:lou@cimc.org"
+                    href="mailto:proposals@cimc.ai"
                     className="text-blue-600 hover:underline"
                   >
-                    lou@cimc.org
+                    proposals@cimc.ai
                   </a>
                 </p>
               </div>

@@ -1,7 +1,7 @@
-import React from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { CIMCLogo } from "../components/CIMCLogo"
+import DismissibleBanner from "../components/DismissableBanner"
 import Forward from "../components/Forward"
 
 const HomeContainer = styled.div`
@@ -28,6 +28,11 @@ const VideoContainer = styled.div`
 export const Home = () => {
   return (
     <HomeContainer id="home">
+      <DismissibleBanner
+        description="CIMC is inviting research proposals, "
+        callToAction="read about our research interests here"
+        route="proposals"
+      />
       <CIMCLogo showName />
       <VideoContainer>
         <video controls width={729} poster="joschamoc.jpg">
