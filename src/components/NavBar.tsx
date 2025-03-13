@@ -1,9 +1,10 @@
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
 import type { CIMCRoutes } from "../App"
 
-const NavbarContainer = styled.div`
+const NavbarContainer = styled.div<{ isOpen: boolean }>`
   ${tw`
     h-16
     w-screen
@@ -15,19 +16,27 @@ const NavbarContainer = styled.div`
     bg-black
     bg-opacity-80
   `}
+  ${({ isOpen }) => isOpen && tw`max-md:h-screen`}
 `
-const NavbarStyle = styled.div`
+const NavbarStyle = styled.div<{ isOpen: boolean }>`
   max-width: 50em;
   ${tw`
     w-[729px]
     z-10
     text-white
     flex
-    flex-row
-    md:text-xl
-    max-md:text-base
+    md:flex-row
+    text-xl
     md:gap-4
-    max-md:gap-2
+    max-md:hidden
+  `}
+  ${({ isOpen }) =>
+    isOpen &&
+    tw`max-md:block
+    max-md:flex
+    max-md:flex-col
+    max-md:items-center
+    max-md:justify-center
   `}
 `
 
@@ -37,9 +46,22 @@ interface NavbarProps {
 }
 
 export default function Navbar({ routes }: NavbarProps) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
-    <NavbarContainer css={{ transition: "background-color 0.5s ease" }}>
-      <NavbarStyle>
+    <NavbarContainer isOpen={isOpen}>
+      <button
+        onClick={toggleMenu}
+        tw="md:hidden absolute top-4 right-4 text-white"
+        type="button"
+      >
+        {isOpen ? "Close" : "Menu"}
+      </button>
+      <NavbarStyle isOpen={isOpen}>
         {routes.map((route) => (
           <NavLink
             key={route.path}
@@ -52,6 +74,7 @@ export default function Navbar({ routes }: NavbarProps) {
                 viewTransitionName: isTransitioning ? "fade" : "",
               }
             }}
+            onClick={toggleMenu}
           >
             {route.name}
           </NavLink>
