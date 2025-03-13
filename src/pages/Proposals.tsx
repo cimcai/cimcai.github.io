@@ -70,6 +70,7 @@ function ResearchProposals() {
               deeply considered.
             </p>
             <div className="space-y-6">
+              {/* Area 1 */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-700">
                   1. Philosophical foundations and formalization of
@@ -95,6 +96,7 @@ function ResearchProposals() {
                   <li>How can we test for consciousness?</li>
                 </ul>
               </div>
+              {/* Area 2 */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-700">
                   2. Methodology of modeling consciousness
@@ -114,7 +116,187 @@ function ResearchProposals() {
                   </li>
                 </ul>
               </div>
-              {/* Example of additional focus areas (abbreviated for brevity) */}
+              {/* Area 3 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  3. Emergence and Role of Self in Learning Agents
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>
+                    Under what conditions does a learning agent form a
+                    first-person perspective or self-model?
+                  </li>
+                  <li>How can we test for self-models?</li>
+                  <li>What is a minimal self?</li>
+                  <li>
+                    Development and study of models that integrate mind,
+                    self-model, motivation, and world-model interaction
+                  </li>
+                </ul>
+              </div>
+              {/* Area 4 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  4. Learning Through Self Organization
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>
+                    If consciousness is discovered by the brain (as part of a
+                    learning paradigm in a self organizing substrate), can we
+                    replicate this process artificially?
+                  </li>
+                  <li>Can self organizing learning systems control agents?</li>
+                  <li>
+                    Can we get a self organizing system (eg. NCA) to learn
+                    complex sequence prediction tasks?
+                  </li>
+                  <li>
+                    Do we observe the discovery of self-improving self-reflexive
+                    structure? What are the limitations of this paradigm?
+                  </li>
+                  <li>How can we understand the brain as a multiway system?</li>
+                  <li>
+                    Can we discover implications for consciousness in comparable
+                    systems in nature (ie. how much does consciousness depend on
+                    the specific architecture of a learning system?)
+                  </li>
+                </ul>
+              </div>
+              {/* Area 5 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  5. Architectures for Conscious Agents
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>
+                    What is the role of attention and attention control in
+                    shaping conscious behavior?
+                  </li>
+                  <li>
+                    How do perception, emotion, inference, and decision making
+                    interact in the development of conscious behavior?
+                  </li>
+                  <li>
+                    How can we model aspects of human and animal psychology
+                    within artificial systems?
+                  </li>
+                </ul>
+              </div>
+              {/* Area 6 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  6. Developmental Learning Architectures
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>
+                    Can we design minimal, self-improving models that
+                    continuously learn and adapt (anytime learning)?
+                  </li>
+                  <li>
+                    Artificial pets as paradigms for experimentation and
+                    interaction
+                  </li>
+                  <li>Social simulations</li>
+                </ul>
+              </div>
+              {/* Area 7 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  7. Environments for Intelligent Behavior and Interaction
+                  Between Humans and AI
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>
+                    Under which conditions do intelligence and agency emerge?
+                  </li>
+                  <li>
+                    What is the role of embodiment for the formation of a mind?
+                  </li>
+                  <li>
+                    How can we create artificial environments that effectively
+                    evaluate AI behavior and facilitate human–AI interaction?
+                  </li>
+                </ul>
+              </div>
+              {/* Area 8 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  8. Consciousness and Selfhood in Current Foundation Models
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>Do existing foundation models possess phenomenology?</li>
+                  <li>
+                    Can the self of simulated interaction agents be compared to
+                    a personal self?
+                  </li>
+                  <li>
+                    Can interpretability help us understand the bounds and
+                    constraints of the possibilities of all possible simulacra
+                    or of individual simulacra?
+                  </li>
+                  <li>
+                    Is CoT a paradigm that can be compared to consciousness?
+                  </li>
+                  <li>
+                    How does adding and removing certain modalities influence
+                    the appearance of consciousness?
+                  </li>
+                </ul>
+              </div>
+              {/* Area 9 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  9. Extracting Models of Human Psychology from Foundation
+                  Models
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>
+                    Use of foundation models to create virtual test subjects
+                  </li>
+                  <li>
+                    Development of psychometric tools to evaluate the personas
+                    of these models
+                  </li>
+                  <li>Comparing human and artificial psychology</li>
+                </ul>
+              </div>
+              {/* Area 10 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  10. Transfer Between Artificial Intelligence Research,
+                  Neuroscience, and Psychology
+                </h3>
+                <p className="text-gray-600">
+                  What can AI research teach us about understanding biological
+                  intelligence?
+                </p>
+              </div>
+              {/* Area 11 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  11. Interaction Between Model Constraints and Substrate
+                  Constraints
+                </h3>
+                <p className="text-gray-600">
+                  How much does a model’s behavior depend on the underlying
+                  substrate and its architecture?
+                </p>
+              </div>
+              {/* Area 12 */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-700">
+                  12. Empathetic AI
+                </h3>
+                <ul className="list-disc pl-6 text-gray-600">
+                  <li>High fidelity human machine interfaces</li>
+                  <li>Modeling of user intentions</li>
+                  <li>Feedback between human and AI systems</li>
+                  <li>Human augmentation</li>
+                  <li>Machine perception</li>
+                  <li>Mechanisms for human machine extension</li>
+                </ul>
+              </div>
+              {/* Area 13 */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-700">
                   13. Ethics at the interface of human and non-human agents
@@ -128,6 +310,7 @@ function ResearchProposals() {
                   we invite contributions but will set a high bar.
                 </p>
               </div>
+              {/* Area 14 */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-700">
                   14. Futurism
