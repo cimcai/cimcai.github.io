@@ -1,6 +1,6 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
-import { createHashRouter, RouterProvider } from "react-router-dom"
+import { RouterProvider, createHashRouter } from "react-router-dom"
 import GlobalStyles from "./styles/GlobalStyles"
 import "./styles/tailwind.css"
 import App, { routes } from "./App"
@@ -16,12 +16,12 @@ const router = createHashRouter([
     })),
   },
 ])
-
 const container = document.getElementById("root")
-const root = createRoot(container!)
+if (!container) throw new Error("Root element not found")
+const root = createRoot(container)
 root.render(
   <React.StrictMode>
     <GlobalStyles />
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 )

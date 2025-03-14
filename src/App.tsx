@@ -1,37 +1,45 @@
+import { type RefObject, createRef } from "react"
 import { Outlet, ScrollRestoration } from "react-router-dom"
-import { createRef, RefObject } from "react"
-import Navbar from "./components/NavBar"
 import Footer from "./components/Footer"
+import Navbar from "./components/NavBar"
+import Contact from "./pages/Contact"
 import Home from "./pages/Home"
+import Library from "./pages/Library"
 import Mission from "./pages/Mission"
 import Projects from "./pages/Projects"
+import ResearchProposals from "./pages/Proposals"
 import Team from "./pages/Team"
-import Library from "./pages/Library"
-import Contact from "./pages/Contact"
 
 export interface CIMCRoutes {
-  path: string;
-  name: string;
-  element: JSX.Element;
-  nodeRef: RefObject<unknown>;
+  path: string
+  name: string
+  element: JSX.Element
+  nodeRef: RefObject<unknown>
 }
 
-export const routes:CIMCRoutes[] = [
+export const routes: CIMCRoutes[] = [
   {
     path: "/",
     name: "Home",
     element: <Home />,
-    nodeRef: createRef()
+    nodeRef: createRef(),
   },
   {
     path: "/mission",
     name: "Mission",
     element: <Mission />,
-    nodeRef: createRef() },
+    nodeRef: createRef(),
+  },
   {
     path: "/projects",
     name: "Projects",
     element: <Projects />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/proposals",
+    name: "Proposals",
+    element: <ResearchProposals />,
     nodeRef: createRef(),
   },
   {
