@@ -130,7 +130,7 @@ const Team = () => {
             <p className="text-cimc-heading pb-2">Organizational Advisors</p>
             Jim Rutt
             <br />
-            Allison Duettman
+            Allison Duettmann
             <br />
             Dan Girshovich
             <br />
