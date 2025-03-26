@@ -388,9 +388,12 @@ function ResearchProposals() {
               </div>
               <div>
                 <p className="font-semibold text-gray-700">
-                  First Round Submission Deadline:
+                  Submission Deadline:
                 </p>
-                <p className="text-gray-600">Apr 10, 2025</p>
+                <p className="text-gray-600">
+                  Applications will be considered on a rolling basis. First
+                  round closes April 25 2025
+                </p>
               </div>
               <div>
                 <p className="font-semibold text-gray-700">How to Submit:</p>
