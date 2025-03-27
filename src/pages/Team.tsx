@@ -120,7 +120,7 @@ const Team = () => {
             <br />
             Lou de K.
             <br />
-            Kirill Evstratov
+            Kirill Eves
             <br />
             <br />
             <p className="text-cimc-heading pb-2">Board Observer</p>
