@@ -35,8 +35,8 @@ export const Home = () => {
       />
       <CIMCLogo showName />
       <VideoContainer>
-        <video controls width={729} poster="joschamoc.jpg">
-          <source src="./joschamoc.mp4" type="video/mp4" />
+        <video controls width={729} poster="cimcintro.jpg">
+          <source src="./cimcintro.mp4" type="video/mp4" />
           <track kind="captions" src="./joschamoc.vtt" label="English" />
         </video>
       </VideoContainer>
