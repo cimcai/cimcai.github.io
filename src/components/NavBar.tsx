@@ -13,8 +13,8 @@ const NavbarContainer = styled.div<{ isOpen: boolean }>`
     justify-center
     fixed
     max-md:pl-6
-    bg-black
-    bg-opacity-80
+    bg-black/90
+    bg-opacity-90
   `}
   ${({ isOpen }) => isOpen && tw`max-md:h-screen`}
 `
