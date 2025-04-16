@@ -27,7 +27,7 @@ const NavbarStyle = styled.div<{ isOpen: boolean }>`
     flex
     md:flex-row
     text-xl
-    md:gap-4
+    gap-4
     max-md:hidden
   `}
   ${({ isOpen }) =>

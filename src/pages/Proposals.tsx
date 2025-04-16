@@ -340,7 +340,7 @@ function ResearchProposals() {
             <div className="space-y-4">
               <div>
                 <p className="font-semibold text-gray-700">Length:</p>
-                <p className="text-gray-600">&gt; 4,000 words</p>
+                <p className="text-gray-600">&lt; 4,000 words</p>
               </div>
               <div>
                 <p className="font-semibold text-gray-700">
