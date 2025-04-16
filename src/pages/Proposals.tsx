@@ -6,77 +6,194 @@ const ProposalsContainer = styled.div`
     bg-white
     selection:text-black
     selection:bg-gray-500
-      flex
-      md:justify-center
-      max-md:px-6
-      pt-16
-      pb-20
-    `}
+    flex
+    md:justify-center
+    px-6
+    md:px-0
+    pt-16
+    pb-20
+  `}
 `
+
 const ProposalsStyle = styled.div`
   ${tw`
-      md:w-[729px]
-    `}
+    md:w-[729px]
+  `}
 `
+
+const Header = styled.header`
+  ${tw`
+    mb-8
+  `}
+`
+
+const Title = styled.h1`
+  ${tw`
+    text-3xl
+    font-bold
+    text-gray-900
+    mb-2
+  `}
+`
+
+const Subtitle = styled.h2`
+  ${tw`
+    text-2xl
+    font-semibold
+    text-gray-800
+  `}
+`
+
+const Section = styled.section`
+  ${tw`
+    bg-white
+    p-6
+    rounded-lg
+    shadow-md
+    mb-8
+  `}
+`
+
+const Paragraph = styled.p`
+  ${tw`
+    text-gray-700
+    mb-4
+  `}
+`
+
+const ResearchArea = styled.div`
+  ${tw`
+    space-y-6
+  `}
+`
+
+const AreaTitle = styled.h3`
+  ${tw`
+    text-xl
+    font-semibold
+    text-gray-700
+  `}
+`
+
+const AreaList = styled.ul`
+  ${tw`
+    list-disc
+    pl-6
+    text-gray-600
+  `}
+`
+
+const GuidelinesSection = styled.section`
+  ${tw`
+    bg-white
+    p-6
+    rounded-lg
+    shadow-md
+  `}
+`
+
+const GuidelinesTitle = styled.h2`
+  ${tw`
+    text-2xl
+    font-semibold
+    text-gray-800
+    mb-4
+  `}
+`
+
+const GuidelinesContent = styled.div`
+  ${tw`
+    space-y-4
+  `}
+`
+
+const GuidelinesLabel = styled.p`
+  ${tw`
+    font-semibold
+    text-gray-700
+  `}
+`
+
+const GuidelinesText = styled.p`
+  ${tw`
+    text-gray-600
+  `}
+`
+
+const GuidelinesList = styled.ul`
+  ${tw`
+    list-disc
+    pl-6
+    text-gray-600
+  `}
+`
+
+const Link = styled.a`
+  ${tw`
+    text-blue-600
+    hover:underline
+  `}
+`
+
+const BoldSpan = styled.span`
+  ${tw`
+    font-semibold
+  `}
+`
+
 function ResearchProposals() {
   return (
     <ProposalsContainer>
       <ProposalsStyle>
         <div id="proposals" className="w-full">
-          <header className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Call for Research Proposals
-            </h1>
-            <h2 className="text-2xl font-semibold text-gray-800">
+          <Header>
+            <Title>Call for Research Proposals</Title>
+            <Subtitle>
               California Institute for Machine Consciousness (CIMC)
-            </h2>
-          </header>
+            </Subtitle>
+          </Header>
 
-          {/* Introduction */}
-          <section className="bg-white p-6 rounded-lg shadow-md mb-8">
-            <p className="text-gray-700 mb-4">
+          <Section>
+            <Paragraph>
               CIMC is inviting research proposals, with the aim of understanding
               the nature and functionality of consciousness from a
               computationalist perspective. We want to conduct experimental
               philosophy by formulating testable theories, conducting
               simulations, and building artifacts that allow us to explore and
               test our understanding of consciousness.
-            </p>
-            <p className="text-gray-700 mb-4">
+            </Paragraph>
+            <Paragraph>
               Our approach is rooted in a rational, scientific epistemology,
               recognizing that current paradigms in philosophy of mind,
               neuroscience, and psychology fall short of comprehensively
               addressing mind and consciousness. We believe it is essential to
               develop new frameworks for understanding self, agency,
               intersubjectivity, and intelligence from first principles.
-            </p>
-            <p className="text-gray-700">
+            </Paragraph>
+            <Paragraph>
               We welcome contributions from those ready to move beyond mere
               hypothesis formation. If you are an observer, modeler, engineer,
               interdisciplinary thinker, or artist eager to conceive, build,
               iterate, and test innovative ideas, we want to hear from you.
-            </p>
-          </section>
+            </Paragraph>
+          </Section>
 
-          {/* Research Focus Areas */}
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Research Focus Areas
-            </h2>
-            <p className="text-gray-700 mb-4">
+          <Section>
+            <GuidelinesTitle>Research Focus Areas</GuidelinesTitle>
+            <Paragraph>
               We invite innovative research proposals in – but not limited to –
               the following broad categories. Proposals that venture outside the
               beaten path are welcome, provided they are of high quality and
               deeply considered.
-            </p>
-            <div className="space-y-6">
+            </Paragraph>
+            <ResearchArea>
               {/* Area 1 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   1. Philosophical foundations and formalization of
                   consciousness
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                </AreaTitle>
+                <AreaList>
                   <li>
                     Investigate the space and metaphysics of analytical theories
                     of consciousness
@@ -94,16 +211,14 @@ function ResearchProposals() {
                     and sufficient conditions?
                   </li>
                   <li>How can we test for consciousness?</li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 2 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  2. Methodology of modeling consciousness
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                <AreaTitle>2. Methodology of modeling consciousness</AreaTitle>
+                <AreaList>
                   <li>
-                    Can we define the “strange loop” analytically and test this
+                    Can we define the "strange loop" analytically and test this
                     formalization?
                   </li>
                   <li>
@@ -114,14 +229,14 @@ function ResearchProposals() {
                     Can studying biological systems reveal the nature of
                     consciousness?
                   </li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 3 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   3. Emergence and Role of Self in Learning Agents
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                </AreaTitle>
+                <AreaList>
                   <li>
                     Under what conditions does a learning agent form a
                     first-person perspective or self-model?
@@ -132,14 +247,12 @@ function ResearchProposals() {
                     Development and study of models that integrate mind,
                     self-model, motivation, and world-model interaction
                   </li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 4 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  4. Learning Through Self Organization
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                <AreaTitle>4. Learning Through Self Organization</AreaTitle>
+                <AreaList>
                   <li>
                     If consciousness is discovered by the brain (as part of a
                     learning paradigm in a self organizing substrate), can we
@@ -160,14 +273,12 @@ function ResearchProposals() {
                     systems in nature (ie. how much does consciousness depend on
                     the specific architecture of a learning system?)
                   </li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 5 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  5. Architectures for Conscious Agents
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                <AreaTitle>5. Architectures for Conscious Agents</AreaTitle>
+                <AreaList>
                   <li>
                     What is the role of attention and attention control in
                     shaping conscious behavior?
@@ -180,14 +291,12 @@ function ResearchProposals() {
                     How can we model aspects of human and animal psychology
                     within artificial systems?
                   </li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 6 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  6. Developmental Learning Architectures
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                <AreaTitle>6. Developmental Learning Architectures</AreaTitle>
+                <AreaList>
                   <li>
                     Can we design minimal, self-improving models that
                     continuously learn and adapt (anytime learning)?
@@ -197,15 +306,15 @@ function ResearchProposals() {
                     interaction
                   </li>
                   <li>Social simulations</li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 7 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   7. Environments for Intelligent Behavior and Interaction
                   Between Humans and AI
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                </AreaTitle>
+                <AreaList>
                   <li>
                     Under which conditions do intelligence and agency emerge?
                   </li>
@@ -216,14 +325,14 @@ function ResearchProposals() {
                     How can we create artificial environments that effectively
                     evaluate AI behavior and facilitate human–AI interaction?
                   </li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 8 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   8. Consciousness and Selfhood in Current Foundation Models
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                </AreaTitle>
+                <AreaList>
                   <li>Do existing foundation models possess phenomenology?</li>
                   <li>
                     Can the self of simulated interaction agents be compared to
@@ -241,15 +350,15 @@ function ResearchProposals() {
                     How does adding and removing certain modalities influence
                     the appearance of consciousness?
                   </li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 9 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   9. Extracting Models of Human Psychology from Foundation
                   Models
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                </AreaTitle>
+                <AreaList>
                   <li>
                     Use of foundation models to create virtual test subjects
                   </li>
@@ -258,172 +367,144 @@ function ResearchProposals() {
                     of these models
                   </li>
                   <li>Comparing human and artificial psychology</li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 10 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   10. Transfer Between Artificial Intelligence Research,
                   Neuroscience, and Psychology
-                </h3>
-                <p className="text-gray-600">
+                </AreaTitle>
+                <Paragraph>
                   What can AI research teach us about understanding biological
                   intelligence?
-                </p>
+                </Paragraph>
               </div>
               {/* Area 11 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   11. Interaction Between Model Constraints and Substrate
                   Constraints
-                </h3>
-                <p className="text-gray-600">
-                  How much does a model’s behavior depend on the underlying
+                </AreaTitle>
+                <Paragraph>
+                  How much does a model's behavior depend on the underlying
                   substrate and its architecture?
-                </p>
+                </Paragraph>
               </div>
               {/* Area 12 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  12. Empathetic AI
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                <AreaTitle>12. Empathetic AI</AreaTitle>
+                <AreaList>
                   <li>High fidelity human machine interfaces</li>
                   <li>Modeling of user intentions</li>
                   <li>Feedback between human and AI systems</li>
                   <li>Human augmentation</li>
                   <li>Machine perception</li>
                   <li>Mechanisms for human machine extension</li>
-                </ul>
+                </AreaList>
               </div>
               {/* Area 13 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
+                <AreaTitle>
                   13. Ethics at the interface of human and non-human agents
-                </h3>
-                <p className="text-gray-600">
+                </AreaTitle>
+                <Paragraph>
                   Ethics is one of the most important topics in the context of
                   artificial phenomenology, non-human agency, superhuman
                   capability and coordination between individual, society,
                   nature and artificial agents. It is also one of the most
                   difficult, given the counter-intuitive nature of the subject;
                   we invite contributions but will set a high bar.
-                </p>
+                </Paragraph>
               </div>
               {/* Area 14 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  14. Futurism
-                </h3>
-                <ul className="list-disc pl-6 text-gray-600">
+                <AreaTitle>14. Futurism</AreaTitle>
+                <AreaList>
                   <li>
                     What developments should we expect, and how will they
                     influence human society and identity?
                   </li>
-                </ul>
+                </AreaList>
               </div>
-            </div>
-          </section>
+            </ResearchArea>
+          </Section>
 
-          {/* Submission Guidelines */}
-          <section className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Submission Guidelines
-            </h2>
-            <p className="text-gray-700 mb-4">
+          <GuidelinesSection>
+            <GuidelinesTitle>Submission Guidelines</GuidelinesTitle>
+            <Paragraph>
               We welcome proposals that clearly articulate the research
               question, methodology, expected outcomes, and potential impact.
               Proposals should demonstrate understanding and alignment with
-              CIMC’s epistemology and be geared toward actionable
+              CIMC's epistemology and be geared toward actionable
               research—whether theoretical, experimental, or applied.
-            </p>
-            <div className="space-y-4">
+            </Paragraph>
+            <GuidelinesContent>
               <div>
-                <p className="font-semibold text-gray-700">Length:</p>
-                <p className="text-gray-600">&lt; 4,000 words</p>
+                <GuidelinesLabel>Length:</GuidelinesLabel>
+                <GuidelinesText>&lt; 4,000 words</GuidelinesText>
               </div>
               <div>
-                <p className="font-semibold text-gray-700">
-                  Content guidelines:
-                </p>
-                <ul className="list-disc pl-6 text-gray-600">
+                <GuidelinesLabel>Content guidelines:</GuidelinesLabel>
+                <GuidelinesList>
                   <li>
-                    <span className="font-semibold">Abstract:</span> A concise
-                    summary of the research objectives and significance (up to
-                    250 words).
+                    <BoldSpan>Abstract:</BoldSpan> A concise summary of the
+                    research objectives and significance (up to 250 words).
                   </li>
                   <li>
-                    <span className="font-semibold">Research objectives:</span>{" "}
-                    Research questions, goals and testable hypotheses.
+                    <BoldSpan>Research objectives:</BoldSpan> Research
+                    questions, goals and testable hypotheses.
                   </li>
                   <li>
-                    <span className="font-semibold">Methodology:</span> Detailed
-                    description of research methods, design, tools, frameworks,
-                    and/or analytical approaches you intend to use.
+                    <BoldSpan>Methodology:</BoldSpan> Detailed description of
+                    research methods, design, tools, frameworks, and/or
+                    analytical approaches you intend to use.
                   </li>
                   <li>
-                    <span className="font-semibold">Expected outcomes:</span>{" "}
-                    Summary of the spectrum of possible research results and
-                    their potential impact on the field of machine
-                    consciousness.
+                    <BoldSpan>Expected outcomes:</BoldSpan> Summary of the
+                    spectrum of possible research results and their potential
+                    impact on the field of machine consciousness.
                   </li>
                   <li>
-                    <span className="font-semibold">Timeline:</span>{" "}
-                    deliverables and their timeline.
+                    <BoldSpan>Timeline:</BoldSpan> deliverables and their
+                    timeline.
                   </li>
                   <li>
-                    <span className="font-semibold">Budget Justification:</span>{" "}
-                    Outline and explain the proposed budget.
+                    <BoldSpan>Budget Justification:</BoldSpan> Outline and
+                    explain the proposed budget.
                   </li>
                   <li>
-                    <span className="font-semibold">
-                      Team and collaborators
-                    </span>
+                    <BoldSpan>Team and collaborators</BoldSpan>
                   </li>
                   <li>
-                    <span className="font-semibold">Appendices</span> (if
-                    applicable)
+                    <BoldSpan>Appendices</BoldSpan> (if applicable)
                   </li>
-                </ul>
+                </GuidelinesList>
               </div>
               <div>
-                <p className="font-semibold text-gray-700">
-                  Submission Deadline:
-                </p>
-                <p className="text-gray-600">
+                <GuidelinesLabel>Submission Deadline:</GuidelinesLabel>
+                <GuidelinesText>
                   Applications will be considered on a rolling basis. First
                   round closes April 25 2025
-                </p>
+                </GuidelinesText>
               </div>
               <div>
-                <p className="font-semibold text-gray-700">How to Submit:</p>
-                <p className="text-gray-600">
+                <GuidelinesLabel>How to Submit:</GuidelinesLabel>
+                <GuidelinesText>
                   Upload your proposal{" "}
-                  <a
-                    href="https://form.typeform.com/to/VUXo8dsz"
-                    className="text-blue-600 hover:underline"
-                  >
-                    here
-                  </a>
-                </p>
+                  <Link href="https://form.typeform.com/to/VUXo8dsz">here</Link>
+                </GuidelinesText>
               </div>
               <div>
-                <p className="font-semibold text-gray-700">Inquiries:</p>
-                <p className="text-gray-600">
+                <GuidelinesLabel>Inquiries:</GuidelinesLabel>
+                <GuidelinesText>
                   For questions, please contact{" "}
-                  <a
-                    href="mailto:proposals@cimc.ai"
-                    className="text-blue-600 hover:underline"
-                  >
-                    proposals@cimc.ai
-                  </a>
-                </p>
+                  <Link href="mailto:proposals@cimc.ai">proposals@cimc.ai</Link>
+                </GuidelinesText>
               </div>
-            </div>
-            <p className="text-gray-700 mt-6">
-              We look forward to receiving your ideas.
-            </p>
-          </section>
+            </GuidelinesContent>
+            <Paragraph>We look forward to receiving your ideas.</Paragraph>
+          </GuidelinesSection>
         </div>
       </ProposalsStyle>
     </ProposalsContainer>
