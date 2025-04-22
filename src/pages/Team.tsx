@@ -111,19 +111,25 @@ const Team = () => {
           </div>
 
           <p className="text-cimc-standard leading-normal pt-4">
-            <p className="text-cimc-heading pb-2">Board</p>
+            <p className="text-cimc-heading pb-2">Board of Directors</p>
+            Joscha Bach
+            <br />
+            Erik Newton
+            <br />
             Jim O’Neill
             <br />
             Philip Rosedale
             <br />
             Zhen Tan
             <br />
-            Lou de K.
+            Lou de Kerhuelvez
             <br />
             Kirill Eves
             <br />
             <br />
-            <p className="text-cimc-heading pb-2">Board Observer</p>
+            <p className="text-cimc-heading pb-2">
+              Board of Directors Observer
+            </p>
             Christine Peterson
             <br />
             <br />
