@@ -126,11 +126,7 @@ const Team = () => {
             <br />
             Kirill Eves
             <br />
-            <br />
-            <p className="text-cimc-heading pb-2">
-              Board of Directors Observer
-            </p>
-            Christine Peterson
+            Christine Peterson — Observer
             <br />
             <br />
             <p className="text-cimc-heading pb-2">Organizational Advisors</p>
