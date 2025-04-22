@@ -485,7 +485,7 @@ function ResearchProposals() {
                 <GuidelinesLabel>Submission Deadline:</GuidelinesLabel>
                 <GuidelinesText>
                   Applications will be considered on a rolling basis. First
-                  round closes April 25 2025
+                  round closes May 4, 2025
                 </GuidelinesText>
               </div>
               <div>
