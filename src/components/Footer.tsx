@@ -12,7 +12,7 @@ function Footer() {
   return (
     <ContactContainer>
       <div className="flex md:justify-center max-md:px-6 pt-6">
-        <div className="flex justify-start md:w-[729px]">
+        <div className="flex justify-start md:w-[862px]">
           <div className="flex items-end text-black">
             <svg
               version="1.1"
@@ -46,7 +46,7 @@ function Footer() {
       </div>
 
       <div className="flex md:justify-center max-md:px-6">
-        <div className="sm:flex py-12 md:w-[729px]  text-black">
+        <div className="sm:flex py-12 md:w-[862px]  text-black">
           <div className="space-y-4 mr-3">
             <div className="sm:flex text-sm space-y-2 sm:space-y-0 sm:space-x-3">
               <div className="cimc-normal leading-snug">

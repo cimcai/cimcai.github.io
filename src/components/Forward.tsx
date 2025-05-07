@@ -1,12 +1,8 @@
 function Forward() {
   return (
     <div className="flex justify-center px-6 md:pt-8 pb-40">
-      <div className="flex flex-col md:w-[729px]">
+      <div className="flex flex-col md:w-[862px]">
         <p className="md:text-cimc-forward py-2 leading-tight">
-          Consciousness is crucial for ethical AI, yet it remains largely
-          unexplored.
-          <br />
-          <br />
           Understanding the mind is the most important project in the history of
           philosophy. The development of powerful, generally intelligent
           agents—driven by economic, cultural, and military incentives—appears

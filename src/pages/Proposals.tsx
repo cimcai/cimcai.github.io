@@ -17,7 +17,7 @@ const ProposalsContainer = styled.div`
 
 const ProposalsStyle = styled.div`
   ${tw`
-    md:w-[729px]
+    md:w-[862px]
   `}
 `
 

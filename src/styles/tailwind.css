@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Questrial;
+    src: local("Questrial"), url(./fonts/Questrial-Regular.woff2) format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+:root {
+  --color-border-neutral-default: var(--color-primitives-slate-900);
+  --color-primitives-gray-900: rgba(30, 30, 30, 1);
+  --color-primitives-slate-100: rgba(243, 243, 243, 1);
+  --color-primitives-slate-1000: rgba(36, 36, 36, 1);
+  --color-primitives-slate-900: rgba(48, 48, 48, 1);
+  --color-primitives-white-1000: rgba(255, 255, 255, 1);
+  --color-text-default-default: var(--color-primitives-gray-900);
+  --color-text-neutral-on-neutral: var(--color-primitives-slate-100);
+  --size-space-300: 12px;
+  --size-space-400: 16px;
+  --size-space-4000: 160px;
+  --size-space-600: 24px;
+  --size-space-800: 32px;
+  --system-colors-grays-black: rgba(0, 0, 0, 1);
+}

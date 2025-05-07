@@ -21,7 +21,7 @@ const MissionContainer = styled.div`
 
 const MissionStyle = styled.div`
   ${tw`
-    md:w-[729px]
+    md:w-[862px]
     py-10
     `}
 `

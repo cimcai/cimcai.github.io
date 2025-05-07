@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import tw from "twin.macro"
-import logocimc from "../assets/logocimc.svg"
+import logocimc from "../assets/squarelogo.svg"
 
 const LogoContainer = styled.div`
 ${tw`
@@ -33,7 +33,7 @@ export function CIMCLogo({ showName }: CIMCLogoProps): React.ReactNode {
       </LogoImageContainer>
       {showName ? (
         <div className="py-6 leading-none whitespace-nowrap flex justify-center">
-          <span className={"md:text-cimc-logo font-bold max-md:text-base"}>
+          <span className={"md:text-cimc-logo max-md:text-base"}>
             California Institute for Machine Consciousness
           </span>
         </div>
@@ -112,7 +112,7 @@ export function ResponsiveCIMCLogo() {
   return (
     <>
       <div className="flex justify-center pt-6 max-md:hidden">
-        <div className="flex justify-start w-[729px]">
+        <div className="flex justify-start w-[862px]">
           <FullCIMCLogo color="text-white" logoScale={1} isSmallText={false} />
         </div>
       </div>

@@ -16,7 +16,7 @@ const ProjectsContainer = styled.div`
 `
 const ProjectStyle = styled.div`
   ${tw`
-      md:w-[729px]
+      md:w-[862px]
     `}
 `
 interface ProjectsData {

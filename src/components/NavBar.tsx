@@ -4,30 +4,48 @@ import styled from "styled-components"
 import tw from "twin.macro"
 import type { CIMCRoutes } from "../App"
 
-const NavbarContainer = styled.div<{ isOpen: boolean }>`
+export const shouldForwardProp =
+  <TCustomProps extends Record<string, unknown>>(
+    customProps: ReadonlyArray<keyof TCustomProps>,
+  ) =>
+  (prop: string): boolean =>
+    !customProps.includes(prop)
+
+interface NavbarIsOpenProps {
+  isOpen: boolean
+}
+
+const NavbarContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => !["isOpen"].includes(prop),
+})<NavbarIsOpenProps>`
   ${tw`
-    h-16
+    h-24
     w-screen
     flex
-    items-center
-    justify-center
     fixed
     max-md:pl-6
-    bg-black/90
+    bg-white/90
     bg-opacity-90
   `}
-  ${({ isOpen }) => isOpen && tw`max-md:h-screen`}
+  ${({ isOpen }) =>
+    isOpen &&
+    tw`h-screen
+      items-center
+      justify-center
+  `}
 `
-const NavbarStyle = styled.div<{ isOpen: boolean }>`
+
+const NavbarStyle = styled.div.withConfig({
+  shouldForwardProp: (prop) => !["isOpen"].includes(prop),
+})<NavbarIsOpenProps>`
   max-width: 50em;
   ${tw`
-    w-[729px]
     z-10
-    text-white
     flex
+    items-center
     md:flex-row
-    text-xl
-    gap-4
+    text-cimc-navbar
+    md:gap-14
     max-md:hidden
   `}
   ${({ isOpen }) =>
@@ -37,6 +55,16 @@ const NavbarStyle = styled.div<{ isOpen: boolean }>`
     max-md:flex-col
     max-md:items-center
     max-md:justify-center
+    max-md:gap-8
+  `}
+`
+
+const NavbarLogoContainer = styled.div`
+  ${tw`
+    w-[225px]
+    [flex-shrink: 0]
+    pl-2
+    max-md:hidden
   `}
 `
 
@@ -56,12 +84,15 @@ export default function Navbar({ routes }: NavbarProps) {
     <NavbarContainer isOpen={isOpen}>
       <button
         onClick={toggleMenu}
-        tw="md:hidden absolute top-4 right-4 text-white"
+        tw="md:hidden absolute top-4 right-4"
         type="button"
       >
         {isOpen ? "Close" : "Menu"}
       </button>
       <NavbarStyle isOpen={isOpen}>
+        <NavbarLogoContainer>
+          <img src="/cimclogo.png" alt="CIMC logo" />
+        </NavbarLogoContainer>
         {routes.map((route) => (
           <NavLink
             key={route.path}
@@ -70,7 +101,7 @@ export default function Navbar({ routes }: NavbarProps) {
             style={({ isActive, isPending, isTransitioning }) => {
               return {
                 textDecorationLine: isActive ? "underline" : "",
-                color: isPending ? "red" : "white",
+                color: isPending ? "red" : "black",
                 viewTransitionName: isTransitioning ? "fade" : "",
               }
             }}

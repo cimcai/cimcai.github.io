@@ -112,7 +112,7 @@ const LibraryContainer = styled.div`
 `
 const LibrarySectionsContainer = styled.div`
   ${tw`
-    md:w-[729px]
+    md:w-[862px]
   `}
 `
 
