@@ -29,9 +29,10 @@ const NavbarContainer = styled.div.withConfig({
   `}
   ${({ isOpen }) =>
     isOpen &&
-    tw`h-screen
+    tw`
+      max-md:h-screen
+      max-md:justify-center
       items-center
-      justify-center
   `}
 `
 
