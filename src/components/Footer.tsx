@@ -4,7 +4,7 @@ import tw from "twin.macro"
 const ContactContainer = styled.div`
   ${tw`
     flex-col
-    bg-white
+    bg-black
     `}
 `
 
@@ -13,7 +13,7 @@ function Footer() {
     <ContactContainer>
       <div className="flex md:justify-center max-md:px-6 pt-6">
         <div className="flex justify-start md:w-[862px]">
-          <div className="flex items-end text-black">
+          <div className="flex items-end text-white">
             <svg
               version="1.1"
               width="173.73067"
@@ -34,7 +34,7 @@ function Footer() {
             </svg>
           </div>
           <div className="pl-[175px]  max-md:hidden">
-            <p className="leading-none text-cimc-forward text-black font-bold">
+            <p className="leading-none text-cimc-forward text-white font-bold">
               CALIFORNIA INSTITUTE
               <br />
               FOR MACHINE
@@ -46,7 +46,7 @@ function Footer() {
       </div>
 
       <div className="flex md:justify-center max-md:px-6">
-        <div className="sm:flex py-12 md:w-[862px]  text-black">
+        <div className="sm:flex py-12 md:w-[862px]  text-white">
           <div className="space-y-4 mr-3">
             <div className="sm:flex text-sm space-y-2 sm:space-y-0 sm:space-x-3">
               <div className="cimc-normal leading-snug">
