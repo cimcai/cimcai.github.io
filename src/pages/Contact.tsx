@@ -8,7 +8,7 @@ const ContactContainer = styled.div`
       flex
       justify-center
       max-md:px-6
-      pt-16
+      pt-24
       pb-40
     `}
   color: ${theme`colors.cimc_dark`};

@@ -10,7 +10,7 @@ const ProposalsContainer = styled.div`
     md:justify-center
     px-6
     md:px-0
-    pt-16
+    pt-24
     pb-20
   `}
 `

@@ -106,7 +106,7 @@ const LibraryContainer = styled.div`
     flex
     md:justify-center
     max-md:px-6
-    pt-16
+    pt-24
     pb-40
   `}
 `

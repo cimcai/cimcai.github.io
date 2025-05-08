@@ -12,7 +12,7 @@ const MissionContainer = styled.div`
     flex
     justify-center
     px-6
-    pt-16
+    pt-24
   `}
   @media (min-width: 768px) {
     height: calc(100vh - 226px);
