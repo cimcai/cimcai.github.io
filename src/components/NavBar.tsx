@@ -19,7 +19,8 @@ const NavbarContainer = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isOpen"].includes(prop),
 })<NavbarIsOpenProps>`
   ${tw`
-    h-24
+    md:h-24
+    h-12
     w-screen
     flex
     fixed
@@ -63,7 +64,6 @@ const NavbarStyle = styled.div.withConfig({
 const NavbarLogoContainer = styled.div`
   ${tw`
     w-[225px]
-    [flex-shrink: 0]
     pl-2
     max-md:hidden
   `}

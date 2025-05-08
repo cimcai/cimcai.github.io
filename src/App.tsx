@@ -31,8 +31,14 @@ export const routes: CIMCRoutes[] = [
     nodeRef: createRef(),
   },
   {
-    path: "/research",
-    name: "Research",
+    path: "/projects",
+    name: "Projects",
+    element: <Projects />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/proposals",
+    name: "Proposals",
     element: <ResearchProposals />,
     nodeRef: createRef(),
   },
@@ -46,6 +52,12 @@ export const routes: CIMCRoutes[] = [
     path: "/library",
     name: "Library",
     element: <Library />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/donate",
+    name: "Donate",
+    element: <Contact />,
     nodeRef: createRef(),
   },
 ]

@@ -1,24 +1,38 @@
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
+import { routes } from "../App"
 
-const ContactContainer = styled.div`
-  ${tw`
-    flex-col
-    bg-black
-    `}
+const FooterContainer = styled.div`
+  ${tw`w-full bg-black text-white py-10 px-6 md:px-4`}
+`
+const FooterContent = styled.div`
+  ${tw`max-w-4xl flex flex-col md:flex-row justify-between gap-10 md:gap-0`}
+`
+const FooterCol = styled.div`
+  ${tw`flex flex-col gap-4 min-w-[180px]`}
+`
+const FooterHeading = styled.div`
+  ${tw`font-bold mb-2 text-base`}
+`
+const SocialRow = styled.div`
+  ${tw`flex items-center gap-4 mt-6 mb-2`}
 `
 
 function Footer() {
   return (
-    <ContactContainer>
-      <div className="flex md:justify-center max-md:px-6 pt-6">
-        <div className="flex justify-start md:w-[862px]">
-          <div className="flex items-end text-white">
+    <FooterContainer>
+      <FooterContent>
+        {/* Left: Logo & Socials */}
+        <FooterCol>
+          <div className="mb-2">
+            {/* Logo SVG */}
             <svg
               version="1.1"
-              width="173.73067"
-              height="51.723999"
+              width="120"
+              height="36"
               viewBox="0 0 173.73067 51.723999"
+              className="text-white"
             >
               <title>CIMC Logo</title>
               <g transform="matrix(1.3333333,0,0,-1.3333333,-48.000401,4238.8667)">
@@ -33,34 +47,108 @@ function Footer() {
               </g>
             </svg>
           </div>
-          <div className="pl-[175px]  max-md:hidden">
-            <p className="leading-none text-cimc-forward text-white font-bold">
-              CALIFORNIA INSTITUTE
-              <br />
-              FOR MACHINE
-              <br />
-              CONSCIOUSNESS
-            </p>
-          </div>
-        </div>
-      </div>
+          <SocialRow>
+            {/* X icon */}
+            <a
+              href="/"
+              aria-label="X"
+              title="X (Twitter)"
+              className="hover:opacity-80"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>X (Twitter)</title>
+                <path
+                  fill="white"
+                  d="M17.53 6.47a.75.75 0 0 0-1.06 0L12 10.94 7.53 6.47a.75.75 0 1 0-1.06 1.06L10.94 12l-4.47 4.47a.75.75 0 1 0 1.06 1.06L12 13.06l4.47 4.47a.75.75 0 0 0 1.06-1.06L13.06 12l4.47-4.47a.75.75 0 0 0 0-1.06Z"
+                />
+              </svg>
+            </a>
+            {/* YouTube icon */}
+            <a
+              href="/"
+              aria-label="YouTube"
+              title="YouTube"
+              className="hover:opacity-80"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>YouTube</title>
+                <rect width="24" height="24" rx="4" fill="white" />
+                <path d="M10 15.5V8.5L16 12L10 15.5Z" fill="black" />
+              </svg>
+            </a>
+            {/* LinkedIn icon */}
+            <a
+              href="/"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className="hover:opacity-80"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>LinkedIn</title>
+                <rect width="24" height="24" rx="4" fill="white" />
+                <path
+                  d="M7.5 9.5h2v7h-2v-7zm1-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm3 2h2v1h.03c.28-.53.97-1.09 2-1.09 2.14 0 2.53 1.41 2.53 3.25v3.84h-2v-3.41c0-.81-.01-1.85-1.13-1.85-1.13 0-1.3.88-1.3 1.79v3.47h-2v-7z"
+                  fill="black"
+                />
+              </svg>
+            </a>
+          </SocialRow>
+        </FooterCol>
 
-      <div className="flex md:justify-center max-md:px-6">
-        <div className="sm:flex py-12 md:w-[862px]  text-white">
-          <div className="space-y-4 mr-3">
-            <div className="sm:flex text-sm space-y-2 sm:space-y-0 sm:space-x-3">
-              <div className="cimc-normal leading-snug">
-                <span className="text-cimc-heading">© 2025</span>
-                <br />
-                <span className="text-cimc-subheading">
-                  California Institute for Machine Consciousness
-                </span>
-              </div>
-            </div>
+        {/* Center: About */}
+        <FooterCol>
+          <FooterHeading>About</FooterHeading>
+          <div className="flex flex-col gap-1 text-white/90">
+            {routes.map((route) => (
+              <NavLink
+                key={route.path}
+                to={route.path}
+                className="select-none cursor-pointer underline-offset-4"
+                style={({ isActive, isPending, isTransitioning }) => {
+                  return {
+                    textDecorationLine: isActive ? "underline" : "",
+                    color: isPending ? "red" : "white",
+                    viewTransitionName: isTransitioning ? "fade" : "",
+                  }
+                }}
+              >
+                {route.name}
+              </NavLink>
+            ))}
           </div>
-        </div>
-      </div>
-    </ContactContainer>
+        </FooterCol>
+
+        {/* Right: Contact */}
+        <FooterCol>
+          <FooterHeading>Contact</FooterHeading>
+          <div className="mb-2 font-bold">Terms and Conditions</div>
+          <div className="text-white/90 text-sm">
+            <div>Address:</div>
+            <div>CIMC</div>
+            <div>Street xyz,</div>
+            <div>San Francisco</div>
+          </div>
+        </FooterCol>
+      </FooterContent>
+    </FooterContainer>
   )
 }
 
