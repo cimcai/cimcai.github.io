@@ -138,6 +138,8 @@ const Team = () => {
             <br />
             Franz Hildebrandt-Harangozó
             <br />
+            Era Qian
+            <br />
             Adam Brown
           </p>
         </div>
