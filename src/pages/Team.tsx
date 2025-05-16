@@ -80,7 +80,7 @@ const Team = () => {
   return (
     <>
       <TeamContainer id="team">
-        <div className="md:w-[862px]">
+        <div className="md:w-[860px]">
           <p className="text-cimc-subheading py-4">Core Team</p>
           <p className="text-cimc-heading leading-tight">
             <div className="md:flex">

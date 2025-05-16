@@ -1,8 +1,9 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 import { CIMCLogo } from "../components/CIMCLogo"
-import DismissibleBanner from "../components/DismissableBanner"
 import Forward from "../components/Forward"
+import { LineBreak } from "../components/LineBreak"
+import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
 
 const HomeContainer = styled.div`
   ${tw`
@@ -28,22 +29,40 @@ const VideoContainer = styled.div`
       justify-center
       items-center
       max-md:px-6
-      max-md:pb-6
+      max-md:pb-8
       md:pb-2
     `}
 `
 const HeroTextContainer = styled.div`
   ${tw`
       flex
+      flex-col
       justify-center
       items-center
-      py-14
+      gap-12
+      pb-16
     `}
 `
+
 const HeroText = styled.div`
   ${tw`
       text-cimc-hero
-      md:w-[892px]
+      md:w-[732px]
+      text-center
+    `}
+`
+
+const ForwardContainer = styled.div`
+  ${tw`
+      flex
+      flex-col
+      justify-center
+      items-center
+      max-md:px-6
+      max-md:pb-8
+      md:pb-2
+      gap-10
+      py-10
     `}
 `
 
@@ -53,19 +72,22 @@ export const Home = () => {
       <ContentContainer>
         <CIMCLogo showName />
         <HeroTextContainer>
+          <LineBreak width="196px" />
           <HeroText>
-            Consciousness is crucial for ethical AI, yet it remains largely
-            unexplored.
+            Understanding the mind is the most important in the history of
+            philosophy.
           </HeroText>
         </HeroTextContainer>
-
         <VideoContainer>
           <video controls width={879} poster="cimcintro.jpg">
             <source src="./cimcintro.mp4" type="video/mp4" />
             <track kind="captions" src="./joschamoc.vtt" label="English" />
           </video>
         </VideoContainer>
-        <Forward />
+        <ForwardContainer>
+          <Forward />
+          <LogoBackgroundedHero text="Understanding the nature and functionality of consciousness from a computationalist perspective" />
+        </ForwardContainer>
       </ContentContainer>
     </HomeContainer>
   )

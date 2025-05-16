@@ -14,15 +14,12 @@ const MissionContainer = styled.div`
     px-6
     pt-24
   `}
-  @media (min-width: 768px) {
-    height: calc(100vh - 226px);
-  }
 `
 
 const MissionStyle = styled.div`
   ${tw`
-    md:w-[862px]
-    py-10
+    md:w-[860px]
+    md:py-4
     `}
 `
 const Mission = () => {
