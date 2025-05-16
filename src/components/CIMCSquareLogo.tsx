@@ -1,16 +1,19 @@
-interface CIMCSquareLogoProps {
+import styled from "styled-components"
+import tw from "twin.macro"
+
+interface CIMCSquareLogoSVGProps {
   color: string
   width?: number | string
   height?: number | string
   className?: string
 }
 
-export function CIMCSquareLogo({
+export function CIMCSquareLogoSVG({
   color,
   width = 590,
   height = 590,
   className,
-}: CIMCSquareLogoProps) {
+}: CIMCSquareLogoSVGProps) {
   return (
     <svg
       className={className}
@@ -465,4 +468,40 @@ export function CIMCSquareLogo({
   )
 }
 
-// ... existing code ...
+const LogoContainer = styled.div`
+${tw`
+    flex-col
+    justify-center
+    items-center
+    max-md:px-6
+    max-md:pt-24
+    md:pt-36
+  `}
+`
+
+const LogoImageContainer = styled.div`
+${tw`
+    flex
+    justify-center
+  `}
+`
+interface CIMCLogoProps {
+  showName: boolean
+}
+
+export function CIMCSquareLogo({ showName }: CIMCLogoProps): React.ReactNode {
+  return (
+    <LogoContainer>
+      <LogoImageContainer>
+        <CIMCSquareLogoSVG width={590} height={590} color="#000000" />
+      </LogoImageContainer>
+      {showName ? (
+        <div className="pt-14 leading-none whitespace-nowrap flex justify-center">
+          <span className={"md:text-cimc-logo max-md:text-base"}>
+            California Institute for Machine Consciousness
+          </span>
+        </div>
+      ) : null}
+    </LogoContainer>
+  )
+}

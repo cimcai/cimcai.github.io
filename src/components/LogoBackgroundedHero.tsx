@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import tw from "twin.macro"
-import { CIMCSquareLogo } from "./CIMCSquareLogo"
+import { CIMCSquareLogoSVG } from "./CIMCSquareLogo"
 
 const LogoBGHeroContainer = styled.div`
   ${tw`
@@ -49,7 +49,7 @@ export function LogoBackgroundedHero({ text }: LogoBackgroundedHeroProps) {
   return (
     <LogoBGHeroContainer>
       <BackgroundContainer>
-        <CIMCSquareLogo className="w-full h-full" color="#000000" />
+        <CIMCSquareLogoSVG className="w-full h-full" color="#000000" />
       </BackgroundContainer>
       <HeadingText>{text}</HeadingText>
     </LogoBGHeroContainer>

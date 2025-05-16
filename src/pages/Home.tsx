@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import tw from "twin.macro"
-import { CIMCLogo } from "../components/CIMCLogo"
+import { CIMCSquareLogo } from "../components/CIMCSquareLogo"
 import Forward from "../components/Forward"
 import { LineBreak } from "../components/LineBreak"
 import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
@@ -70,7 +70,7 @@ export const Home = () => {
   return (
     <HomeContainer id="home">
       <ContentContainer>
-        <CIMCLogo showName />
+        <CIMCSquareLogo showName />
         <HeroTextContainer>
           <LineBreak width="196px" />
           <HeroText>
