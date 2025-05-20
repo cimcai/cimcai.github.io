@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
 import type { CIMCRoutes } from "../App"
+import { CIMCLogo } from "./CIMCLogo"
 
 export const shouldForwardProp =
   <TCustomProps extends Record<string, unknown>>(
@@ -21,12 +22,17 @@ const NavbarContainer = styled.div.withConfig({
   ${tw`
     md:h-24
     h-12
-    w-screen
+    w-full
+    max-w-[1216px]
     flex
     fixed
-    max-md:pl-6
+    md:px-6
     bg-white/90
     bg-opacity-90
+    md:justify-between
+    left-1/2
+    -translate-x-1/2
+    items-center
   `}
   ${({ isOpen }) =>
     isOpen &&
@@ -34,6 +40,7 @@ const NavbarContainer = styled.div.withConfig({
       max-md:h-screen
       max-md:justify-center
       items-center
+      max-md:flex-col
   `}
 `
 
@@ -41,19 +48,20 @@ const NavbarStyle = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isOpen"].includes(prop),
 })<NavbarIsOpenProps>`
   max-width: 50em;
+  width: 100%;
   ${tw`
     z-10
     flex
     items-center
     md:flex-row
     text-cimc-navbar
-    md:gap-14
+    md:gap-8
     max-md:hidden
+    justify-start
   `}
   ${({ isOpen }) =>
     isOpen &&
-    tw`max-md:block
-    max-md:flex
+    tw`max-md:flex
     max-md:flex-col
     max-md:items-center
     max-md:justify-center
@@ -63,10 +71,35 @@ const NavbarStyle = styled.div.withConfig({
 
 const NavbarLogoContainer = styled.div`
   ${tw`
-    w-[225px]
-    pl-2
-    max-md:hidden
+    pr-12
   `}
+`
+
+const ContactButton = styled.a.withConfig({
+  shouldForwardProp: (prop) => !["isOpen"].includes(prop),
+})<NavbarIsOpenProps>`
+  ${tw`
+    rounded-tr-[10px]
+    rounded-bl-none
+    rounded-tl-none
+    rounded-br-none
+    border-2
+    border-solid
+    border-white/10
+    bg-black
+    text-white
+    text-cimc-contact-button
+    shadow-[0px_0px_0px_1px_rgba(10,13,18,0.18)_inset,0px_-2px_0px_0px_rgba(10,13,18,0.05)_inset,0px_1px_2px_0px_rgba(10,13,18,0.05)]
+    h-[44px]
+    px-[56px]
+    py-[10px]
+    md:flex
+    justify-center
+    items-center
+    gap-[var(--spacing-sm,6px)]
+    no-underline
+  `};
+  ${({ isOpen }) => !isOpen && "display: none;"}
 `
 
 interface NavbarProps {
@@ -92,7 +125,7 @@ export default function Navbar({ routes }: NavbarProps) {
       </button>
       <NavbarStyle isOpen={isOpen}>
         <NavbarLogoContainer>
-          <img src="/cimclogo.png" alt="CIMC logo" />
+          <CIMCLogo width={108} />
         </NavbarLogoContainer>
         {routes.map((route) => (
           <NavLink
@@ -115,6 +148,9 @@ export default function Navbar({ routes }: NavbarProps) {
           Events
         </a>
       </NavbarStyle>
+      <ContactButton href="mailto:proposals@cimc.ai" isOpen={isOpen}>
+        Contact
+      </ContactButton>
     </NavbarContainer>
   )
 }

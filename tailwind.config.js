@@ -28,6 +28,16 @@ export default {
             letterSpacing: "-0.36px",
           },
         ],
+        "cimc-contact-button": [
+          "16px",
+          {
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "120%" /* 19.2px */,
+            letterSpacing: "-0.32px",
+          },
+        ],
         "cimc-forward": [
           "28px",
           {
