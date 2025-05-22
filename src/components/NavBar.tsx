@@ -79,6 +79,9 @@ export default function Navbar({ routes }: NavbarProps) {
             {route.name}
           </NavLink>
         ))}
+        <a key="events" href="https://lu.ma/cimc">
+          Events
+        </a>
       </NavbarStyle>
     </NavbarContainer>
   )
