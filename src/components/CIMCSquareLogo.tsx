@@ -2,14 +2,14 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 interface CIMCSquareLogoSVGProps {
-  color: string
+  color?: string
   width?: number | string
   height?: number | string
   className?: string
 }
 
 export function CIMCSquareLogoSVG({
-  color,
+  color = "#000000",
   width = 590,
   height = 590,
   className,
@@ -493,7 +493,7 @@ export function CIMCSquareLogo({ showName }: CIMCLogoProps): React.ReactNode {
   return (
     <LogoContainer>
       <LogoImageContainer>
-        <CIMCSquareLogoSVG width={590} height={590} color="#000000" />
+        <CIMCSquareLogoSVG />
       </LogoImageContainer>
       {showName ? (
         <div className="pt-14 leading-none whitespace-nowrap flex justify-center">

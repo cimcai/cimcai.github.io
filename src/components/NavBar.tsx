@@ -20,19 +20,16 @@ const NavbarContainer = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isOpen"].includes(prop),
 })<NavbarIsOpenProps>`
   ${tw`
-    md:h-24
-    h-12
-    w-full
-    max-w-[1216px]
-    flex
-    fixed
-    md:px-6
-    bg-white/90
-    bg-opacity-90
-    md:justify-between
-    left-1/2
-    -translate-x-1/2
-    items-center
+      md:h-24
+      h-12
+      w-full
+      flex
+      justify-center
+      fixed
+      md:px-6
+      bg-white/90
+      bg-opacity-90
+      z-10
   `}
   ${({ isOpen }) =>
     isOpen &&
@@ -44,13 +41,20 @@ const NavbarContainer = styled.div.withConfig({
   `}
 `
 
+const NavbarInnerContainer = styled.div`
+  ${tw`
+    w-full
+    max-w-[1216px]
+    md:justify-between
+    flex
+    items-center
+  `}
+`
+
 const NavbarStyle = styled.div.withConfig({
   shouldForwardProp: (prop) => !["isOpen"].includes(prop),
 })<NavbarIsOpenProps>`
-  max-width: 50em;
-  width: 100%;
   ${tw`
-    z-10
     flex
     items-center
     md:flex-row
@@ -116,41 +120,40 @@ export default function Navbar({ routes }: NavbarProps) {
 
   return (
     <NavbarContainer isOpen={isOpen}>
-      <button
-        onClick={toggleMenu}
-        tw="md:hidden absolute top-4 right-4"
-        type="button"
-      >
-        {isOpen ? "Close" : "Menu"}
-      </button>
-      <NavbarStyle isOpen={isOpen}>
-        <NavbarLogoContainer>
-          <CIMCLogo width={108} />
-        </NavbarLogoContainer>
-        {routes.map((route) => (
-          <NavLink
-            key={route.path}
-            to={route.path}
-            className="select-none cursor-pointer underline-offset-4"
-            style={({ isActive, isPending, isTransitioning }) => {
-              return {
-                textDecorationLine: isActive ? "underline" : "",
-                color: isPending ? "red" : "black",
-                viewTransitionName: isTransitioning ? "fade" : "",
-              }
-            }}
-            onClick={toggleMenu}
-          >
-            {route.name}
-          </NavLink>
-        ))}
-        <a key="events" href="https://lu.ma/cimc">
-          Events
-        </a>
-      </NavbarStyle>
-      <ContactButton href="mailto:proposals@cimc.ai" isOpen={isOpen}>
-        Contact
-      </ContactButton>
+      <NavbarInnerContainer>
+        <button
+          onClick={toggleMenu}
+          tw="md:hidden absolute top-4 right-4"
+          type="button"
+        >
+          {isOpen ? "Close" : "Menu"}
+        </button>
+        <NavbarStyle isOpen={isOpen}>
+          <NavbarLogoContainer>
+            <CIMCLogo width={108} />
+          </NavbarLogoContainer>
+          {routes.map((route) => (
+            <NavLink
+              key={route.path}
+              to={route.path}
+              className="select-none cursor-pointer underline-offset-4"
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  textDecorationLine: isActive ? "underline" : "",
+                  color: isPending ? "red" : "black",
+                  viewTransitionName: isTransitioning ? "fade" : "",
+                }
+              }}
+              onClick={toggleMenu}
+            >
+              {route.name}
+            </NavLink>
+          ))}
+        </NavbarStyle>
+        <ContactButton href="mailto:proposals@cimc.ai" isOpen={isOpen}>
+          Contact
+        </ContactButton>
+      </NavbarInnerContainer>
     </NavbarContainer>
   )
 }

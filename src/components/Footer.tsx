@@ -51,7 +51,7 @@ function Footer() {
           <SocialRow>
             {/* X icon */}
             <a
-              href="/"
+              href="https://x.com/CIMCAI"
               aria-label="X"
               title="X (Twitter)"
               className="hover:opacity-80"
@@ -95,7 +95,7 @@ function Footer() {
             </a>
             {/* LinkedIn icon */}
             <a
-              href="/"
+              href="https://linkedin.com/company/cimc-ai"
               aria-label="LinkedIn"
               title="LinkedIn"
               className="hover:opacity-80"

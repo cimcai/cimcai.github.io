@@ -4,10 +4,12 @@ import { CIMCSquareLogo } from "../components/CIMCSquareLogo"
 import Forward from "../components/Forward"
 import { LineBreak } from "../components/LineBreak"
 import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
+import { SubstackSection } from "../components/SubstackSection"
 
 const HomeContainer = styled.div`
   ${tw`
       flex
+      flex-col
       justify-center
       items-center
       text-black
@@ -89,6 +91,7 @@ export const Home = () => {
           <LogoBackgroundedHero text="Understanding the nature and functionality of consciousness from a computationalist perspective" />
         </ForwardContainer>
       </ContentContainer>
+      <SubstackSection />
     </HomeContainer>
   )
 }
