@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import tw, { theme } from "twin.macro"
+import { PageHeroGraphic } from "../components/PageHeroGraphic"
 import profilesData from "../data/profiles.json"
 
 const TeamContainer = styled.div`
@@ -9,8 +10,9 @@ const TeamContainer = styled.div`
       selection:text-black
       selection:bg-gray-500
       flex
+      flex-col
+      items-center
       justify-center
-      max-md:px-6
       pt-24
       pb-40
     `}
@@ -80,8 +82,9 @@ const Team = () => {
   return (
     <>
       <TeamContainer id="team">
-        <div className="md:w-[860px]">
-          <p className="text-cimc-subheading py-4">Core Team</p>
+        <PageHeroGraphic />
+        <div className="md:w-[860px] max-md:px-6">
+          <p className="text-cimc-subheading">Core Team</p>
           <p className="text-cimc-heading leading-tight">
             <div className="md:flex">
               <div className="flex-1 md:w-1/2 pb-4">

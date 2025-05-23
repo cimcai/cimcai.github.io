@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import tw from "twin.macro"
+import { PageHeroGraphic } from "../components/PageHeroGraphic"
 
 const ProposalsContainer = styled.div`
   ${tw`
@@ -7,8 +8,9 @@ const ProposalsContainer = styled.div`
     selection:text-black
     selection:bg-gray-500
     flex
+    flex-col
+    items-center
     md:justify-center
-    px-6
     md:px-0
     pt-24
     pb-20
@@ -18,6 +20,7 @@ const ProposalsContainer = styled.div`
 const ProposalsStyle = styled.div`
   ${tw`
     md:w-[860px]
+    max-md:px-6
   `}
 `
 
@@ -144,6 +147,7 @@ const BoldSpan = styled.span`
 function ResearchProposals() {
   return (
     <ProposalsContainer>
+      <PageHeroGraphic />
       <ProposalsStyle>
         <div id="proposals" className="w-full">
           <Header>
