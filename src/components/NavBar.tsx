@@ -89,9 +89,12 @@ const ContactButton = styled.a.withConfig({
     rounded-br-none
     border-2
     border-solid
-    border-white/10
+    border-black
     bg-black
     text-white
+    hover:bg-white
+    hover:text-black
+    transition
     text-cimc-contact-button
     shadow-[0px_0px_0px_1px_rgba(10,13,18,0.18)_inset,0px_-2px_0px_0px_rgba(10,13,18,0.05)_inset,0px_1px_2px_0px_rgba(10,13,18,0.05)]
     h-[44px]
