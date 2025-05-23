@@ -7,38 +7,33 @@ import { CIMCLogo } from "./CIMCLogo"
 const FooterContainer = styled.div`
   ${tw`
     w-full
+    max-w-[1216px]
   bg-black
   text-white
-    py-20
+    pt-20
+    px-6
     md:px-4
-    flex
     justify-center
+    flex flex-col
 `}
 `
 const FooterContent = styled.div`
-  ${tw`
-    w-full
-    max-w-[1216px]
-    flex flex-col md:flex-row justify-between
-  `}
+  ${tw`flex flex-col md:flex-row justify-between gap-10 pb-10`}
 `
-const FooterColContainer = styled.div`
-  ${tw`
-    min-w-[650px]
-    flex flex-col md:flex-row gap-8
-    justify-end
-    items-start
-  `}
-`
-
 const FooterCol = styled.div`
-  ${tw`flex flex-col gap-3 min-w-[170px]`}
+  ${tw`flex flex-col gap-4 min-w-[180px]`}
 `
 const FooterHeading = styled.div`
   ${tw`font-bold mb-2 text-base`}
 `
 const SocialRow = styled.div`
-  ${tw`flex items-center gap-6 mt-12 mb-2`}
+  ${tw`flex items-center gap-4 mt-6 mb-2`}
+`
+const FooterBottomRow = styled.div`
+  ${tw`w-full flex justify-center py-12`}
+`
+const FooterBottomContent = styled.div`
+  ${tw`w-full flex flex-row justify-between items-center text-white text-cimc-helvetica-normal`}
 `
 
 function Footer() {
@@ -51,7 +46,7 @@ function Footer() {
           <SocialRow>
             {/* X icon */}
             <a
-              href="https://x.com/CIMCAI"
+              href="/"
               aria-label="X"
               title="X (Twitter)"
               className="hover:opacity-80"
@@ -95,7 +90,7 @@ function Footer() {
             </a>
             {/* LinkedIn icon */}
             <a
-              href="https://linkedin.com/company/cimc-ai"
+              href="/"
               aria-label="LinkedIn"
               title="LinkedIn"
               className="hover:opacity-80"
@@ -128,7 +123,8 @@ function Footer() {
             </a>
           </SocialRow>
         </FooterCol>
-        <FooterColContainer>
+
+        <FooterContent>
           <FooterCol>
             <div className="flex flex-col gap-1 text-white/90">
               {routes.map((route) => (
@@ -160,8 +156,16 @@ function Footer() {
               <div>San Francisco</div>
             </div>
           </FooterCol>
-        </FooterColContainer>
+        </FooterContent>
       </FooterContent>
+      <FooterBottomRow>
+        <FooterBottomContent>
+          <div>© 2025 CIMC. All rights reserved.</div>
+          <a href="/terms" tw="hover:underline text-white/60">
+            Terms and Conditions
+          </a>
+        </FooterBottomContent>
+      </FooterBottomRow>
     </FooterContainer>
   )
 }

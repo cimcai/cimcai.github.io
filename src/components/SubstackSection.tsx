@@ -3,7 +3,7 @@ import tw from "twin.macro"
 import { CIMCSquareLogoSVG } from "../components/CIMCSquareLogo"
 
 const SubstackSectionContainer = styled.section`
-  ${tw`w-full min-h-screen flex items-center bg-white`}
+  ${tw`w-full min-h-[900px] flex items-center bg-white`}
 `
 const SubstackLogoCol = styled.div`
   ${tw`h-full flex relative min-w-0 flex-1`}
