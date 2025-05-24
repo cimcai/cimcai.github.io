@@ -59,6 +59,17 @@ export default {
             lineHeight: "150%" /* 24px */,
           },
         ],
+        "cimc-helvetica-medium": [
+          "18px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "150%",
+            letterSpacing: "-0.36px",
+          },
+        ],
         "cimc-substack-button": [
           "20px",
           {
