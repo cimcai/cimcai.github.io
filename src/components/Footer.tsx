@@ -3,6 +3,9 @@ import styled from "styled-components"
 import tw from "twin.macro"
 import { routes } from "../App"
 import { CIMCLogo } from "./CIMCLogo"
+import LinkedInIcon from "./icons/LinkedInIcon"
+import XIcon from "./icons/XIcon"
+import YouTubeIcon from "./icons/YouTubeIcon"
 
 const FooterContainer = styled.div`
   ${tw`
@@ -54,82 +57,29 @@ function Footer() {
           <FooterCol>
             <CIMCLogo color="white" />
             <SocialRow>
-              {/* X icon */}
               <a
                 href="/"
                 aria-label="X"
                 title="X (Twitter)"
                 className="hover:opacity-80"
               >
-                <svg
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>X (Twitter)</title>
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M15.9455 23.9648L10.396 16.0549L3.44886 23.9648H0.509766L9.09209 14.1959L0.509766 1.96484H8.05571L13.286 9.41986L19.8393 1.96484H22.7784L14.5943 11.2813L23.4914 23.9648H15.9455ZM19.2185 21.7349H17.2398L4.71811 4.19484H6.6971L11.7121 11.218L12.5793 12.4367L19.2185 21.7349Z"
-                    fill="white"
-                  />
-                </svg>
+                <XIcon />
               </a>
-              {/* YouTube icon */}
               <a
                 href="/"
                 aria-label="YouTube"
                 title="YouTube"
                 className="hover:opacity-80"
               >
-                <svg
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>YouTube</title>
-                  <path
-                    d="M23.7609 8.16489C23.7609 8.16489 23.5266 6.51021 22.8047 5.78364C21.8906 4.82739 20.8688 4.8227 20.4 4.76645C17.0438 4.5227 12.0047 4.52271 12.0047 4.52271H11.9953C11.9953 4.52271 6.95625 4.5227 3.6 4.76645C3.13125 4.8227 2.10938 4.82739 1.19531 5.78364C0.473438 6.51021 0.24375 8.16489 0.24375 8.16489C0.24375 8.16489 0 10.1102 0 12.0508V13.8696C0 15.8102 0.239062 17.7555 0.239062 17.7555C0.239062 17.7555 0.473437 19.4102 1.19062 20.1368C2.10469 21.093 3.30469 21.0602 3.83906 21.1633C5.76094 21.3461 12 21.4024 12 21.4024C12 21.4024 17.0438 21.393 20.4 21.154C20.8688 21.0977 21.8906 21.093 22.8047 20.1368C23.5266 19.4102 23.7609 17.7555 23.7609 17.7555C23.7609 17.7555 24 15.8149 24 13.8696V12.0508C24 10.1102 23.7609 8.16489 23.7609 8.16489ZM9.52031 16.0774V9.33208L16.0031 12.7165L9.52031 16.0774Z"
-                    fill="white"
-                  />
-                </svg>
+                <YouTubeIcon />
               </a>
-              {/* LinkedIn icon */}
               <a
                 href="/"
                 aria-label="LinkedIn"
                 title="LinkedIn"
                 className="hover:opacity-80"
               >
-                <svg
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>LinkedIn</title>
-                  <g clipPath="url(#clip0_6_34977)">
-                    <path
-                      d="M22.2234 0.964844H1.77187C0.792187 0.964844 0 1.73828 0 2.69453V23.2305C0 24.1867 0.792187 24.9648 1.77187 24.9648H22.2234C23.2031 24.9648 24 24.1867 24 23.2352V2.69453C24 1.73828 23.2031 0.964844 22.2234 0.964844ZM7.12031 21.4164H3.55781V9.96016H7.12031V21.4164ZM5.33906 8.39922C4.19531 8.39922 3.27188 7.47578 3.27188 6.33672C3.27188 5.19766 4.19531 4.27422 5.33906 4.27422C6.47813 4.27422 7.40156 5.19766 7.40156 6.33672C7.40156 7.47109 6.47813 8.39922 5.33906 8.39922ZM20.4516 21.4164H16.8937V15.8477C16.8937 14.5211 16.8703 12.8102 15.0422 12.8102C13.1906 12.8102 12.9094 14.2586 12.9094 15.7539V21.4164H9.35625V9.96016H12.7687V11.5258H12.8156C13.2891 10.6258 14.4516 9.67422 16.1813 9.67422C19.7859 9.67422 20.4516 12.0461 20.4516 15.1305V21.4164Z"
-                      fill="white"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_6_34977">
-                      <rect
-                        width="24"
-                        height="24"
-                        fill="white"
-                        transform="translate(0 0.964844)"
-                      />
-                    </clipPath>
-                  </defs>
-                </svg>
+                <LinkedInIcon />
               </a>
             </SocialRow>
           </FooterCol>

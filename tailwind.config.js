@@ -28,6 +28,17 @@ export default {
             letterSpacing: "-0.36px",
           },
         ],
+        "cimc-helvetica-smaller": [
+          "14px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "112%",
+            letterSpacing: "-0.28px",
+          },
+        ],
         "cimc-helvetica-small": [
           "16px",
           {
@@ -148,6 +159,28 @@ export default {
             letterSpacing: "-0.01em",
             fontWeight: "400",
             colors: "#272727",
+          },
+        ],
+        "cimc-large": [
+          "24px",
+          {
+            fontFamily: "Questrial, sans-serif",
+            lineHeight: "105%",
+            fontStyle: "normal",
+            letterSpacing: "-0.72px",
+            fontWeight: "400",
+            colors: "#181D27",
+          },
+        ],
+        "cimc-helvetica-large": [
+          "36px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "105%",
+            letterSpacing: "-1.08px",
           },
         ],
         "cimc-logo": [
