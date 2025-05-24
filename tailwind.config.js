@@ -70,6 +70,27 @@ export default {
             letterSpacing: "-0.4px",
           },
         ],
+        "cimc-helvetica-standard": [
+          "20px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "150%",
+          },
+        ],
+        "cimc-helvetica-heading": [
+          "24px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "140%",
+            letterSpacing: "-0.72px",
+          },
+        ],
         "cimc-helvetica-normal": [
           "24px",
           {

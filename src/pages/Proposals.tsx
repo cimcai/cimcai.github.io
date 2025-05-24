@@ -32,116 +32,116 @@ const Header = styled.header`
 
 const Title = styled.h1`
   ${tw`
-    text-3xl
-    font-bold
-    text-gray-900
-    mb-2
+    text-cimc-hero
+    mb-4
   `}
 `
 
 const Subtitle = styled.h2`
   ${tw`
-    text-2xl
-    font-semibold
-    text-gray-800
+    text-cimc-helvetica-normal
+    mb-12
   `}
+  color: rgba(24, 29, 39, 0.60);
 `
 
 const Section = styled.section`
   ${tw`
-    bg-white
-    p-6
-    rounded-lg
-    shadow-md
-    mb-8
   `}
 `
 
 const Paragraph = styled.p`
   ${tw`
-    text-gray-700
-    mb-4
+    text-cimc-helvetica-standard
+    mb-12
   `}
+  color: rgba(24, 29, 39, 0.70);
 `
 
 const ResearchArea = styled.div`
   ${tw`
-    space-y-6
+    text-cimc-helvetica-heading
+    pb-3
   `}
 `
 
 const AreaTitle = styled.h3`
   ${tw`
-    text-xl
-    font-semibold
-    text-gray-700
+    text-cimc-helvetica-heading
+    pb-3
   `}
 `
 
 const AreaList = styled.ul`
   ${tw`
+    text-cimc-helvetica-standard
+    pl-2
+    mb-12
+    list-inside
     list-disc
-    pl-6
-    text-gray-600
   `}
+  color: rgba(24, 29, 39, 0.70);
 `
 
 const GuidelinesSection = styled.section`
   ${tw`
-    bg-white
-    p-6
-    rounded-lg
-    shadow-md
+    text-cimc-helvetica-standard
   `}
 `
 
 const GuidelinesTitle = styled.h2`
   ${tw`
-    text-2xl
-    font-semibold
-    text-gray-800
-    mb-4
+    text-cimc-helvetica-normal
   `}
+  color: #181D27;
 `
 
 const GuidelinesContent = styled.div`
   ${tw`
-    space-y-4
+    mb-10
   `}
 `
 
 const GuidelinesLabel = styled.p`
   ${tw`
-    font-semibold
-    text-gray-700
+    text-cimc-helvetica-normal
+    mb-3
   `}
+  color: #181D27;
 `
 
 const GuidelinesText = styled.p`
   ${tw`
-    text-gray-600
+    mb-10
   `}
+  color: rgba(24, 29, 39, 0.70);
 `
 
 const GuidelinesList = styled.ul`
   ${tw`
-    list-disc
-    pl-6
-    text-gray-600
   `}
+  color: rgba(24, 29, 39, 0.70);
 `
 
 const Link = styled.a`
   ${tw`
-    text-blue-600
+    underline
     hover:underline
   `}
 `
 
-const BoldSpan = styled.span`
+const GuidelineHeader = styled.div`
   ${tw`
-    font-semibold
   `}
+  color: #181D27;
+`
+
+const GuidelinesListItem = styled.li`
+  ${tw`
+    text-cimc-helvetica-standard
+    mb-10
+  `}
+  color: rgba(24, 29, 39, 0.70);
 `
 
 function ResearchProposals() {
@@ -152,9 +152,7 @@ function ResearchProposals() {
         <div id="proposals" className="w-full">
           <Header>
             <Title>Call for Research Proposals</Title>
-            <Subtitle>
-              California Institute for Machine Consciousness (CIMC)
-            </Subtitle>
+            <Subtitle>Application are reviewed on a rolling base</Subtitle>
           </Header>
 
           <Section>
@@ -451,42 +449,49 @@ function ResearchProposals() {
               <div>
                 <GuidelinesLabel>Content guidelines:</GuidelinesLabel>
                 <GuidelinesList>
-                  <li>
-                    <BoldSpan>Abstract:</BoldSpan> A concise summary of the
-                    research objectives and significance (up to 250 words).
-                  </li>
-                  <li>
-                    <BoldSpan>Research objectives:</BoldSpan> Research
-                    questions, goals and testable hypotheses.
-                  </li>
-                  <li>
-                    <BoldSpan>Methodology:</BoldSpan> Detailed description of
-                    research methods, design, tools, frameworks, and/or
-                    analytical approaches you intend to use.
-                  </li>
-                  <li>
-                    <BoldSpan>Expected outcomes:</BoldSpan> Summary of the
-                    spectrum of possible research results and their potential
-                    impact on the field of machine consciousness.
-                  </li>
-                  <li>
-                    <BoldSpan>Timeline:</BoldSpan> deliverables and their
-                    timeline.
-                  </li>
-                  <li>
-                    <BoldSpan>Budget Justification:</BoldSpan> Outline and
-                    explain the proposed budget.
-                  </li>
-                  <li>
-                    <BoldSpan>Team and collaborators</BoldSpan>
-                  </li>
-                  <li>
-                    <BoldSpan>Appendices</BoldSpan> (if applicable)
-                  </li>
+                  <ul>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>Abstract:</GuidelineHeader> A concise
+                      summary of the research objectives and significance (up to
+                      250 words).
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>Research objectives:</GuidelineHeader>{" "}
+                      Research questions, goals and testable hypotheses.
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>Methodology:</GuidelineHeader> Detailed
+                      description of research methods, design, tools,
+                      frameworks, and/or analytical approaches you intend to
+                      use.
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>Expected outcomes:</GuidelineHeader>{" "}
+                      Summary of the spectrum of possible research results and
+                      their potential impact on the field of machine
+                      consciousness.
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>Timeline:</GuidelineHeader>
+                      Deliverables and their timeline.
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>Budget Justification:</GuidelineHeader>{" "}
+                      Outline and explain the proposed budget.
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>Team and collaborators</GuidelineHeader>
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
+                      <GuidelineHeader>
+                        Appendices (if applicable)
+                      </GuidelineHeader>
+                    </GuidelinesListItem>
+                  </ul>
                 </GuidelinesList>
               </div>
               <div>
-                <GuidelinesLabel>Submission Deadline:</GuidelinesLabel>
+                <GuidelinesLabel>Submission Process:</GuidelinesLabel>
                 <GuidelinesText>
                   Applications will be considered on a rolling basis. First
                   round closes May 4, 2025
@@ -504,10 +509,12 @@ function ResearchProposals() {
                 <GuidelinesText>
                   For questions, please contact{" "}
                   <Link href="mailto:proposals@cimc.ai">proposals@cimc.ai</Link>
+                  <Paragraph>
+                    We look forward to receiving your ideas.
+                  </Paragraph>
                 </GuidelinesText>
               </div>
             </GuidelinesContent>
-            <Paragraph>We look forward to receiving your ideas.</Paragraph>
           </GuidelinesSection>
         </div>
       </ProposalsStyle>
