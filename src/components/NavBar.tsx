@@ -4,6 +4,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 import type { CIMCRoutes } from "../App"
 import { CIMCLogo } from "./CIMCLogo"
+import MenuButton from "./icons/MenuButton"
 
 export const shouldForwardProp =
   <TCustomProps extends Record<string, unknown>>(
@@ -21,12 +22,13 @@ const NavbarContainer = styled.div.withConfig({
 })<NavbarIsOpenProps>`
   ${tw`
       md:h-24
-      h-12
+      h-16
       w-full
       flex
-      justify-center
+      justify-between
       fixed
-      md:px-6
+      px-6
+      max-md:py-6
       bg-white/90
       bg-opacity-90
       z-10
@@ -35,8 +37,8 @@ const NavbarContainer = styled.div.withConfig({
     isOpen &&
     tw`
       max-md:h-screen
-      max-md:justify-center
-      items-center
+      max-md:justify-between
+      max-md:items-center
       max-md:flex-col
   `}
 `
@@ -45,9 +47,11 @@ const NavbarInnerContainer = styled.div`
   ${tw`
     w-full
     max-w-[1216px]
-    md:justify-between
     flex
-    items-center
+    justify-start
+    md:items-center
+    max-md:items-start
+    max-md:flex-col
   `}
 `
 
@@ -56,9 +60,9 @@ const NavbarStyle = styled.div.withConfig({
 })<NavbarIsOpenProps>`
   ${tw`
     flex
-    items-center
+    md:items-center
     md:flex-row
-    text-cimc-navbar
+    md:text-cimc-navbar
     md:gap-8
     max-md:hidden
     justify-start
@@ -67,9 +71,9 @@ const NavbarStyle = styled.div.withConfig({
     isOpen &&
     tw`max-md:flex
     max-md:flex-col
-    max-md:items-center
-    max-md:justify-center
     max-md:gap-8
+    max-md:pt-12
+    max-md:text-cimc-navbar-mobile
   `}
 `
 
@@ -98,11 +102,13 @@ const ContactButton = styled.a.withConfig({
     text-cimc-contact-button
     shadow-[0px_0px_0px_1px_rgba(10,13,18,0.18)_inset,0px_-2px_0px_0px_rgba(10,13,18,0.05)_inset,0px_1px_2px_0px_rgba(10,13,18,0.05)]
     h-[44px]
+    max-md:w-full
     px-[56px]
     py-[10px]
+    mb-20
     md:flex
-    justify-center
-    items-center
+    md:mt-[26px]
+    text-center
     gap-[var(--spacing-sm,6px)]
     no-underline
   `};
@@ -126,15 +132,16 @@ export default function Navbar({ routes }: NavbarProps) {
       <NavbarInnerContainer>
         <button
           onClick={toggleMenu}
-          tw="md:hidden absolute top-4 right-4"
           type="button"
+          tw="flex md:hidden absolute top-6 right-3 gap-2 items-center"
         >
-          {isOpen ? "Close" : "Menu"}
+          {isOpen ? "CLOSE" : "MENU"}
+          <MenuButton isOpen={isOpen} />
         </button>
+        <NavbarLogoContainer>
+          <CIMCLogo width={108} />
+        </NavbarLogoContainer>
         <NavbarStyle isOpen={isOpen}>
-          <NavbarLogoContainer>
-            <CIMCLogo width={108} />
-          </NavbarLogoContainer>
           {routes.map((route) => (
             <NavLink
               key={route.path}
@@ -153,10 +160,10 @@ export default function Navbar({ routes }: NavbarProps) {
             </NavLink>
           ))}
         </NavbarStyle>
-        <ContactButton href="mailto:proposals@cimc.ai" isOpen={isOpen}>
-          Contact
-        </ContactButton>
       </NavbarInnerContainer>
+      <ContactButton href="mailto:proposals@cimc.ai" isOpen={isOpen}>
+        Contact
+      </ContactButton>
     </NavbarContainer>
   )
 }

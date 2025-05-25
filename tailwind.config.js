@@ -24,8 +24,19 @@ export default {
             fontFamily: "Helvetica",
             fontStyle: "normal",
             fontWeight: "400",
-            lineHeight: "24px" /* 133.333% */,
+            lineHeight: "24px",
             letterSpacing: "-0.36px",
+          },
+        ],
+        "cimc-navbar-mobile": [
+          "28px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "24px",
+            letterSpacing: "-0.84px",
           },
         ],
         "cimc-helvetica-smaller": [

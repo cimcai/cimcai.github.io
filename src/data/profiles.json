@@ -6,37 +6,56 @@
         {
           "name": "Joscha Bach",
           "job": "Director",
-          "institutionUrl": "",
+          "description": "",
+          "institution": "bach.ai",
+          "institutionUrl": "http://bach.ai/",
+          "xUrl": "https://x.com/Plinz",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitJoscha.jpg"
         },
         {
           "name": "Erik Newton",
           "job": "President",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/newtonlaw",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitErik.jpg"
         },
         {
           "name": "Lou de K",
           "job": "VP of Programs",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/louviq",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitLou.jpg"
         },
         {
           "name": "Franz Hildebrandt-Harangozó",
           "job": "Philosopher",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/franz_hiha",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitFranz.jpg"
         },
         {
           "name": "Zhen Tan",
           "job": "Engineer",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/zhen9436",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitZhen.jpg"
         },
         {
           "name": "Hikari Sorensen",
           "job": "Researcher",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitHikari.jpg"
         }
       ]
@@ -47,29 +66,41 @@
         {
           "name": "Karl Friston",
           "job": "Neuroscientist",
+          "description": "",
           "institution": "University College London",
           "institutionUrl": "https://profiles.ucl.ac.uk/2747-karl-friston",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitFriston.jpg"
         },
         {
           "name": "Christoph v. d. Malsburg",
           "job": "Neuroscientist/Physicist",
+          "description": "",
           "institution": "Frankfurt Institute for Advanced Studies",
           "institutionUrl": "https://www.izn-frankfurt.de/mitglied/malsburg",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitMalsburg.jpg"
         },
         {
           "name": "Michael Levin",
           "job": "Biologist",
+          "description": "",
           "institution": "The Levin Lab",
           "institutionUrl": "https://drmichaellevin.org",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitLevin.jpg"
         },
         {
           "name": "Stephen Wolfram",
           "job": "Computer Scientist/Physicist/Mathematician",
+          "description": "",
           "institution": "Wolfram Research",
           "institutionUrl": "https://www.stephenwolfram.com",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitWolfram.jpg"
         }
       ]
@@ -80,49 +111,75 @@
         {
           "name": "Joscha Bach",
           "job": "Chairman",
-          "institutionUrl": "",
+          "description": "",
+          "institution": "bach.ai",
+          "institutionUrl": "http://bach.ai/",
+          "xUrl": "https://x.com/Plinz",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitJoscha.jpg"
         },
         {
           "name": "Erik Newton",
           "job": "Director",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/newtonlaw",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitErik.jpg"
         },
         {
           "name": "Jim O’Neill",
           "job": "Director",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitJim.jpg"
         },
         {
           "name": "Philip Rosedale",
           "job": "Director",
-          "institutionUrl": "",
+          "description": "",
+          "institution": "www.rosedales.com",
+          "institutionUrl": "https://www.rosedales.com/philip",
+          "xUrl": "https://x.com/philiprosedale",
+          "linkedInUrl": "https://www.linkedin.com/in/philiprosedale",
           "portraitUrl": "/portraitPhilip.jpg"
         },
         {
           "name": "Zhen Tan",
           "job": "Director",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/zhen9436",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitZhen.jpg"
         },
         {
           "name": "Lou de Kerhuelvez",
           "job": "Director",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/louviq",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitLou.jpg"
         },
         {
           "name": "Kirill Eves",
           "job": "Director",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitKirill.jpg"
         },
         {
           "name": "Christine Peterson",
           "job": "Observer",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/lifeext",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitChristine.jpg"
         }
       ]
@@ -132,27 +189,42 @@
       "teamMembers": [
         {
           "name": "Jim Rutt",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitJimRutt.jpg"
         },
         {
           "name": "Allison Duettmann",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitAllison.jpg"
         },
         {
           "name": "Dan Girshovich",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitDan.jpg"
         },
         {
           "name": "Era Qian",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "https://x.com/eraqian",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitEra.jpg"
         },
         {
           "name": "Adam Brown",
+          "description": "",
           "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitAdam.jpg"
         }
       ]
