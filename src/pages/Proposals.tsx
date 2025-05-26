@@ -11,7 +11,7 @@ const ProposalsContainer = styled.div`
     flex-col
     items-center
     md:justify-center
-    md:px-0
+    px-0
     pt-24
     pb-20
   `}
@@ -20,7 +20,7 @@ const ProposalsContainer = styled.div`
 const ProposalsLayout = styled.div`
   ${tw`
     flex
-    flex-col
+    flex-col-reverse
     md:flex-row
     justify-between
     w-full
@@ -33,7 +33,6 @@ const ProposalsLayout = styled.div`
 const ProposalsStyle = styled.div`
   ${tw`
     md:w-[860px]
-    max-md:px-6
   `}
 `
 
@@ -45,7 +44,8 @@ const ProposalsColumn = styled.div`
     text-cimc-helvetica-standard
     text-right
     md:w-[300px]
-    max-md:hidden
+    min-h-[200px]
+    mb-20
   `}
   color: rgba(24, 29, 39, 0.70);
 `
@@ -172,10 +172,8 @@ const GuidelinesListItem = styled.li`
 
 const LetsConnect = styled.div`
   ${tw`
-    flex flex-col gap-0 text-right md:w-[250px] max-md:hidden`}
+    flex flex-col gap-0 text-right md:w-[250px] md:pl-10 md:ml-10`}
   color: rgba(24, 29, 39, 0.70);
-  padding-left: 40px;
-  margin-left: 40px;
   position: sticky;
   top: 120px;
   align-self: flex-start;

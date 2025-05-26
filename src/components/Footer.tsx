@@ -45,7 +45,12 @@ const FooterBottomRow = styled.div`
   ${tw`w-full flex justify-center py-12`}
 `
 const FooterBottomContent = styled.div`
-  ${tw`w-full flex flex-row justify-between items-center text-white text-cimc-helvetica-small`}
+  ${tw`w-full flex md:flex-row flex-col
+     md:justify-between
+     gap-6
+     items-center
+     text-white text-cimc-helvetica-small
+  `}
 `
 
 function Footer() {
