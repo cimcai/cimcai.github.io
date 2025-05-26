@@ -25,7 +25,7 @@ function Forward() {
         requires we address consciousness.
         <br />
         <br />
-        Will we be colonized by digital golems or can we spread live, mind and
+        Will we be colonized by digital golems or can we spread life, mind and
         consciousness onto new substrates?
       </p>
     </div>

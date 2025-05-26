@@ -585,19 +585,8 @@ function ResearchProposals() {
         <ProposalsColumn>
           <LetsConnect>
             <div className="lets-title">Let's get connected</div>
-            <a
-              href="https://cimc.substack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://cimcai.substack.com" rel="noopener noreferrer">
               Substack
-            </a>
-            <a
-              href="https://cimc.substack.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Journal of Consciousness
             </a>
             <div className="lets-label">Email:</div>
             <a href="mailto:proposals@cimc.ai">proposals@cimc.ai</a>

@@ -63,7 +63,7 @@ function Footer() {
             <CIMCLogo color="white" />
             <SocialRow>
               <a
-                href="/"
+                href="https://x.com/CIMCAI"
                 aria-label="X"
                 title="X (Twitter)"
                 className="hover:opacity-80"
@@ -71,7 +71,7 @@ function Footer() {
                 <XIcon />
               </a>
               <a
-                href="/"
+                href="https://youtube.com"
                 aria-label="YouTube"
                 title="YouTube"
                 className="hover:opacity-80"
@@ -79,7 +79,7 @@ function Footer() {
                 <YouTubeIcon />
               </a>
               <a
-                href="/"
+                href="https://linkedin.com"
                 aria-label="LinkedIn"
                 title="LinkedIn"
                 className="hover:opacity-80"

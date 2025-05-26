@@ -49,8 +49,10 @@ const Mission = () => {
           I. Advance and validate theories of consciousness through applied
           research
           <br />
+          <br />
           II. Build a robust ethical framework for AI that prioritizes conscious
           agency and societal impact.
+          <br />
           <br />
           III. Engage collaboratively with academia, industry, and the public
         </p>
