@@ -23,6 +23,9 @@ const HomeContainer = styled.div`
 const ContentContainer = styled.div`
   ${tw`
       md:w-[987px]
+      max-md:w-full
+      max-md:pb-20
+      z-10
     `}
 `
 
@@ -32,8 +35,8 @@ const VideoContainer = styled.div`
       justify-center
       items-center
       max-md:px-6
-      max-md:pb-8
-      md:pb-2
+      md:pb-12
+      pb-8
     `}
 `
 const HeroTextContainer = styled.div`
@@ -44,14 +47,16 @@ const HeroTextContainer = styled.div`
       items-center
       gap-12
       pb-16
+      max-md:px-6
     `}
 `
 
 const HeroText = styled.div`
   ${tw`
-      text-cimc-hero
+      md:text-cimc-hero
       md:w-[732px]
       text-center
+      text-cimc-hero-small
     `}
 `
 
@@ -65,7 +70,6 @@ const ForwardContainer = styled.div`
       max-md:pb-8
       md:pb-2
       gap-10
-      py-10
     `}
 `
 

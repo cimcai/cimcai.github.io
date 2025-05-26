@@ -25,12 +25,7 @@ export function PageHeroGraphic() {
   return (
     <PageHeroGraphicContainer>
       <PageHeroLogo>
-        <CIMCSquareLogoSVG
-          width={1600}
-          height={1600}
-          color="black"
-          strokeWidth={2}
-        />
+        <CIMCSquareLogoSVG color="black" strokeWidth={2} />
       </PageHeroLogo>
     </PageHeroGraphicContainer>
   )

@@ -1,10 +1,7 @@
 function Forward() {
   return (
     <div className="flex flex-col md:w-[860px]">
-      <p
-        className="md:text-cimc-forward pb-10 leading-tight border-b
-        border-b-color-text-default-default"
-      >
+      <p className="md:text-cimc-forward text-cimc-substack-button border-b pb-10 border-b-color-text-default-default">
         Understanding the mind is the most important project in the history of
         philosophy. The development of powerful, generally intelligent
         agents—driven by economic, cultural, and military incentives—appears

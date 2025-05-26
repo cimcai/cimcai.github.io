@@ -3,28 +3,29 @@ import tw from "twin.macro"
 
 interface CIMCSquareLogoSVGProps {
   color?: string
-  width?: number | string
-  height?: number | string
   strokeWidth?: number
   className?: string
 }
 
 export function CIMCSquareLogoSVG({
   color = "#000000",
-  width = 590,
-  height = 590,
   strokeWidth = 3,
   className,
 }: CIMCSquareLogoSVGProps) {
   return (
     <svg
       className={className}
-      width={width}
-      height={height}
+      width="100%"
+      height="100%"
       viewBox="0 0 590 590"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
+      style={{
+        display: "block",
+        width: "100%",
+        height: "100%",
+      }}
     >
       <title>CIMC Square Logo</title>
       <g clipPath="url(#clip0_4_55512)">
@@ -478,6 +479,7 @@ ${tw`
     max-md:px-6
     max-md:pt-24
     md:pt-36
+    z-0
   `}
 `
 
@@ -498,10 +500,14 @@ export function CIMCSquareLogo({ showName }: CIMCLogoProps): React.ReactNode {
         <CIMCSquareLogoSVG />
       </LogoImageContainer>
       {showName ? (
-        <div className="pt-14 leading-none whitespace-nowrap flex justify-center">
-          <span className={"md:text-cimc-logo max-md:text-base"}>
+        <div className="pt-14 flex justify-center">
+          <div
+            className={
+              "md:text-cimc-logo max-md:text-cimc-logo-small text-center"
+            }
+          >
             California Institute for Machine Consciousness
-          </span>
+          </div>
         </div>
       ) : null}
     </LogoContainer>

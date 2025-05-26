@@ -3,20 +3,29 @@ import tw from "twin.macro"
 import { CIMCSquareLogoSVG } from "../components/CIMCSquareLogo"
 
 const SubstackSectionContainer = styled.section`
-  ${tw`w-full min-h-[900px] flex items-center bg-white`}
+  ${tw`w-full md:min-h-[900px] min-h-[667px] flex md:flex-row flex-col items-center bg-white`}
 `
 const SubstackLogoCol = styled.div`
-  ${tw`h-full flex relative min-w-0 flex-1`}
-  max-width: 50%;
+  ${tw`h-full w-full max-md:w-full flex relative md:flex-1 md:max-w-[50%]`}
+  ;
+  @media (max-width: 768px) {
+    position: relative;
+    height: 375px;
+    overflow: hidden;
+  }
 `
 const SubstackLogoWrapper = styled.div`
-  ${tw`h-full flex items-center absolute left-0 top-1/2`}
-  transform: translate(-50%, -50%);
-  z-index: 0;
+  ${tw`md:h-[845px] md:w-[845px] flex items-center absolute`}
+  @media (min-width: 768px) {
+    transform: translate(-50%, -50%);
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    transform: translate(0%, -50%);
+  }
 `
 const SubstackContentCol = styled.div`
   ${tw`flex flex-col items-center justify-center h-full`}
-  flex: 2;
 `
 const SubstackTitle = styled.h2`
   ${tw`text-cimc-substack text-center`}
@@ -46,7 +55,7 @@ export function SubstackSection() {
     <SubstackSectionContainer>
       <SubstackLogoCol>
         <SubstackLogoWrapper>
-          <CIMCSquareLogoSVG width={845} height={845} />
+          <CIMCSquareLogoSVG />
         </SubstackLogoWrapper>
       </SubstackLogoCol>
       <SubstackContentCol>

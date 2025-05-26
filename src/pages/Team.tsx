@@ -97,6 +97,7 @@ const ProfileDesc = styled.div`
     text-cimc-helvetica-smaller
     mt-4
     mb-6
+    min-h-16
   `}
 `
 
@@ -108,6 +109,7 @@ const ProfileLinks = styled.div`
 type TeamMember = {
   name: string
   job?: string
+  description?: string
   institution?: string
   institutionUrl?: string
   portraitUrl: string
@@ -132,9 +134,8 @@ const ProfileList = ({
             {member.job && <ProfileJob>{member.job}</ProfileJob>}
 
             <ProfileDesc>
-              Ipsum adipisicing culpa est nisi consequat ex amet magna culpa
-              veniam tempor inure ea. Reprehenderit labore do tempor eiusmod in
-              consectetur ex sunt id mollit commodo ipsum deserunt quis.
+              {member.description ||
+                "Ipsum adipisicing culpa est nisi consequat ex amet magna culpa veniam tempor inure ea. Reprehenderit labore do tempor eiusmod in consectetur ex sunt id mollit commodo ipsum deserunt quis."}
             </ProfileDesc>
             <ProfileLinks>
               {member.institutionUrl && member.institution ? (

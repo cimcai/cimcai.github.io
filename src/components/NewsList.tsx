@@ -7,14 +7,12 @@ const NewsListContainer = styled.div`
 `
 
 const NewsItem = styled.div`
-  ${tw`flex flex-col md:flex-row gap-8 w-full`}
+  ${tw`flex flex-col md:flex-row gap-8 w-full items-center`}
 `
 const NewsImage = styled.img`
-  ${tw`w-full md:w-[400px] h-[400px] object-cover bg-gray-100 rounded`}
+  ${tw`w-full md:w-[400px] md:h-[400px] object-cover bg-gray-100 rounded`}
   min-width: 320px;
-  max-width: 400px;
   min-height: 320px;
-  max-height: 400px;
 `
 const NewsContent = styled.div`
   ${tw`flex flex-col flex-1 justify-center`}

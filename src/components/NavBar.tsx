@@ -31,7 +31,7 @@ const NavbarContainer = styled.div.withConfig({
       max-md:py-6
       bg-white/90
       bg-opacity-90
-      z-10
+      z-20
   `}
   ${({ isOpen }) =>
     isOpen &&

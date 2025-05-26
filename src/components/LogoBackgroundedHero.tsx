@@ -4,7 +4,9 @@ import { CIMCSquareLogoSVG } from "./CIMCSquareLogo"
 
 const LogoBGHeroContainer = styled.div`
   ${tw`
-    my-10
+    md:my-10
+    max-md:mt-6
+    max-md:mb-12
     flex
     max-w-[860px]
     py-20
@@ -16,18 +18,23 @@ const LogoBGHeroContainer = styled.div`
 
 const HeadingText = styled.div`
   ${tw`
-    text-cimc-hero
+    md:text-cimc-hero
     max-w-[860px]
+    max-md:h-[88px]
     text-justify
-    [letter-spacing: 4.48px]
+    text-[21px]
+    md:[letter-spacing: 4.48px]
+    [letter-spacing: 1.68px]
   `}
 `
 
 const BackgroundContainer = styled.div`
   ${tw`
     absolute
-    w-[428px]
-    h-[428px]
+    md:w-[428px]
+    md:h-[428px]
+    w-[280px]
+    h-[280px]
     opacity-25
   `}
 `

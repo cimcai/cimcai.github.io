@@ -194,15 +194,37 @@ export default {
             letterSpacing: "-1.08px",
           },
         ],
+        "cimc-logo-small": [
+          "32px",
+          {
+            color: "#181D27",
+            fontFamily: "Questrial",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "105%",
+            letterSpacing: "-0.96px",
+          },
+        ],
         "cimc-logo": [
           "40px",
           {
+            color: "#181D27",
             fontFamily: "Questrial",
             fontStyle: "normal",
+            fontWeight: "400",
             lineHeight: "105%",
             letterSpacing: "-1.2px",
-            fontWeight: "400",
+          },
+        ],
+        "cimc-hero-small": [
+          "36px",
+          {
             color: "#181D27",
+            fontFamily: "Questrial",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "105%",
+            letterSpacing: "-1.44px",
           },
         ],
         "cimc-substack": [
@@ -222,7 +244,6 @@ export default {
           {
             color: "#181D27",
             fontFamily: "Questrial",
-            fontSize: "44px",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -234,7 +255,6 @@ export default {
           {
             color: "#181D27",
             fontFamily: "Questrial",
-            fontSize: "56px",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%" /* 58.8px */,
