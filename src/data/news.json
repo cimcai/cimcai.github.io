@@ -1,16 +1,17 @@
 [
   {
+    "backgroundColor": "#00139A",
+    "pictureUrl": "https://i0.wp.com/agi-conf.org/2025/wp-content/uploads/2024/06/7f025b5091876de7ad0c7fd8cfe15637.png",
+    "title": "AGI-25: The 18th Annual AGI Conference",
+    "date": "August 10 – 13, 2025",
+    "description": "The frontier of mind and machine is closer than ever. Join the world’s leading researchers at AGI-25, where ideas, architectures, and insights collide to advance the future of thinking machines.",
+    "linkUrl": "https://agi-conf.org/2025/"
+  },
+  {
     "pictureUrl": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,background=white,quality=75,width=400,height=400/event-covers/eu/8489020f-2c48-4074-8fb7-766d81e078f9.png",
     "title": "Conscious AI Meetup: Persona and personality of AI models",
     "date": "Thursday, May 22, 2025",
     "description": "​What is the nature of personality, and how can we instill personality into AI models? Can we use machine psychology to deduce more about human personality? How does personality relate to emotion and motivation? Roshni Lulla, Janus and Joscha Bach will present some of their work and thoughts on the topic.",
     "linkUrl": "https://lu.ma/eb9h7v6c?tk=BrXuvo"
-  },
-  {
-    "pictureUrl": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=1,background=white,quality=75,width=400,height=400/event-covers/d6/a3e1c07a-00b1-448a-b17b-d1a5ead978c4.png",
-    "title": "Conscious AI Meetup: AI and Existential Hope",
-    "date": "Thursday, May 15, 2025",
-    "description": "​Past technological revolutions have led to human progress and increased well-being, but also to disruption, fear and existential dread. The AI revolution moves with a speed and potential for change that seems unprecedented. Will AI obliterate human agency? Tear down the economic, ecological, social and cultural foundations of our societies? Will it wipe out life on Earth to replace it with a dead machine world?",
-    "linkUrl": "https://lu.ma/e10jlaj7?tk=wkdWVo"
   }
 ]

@@ -5,7 +5,7 @@
       "teamMembers": [
         {
           "name": "Joscha Bach",
-          "job": "Director",
+          "job": "Executive Director, Board Chairman",
           "description": "",
           "institution": "bach.ai",
           "institutionUrl": "http://bach.ai/",
@@ -15,7 +15,7 @@
         },
         {
           "name": "Erik Newton",
-          "job": "President",
+          "job": "President, Board Member",
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/newtonlaw",
@@ -24,12 +24,21 @@
         },
         {
           "name": "Lou de K",
-          "job": "VP of Programs",
+          "job": "VP of Programs, Board Member",
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/louviq",
           "linkedInUrl": "",
           "portraitUrl": "/portraitLou.jpg"
+        },
+        {
+          "name": "Zhen Tan",
+          "job": "Secretary, Board Member",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "https://x.com/zhen9436",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitZhen.jpg"
         },
         {
           "name": "Franz Hildebrandt-Harangozó",
@@ -39,15 +48,6 @@
           "xUrl": "https://x.com/franz_hiha",
           "linkedInUrl": "",
           "portraitUrl": "/portraitFranz.jpg"
-        },
-        {
-          "name": "Zhen Tan",
-          "job": "Engineer",
-          "description": "",
-          "institutionUrl": "",
-          "xUrl": "https://x.com/zhen9436",
-          "linkedInUrl": "",
-          "portraitUrl": "/portraitZhen.jpg"
         },
         {
           "name": "Hikari Sorensen",
@@ -89,7 +89,7 @@
           "description": "",
           "institution": "The Levin Lab",
           "institutionUrl": "https://drmichaellevin.org",
-          "xUrl": "",
+          "xUrl": "https://x.com/drmichaellevin",
           "linkedInUrl": "",
           "portraitUrl": "/portraitLevin.jpg"
         },
@@ -99,74 +99,38 @@
           "description": "",
           "institution": "Wolfram Research",
           "institutionUrl": "https://www.stephenwolfram.com",
-          "xUrl": "",
+          "xUrl": "https://x.com/stephen_wolfram",
           "linkedInUrl": "",
           "portraitUrl": "/portraitWolfram.jpg"
         }
       ]
     },
     {
-      "teamName": "Board of Directors",
+      "teamName": "Oversight",
       "teamMembers": [
         {
-          "name": "Joscha Bach",
-          "job": "Chairman",
-          "description": "",
-          "institution": "bach.ai",
-          "institutionUrl": "http://bach.ai/",
-          "xUrl": "https://x.com/Plinz",
-          "linkedInUrl": "",
-          "portraitUrl": "/portraitJoscha.jpg"
-        },
-        {
-          "name": "Erik Newton",
-          "job": "Director",
-          "description": "",
-          "institutionUrl": "",
-          "xUrl": "https://x.com/newtonlaw",
-          "linkedInUrl": "",
-          "portraitUrl": "/portraitErik.jpg"
-        },
-        {
           "name": "Jim O’Neill",
-          "job": "Director",
+          "job": "Board Member",
           "description": "",
-          "institutionUrl": "",
-          "xUrl": "",
+          "institution": "Santa Fe Institute",
+          "institutionUrl": "https://www.santafe.edu/people/profile/jim-rutt",
+          "xUrl": "https://x.com/jim_rutt",
           "linkedInUrl": "",
           "portraitUrl": "/portraitJim.jpg"
         },
         {
           "name": "Philip Rosedale",
-          "job": "Director",
+          "job": "Board Member",
           "description": "",
           "institution": "www.rosedales.com",
           "institutionUrl": "https://www.rosedales.com/philip",
           "xUrl": "https://x.com/philiprosedale",
-          "linkedInUrl": "https://www.linkedin.com/in/philiprosedale",
+          "linkedInUrl": "",
           "portraitUrl": "/portraitPhilip.jpg"
         },
         {
-          "name": "Zhen Tan",
-          "job": "Director",
-          "description": "",
-          "institutionUrl": "",
-          "xUrl": "https://x.com/zhen9436",
-          "linkedInUrl": "",
-          "portraitUrl": "/portraitZhen.jpg"
-        },
-        {
-          "name": "Lou de Kerhuelvez",
-          "job": "Director",
-          "description": "",
-          "institutionUrl": "",
-          "xUrl": "https://x.com/louviq",
-          "linkedInUrl": "",
-          "portraitUrl": "/portraitLou.jpg"
-        },
-        {
           "name": "Kirill Eves",
-          "job": "Director",
+          "job": "Board Member",
           "description": "",
           "institutionUrl": "",
           "xUrl": "",
@@ -175,7 +139,7 @@
         },
         {
           "name": "Christine Peterson",
-          "job": "Observer",
+          "job": "Board Observer",
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/lifeext",
@@ -190,39 +154,42 @@
         {
           "name": "Jim Rutt",
           "description": "",
-          "institutionUrl": "",
-          "xUrl": "",
-          "linkedInUrl": "",
+          "institution": "Santa Fe Institute",
+          "institutionUrl": "https://www.santafe.edu/people/profile/jim-rutt",
+          "xUrl": "https://x.com/jim_rutt",
           "portraitUrl": "/portraitJimRutt.jpg"
         },
         {
           "name": "Allison Duettmann",
           "description": "",
-          "institutionUrl": "",
-          "xUrl": "",
-          "linkedInUrl": "",
+          "institution": "Foresight Institute",
+          "institutionUrl": "https://foresight.org",
+          "xUrl": "https://x.com/allisondman",
           "portraitUrl": "/portraitAllison.jpg"
         },
         {
           "name": "Dan Girshovich",
           "description": "",
-          "institutionUrl": "",
-          "xUrl": "",
-          "linkedInUrl": "",
+          "institution": "Tools for Humanity",
+          "institutionUrl": "https://www.toolsforhumanity.com",
+          "xUrl": "https://x.com/dangirsh",
           "portraitUrl": "/portraitDan.jpg"
         },
         {
           "name": "Era Qian",
           "description": "",
-          "institutionUrl": "",
+          "institution": "Edge",
+          "institutionUrl": "https://edgeintelligence.xyz/",
           "xUrl": "https://x.com/eraqian",
           "linkedInUrl": "",
           "portraitUrl": "/portraitEra.jpg"
         },
         {
           "name": "Adam Brown",
+          "job": "",
           "description": "",
-          "institutionUrl": "",
+          "institution": "The Institute",
+          "institutionUrl": "https://www.theinstitute.com/fellow/adam-brown",
           "xUrl": "",
           "linkedInUrl": "",
           "portraitUrl": "/portraitAdam.jpg"

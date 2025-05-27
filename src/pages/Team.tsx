@@ -112,6 +112,8 @@ type TeamMember = {
   description?: string
   institution?: string
   institutionUrl?: string
+  linkedInUrl?: string
+  xUrl?: string
   portraitUrl: string
 }
 
@@ -133,10 +135,7 @@ const ProfileList = ({
             <ProfileName>{member.name}</ProfileName>
             {member.job && <ProfileJob>{member.job}</ProfileJob>}
 
-            <ProfileDesc>
-              {member.description ||
-                "Ipsum adipisicing culpa est nisi consequat ex amet magna culpa veniam tempor inure ea. Reprehenderit labore do tempor eiusmod in consectetur ex sunt id mollit commodo ipsum deserunt quis."}
-            </ProfileDesc>
+            <ProfileDesc>{member.description}</ProfileDesc>
             <ProfileLinks>
               {member.institutionUrl && member.institution ? (
                 <ProfileInstitution
@@ -154,22 +153,26 @@ const ProfileList = ({
                 <div />
               )}
               <div className="flex flex-row gap-4">
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedInIcon />
-                </a>
-                <a
-                  href="https://x.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X"
-                >
-                  <XIcon />
-                </a>
+                {member.linkedInUrl && (
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedInIcon />
+                  </a>
+                )}
+                {member.xUrl && (
+                  <a
+                    href="https://x.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X"
+                  >
+                    <XIcon />
+                  </a>
+                )}
               </div>
             </ProfileLinks>
           </ProfileInfo>
