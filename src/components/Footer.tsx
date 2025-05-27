@@ -4,6 +4,7 @@ import tw from "twin.macro"
 import { routes } from "../App"
 import { CIMCLogo } from "./CIMCLogo"
 import LinkedInIcon from "./icons/LinkedInIcon"
+import LumaIcon from "./icons/LumaIcon"
 import XIcon from "./icons/XIcon"
 import YouTubeIcon from "./icons/YouTubeIcon"
 
@@ -71,7 +72,7 @@ function Footer() {
                 <XIcon />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@JoschaBach"
                 aria-label="YouTube"
                 title="YouTube"
                 className="hover:opacity-80"
@@ -79,12 +80,20 @@ function Footer() {
                 <YouTubeIcon />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/cimc-ai"
                 aria-label="LinkedIn"
                 title="LinkedIn"
                 className="hover:opacity-80"
               >
                 <LinkedInIcon />
+              </a>
+              <a
+                href="https://lu.ma/cimc"
+                aria-label="Luma"
+                title="Luma"
+                className="hover:opacity-80"
+              >
+                <LumaIcon />
               </a>
             </SocialRow>
           </FooterCol>
