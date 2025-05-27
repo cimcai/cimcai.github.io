@@ -118,9 +118,9 @@ function Footer() {
                 <div className="text-white/60 text-sm">
                   CIMC
                   <br />
-                  Street xyz,C
+                  1388 Haight Street
                   <br />
-                  San FranciscoC
+                  San Francisco, CA 94122
                   <br />
                 </div>
               </div>
