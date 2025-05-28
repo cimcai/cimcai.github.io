@@ -7,7 +7,7 @@ import tw from "twin.macro"
 const BannerContainer = styled.div`
   ${tw`
       flex-col
-      pt-16
+      pt-24
     `}
 `
 

@@ -2,11 +2,9 @@ import { type RefObject, createRef } from "react"
 import { Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
-import Contact from "./pages/Contact"
 import Home from "./pages/Home"
 import Library from "./pages/Library"
 import Mission from "./pages/Mission"
-import Projects from "./pages/Projects"
 import ResearchProposals from "./pages/Proposals"
 import Team from "./pages/Team"
 
@@ -31,7 +29,7 @@ export const routes: CIMCRoutes[] = [
     nodeRef: createRef(),
   },
   {
-    path: "/research",
+    path: "/proposals",
     name: "Research",
     element: <ResearchProposals />,
     nodeRef: createRef(),

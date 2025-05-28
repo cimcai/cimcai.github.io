@@ -1,5 +1,9 @@
 import styled from "styled-components"
 import tw, { theme } from "twin.macro"
+import { PageHeroGraphic } from "../components/PageHeroGraphic"
+import LinkIcon from "../components/icons/LinkIcon"
+import LinkedInIcon from "../components/icons/LinkedInIcon"
+import XIcon from "../components/icons/XIcon"
 import profilesData from "../data/profiles.json"
 
 const TeamContainer = styled.div`
@@ -9,142 +13,191 @@ const TeamContainer = styled.div`
       selection:text-black
       selection:bg-gray-500
       flex
+      flex-col
+      items-center
       justify-center
-      max-md:px-6
-      pt-16
-      pb-40
+      pt-24
     `}
   color: ${theme`colors.cimc_dark`};
 `
 
-const ProfileContainer = styled.div`
+const TeamLayout = styled.div`
   ${tw`
-      pb-4
-      leading-tight
+      md:w-[1024px]
+      max-md:px-6
+    `}
+`
+const TeamName = styled.p`
+  ${tw`
+      text-cimc-helvetica-large
+      mb-8
     `}
 `
 
-interface AdvisorProfileData {
+const ProfileListGrid = styled.div`
+  ${tw`
+    grid
+    md:grid-cols-2
+    grid-cols-1
+    gap-x-20
+    gap-y-16
+    mb-28
+  `}
+`
+
+const ProfileCard = styled.div`
+  ${tw`
+    flex
+    flex-row
+    gap-6
+    items-center
+    mb-[22px]
+  `}
+`
+
+const Portrait = styled.img`
+  ${tw`
+    w-[160px]
+    h-[220px]
+    object-cover
+    rounded
+    flex-shrink-0
+  `}
+`
+
+const ProfileInfo = styled.div`
+  ${tw`
+    flex flex-col flex-1 min-w-0`}
+`
+
+const ProfileName = styled.div`
+  ${tw`
+    text-cimc-large
+    mb-[6px]
+  `}
+`
+
+const ProfileJob = styled.div`
+  ${tw`
+    text-cimc-helvetica-smaller
+  `}
+  color: rgba(24, 29, 39, 0.70);
+`
+
+const ProfileInstitution = styled.a`
+  ${tw`
+    text-cimc-helvetica-smaller
+    underline
+  `}
+  color: rgba(24, 29, 39, 0.70);
+`
+
+const ProfileDesc = styled.div`
+  ${tw`
+    text-cimc-helvetica-smaller
+    mt-4
+    mb-6
+    min-h-16
+  `}
+`
+
+const ProfileLinks = styled.div`
+  ${tw`
+    flex flex-row gap-4 justify-between`}
+`
+
+type TeamMember = {
   name: string
-  job: string
-  institution: string
-  institutionUrl: string
+  job?: string
+  description?: string
+  institution?: string
+  institutionUrl?: string
+  linkedInUrl?: string
+  xUrl?: string
   portraitUrl: string
 }
 
-interface AdvisorProfileProps {
-  profileData: AdvisorProfileData
-}
+// ProfileList component
+const ProfileList = ({
+  teamName,
+  teamMembers,
+}: { teamName: string; teamMembers: TeamMember[] }) => (
+  <div>
+    <TeamName>{teamName}</TeamName>
+    <ProfileListGrid>
+      {teamMembers.map((member) => (
+        <ProfileCard key={member.name}>
+          <Portrait
+            src={member.portraitUrl.replace("./", "/public/")}
+            alt={member.name}
+          />
+          <ProfileInfo>
+            <ProfileName>{member.name}</ProfileName>
+            {member.job && <ProfileJob>{member.job}</ProfileJob>}
 
-const AdvisorProfile: React.FC<
-  AdvisorProfileProps & React.RefAttributes<HTMLAnchorElement>
-> = ({ profileData }) => {
-  const { name, job, institution, institutionUrl, portraitUrl } = profileData
-  return (
-    <ProfileContainer>
-      <img
-        src={portraitUrl}
-        alt={`${name} Portrait`}
-        className="flex rounded py-2 h-56"
-      />
-      <p className="text-cimc-heading">{name}</p>
-      <p className="text-cimc-standard">{job}</p>
-      <a href={institutionUrl}>
-        <p className="text-cimc-standard underline underline-offset-2">
-          {institution}
-        </p>
-      </a>
-    </ProfileContainer>
-  )
-}
-
-interface AdvisorProfileColumnProps {
-  columnCellsData: AdvisorProfileData[]
-}
-
-const AdvisorProfileColumn: React.FC<AdvisorProfileColumnProps> = ({
-  columnCellsData,
-}) => {
-  return (
-    <div className={"flex-1 py-4 md:w-1/2"}>
-      {columnCellsData.map((profileData) => {
-        return (
-          <AdvisorProfile key={profileData.name} profileData={profileData} />
-        )
-      })}
-    </div>
-  )
-}
+            <ProfileDesc>{member.description}</ProfileDesc>
+            <ProfileLinks>
+              {member.institutionUrl && member.institution ? (
+                <ProfileInstitution
+                  href={member.institutionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Website"
+                >
+                  <div className="flex items-center gap-1">
+                    <LinkIcon />
+                    {member.institution}
+                  </div>
+                </ProfileInstitution>
+              ) : (
+                <div />
+              )}
+              <div className="flex flex-row gap-4">
+                {member.linkedInUrl && (
+                  <a
+                    target="_blank"
+                    href={member.linkedInUrl}
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedInIcon />
+                  </a>
+                )}
+                {member.xUrl && (
+                  <a
+                    target="_blank"
+                    href={member.xUrl}
+                    rel="noopener noreferrer"
+                    aria-label="X"
+                  >
+                    <XIcon />
+                  </a>
+                )}
+              </div>
+            </ProfileLinks>
+          </ProfileInfo>
+        </ProfileCard>
+      ))}
+    </ProfileListGrid>
+  </div>
+)
 
 const Team = () => {
   return (
-    <>
-      <TeamContainer id="team">
-        <div className="md:w-[729px]">
-          <p className="text-cimc-subheading py-4">Core Team</p>
-          <p className="text-cimc-heading leading-tight">
-            <div className="md:flex">
-              <div className="flex-1 md:w-1/2 pb-4">
-                <img
-                  src="/portraitJoscha.jpg"
-                  alt="Joscha Portrait"
-                  className="flex rounded py-2 h-56"
-                />
-                Joscha Bach
-                <p className="text-cimc-standard">Director</p>
-              </div>
-              <div className="flex-1 md:w-1/2 pb-4">
-                <img
-                  src="/portraitErik.jpg"
-                  alt="Erik Newton"
-                  className="flex rounded py-2 h-56"
-                />
-                Erik Newton
-                <p className="text-cimc-standard">President</p>
-              </div>
-            </div>
-          </p>
-          <p className="text-cimc-subheading">Scientific Advisors</p>
-          <div className="md:flex">
-            <AdvisorProfileColumn columnCellsData={profilesData.slice(0, 2)} />
-            <AdvisorProfileColumn columnCellsData={profilesData.slice(-2)} />
+    <TeamContainer id="team">
+      <PageHeroGraphic />
+      <TeamLayout>
+        <p className="text-cimc-hero mb-16">Team</p>
+        {profilesData.teams.map((team) => (
+          <div key={team.teamName}>
+            <ProfileList
+              teamName={team.teamName}
+              teamMembers={team.teamMembers}
+            />
           </div>
-
-          <p className="text-cimc-standard leading-normal pt-4">
-            <p className="text-cimc-heading pb-2">Board of Directors</p>
-            Joscha Bach
-            <br />
-            Erik Newton
-            <br />
-            Jim O’Neill
-            <br />
-            Philip Rosedale
-            <br />
-            Zhen Tan
-            <br />
-            Lou de Kerhuelvez
-            <br />
-            Kirill Eves
-            <br />
-            Christine Peterson — Observer
-            <br />
-            <br />
-            <p className="text-cimc-heading pb-2">Organizational Advisors</p>
-            Jim Rutt
-            <br />
-            Allison Duettmann
-            <br />
-            Dan Girshovich
-            <br />
-            Franz Hildebrandt-Harangozó
-            <br />
-            Era Qian
-            <br />
-            Adam Brown
-          </p>
-        </div>
-      </TeamContainer>
-    </>
+        ))}
+      </TeamLayout>
+    </TeamContainer>
   )
 }
 

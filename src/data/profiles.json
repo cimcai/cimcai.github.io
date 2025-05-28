@@ -1,30 +1,200 @@
-[
-  {
-    "name": "Karl Friston",
-    "job": "Neuroscientist",
-    "institution": "University College London",
-    "institutionUrl": "https://profiles.ucl.ac.uk/2747-karl-friston",
-    "portraitUrl": "./portraitFriston.jpg"
-  },
-  {
-    "name": "Michael Levin",
-    "job": "Biologist",
-    "institution": "The Levin Lab",
-    "institutionUrl": "https://drmichaellevin.org",
-    "portraitUrl": "./portraitLevin.jpg"
-  },
-  {
-    "name": "Christoph v. d. Malsburg",
-    "job": "Neuroscientist/Physicist",
-    "institution": "Frankfurt Institute for Advanced Studies",
-    "institutionUrl": "https://www.izn-frankfurt.de/mitglied/malsburg",
-    "portraitUrl": "./portraitMalsburg.jpg"
-  },
-  {
-    "name": "Stephen Wolfram",
-    "job": "Computer Scientist/Physicist/Mathematician",
-    "institution": "Wolfram Research",
-    "institutionUrl": "https://www.stephenwolfram.com",
-    "portraitUrl": "./portraitWolfram.jpg"
-  }
-]
+{
+  "teams": [
+    {
+      "teamName": "Core Team",
+      "teamMembers": [
+        {
+          "name": "Joscha Bach",
+          "job": "Executive Director, Board Chairman",
+          "description": "",
+          "institution": "bach.ai",
+          "institutionUrl": "http://bach.ai",
+          "xUrl": "https://x.com/Plinz",
+          "linkedInUrl": "https://www.linkedin.com/in/joschabach",
+          "portraitUrl": "/portraitJoscha.jpg"
+        },
+        {
+          "name": "Erik Newton",
+          "job": "President, Board Member",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "https://x.com/newtonlaw",
+          "linkedInUrl": "https://www.linkedin.com/in/erikwnewton",
+          "portraitUrl": "/portraitErik.jpg"
+        },
+        {
+          "name": "Lou de K",
+          "job": "VP of Programs, Board Member",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "https://x.com/louviq",
+          "linkedInUrl": "https://www.linkedin.com/in/louviq",
+          "portraitUrl": "/portraitLou.jpg"
+        },
+        {
+          "name": "Zhen Tan",
+          "job": "Secretary, Board Member",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "https://x.com/zhen9436",
+          "linkedInUrl": "https://www.linkedin.com/in/zhentan",
+          "portraitUrl": "/portraitZhen.jpg"
+        },
+        {
+          "name": "Franz Hildebrandt-Harangozó",
+          "job": "Philosopher",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "https://x.com/franz_hiha",
+          "linkedInUrl": "https://www.linkedin.com/in/franz-hildebrandt-harangoz%C3%B3-b100a2170",
+          "portraitUrl": "/portraitFranz.jpg"
+        },
+        {
+          "name": "Hikari Sorensen",
+          "job": "Researcher",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/hikarisorensen",
+          "portraitUrl": "/portraitHikari.jpg"
+        }
+      ]
+    },
+    {
+      "teamName": "Scientific Advisors",
+      "teamMembers": [
+        {
+          "name": "Karl Friston",
+          "job": "Neuroscientist",
+          "description": "",
+          "institution": "University College London",
+          "institutionUrl": "https://profiles.ucl.ac.uk/2747-karl-friston",
+          "xUrl": "",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitFriston.jpg"
+        },
+        {
+          "name": "Christoph v. d. Malsburg",
+          "job": "Neuroscientist/Physicist",
+          "description": "",
+          "institution": "Frankfurt Institute for Advanced Studies",
+          "institutionUrl": "https://www.izn-frankfurt.de/mitglied/malsburg",
+          "xUrl": "",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitMalsburg.jpg"
+        },
+        {
+          "name": "Michael Levin",
+          "job": "Biologist",
+          "description": "",
+          "institution": "The Levin Lab",
+          "institutionUrl": "https://drmichaellevin.org",
+          "xUrl": "https://x.com/drmichaellevin",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitLevin.jpg"
+        },
+        {
+          "name": "Stephen Wolfram",
+          "job": "Computer Scientist/Physicist/Mathematician",
+          "description": "",
+          "institution": "Wolfram Research",
+          "institutionUrl": "https://www.stephenwolfram.com",
+          "xUrl": "https://x.com/stephen_wolfram",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitWolfram.jpg"
+        }
+      ]
+    },
+    {
+      "teamName": "Oversight",
+      "teamMembers": [
+        {
+          "name": "Jim O’Neill",
+          "job": "Board Member",
+          "description": "",
+          "institution": "Thiel Fellowship",
+          "institutionUrl": "https://thielfellowship.org",
+          "xUrl": "https://x.com/regardthefrost",
+          "linkedInUrl": "https://www.linkedin.com/in/jim-o-neill-5703138",
+          "portraitUrl": "/portraitJim.jpg"
+        },
+        {
+          "name": "Philip Rosedale",
+          "job": "Board Member",
+          "description": "",
+          "institution": "www.rosedales.com",
+          "institutionUrl": "https://www.rosedales.com/philip",
+          "xUrl": "https://x.com/philiprosedale",
+          "linkedInUrl": "https://www.linkedin.com/in/philiprosedale",
+          "portraitUrl": "/portraitPhilip.jpg"
+        },
+        {
+          "name": "Kirill Eves",
+          "job": "Board Member",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitKirill.jpg"
+        },
+        {
+          "name": "Christine Peterson",
+          "job": "Board Observer",
+          "description": "",
+          "institutionUrl": "",
+          "xUrl": "https://x.com/lifeext",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitChristine.jpg"
+        }
+      ]
+    },
+    {
+      "teamName": "Organizational Advisors",
+      "teamMembers": [
+        {
+          "name": "Jim Rutt",
+          "description": "",
+          "institution": "Santa Fe Institute",
+          "institutionUrl": "https://www.santafe.edu/people/profile/jim-rutt",
+          "xUrl": "https://x.com/jim_rutt",
+          "portraitUrl": "/portraitJimRutt.jpg"
+        },
+        {
+          "name": "Allison Duettmann",
+          "description": "",
+          "institution": "Foresight Institute",
+          "institutionUrl": "https://foresight.org",
+          "xUrl": "https://x.com/allisondman",
+          "portraitUrl": "/portraitAllison.jpg"
+        },
+        {
+          "name": "Dan Girshovich",
+          "description": "",
+          "institution": "Tools for Humanity",
+          "institutionUrl": "https://www.toolsforhumanity.com",
+          "xUrl": "https://x.com/dangirsh",
+          "portraitUrl": "/portraitDan.jpg"
+        },
+        {
+          "name": "Era Qian",
+          "description": "",
+          "institution": "Edge",
+          "institutionUrl": "https://edgeintelligence.xyz/",
+          "xUrl": "https://x.com/eraqian",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitEra.jpg"
+        },
+        {
+          "name": "Adam Brown",
+          "job": "",
+          "description": "",
+          "institution": "The Institute",
+          "institutionUrl": "https://www.theinstitute.com/fellow/adam-brown",
+          "xUrl": "",
+          "linkedInUrl": "",
+          "portraitUrl": "/portraitAdam.jpg"
+        }
+      ]
+    }
+  ]
+}

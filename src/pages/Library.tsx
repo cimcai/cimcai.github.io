@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import tw from "twin.macro"
+import { PageHeroGraphic } from "../components/PageHeroGraphic"
 import linksData from "../data/links.json"
 
 interface LibraryCellProps {
@@ -104,21 +105,25 @@ const LibraryContainer = styled.div`
   bg-white
     text-cimc-standard
     flex
+    flex-col
+    items-center
+    justify-center
     md:justify-center
-    max-md:px-6
-    pt-16
+    pt-24
     pb-40
   `}
 `
 const LibrarySectionsContainer = styled.div`
   ${tw`
-    md:w-[729px]
+    md:w-[860px]
+    max-md:px-6
   `}
 `
 
 const Library = () => {
   return (
     <LibraryContainer id="library">
+      <PageHeroGraphic />
       <LibrarySectionsContainer>
         {linksData.map((linksData) => {
           const { topic, linkData } = linksData
