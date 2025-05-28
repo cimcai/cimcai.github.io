@@ -5,7 +5,8 @@
 @layer base {
   @font-face {
     font-family: Questrial;
-    src: local("Questrial"), url(./fonts/Questrial-Regular.woff2) format('woff2');
+    src: local("Questrial"), url(./fonts/Questrial-Regular.woff2)
+      format("woff2");
     font-style: normal;
     font-weight: 400;
     line-height: normal;
