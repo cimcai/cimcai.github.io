@@ -8,9 +8,9 @@
           "job": "Executive Director, Board Chairman",
           "description": "",
           "institution": "bach.ai",
-          "institutionUrl": "http://bach.ai/",
+          "institutionUrl": "http://bach.ai",
           "xUrl": "https://x.com/Plinz",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/joschabach",
           "portraitUrl": "/portraitJoscha.jpg"
         },
         {
@@ -19,7 +19,7 @@
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/newtonlaw",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/erikwnewton",
           "portraitUrl": "/portraitErik.jpg"
         },
         {
@@ -28,7 +28,7 @@
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/louviq",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/louviq",
           "portraitUrl": "/portraitLou.jpg"
         },
         {
@@ -37,7 +37,7 @@
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/zhen9436",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/zhentan",
           "portraitUrl": "/portraitZhen.jpg"
         },
         {
@@ -46,7 +46,7 @@
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/franz_hiha",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/franz-hildebrandt-harangoz%C3%B3-b100a2170",
           "portraitUrl": "/portraitFranz.jpg"
         },
         {
@@ -55,7 +55,7 @@
           "description": "",
           "institutionUrl": "",
           "xUrl": "",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/hikarisorensen",
           "portraitUrl": "/portraitHikari.jpg"
         }
       ]
@@ -112,10 +112,10 @@
           "name": "Jim O’Neill",
           "job": "Board Member",
           "description": "",
-          "institution": "Santa Fe Institute",
-          "institutionUrl": "https://www.santafe.edu/people/profile/jim-rutt",
-          "xUrl": "https://x.com/jim_rutt",
-          "linkedInUrl": "",
+          "institution": "Thiel Fellowship",
+          "institutionUrl": "https://thielfellowship.org",
+          "xUrl": "https://x.com/regardthefrost",
+          "linkedInUrl": "https://www.linkedin.com/in/jim-o-neill-5703138",
           "portraitUrl": "/portraitJim.jpg"
         },
         {
@@ -125,7 +125,7 @@
           "institution": "www.rosedales.com",
           "institutionUrl": "https://www.rosedales.com/philip",
           "xUrl": "https://x.com/philiprosedale",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/philiprosedale",
           "portraitUrl": "/portraitPhilip.jpg"
         },
         {

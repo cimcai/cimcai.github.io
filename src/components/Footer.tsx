@@ -64,34 +64,42 @@ function Footer() {
             <CIMCLogo color="white" />
             <SocialRow>
               <a
+                target="_blank"
                 href="https://x.com/CIMCAI"
                 aria-label="X"
                 title="X (Twitter)"
                 className="hover:opacity-80"
+                rel="noreferrer noopener"
               >
                 <XIcon />
               </a>
               <a
+                target="_blank"
                 href="https://www.youtube.com/@JoschaBach"
                 aria-label="YouTube"
                 title="YouTube"
                 className="hover:opacity-80"
+                rel="noreferrer"
               >
                 <YouTubeIcon />
               </a>
               <a
+                target="_blank"
                 href="https://www.linkedin.com/company/cimc-ai"
                 aria-label="LinkedIn"
                 title="LinkedIn"
                 className="hover:opacity-80"
+                rel="noreferrer"
               >
                 <LinkedInIcon />
               </a>
               <a
+                target="_blank"
                 href="https://lu.ma/cimc"
                 aria-label="Luma"
                 title="Luma"
                 className="hover:opacity-80"
+                rel="noreferrer"
               >
                 <LumaIcon />
               </a>
@@ -125,8 +133,6 @@ function Footer() {
               <div>
                 <div className="mb-1">Address:</div>
                 <div className="text-white/60 text-sm">
-                  CIMC
-                  <br />
                   1388 Haight Street
                   <br />
                   San Francisco, CA 94122
@@ -139,7 +145,7 @@ function Footer() {
         <FooterBottomRow>
           <FooterBottomContent>
             <div>© 2025 CIMC. All rights reserved.</div>
-            <a href="/terms" tw="hover:underline text-white/60">
+            <a href="/#" tw="hover:underline text-white/60">
               Terms and Conditions
             </a>
           </FooterBottomContent>

@@ -155,8 +155,8 @@ const ProfileList = ({
               <div className="flex flex-row gap-4">
                 {member.linkedInUrl && (
                   <a
-                    href="https://linkedin.com"
                     target="_blank"
+                    href={member.linkedInUrl}
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
                   >
@@ -165,8 +165,8 @@ const ProfileList = ({
                 )}
                 {member.xUrl && (
                   <a
-                    href="https://x.com"
                     target="_blank"
+                    href={member.xUrl}
                     rel="noopener noreferrer"
                     aria-label="X"
                   >
