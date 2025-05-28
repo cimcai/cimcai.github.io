@@ -60,7 +60,7 @@ export function SubstackSection() {
       </SubstackLogoCol>
       <SubstackContentCol>
         <SubstackTitle>SUBSTACK</SubstackTitle>
-        <SubstackDesc>Sign in to get the most out of CIMC.</SubstackDesc>
+        <SubstackDesc>Sign in to get updates about CIMC's work.</SubstackDesc>
         <SubstackButton href="https://cimcai.substack.com">
           Sign up
         </SubstackButton>
