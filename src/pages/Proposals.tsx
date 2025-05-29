@@ -203,7 +203,7 @@ function ResearchProposals() {
           <div id="proposals" className="w-full">
             <Header>
               <Title>Call for Research Proposals</Title>
-              <Subtitle>Application are reviewed on a rolling base</Subtitle>
+              <Subtitle>Application are reviewed on a rolling basis</Subtitle>
             </Header>
 
             <Section>

@@ -2,13 +2,12 @@ function Forward() {
   return (
     <div className="flex flex-col md:w-[860px]">
       <p className="md:text-cimc-forward text-cimc-substack-button border-b pb-10 border-b-color-text-default-default">
-        Understanding the mind is the most important project in the history of
-        philosophy. The development of powerful, generally intelligent
-        agents—driven by economic, cultural, and military incentives—appears
-        inevitable. Attempting to control highly advanced agentic systems far
-        more powerful than ourselves is unlikely to succeed. Our only viable
-        path may be to create AIs that are conscious, enabling them to
-        understand and share common ground with us.
+        The development of powerful, generally intelligent agents—driven by
+        economic, cultural, and military incentives—appears inevitable.
+        Attempting to control highly advanced agentic systems far more powerful
+        than ourselves is unlikely to succeed. Our only viable path may be to
+        create AIs that are conscious, enabling them to understand and share
+        common ground with us.
         <br />
         <br />
         Currently, the AIs we are building are powerful but unaware. These
