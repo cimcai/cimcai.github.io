@@ -75,7 +75,7 @@ function Footer() {
               </a>
               <a
                 target="_blank"
-                href="https://www.youtube.com/@JoschaBach"
+                href="https://www.youtube.com/@CIMCAIYT"
                 aria-label="YouTube"
                 title="YouTube"
                 className="hover:opacity-80"
@@ -145,7 +145,7 @@ function Footer() {
         <FooterBottomRow>
           <FooterBottomContent>
             <div>© 2025 CIMC. All rights reserved.</div>
-            <a href="/#" tw="hover:underline text-white/60">
+            <a href="/terms.html" className="hover:underline text-white/60">
               Terms and Conditions
             </a>
           </FooterBottomContent>

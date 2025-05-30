@@ -7,6 +7,7 @@ import Library from "./pages/Library"
 import Mission from "./pages/Mission"
 import ResearchProposals from "./pages/Proposals"
 import Team from "./pages/Team"
+import Terms from "./pages/Terms"
 
 export interface CIMCRoutes {
   path: string
