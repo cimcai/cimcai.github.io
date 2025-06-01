@@ -9,11 +9,11 @@ const NewsListContainer = styled.div`
 const NewsItem = styled.div`
   ${tw`flex flex-col md:flex-row gap-8 w-full items-center`}
 `
-const NewsImage = styled.img<{ backgroundColor?: string }>`
+const NewsImage = styled.img<{ $backgroundColor?: string }>`
   ${tw`w-full md:w-[400px] md:h-[400px] object-cover rounded`}
   min-width: 320px;
   min-height: 320px;
-  background-color: ${({ backgroundColor }) => backgroundColor || "#f3f4f6"};
+  background-color: ${({ $backgroundColor }) => $backgroundColor || "#f3f4f6"};
 `
 const NewsContent = styled.div`
   ${tw`flex flex-col flex-1 justify-center`}
@@ -42,7 +42,7 @@ export function NewsList() {
           <NewsImage
             src={item.pictureUrl}
             alt={item.title}
-            backgroundColor={item.backgroundColor}
+            $backgroundColor={item.backgroundColor}
           />
           <NewsContent>
             <NewsMeta>Explore</NewsMeta>
