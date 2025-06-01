@@ -5,7 +5,7 @@
       "teamMembers": [
         {
           "name": "Joscha Bach",
-          "job": "Executive Director, Board Chairman",
+          "job": "Executive Director, Board Member",
           "description": "",
           "institution": "bach.ai",
           "institutionUrl": "http://bach.ai",
@@ -109,6 +109,15 @@
       "teamName": "Oversight",
       "teamMembers": [
         {
+          "name": "Jim Rutt",
+          "job": "Board Chairman",
+          "description": "",
+          "institution": "Santa Fe Institute",
+          "institutionUrl": "https://www.santafe.edu/people/profile/jim-rutt",
+          "xUrl": "https://x.com/jim_rutt",
+          "portraitUrl": "/portraitJimRutt.jpg"
+        },
+        {
           "name": "Jim O’Neill",
           "job": "Board Member",
           "description": "",
@@ -151,14 +160,6 @@
     {
       "teamName": "Organizational Advisors",
       "teamMembers": [
-        {
-          "name": "Jim Rutt",
-          "description": "",
-          "institution": "Santa Fe Institute",
-          "institutionUrl": "https://www.santafe.edu/people/profile/jim-rutt",
-          "xUrl": "https://x.com/jim_rutt",
-          "portraitUrl": "/portraitJimRutt.jpg"
-        },
         {
           "name": "Allison Duettmann",
           "description": "",
