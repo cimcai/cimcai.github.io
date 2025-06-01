@@ -1,17 +1,25 @@
 [
   {
-    "pictureUrl": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/39/e2248fea-c57d-4a9a-81db-517a8bef62b6.png",
-    "title": "Conscious AI Meetup: What if we had bigger brains?",
-    "date": "Thursday, May 29, 2025",
-    "description": "As part of the inaugural event of the California Institute for Machine Consciousness, we present this special Machine Consciousness Salon in the Internet Archive! \n\nStephen Wolfram and Joscha Bach will discuss what it would be like to transcend the boundaries of our brains. Is there an upper limit to the useful size of biological brains? Why are elephants not smarter than humans? What representations and perceptions and thoughts became available to us if we were to translate our minds on computers? And if we are looking beyond the boundaries of planets, galaxies and particle filled spacetime continua, is there an effective limit to physical minds?",
-    "linkUrl": "https://lu.ma/a39cw3mg?tk=fL5hI9"
-  },
-  {
     "backgroundColor": "#00139A",
     "pictureUrl": "https://i0.wp.com/agi-conf.org/2025/wp-content/uploads/2024/06/7f025b5091876de7ad0c7fd8cfe15637.png",
     "title": "AGI-25: The 18th Annual AGI Conference",
     "date": "August 10 – 13, 2025",
     "description": "The frontier of mind and machine is closer than ever. Join the world’s leading researchers at AGI-25, where ideas, architectures, and insights collide to advance the future of thinking machines.",
     "linkUrl": "https://agi-conf.org/2025/"
+  },
+  {
+    "pictureUrl": "https://i.ytimg.com/vi/VDhan5Kd3ms/hqdefault.jpg",
+    "youtubeId": "VDhan5Kd3ms",
+    "title": "CIMC Machine Consciousness Salon: Existential Hope",
+    "date": "Thursday, May 15, 2025",
+    "description": "Past technological revolutions have led to human progress and increased well-being, but also to disruption, fear and existential dread. The AI revolution moves with a speed and potential for change that seems unprecedented. Will AI obliterate human agency? Tear down the economic, ecological, social and cultural foundations of our societies? Will it wipe out life on Earth to replace it with a dead machine world?",
+    "linkUrl": "https://lu.ma/e10jlaj7?tk=wkdWVo"
+  },
+  {
+    "pictureUrl": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/39/e2248fea-c57d-4a9a-81db-517a8bef62b6.png",
+    "title": "Conscious AI Meetup: What if we had bigger brains?",
+    "date": "Thursday, May 29, 2025",
+    "description": "As part of the inaugural event of the California Institute for Machine Consciousness, we present this special Machine Consciousness Salon in the Internet Archive! \n\nStephen Wolfram and Joscha Bach will discuss what it would be like to transcend the boundaries of our brains. Is there an upper limit to the useful size of biological brains? Why are elephants not smarter than humans? What representations and perceptions and thoughts became available to us if we were to translate our minds on computers? And if we are looking beyond the boundaries of planets, galaxies and particle filled spacetime continua, is there an effective limit to physical minds?",
+    "linkUrl": "https://lu.ma/a39cw3mg?tk=fL5hI9"
   }
 ]
