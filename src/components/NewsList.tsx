@@ -39,17 +39,31 @@ export function NewsList() {
     <NewsListContainer>
       {newsData.map((item) => (
         <NewsItem key={item.title}>
-          <NewsImage
-            src={item.pictureUrl}
-            alt={item.title}
-            $backgroundColor={item.backgroundColor}
-          />
+          {item.youtubeId ? (
+            <iframe
+              width="400"
+              height="400"
+              src={`https://www.youtube.com/embed/${item.youtubeId}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          ) : (
+            <NewsImage
+              src={item.pictureUrl}
+              alt={item.title}
+              $backgroundColor={item.backgroundColor}
+            />
+          )}
           <NewsContent>
             <NewsMeta>Explore</NewsMeta>
             <NewsTitle>{item.title}</NewsTitle>
             <NewsDate>• {item.date}</NewsDate>
             <NewsDesc>{item.description}</NewsDesc>
-            <NewsButton href={item.linkUrl}>Learn more</NewsButton>
+            <NewsButton href={item.linkUrl} target="_blank">
+              Learn more
+            </NewsButton>
           </NewsContent>
         </NewsItem>
       ))}
