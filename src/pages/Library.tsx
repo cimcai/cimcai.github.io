@@ -1,13 +1,16 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { PageHeroGraphic } from "../components/PageHeroGraphic"
-import linksData from "../data/links.json"
+import { snakeToCamel } from "../lib/snakeToCamel"
+import { supabase } from "../lib/supabaseClient"
 
 interface LibraryCellProps {
   title: string
   linkUrl?: string
   thumbnailUrl?: string
   description?: string
+  topic?: string // add topic for grouping
 }
 
 const LibraryCell: React.FC<
@@ -121,18 +124,49 @@ const LibrarySectionsContainer = styled.div`
 `
 
 const Library = () => {
+  const [links, setLinks] = useState<LibraryCellProps[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    async function fetchLinks() {
+      setLoading(true)
+      const { data, error } = await supabase.from("links").select("*")
+      if (error) setError(error.message)
+      else {
+        const mapped = (data || []).map(
+          (item) => snakeToCamel(item) as unknown as LibraryCellProps,
+        )
+        setLinks(mapped)
+      }
+      setLoading(false)
+    }
+    fetchLinks()
+  }, [])
+
+  // Group by topic
+  const grouped = links.reduce<{ [topic: string]: LibraryCellProps[] }>(
+    (acc, link) => {
+      if (!link.topic) return acc
+      if (!acc[link.topic]) acc[link.topic] = []
+      acc[link.topic].push(link)
+      return acc
+    },
+    {},
+  )
+
+  if (loading) return <div>Loading library…</div>
+  if (error) return <div>Error: {error}</div>
+
   return (
     <LibraryContainer id="library">
       <PageHeroGraphic />
       <LibrarySectionsContainer>
-        {linksData.map((linksData) => {
-          const { topic, linkData } = linksData
-          return (
-            <div key={topic}>
-              <LibrarySection topic={topic} linkData={linkData} />
-            </div>
-          )
-        })}
+        {Object.entries(grouped).map(([topic, linkData]) => (
+          <div key={topic}>
+            <LibrarySection topic={topic} linkData={linkData} />
+          </div>
+        ))}
       </LibrarySectionsContainer>
     </LibraryContainer>
   )

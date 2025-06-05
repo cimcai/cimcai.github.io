@@ -1,5 +1,6 @@
 [
   {
+    "hide": false,
     "backgroundColor": "#00139A",
     "pictureUrl": "https://i0.wp.com/agi-conf.org/2025/wp-content/uploads/2024/06/7f025b5091876de7ad0c7fd8cfe15637.png",
     "title": "AGI-25: The 18th Annual AGI Conference",
@@ -8,14 +9,16 @@
     "linkUrl": "https://agi-conf.org/2025/"
   },
   {
-    "pictureUrl": "https://i.ytimg.com/vi/4kZE479isH8/hqdefault.jpg",
-    "youtubeId": "4kZE479isH8",
+    "hide": false,
+    "pictureUrl": "https://i.ytimg.com/vi/VDhan5Kd3ms/hqdefault.jpg",
+    "youtubeId": "VDhan5Kd3ms",
     "title": "CIMC Machine Consciousness Salon: Existential Hope",
     "date": "Thursday, May 15, 2025",
     "description": "Past technological revolutions have led to human progress and increased well-being, but also to disruption, fear and existential dread. The AI revolution moves with a speed and potential for change that seems unprecedented. Will AI obliterate human agency? Tear down the economic, ecological, social and cultural foundations of our societies? Will it wipe out life on Earth to replace it with a dead machine world?",
     "linkUrl": "https://lu.ma/e10jlaj7?tk=wkdWVo"
   },
   {
+    "hide": false,
     "pictureUrl": "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/39/e2248fea-c57d-4a9a-81db-517a8bef62b6.png",
     "title": "Conscious AI Meetup: What if we had bigger brains?",
     "date": "Thursday, May 29, 2025",
