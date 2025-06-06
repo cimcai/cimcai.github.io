@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
+import { LibraryHeader } from "../components/LibraryHeader"
 import { PageHeroGraphic } from "../components/PageHeroGraphic"
 import { snakeToCamel } from "../lib/snakeToCamel"
 import { supabase } from "../lib/supabaseClient"
@@ -10,7 +11,7 @@ interface LibraryCellProps {
   linkUrl?: string
   thumbnailUrl?: string
   description?: string
-  topic?: string // add topic for grouping
+  tags?: string[]
 }
 
 const LibraryCell: React.FC<
@@ -127,6 +128,8 @@ const Library = () => {
   const [links, setLinks] = useState<LibraryCellProps[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [search, setSearch] = useState("")
+  const [selectedTag, setSelectedTag] = useState<string>("")
 
   useEffect(() => {
     async function fetchLinks() {
@@ -144,12 +147,28 @@ const Library = () => {
     fetchLinks()
   }, [])
 
-  // Group by topic
-  const grouped = links.reduce<{ [topic: string]: LibraryCellProps[] }>(
+  // Collect all unique tags
+  const allTags = Array.from(
+    new Set(links.flatMap((link) => (link.tags?.length ? link.tags : []))),
+  )
+
+  // Filter links by selected tag and search
+  const filteredLinks = links.filter((link) => {
+    const matchesTag = selectedTag ? link.tags?.includes(selectedTag) : true
+    const matchesSearch = search
+      ? link.title.toLowerCase().includes(search.toLowerCase()) ||
+        link.description?.toLowerCase().includes(search.toLowerCase())
+      : true
+    return matchesTag && matchesSearch
+  })
+
+  // Group by first tag (for section display)
+  const grouped = filteredLinks.reduce<{ [tag: string]: LibraryCellProps[] }>(
     (acc, link) => {
-      if (!link.topic) return acc
-      if (!acc[link.topic]) acc[link.topic] = []
-      acc[link.topic].push(link)
+      if (!link.tags || !link.tags.length) return acc
+      const tag = link.tags[0]
+      if (!acc[tag]) acc[tag] = []
+      acc[tag].push(link)
       return acc
     },
     {},
@@ -161,6 +180,16 @@ const Library = () => {
   return (
     <LibraryContainer id="library">
       <PageHeroGraphic />
+      <LibraryHeader
+        tags={allTags}
+        selectedTag={selectedTag}
+        onTagSelect={(tag) => setSelectedTag(selectedTag === tag ? "" : tag)}
+        search={search}
+        onSearch={setSearch}
+        onFilterClick={() => {
+          // Placeholder for filter click functionality
+        }}
+      />
       <LibrarySectionsContainer>
         {Object.entries(grouped).map(([topic, linkData]) => (
           <div key={topic}>
