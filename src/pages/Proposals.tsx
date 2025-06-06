@@ -106,6 +106,9 @@ const AreaList = styled.ul`
     list-inside
     list-disc
   `}
+`
+
+const AreaListItem = styled.li`
   color: rgba(24, 29, 39, 0.70);
 `
 
@@ -247,23 +250,25 @@ function ResearchProposals() {
                     consciousness
                   </AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       Investigate the space and metaphysics of analytical
                       theories of consciousness
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       What is consciousness, and how does it relate to mind,
                       modeling, and reality?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       How can we characterize phenomenology, functionality, and
                       implementation?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Which systems can be conscious, and what are the necessary
                       and sufficient conditions?
-                    </li>
-                    <li>How can we test for consciousness?</li>
+                    </AreaListItem>
+                    <AreaListItem>
+                      How can we test for consciousness?
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 2 */}
@@ -272,18 +277,18 @@ function ResearchProposals() {
                     2. Methodology of modeling consciousness
                   </AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       Can we define the "strange loop" analytically and test
                       this formalization?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Should we search for consciousness by constructing and
                       analyzing simulation spaces?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Can studying biological systems reveal the nature of
                       consciousness?
-                    </li>
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 3 */}
@@ -292,81 +297,83 @@ function ResearchProposals() {
                     3. Emergence and Role of Self in Learning Agents
                   </AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       Under what conditions does a learning agent form a
                       first-person perspective or self-model?
-                    </li>
-                    <li>How can we test for self-models?</li>
-                    <li>What is a minimal self?</li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
+                      How can we test for self-models?
+                    </AreaListItem>
+                    <AreaListItem>What is a minimal self?</AreaListItem>
+                    <AreaListItem>
                       Development and study of models that integrate mind,
                       self-model, motivation, and world-model interaction
-                    </li>
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 4 */}
                 <div>
                   <AreaTitle>4. Learning Through Self Organization</AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       If consciousness is discovered by the brain (as part of a
                       learning paradigm in a self organizing substrate), can we
                       replicate this process artificially?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Can self organizing learning systems control agents?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Can we get a self organizing system (eg. NCA) to learn
                       complex sequence prediction tasks?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Do we observe the discovery of self-improving
                       self-reflexive structure? What are the limitations of this
                       paradigm?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       How can we understand the brain as a multiway system?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Can we discover implications for consciousness in
                       comparable systems in nature (ie. how much does
                       consciousness depend on the specific architecture of a
                       learning system?)
-                    </li>
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 5 */}
                 <div>
                   <AreaTitle>5. Architectures for Conscious Agents</AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       What is the role of attention and attention control in
                       shaping conscious behavior?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       How do perception, emotion, inference, and decision making
                       interact in the development of conscious behavior?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       How can we model aspects of human and animal psychology
                       within artificial systems?
-                    </li>
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 6 */}
                 <div>
                   <AreaTitle>6. Developmental Learning Architectures</AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       Can we design minimal, self-improving models that
                       continuously learn and adapt (anytime learning)?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Artificial pets as paradigms for experimentation and
                       interaction
-                    </li>
-                    <li>Social simulations</li>
+                    </AreaListItem>
+                    <AreaListItem>Social simulations</AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 7 */}
@@ -376,17 +383,17 @@ function ResearchProposals() {
                     Between Humans and AI
                   </AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       Under which conditions do intelligence and agency emerge?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       What is the role of embodiment for the formation of a
                       mind?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       How can we create artificial environments that effectively
                       evaluate AI behavior and facilitate human–AI interaction?
-                    </li>
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 8 */}
@@ -395,25 +402,25 @@ function ResearchProposals() {
                     8. Consciousness and Selfhood in Current Foundation Models
                   </AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       Do existing foundation models possess phenomenology?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Can the self of simulated interaction agents be compared
                       to a personal self?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Can interpretability help us understand the bounds and
                       constraints of the possibilities of all possible simulacra
                       or of individual simulacra?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Is CoT a paradigm that can be compared to consciousness?
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       How does adding and removing certain modalities influence
                       the appearance of consciousness?
-                    </li>
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 9 */}
@@ -423,14 +430,16 @@ function ResearchProposals() {
                     Models
                   </AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       Use of foundation models to create virtual test subjects
-                    </li>
-                    <li>
+                    </AreaListItem>
+                    <AreaListItem>
                       Development of psychometric tools to evaluate the personas
                       of these models
-                    </li>
-                    <li>Comparing human and artificial psychology</li>
+                    </AreaListItem>
+                    <AreaListItem>
+                      Comparing human and artificial psychology
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 10 */}
@@ -459,12 +468,18 @@ function ResearchProposals() {
                 <div>
                   <AreaTitle>12. Empathetic AI</AreaTitle>
                   <AreaList>
-                    <li>High fidelity human machine interfaces</li>
-                    <li>Modeling of user intentions</li>
-                    <li>Feedback between human and AI systems</li>
-                    <li>Human augmentation</li>
-                    <li>Machine perception</li>
-                    <li>Mechanisms for human machine extension</li>
+                    <AreaListItem>
+                      High fidelity human machine interfaces
+                    </AreaListItem>
+                    <AreaListItem>Modeling of user intentions</AreaListItem>
+                    <AreaListItem>
+                      Feedback between human and AI systems
+                    </AreaListItem>
+                    <AreaListItem>Human augmentation</AreaListItem>
+                    <AreaListItem>Machine perception</AreaListItem>
+                    <AreaListItem>
+                      Mechanisms for human machine extension
+                    </AreaListItem>
                   </AreaList>
                 </div>
                 {/* Area 13 */}
@@ -485,10 +500,10 @@ function ResearchProposals() {
                 <div>
                   <AreaTitle>14. Futurism</AreaTitle>
                   <AreaList>
-                    <li>
+                    <AreaListItem>
                       What developments should we expect, and how will they
                       influence human society and identity?
-                    </li>
+                    </AreaListItem>
                   </AreaList>
                 </div>
               </ResearchArea>
