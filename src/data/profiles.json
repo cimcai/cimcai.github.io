@@ -5,7 +5,7 @@
       "teamMembers": [
         {
           "name": "Joscha Bach",
-          "job": "Executive Director, Board Member",
+          "job": "Executive Director, Board Director",
           "description": "",
           "institution": "bach.ai",
           "institutionUrl": "http://bach.ai",
@@ -15,7 +15,7 @@
         },
         {
           "name": "Erik Newton",
-          "job": "President, Board Member",
+          "job": "President, Board Director",
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/newtonlaw",
@@ -24,7 +24,7 @@
         },
         {
           "name": "Lou de K",
-          "job": "VP of Programs, Board Member",
+          "job": "VP of Programs, Board Director",
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/louviq",
@@ -33,7 +33,7 @@
         },
         {
           "name": "Zhen Tan",
-          "job": "Secretary, Board Member",
+          "job": "Secretary, Board Director",
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/zhen9436",
@@ -75,7 +75,7 @@
         },
         {
           "name": "Christoph v. d. Malsburg",
-          "job": "Neuroscientist/Physicist",
+          "job": "Neuroscientist, Physicist",
           "description": "",
           "institution": "Frankfurt Institute for Advanced Studies",
           "institutionUrl": "https://www.izn-frankfurt.de/mitglied/malsburg",
@@ -95,7 +95,7 @@
         },
         {
           "name": "Stephen Wolfram",
-          "job": "Computer Scientist/Physicist/Mathematician",
+          "job": "Computer Scientist, Physicist, Mathematician",
           "description": "",
           "institution": "Wolfram Research",
           "institutionUrl": "https://www.stephenwolfram.com",
@@ -119,7 +119,7 @@
         },
         {
           "name": "Philip Rosedale",
-          "job": "Treasurer, Board Member",
+          "job": "Treasurer, Board Director",
           "description": "",
           "institution": "www.rosedales.com",
           "institutionUrl": "https://www.rosedales.com/philip",
@@ -129,7 +129,7 @@
         },
         {
           "name": "Kirill Eves",
-          "job": "Board Member",
+          "job": "Board Director",
           "description": "",
           "institutionUrl": "",
           "xUrl": "",
@@ -154,7 +154,7 @@
           "name": "Lenore Blum",
           "job": "",
           "description": "",
-          "institution": "Association for Mathematical Consciousness Science (AMCS)",
+          "institution": "Association for Mathematical Consciousness Science",
           "institutionUrl": "https://amcs-community.org/president-of-the-amcs",
           "xUrl": "https://x.com/BlumLenore",
           "linkedInUrl": "https://www.linkedin.com/in/lenore-blum-1a47224",
