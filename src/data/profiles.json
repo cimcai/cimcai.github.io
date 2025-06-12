@@ -118,18 +118,8 @@
           "portraitUrl": "/portraitJimRutt.jpg"
         },
         {
-          "name": "Jim O’Neill",
-          "job": "Board Member",
-          "description": "",
-          "institution": "Thiel Fellowship",
-          "institutionUrl": "https://thielfellowship.org",
-          "xUrl": "https://x.com/regardthefrost",
-          "linkedInUrl": "https://www.linkedin.com/in/jim-o-neill-5703138",
-          "portraitUrl": "/portraitJim.jpg"
-        },
-        {
           "name": "Philip Rosedale",
-          "job": "Board Member",
+          "job": "Treasurer, Board Member",
           "description": "",
           "institution": "www.rosedales.com",
           "institutionUrl": "https://www.rosedales.com/philip",
@@ -143,7 +133,7 @@
           "description": "",
           "institutionUrl": "",
           "xUrl": "",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/kirilleves",
           "portraitUrl": "/portraitKirill.jpg"
         },
         {
@@ -152,7 +142,7 @@
           "description": "",
           "institutionUrl": "",
           "xUrl": "https://x.com/lifeext",
-          "linkedInUrl": "",
+          "linkedInUrl": "https://www.linkedin.com/in/christine-peterson-3b81/  ",
           "portraitUrl": "/portraitChristine.jpg"
         }
       ]
@@ -160,6 +150,16 @@
     {
       "teamName": "Organizational Advisors",
       "teamMembers": [
+        {
+          "name": "Lenore Blum",
+          "job": "",
+          "description": "",
+          "institution": "Association for Mathematical Consciousness Science (AMCS)",
+          "institutionUrl": "https://amcs-community.org/president-of-the-amcs",
+          "xUrl": "https://x.com/BlumLenore",
+          "linkedInUrl": "https://www.linkedin.com/in/lenore-blum-1a47224",
+          "portraitUrl": "/portraitLenore.jpg"
+        },
         {
           "name": "Allison Duettmann",
           "description": "",
