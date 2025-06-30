@@ -3,6 +3,7 @@ import { Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
 import Home from "./pages/Home"
+import Jobs from "./pages/Jobs"
 import Library from "./pages/Library"
 import Mission from "./pages/Mission"
 import ResearchProposals from "./pages/Proposals"
@@ -33,6 +34,12 @@ export const routes: CIMCRoutes[] = [
     path: "/proposals",
     name: "Research",
     element: <ResearchProposals />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/jobs",
+    name: "Career",
+    element: <Jobs />,
     nodeRef: createRef(),
   },
   {
