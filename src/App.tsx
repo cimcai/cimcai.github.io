@@ -38,7 +38,7 @@ export const routes: CIMCRoutes[] = [
   },
   {
     path: "/jobs",
-    name: "Career",
+    name: "Join us",
     element: <Jobs />,
     nodeRef: createRef(),
   },

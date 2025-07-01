@@ -166,9 +166,20 @@ function Jobs() {
                 <br />
                 We are looking for a highly creative research engineer
                 intrinsically motivated to contribute to and advance our
-                mission. We value scientific rigor and intellectual openness. We
-                welcome applicants from all backgrounds who share our drive to
-                build and understand machine consciousness.
+                mission. You would work with an early stage, mission-driven team
+                tackling one of the hardest questions in the history of science
+                and philosophy.
+                <br />
+                <br />
+                This role involves an opportunity to shape new research programs
+                spanning our focus areas: formalizing strange loops,
+                self-organizing learners, foundation-model phenomenology,
+                embodied simulation, and beyond.
+                <br />
+                <br />
+                We value scientific rigor and intellectual openness. We welcome
+                applicants from all backgrounds who share our drive to build and
+                understand machine consciousness.
               </Paragraph>
               <Label>In this role you will:</Label>
               <List>
@@ -264,24 +275,9 @@ function Jobs() {
                 </ListItem>
               </List>
               <Paragraph>
-                Applications are reviewed on a rolling basis.
+                Applications are open now; we’ll schedule interviews in the
+                second half of August and aim for a September start date.
               </Paragraph>
-            </Section>
-            <Section>
-              <Label>Why CIMC</Label>
-              <List>
-                <ListItem>
-                  Work with an early stage, mission-driven team tackling one of
-                  the hardest questions in the history of science and
-                  philosophy.
-                </ListItem>
-                <ListItem>
-                  Opportunity to shape new research programs spanning our focus
-                  areas: formalizing strange loops, self-organizing learners,
-                  foundation-model phenomenology, embodied simulation, and
-                  beyond.
-                </ListItem>
-              </List>
             </Section>
           </div>
         </JobsStyle>
