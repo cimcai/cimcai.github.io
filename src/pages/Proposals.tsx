@@ -232,6 +232,12 @@ function ResearchProposals() {
                 interdisciplinary thinker, or artist eager to conceive, build,
                 iterate, and test innovative ideas, we want to hear from you.
               </Paragraph>
+              <Paragraph>
+                Preferred scope: 1 to 6-month projects with budgets ranging from
+                USD 5,000 to 100,000. Proposals may outline longer-term goals,
+                but please specify the concrete outputs you will deliver within
+                that initial timeframe."
+              </Paragraph>
             </Section>
 
             <Section>
@@ -527,6 +533,25 @@ function ResearchProposals() {
                   <GuidelinesLabel>Content guidelines:</GuidelinesLabel>
                   <GuidelinesList>
                     <GuidelinesListItem>
+                      <GuidelineHeader>
+                        Please include your response to the following questions:
+                      </GuidelineHeader>
+                      <AreaList>
+                        <AreaListItem>
+                          What is your current working definition of
+                          consciousness? (≤ 200 words)
+                        </AreaListItem>
+                        <AreaListItem>
+                          How would you test for machine consciousness? (≤ 200
+                          words)
+                        </AreaListItem>
+                        <AreaListItem>
+                          Why is CIMC the right organization to fund this
+                          project? (≤ 200 words)
+                        </AreaListItem>
+                      </AreaList>
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
                       <GuidelineHeader>Abstract:</GuidelineHeader> A concise
                       summary of the research objectives and significance (up to
                       250 words).
@@ -556,6 +581,13 @@ function ResearchProposals() {
                       Outline and explain the proposed budget.
                     </GuidelinesListItem>
                     <GuidelinesListItem>
+                      <GuidelineHeader>Timeline & budget note:</GuidelineHeader>
+                      CIMC prioritizes up to 6-month work plans (max initial
+                      funding USD 100,000). If your vision extends beyond six
+                      months, clearly list the milestones and deliverables you
+                      will complete in the initial window.
+                    </GuidelinesListItem>
+                    <GuidelinesListItem>
                       <GuidelineHeader>Team and collaborators</GuidelineHeader>
                     </GuidelinesListItem>
                     <GuidelinesListItem>
@@ -568,8 +600,7 @@ function ResearchProposals() {
                 <div>
                   <GuidelinesLabel>Submission Process:</GuidelinesLabel>
                   <GuidelinesText>
-                    Applications will be considered on a rolling basis. First
-                    round closes May 4, 2025
+                    Applications will be reviewed on a rolling basis.
                   </GuidelinesText>
                 </div>
                 <div>
