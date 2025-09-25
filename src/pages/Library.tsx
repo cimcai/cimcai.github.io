@@ -164,6 +164,16 @@ const Library = () => {
     new Set(links.flatMap((link) => (link.tags?.length ? link.tags : []))),
   )
 
+  // Reusable function to move 'Launch Event' to the front while maintaining original order
+  const prioritizeLaunchEvent = (tags: string[]) => {
+    return tags.includes("Launch Event")
+      ? ["Launch Event", ...tags.filter((tag) => tag !== "Launch Event")]
+      : tags
+  }
+
+  // Prioritize 'Launch Event' in allTags
+  const sortedAllTags = prioritizeLaunchEvent(allTags)
+
   // Filter links by selected tag and search
   const filteredLinks = links.filter((link) => {
     const matchesTag = selectedTag ? link.tags?.includes(selectedTag) : true
@@ -186,6 +196,13 @@ const Library = () => {
     {},
   )
 
+  // Prioritize 'Launch Event' in grouped tags
+  const sortedGrouped = Object.entries(grouped).sort(([tagA], [tagB]) => {
+    if (tagA === "Launch Event") return -1
+    if (tagB === "Launch Event") return 1
+    return 0
+  })
+
   if (loading) return <div>Loading library…</div>
   if (error) return <div>Error: {error}</div>
 
@@ -193,7 +210,7 @@ const Library = () => {
     <LibraryContainer id="library">
       <PageHeroGraphic />
       <LibraryHeader
-        tags={allTags}
+        tags={sortedAllTags}
         selectedTag={selectedTag}
         onTagSelect={(tag) => setSelectedTag(selectedTag === tag ? "" : tag)}
         search={search}
@@ -203,7 +220,7 @@ const Library = () => {
         }}
       />
       <LibrarySectionsContainer>
-        {Object.entries(grouped).map(([topic, linkData]) => (
+        {sortedGrouped.map(([topic, linkData]) => (
           <div key={topic}>
             <LibrarySection topic={topic} linkData={linkData} />
           </div>
