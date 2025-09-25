@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { snakeToCamel } from "../lib/snakeToCamel"
@@ -52,8 +52,11 @@ export function NewsList() {
   const [news, setNews] = useState<NewsItemProps[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const didFetch = useRef(false)
 
   useEffect(() => {
+    if (didFetch.current) return
+    didFetch.current = true
     async function fetchNews() {
       setLoading(true)
       const { data, error } = await supabase

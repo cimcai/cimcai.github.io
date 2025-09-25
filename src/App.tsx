@@ -2,13 +2,13 @@ import { type RefObject, createRef } from "react"
 import { Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
+import Events from "./pages/Events"
 import Home from "./pages/Home"
 import Jobs from "./pages/Jobs"
 import Library from "./pages/Library"
 import Mission from "./pages/Mission"
 import ResearchProposals from "./pages/Proposals"
 import Team from "./pages/Team"
-import Terms from "./pages/Terms"
 
 export interface CIMCRoutes {
   path: string
@@ -46,6 +46,12 @@ export const routes: CIMCRoutes[] = [
     path: "/library",
     name: "Library",
     element: <Library />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/events",
+    name: "Events",
+    element: <Events />,
     nodeRef: createRef(),
   },
   {

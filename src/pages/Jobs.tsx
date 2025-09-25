@@ -24,7 +24,7 @@ const JobsLayout = styled.div`
     md:flex-row
     justify-between
     w-full
-    max-w-[1216px]
+    max-w-[1280px]
     mx-auto
     px-6
   `}

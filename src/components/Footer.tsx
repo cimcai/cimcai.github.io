@@ -20,7 +20,7 @@ const FooterContainer = styled.div`
 const FooterLayout = styled.div`
   ${tw`
     w-full
-    max-w-[1216px]
+    max-w-[1280px]
   bg-black
   text-white
     pt-20
@@ -79,7 +79,7 @@ function Footer() {
                 aria-label="YouTube"
                 title="YouTube"
                 className="hover:opacity-80"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <YouTubeIcon />
               </a>
@@ -89,7 +89,7 @@ function Footer() {
                 aria-label="LinkedIn"
                 title="LinkedIn"
                 className="hover:opacity-80"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <LinkedInIcon />
               </a>
@@ -99,7 +99,7 @@ function Footer() {
                 aria-label="Luma"
                 title="Luma"
                 className="hover:opacity-80"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <LumaIcon />
               </a>

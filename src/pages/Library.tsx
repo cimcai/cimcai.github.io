@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { useSearchParams } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { LibraryHeader } from "../components/LibraryHeader"
@@ -130,8 +131,19 @@ const Library = () => {
   const [error, setError] = useState<string | null>(null)
   const [search, setSearch] = useState("")
   const [selectedTag, setSelectedTag] = useState<string>("")
+  const didFetch = useRef(false)
+  const [searchParams] = useSearchParams()
 
   useEffect(() => {
+    const tagFromUrl = searchParams.get("tag")
+    if (tagFromUrl) {
+      setSelectedTag(tagFromUrl)
+    }
+  }, [searchParams])
+
+  useEffect(() => {
+    if (didFetch.current) return
+    didFetch.current = true
     async function fetchLinks() {
       setLoading(true)
       const { data, error } = await supabase.from("links").select("*")

@@ -46,7 +46,7 @@ const NavbarContainer = styled.div.withConfig({
 const NavbarInnerContainer = styled.div`
   ${tw`
     w-full
-    max-w-[1216px]
+    max-w-[1280px]
     flex
     justify-start
     md:items-center
