@@ -185,31 +185,23 @@ const Events = () => {
     fetchEvents()
   }, [])
 
-  const filterPastEvents = () => {
-    if (activeFilter === "past") {
+  const filterEvents = (filterType: "past" | "upcoming") => {
+    if (activeFilter === filterType) {
       setFilteredEvents(events)
       setActiveFilter(null)
     } else {
       const today = dayjs()
-      const pastEvents = events.filter(
-        (event) => event.endDate && dayjs(event.endDate).isBefore(today),
-      )
-      setFilteredEvents(pastEvents)
-      setActiveFilter("past")
-    }
-  }
-
-  const filterUpcomingEvents = () => {
-    if (activeFilter === "upcoming") {
-      setFilteredEvents(events)
-      setActiveFilter(null)
-    } else {
-      const today = dayjs()
-      const upcomingEvents = events.filter(
-        (event) => event.startDate && dayjs(event.startDate).isAfter(today),
-      )
-      setFilteredEvents(upcomingEvents)
-      setActiveFilter("upcoming")
+      const filtered = events.filter((event) => {
+        if (filterType === "past") {
+          return event.endDate && dayjs(event.endDate).isBefore(today)
+        }
+        if (filterType === "upcoming") {
+          return event.startDate && dayjs(event.startDate).isAfter(today)
+        }
+        return false
+      })
+      setFilteredEvents(filtered)
+      setActiveFilter(filterType)
     }
   }
 
@@ -236,13 +228,13 @@ const Events = () => {
         <EventsButtonsContainer>
           <EventButton
             $active={activeFilter === "past"}
-            onClick={filterPastEvents}
+            onClick={() => filterEvents("past")}
           >
             SEE PAST EVENTS
           </EventButton>
           <EventButton
-            $active={activeFilter === "future"}
-            onClick={filterUpcomingEvents}
+            $active={activeFilter === "upcoming"}
+            onClick={() => filterEvents("upcoming")}
           >
             SEE UPCOMING EVENTS
           </EventButton>
