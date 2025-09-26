@@ -3,18 +3,20 @@ import tw from "twin.macro"
 
 interface LineBreakProps {
   width: string
-  spaceBelow?: boolean
+  mt?: string
+  mb?: string
+  color?: string
 }
 
 export const LineBreak = styled.div.withConfig({
-  shouldForwardProp: (prop) => !["width", "spaceBelow"].includes(prop),
+  shouldForwardProp: (prop) => !["width", "mt", "mb", "color"].includes(prop),
 })<LineBreakProps>`
   ${tw`
     h-[1px]
-    bg-black
     items-center
   `}
   width: ${({ width }) => width};
-  margin-top: ${({ spaceBelow }) => (spaceBelow ? "0px" : "48px")};
-  margin-bottom: ${({ spaceBelow }) => (spaceBelow ? "48px" : "0px")};
+  margin-top: ${({ mt }) => (mt ? mt : "48px")};
+  margin-bottom: ${({ mb }) => mb};
+  background-color: ${({ color }) => color ? color : "black"};
 `

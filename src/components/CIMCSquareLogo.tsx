@@ -23,8 +23,7 @@ export function CIMCSquareLogoSVG({
       preserveAspectRatio="xMidYMid meet"
       style={{
         display: "block",
-        width: "100%",
-        height: "100%",
+        margin: "auto", // Ensure the SVG is centered within its container
       }}
     >
       <title>CIMC Square Logo</title>
@@ -472,7 +471,8 @@ export function CIMCSquareLogoSVG({
 }
 
 const LogoContainer = styled.div`
-${tw`
+  ${tw`
+    flex
     flex-col
     justify-center
     items-center
@@ -484,9 +484,11 @@ ${tw`
 `
 
 const LogoImageContainer = styled.div`
-${tw`
+  ${tw`
     flex
     justify-center
+    items-center
+    md:w-[590px]
   `}
 `
 interface CIMCLogoProps {

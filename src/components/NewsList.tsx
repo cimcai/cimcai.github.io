@@ -5,7 +5,7 @@ import { snakeToCamel } from "../lib/snakeToCamel"
 import { supabase } from "../lib/supabaseClient"
 
 const NewsListContainer = styled.div`
-  ${tw`flex flex-col gap-12 max-w-[860px] justify-center items-center`}
+  ${tw`flex flex-col gap-12 max-w-[860px] justify-center items-center pb-24`}
 `
 
 const NewsItem = styled.div`

@@ -224,7 +224,7 @@ const Events = () => {
         </p>
       </EventsHeader>
       <EventsButtonsSection>
-        <LineBreak width="1440px" spaceBelow />
+        <LineBreak width="1440px" mt="0px" mb="23px"/>
         <EventsButtonsContainer>
           <EventButton
             $active={activeFilter === "past"}
@@ -239,7 +239,7 @@ const Events = () => {
             SEE UPCOMING EVENTS
           </EventButton>
         </EventsButtonsContainer>
-        <LineBreak width="1440px" />
+        <LineBreak width="1440px" mt="27px" mb="0px"/>
       </EventsButtonsSection>
       <EventsSectionsContainer>
         {filteredEvents.map((event) => (
