@@ -26,7 +26,7 @@ const LaunchEventContainer = styled.div`
     flex
     flex-col
     justify-center
-    items-center
+    md:items-center
     max-md:px-6
     max-md:pb-8
     md:pt-28
@@ -39,14 +39,18 @@ const LaunchEventHeader = styled.div`
     md:w-[860px]
     md:mb-16
     flex
-    justify-between
-    items-center
+    max-md:flex-col
+    max-md:gap-12
+    max-md:py-16
+    md:justify-between
+    md:items-center
   `}
 `;
 
 const LaunchEventTitle = styled.div`
   ${tw`
     md:text-cimc-white-hero
+    max-md:text-cimc-logo
   `}
 `;
 
@@ -71,8 +75,9 @@ const LaunchEventButton = styled.a`
 const LaunchEventContent = styled.a`
   ${tw`
     flex
-    w-[860px]
-    h-[179px]
+    max-md:flex-col
+    md:w-[860px]
+    md:h-[179px]
     items-center
     justify-between
   `}
@@ -101,7 +106,7 @@ export const LaunchEvent = () => {
           towards decoding consciousness itself.
         </p>
         <LaunchEventContent>
-          <div className="text-cimc-helvetica-30">
+          <div className="text-cimc-helvetica-30 max-w-[360px]">
             CIMC Introduction: Lou de K (VP of Programs)
           </div>
           <iframe
@@ -116,7 +121,9 @@ export const LaunchEvent = () => {
         </LaunchEventContent>
         <LineBreak width="100%" color="white" mt="11px" mb="11px" />
         <LaunchEventContent>
-          <div className="text-cimc-helvetica-30">Joscha Bach: CIMC’s Vision</div>
+          <div className="text-cimc-helvetica-30 max-w-[360px]">
+            Joscha Bach: CIMC’s Vision
+          </div>
           <iframe
             width="340"
             height="178"
@@ -129,7 +136,9 @@ export const LaunchEvent = () => {
         </LaunchEventContent>
         <LineBreak width="100%" color="white" mt="11px" mb="11px" />
         <LaunchEventContent className="mb-16">
-          <div className="text-cimc-helvetica-30">Eric Newton: How it Started.</div>
+          <div className="text-cimc-helvetica-30 max-w-[360px]">
+            Eric Newton: How it Started.
+          </div>
           <iframe
             width="340"
             height="178"
