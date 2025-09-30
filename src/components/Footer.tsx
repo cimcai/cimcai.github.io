@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
-import { routes } from "../App"
 import { CIMCLogo } from "./CIMCLogo"
 import LinkedInIcon from "./icons/LinkedInIcon"
 import LumaIcon from "./icons/LumaIcon"
@@ -54,7 +53,14 @@ const FooterBottomContent = styled.div`
   `}
 `
 
-function Footer() {
+interface FooterProps {
+  routes: Array<{
+    path: string
+    name: string
+  }>
+}
+
+function Footer({ routes }: FooterProps) {
   return (
     <FooterContainer>
       <FooterLayout>

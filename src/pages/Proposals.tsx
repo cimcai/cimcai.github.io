@@ -19,20 +19,10 @@ const ProposalsContainer = styled.div`
 
 const ProposalsLayout = styled.div`
   ${tw`
+    md:w-[860px]
     flex
-    flex-col-reverse
-    md:flex-row
-    justify-between
-    w-full
-    max-w-[1280px]
     mx-auto
     px-6
-  `}
-`
-
-const ProposalsStyle = styled.div`
-  ${tw`
-    md:w-[860px]
   `}
 `
 
@@ -121,8 +111,8 @@ const GuidelinesSection = styled.section`
 const GuidelinesTitle = styled.h2`
   ${tw`
     text-cimc-helvetica-normal
+    text-cimc_dark
   `}
-  color: #181D27;
 `
 
 const GuidelinesContent = styled.div`
@@ -134,9 +124,9 @@ const GuidelinesContent = styled.div`
 const GuidelinesLabel = styled.p`
   ${tw`
     text-cimc-helvetica-normal
+    text-cimc_dark
     mb-3
   `}
-  color: #181D27;
 `
 
 const GuidelinesText = styled.p`
@@ -161,8 +151,8 @@ const Link = styled.a`
 
 const GuidelineHeader = styled.div`
   ${tw`
+    text-cimc_dark
   `}
-  color: #181D27;
 `
 
 const GuidelinesListItem = styled.li`
@@ -202,7 +192,6 @@ function ResearchProposals() {
     <ProposalsContainer>
       <PageHeroGraphic />
       <ProposalsLayout>
-        <ProposalsStyle>
           <div id="proposals" className="w-full">
             <Header>
               <Title>Call for Research Proposals</Title>
@@ -627,17 +616,6 @@ function ResearchProposals() {
               </GuidelinesContent>
             </GuidelinesSection>
           </div>
-        </ProposalsStyle>
-        <ProposalsColumn>
-          <LetsConnect>
-            <div className="lets-title">Let's get connected</div>
-            <a href="https://cimcai.substack.com" rel="noopener noreferrer">
-              Substack
-            </a>
-            <div className="lets-label">Email:</div>
-            <a href="mailto:proposals@cimc.ai">proposals@cimc.ai</a>
-          </LetsConnect>
-        </ProposalsColumn>
       </ProposalsLayout>
     </ProposalsContainer>
   )

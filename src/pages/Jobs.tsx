@@ -98,9 +98,9 @@ const ListItem = styled.li`
 const Label = styled.p`
   ${tw`
     text-cimc-helvetica-normal
+    text-cimc_dark
     mb-3
   `}
-  color: #181D27;
 `
 
 const EmailLink = styled.a`

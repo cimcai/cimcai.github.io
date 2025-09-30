@@ -8,7 +8,8 @@ export default {
       },
       colors: {
         cimc_blue: "#626dd6",
-        cimc_dark: "#272727",
+        cimc_team_dark: "#272727",
+        cimc_dark: "#181D27",
         cimc_light: "#EAEAEA",
         "color-border-neutral-default": "var(--color-border-neutral-default)",
         "color-primitives-gray-900": "var(--color-primitives-gray-900)",
@@ -133,6 +134,17 @@ export default {
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "125%",
+          },
+        ],
+        "cimc-helvetica-normal-alt": [
+          "24px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica Neue",
+            lineHeight: "105%",
+            fontStyle: "normal",
+            letterSpacing: "-0.72px",
+            fontWeight: "400",
           },
         ],
         "cimc-forward": [

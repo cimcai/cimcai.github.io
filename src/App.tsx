@@ -8,6 +8,7 @@ import Jobs from "./pages/Jobs"
 import Library from "./pages/Library"
 import Mission from "./pages/Mission"
 import ResearchProposals from "./pages/Proposals"
+import Research from "./pages/Research"
 import Team from "./pages/Team"
 
 export interface CIMCRoutes {
@@ -31,8 +32,14 @@ export const routes: CIMCRoutes[] = [
     nodeRef: createRef(),
   },
   {
-    path: "/proposals",
+    path: "/research",
     name: "Research",
+    element: <Research />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/research/proposals",
+    name: "Proposals",
     element: <ResearchProposals />,
     nodeRef: createRef(),
   },
@@ -63,11 +70,13 @@ export const routes: CIMCRoutes[] = [
 ]
 
 function App() {
+  // Only pass routes with root-level paths (no slashes after the first character)
+  const rootRoutes = routes.filter(r => r.path.match(/^\/?[^/]*$/));
   return (
     <div>
-      <Navbar routes={routes} />
+      <Navbar routes={rootRoutes} />
       <Outlet />
-      <Footer />
+      <Footer routes={rootRoutes} />
       <ScrollRestoration />
     </div>
   )
