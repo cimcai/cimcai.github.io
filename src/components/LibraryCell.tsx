@@ -1,14 +1,14 @@
-import type React from "react";
-import styled from "styled-components";
-import tw from "twin.macro";
-import { LineBreak } from "./LineBreak";
+import type React from "react"
+import styled from "styled-components"
+import tw from "twin.macro"
+import { LineBreak } from "./LineBreak"
 
 export interface LibraryCellProps {
-  title: string;
-  linkUrl?: string;
-  thumbnailUrl?: string;
-  description?: string;
-  tags?: string[];
+  title: string
+  linkUrl?: string
+  thumbnailUrl?: string
+  description?: string
+  tags?: string[]
 }
 
 const LibraryCellContainer = styled.div`
@@ -21,7 +21,7 @@ const LibraryCellContainer = styled.div`
     overflow-hidden
     shadow-md
   `}
-`;
+`
 
 const ThumbnailContainer = styled.div`
   ${tw`
@@ -32,7 +32,7 @@ const ThumbnailContainer = styled.div`
     justify-center
     items-center
   `}
-`;
+`
 
 const TitleContainer = styled.div`
   ${tw`
@@ -42,19 +42,19 @@ const TitleContainer = styled.div`
     px-4
     py-4
   `}
-`;
+`
 
 const DescriptionContainer = styled.div`
   ${tw`
     p-4
   `}
-`;
+`
 
 const TagContainer = styled.div`
   ${tw`
     text-right
   `}
-`;
+`
 
 const Tag = styled.span`
   ${tw`
@@ -66,7 +66,7 @@ const Tag = styled.span`
     py-1
     rounded
   `}
-`;
+`
 
 const ThumbnailImage = styled.img`
   ${tw`
@@ -74,7 +74,7 @@ const ThumbnailImage = styled.img`
     aspect-[393/205.75]
     object-cover
   `}
-`;
+`
 
 function LibraryCell({
   title,
@@ -88,10 +88,7 @@ function LibraryCell({
       {thumbnailUrl && (
         <ThumbnailContainer>
           <a href={linkUrl} target="_blank" rel="noreferrer">
-            <ThumbnailImage
-              src={thumbnailUrl}
-              alt={`${title} Thumbnail`}
-            />
+            <ThumbnailImage src={thumbnailUrl} alt={`${title} Thumbnail`} />
           </a>
         </ThumbnailContainer>
       )}
@@ -100,7 +97,7 @@ function LibraryCell({
           {title}
         </a>
       </TitleContainer>
-      <LineBreak width="100%" mt="1" mb="2"/>
+      <LineBreak width="100%" mt="1" mb="2" />
       <DescriptionContainer>
         <p
           className="text-black cimc-helvetica-medium min-h-32 mb-1"
@@ -115,7 +112,7 @@ function LibraryCell({
         )}
       </DescriptionContainer>
     </LibraryCellContainer>
-  );
+  )
 }
 
-export default LibraryCell;
+export default LibraryCell

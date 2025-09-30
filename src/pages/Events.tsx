@@ -45,9 +45,9 @@ const EventButton = styled.button<{ $active?: boolean }>`
     whitespace-nowrap
   `}
   ${({ $active }) =>
-  $active
-    ? tw`bg-black text-white border-black`
-    : tw`bg-white text-black hover:bg-gray-200`}
+    $active
+      ? tw`bg-black text-white border-black`
+      : tw`bg-white text-black hover:bg-gray-200`}
 `
 
 const EventsContainer = styled.div`
@@ -152,7 +152,6 @@ interface EventCellProps {
   eventUrl?: string
   startDate?: Date
   endDate?: Date
-
 }
 
 const Events = () => {
@@ -176,7 +175,9 @@ const Events = () => {
         )
         const sortedEvents = mapped.sort((a, b) => {
           if (a.startDate && b.startDate) {
-            return new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+            return (
+              new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+            )
           }
           return 0
         })
@@ -227,7 +228,7 @@ const Events = () => {
         </p>
       </EventsHeader>
       <EventsButtonsSection>
-        <LineBreak width="1440px" mt="0px" mb="23px"/>
+        <LineBreak width="1440px" mt="0px" mb="23px" />
         <EventsButtonsContainer>
           <EventButton
             $active={activeFilter === "past"}
@@ -242,7 +243,7 @@ const Events = () => {
             SEE UPCOMING EVENTS
           </EventButton>
         </EventsButtonsContainer>
-        <LineBreak width="1440px" mt="27px" mb="0px"/>
+        <LineBreak width="1440px" mt="27px" mb="0px" />
       </EventsButtonsSection>
       <EventsSectionsContainer>
         {filteredEvents.map((event) => (

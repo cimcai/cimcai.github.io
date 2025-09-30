@@ -18,5 +18,5 @@ export const LineBreak = styled.div.withConfig({
   width: ${({ width }) => width};
   margin-top: ${({ mt }) => (mt ? mt : "48px")};
   margin-bottom: ${({ mb }) => mb};
-  background-color: ${({ color }) => color ? color : "black"};
+  background-color: ${({ color }) => (color ? color : "black")};
 `

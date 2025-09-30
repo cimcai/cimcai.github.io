@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import tw from "twin.macro";
-import { LineBreak } from "../components/LineBreak";
+import styled from "styled-components"
+import tw from "twin.macro"
+import { LineBreak } from "../components/LineBreak"
 
 const LaunchEventSection = styled.div`
   ${tw`
@@ -18,7 +18,7 @@ const LaunchEventSection = styled.div`
     text-cimc-substack-button
 
   `}
-`;
+`
 
 const LaunchEventContainer = styled.div`
   ${tw`
@@ -32,7 +32,7 @@ const LaunchEventContainer = styled.div`
     md:pt-28
     md:pb-24
   `}
-`;
+`
 
 const LaunchEventHeader = styled.div`
   ${tw`
@@ -45,14 +45,14 @@ const LaunchEventHeader = styled.div`
     md:justify-between
     md:items-center
   `}
-`;
+`
 
 const LaunchEventTitle = styled.div`
   ${tw`
     md:text-cimc-white-hero
     max-md:text-cimc-logo
   `}
-`;
+`
 
 const LaunchEventButton = styled.a`
   ${tw`
@@ -70,7 +70,7 @@ const LaunchEventButton = styled.a`
     shadow-[inset_0_0_0_1px_rgba(10,13,18,0.18),inset_0_-2px_0_0_rgba(10,13,18,0.05),0_1px_2px_0_rgba(10,13,18,0.05)]
     hover:(bg-[#2C2C2C] text-white)
   `}
-`;
+`
 
 const LaunchEventContent = styled.a`
   ${tw`
@@ -81,7 +81,7 @@ const LaunchEventContent = styled.a`
     items-center
     justify-between
   `}
-`;
+`
 
 export const LaunchEvent = () => {
   return (
@@ -98,8 +98,8 @@ export const LaunchEvent = () => {
           its doors in a landmark three-day event featuring visionary keynotes,
           groundbreaking discussions, and the world’s leading thinkers in
           machine consciousness research. Pioneers like Stephen Wolfram, Joscha
-          Bach, Michael Levin, and others shared insights that set the stage
-          for a new era of understanding machine awareness and ethical AI.
+          Bach, Michael Levin, and others shared insights that set the stage for
+          a new era of understanding machine awareness and ethical AI.
         </p>
         <p className="md: mb-16">
           Explore the event highlights and join us on this ambitious journey
@@ -151,5 +151,5 @@ export const LaunchEvent = () => {
         </LaunchEventContent>
       </LaunchEventContainer>
     </LaunchEventSection>
-  );
-};
+  )
+}

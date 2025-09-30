@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
-import LibraryCell, { type LibraryCellProps } from "../components/LibraryCell";
+import LibraryCell, { type LibraryCellProps } from "../components/LibraryCell"
 import { LibraryHeader } from "../components/LibraryHeader"
 import { PageHeroGraphic } from "../components/PageHeroGraphic"
 import { snakeToCamel } from "../lib/snakeToCamel"
@@ -20,7 +20,7 @@ const LibraryContainer = styled.div`
     pt-24
     pb-40
   `}
-`;
+`
 
 const LibraryGridContainer = styled.div`
   ${tw`
@@ -32,43 +32,43 @@ const LibraryGridContainer = styled.div`
     md:px-20
     px-6
   `}
-`;
+`
 
 const Library = () => {
-  const [links, setLinks] = useState<LibraryCellProps[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [search, setSearch] = useState("");
-  const [selectedTag, setSelectedTag] = useState<string>("");
-  const didFetch = useRef(false);
-  const [searchParams] = useSearchParams();
+  const [links, setLinks] = useState<LibraryCellProps[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [search, setSearch] = useState("")
+  const [selectedTag, setSelectedTag] = useState<string>("")
+  const didFetch = useRef(false)
+  const [searchParams] = useSearchParams()
 
   useEffect(() => {
-    const tagFromUrl = searchParams.get("tag");
+    const tagFromUrl = searchParams.get("tag")
     if (tagFromUrl) {
-      setSelectedTag(tagFromUrl);
+      setSelectedTag(tagFromUrl)
     }
-  }, [searchParams]);
+  }, [searchParams])
 
   useEffect(() => {
-    if (didFetch.current) return;
-    didFetch.current = true;
+    if (didFetch.current) return
+    didFetch.current = true
     async function fetchLinks() {
-      setLoading(true);
-      const { data, error } = await supabase.from("links").select("*");
-      if (error) setError(error.message);
+      setLoading(true)
+      const { data, error } = await supabase.from("links").select("*")
+      if (error) setError(error.message)
       else {
         const mapped = (data || []).map(
-          (item) => snakeToCamel(item) as unknown as LibraryCellProps
-        );
-        setLinks(mapped);
+          (item) => snakeToCamel(item) as unknown as LibraryCellProps,
+        )
+        setLinks(mapped)
       }
-      setLoading(false);
+      setLoading(false)
     }
-    fetchLinks();
-  }, []);
+    fetchLinks()
+  }, [])
 
-    const prioritizeLaunchEventTag = (tags: string[]) => {
+  const prioritizeLaunchEventTag = (tags: string[]) => {
     return tags.includes("Launch Event")
       ? ["Launch Event", ...tags.filter((tag) => tag !== "Launch Event")]
       : tags
@@ -80,27 +80,27 @@ const Library = () => {
 
   const prioritizeLaunchEvent = (items: LibraryCellProps[]) => {
     return items.sort((a, b) => {
-      const aIsLaunchEvent = a.tags?.includes("Launch Event") ? -1 : 1;
-      const bIsLaunchEvent = b.tags?.includes("Launch Event") ? -1 : 1;
-      return aIsLaunchEvent - bIsLaunchEvent;
-    });
-  };
+      const aIsLaunchEvent = a.tags?.includes("Launch Event") ? -1 : 1
+      const bIsLaunchEvent = b.tags?.includes("Launch Event") ? -1 : 1
+      return aIsLaunchEvent - bIsLaunchEvent
+    })
+  }
 
   // Filter links by selected tag and search
   const filteredLinks = links.filter((link) => {
-    const matchesTag = selectedTag ? link.tags?.includes(selectedTag) : true;
+    const matchesTag = selectedTag ? link.tags?.includes(selectedTag) : true
     const matchesSearch = search
       ? link.title.toLowerCase().includes(search.toLowerCase()) ||
         link.description?.toLowerCase().includes(search.toLowerCase())
-      : true;
-    return matchesTag && matchesSearch;
-  });
+      : true
+    return matchesTag && matchesSearch
+  })
 
   // Prioritize 'Launch Event' in filtered links
-  const prioritizedLinks = prioritizeLaunchEvent(filteredLinks);
+  const prioritizedLinks = prioritizeLaunchEvent(filteredLinks)
 
-  if (loading) return <div>Loading library…</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div>Loading library…</div>
+  if (error) return <div>Error: {error}</div>
 
   return (
     <LibraryContainer id="library">
@@ -117,22 +117,22 @@ const Library = () => {
       />
       <LibraryGridContainer>
         {prioritizedLinks.map((link) => {
-          const key = link.linkUrl || link.title;
+          const key = link.linkUrl || link.title
           return (
-              <div key={key}>
-                <LibraryCell
-                  title={link.title}
-                  linkUrl={link.linkUrl}
-                  thumbnailUrl={link.thumbnailUrl}
-                  description={link.description}
-                  tags={link.tags}
-                />
-              </div>
-          );
+            <div key={key}>
+              <LibraryCell
+                title={link.title}
+                linkUrl={link.linkUrl}
+                thumbnailUrl={link.thumbnailUrl}
+                description={link.description}
+                tags={link.tags}
+              />
+            </div>
+          )
         })}
       </LibraryGridContainer>
     </LibraryContainer>
-  );
-};
+  )
+}
 
 export default Library

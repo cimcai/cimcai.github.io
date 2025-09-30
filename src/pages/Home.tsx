@@ -72,8 +72,8 @@ export const Home = () => {
       <HeroTextContainer>
         <LineBreak width="196px" />
         <HeroText>
-          Understanding the mind is the most important project in the history
-          of philosophy.
+          Understanding the mind is the most important project in the history of
+          philosophy.
         </HeroText>
       </HeroTextContainer>
       <VideoContainer>

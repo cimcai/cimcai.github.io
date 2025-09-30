@@ -71,7 +71,7 @@ export const routes: CIMCRoutes[] = [
 
 function App() {
   // Only pass routes with root-level paths (no slashes after the first character)
-  const rootRoutes = routes.filter(r => r.path.match(/^\/?[^/]*$/));
+  const rootRoutes = routes.filter((r) => r.path.match(/^\/?[^/]*$/))
   return (
     <div>
       <Navbar routes={rootRoutes} />

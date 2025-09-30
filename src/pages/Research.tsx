@@ -82,8 +82,10 @@ function Research() {
               Applications are reviewed on a rolling bases
             </div>
           </div>
-          <ProposalButton href="/#/research/proposals">DETAILS FOR APPLYING</ProposalButton>
-        </ CallForProposalsContainer>
+          <ProposalButton href="/#/research/proposals">
+            DETAILS FOR APPLYING
+          </ProposalButton>
+        </CallForProposalsContainer>
       </ResearchLayout>
     </ResearchContainer>
   )
