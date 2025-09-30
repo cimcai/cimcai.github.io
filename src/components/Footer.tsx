@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
-import { routes } from "../App"
 import { CIMCLogo } from "./CIMCLogo"
 import LinkedInIcon from "./icons/LinkedInIcon"
 import LumaIcon from "./icons/LumaIcon"
@@ -20,7 +19,7 @@ const FooterContainer = styled.div`
 const FooterLayout = styled.div`
   ${tw`
     w-full
-    max-w-[1216px]
+    max-w-[1280px]
   bg-black
   text-white
     pt-20
@@ -54,7 +53,14 @@ const FooterBottomContent = styled.div`
   `}
 `
 
-function Footer() {
+interface FooterProps {
+  routes: Array<{
+    path: string
+    name: string
+  }>
+}
+
+function Footer({ routes }: FooterProps) {
   return (
     <FooterContainer>
       <FooterLayout>
@@ -79,7 +85,7 @@ function Footer() {
                 aria-label="YouTube"
                 title="YouTube"
                 className="hover:opacity-80"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <YouTubeIcon />
               </a>
@@ -89,7 +95,7 @@ function Footer() {
                 aria-label="LinkedIn"
                 title="LinkedIn"
                 className="hover:opacity-80"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <LinkedInIcon />
               </a>
@@ -99,7 +105,7 @@ function Footer() {
                 aria-label="Luma"
                 title="Luma"
                 className="hover:opacity-80"
-                rel="noreferrer"
+                rel="noreferrer noopener"
               >
                 <LumaIcon />
               </a>

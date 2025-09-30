@@ -18,12 +18,12 @@ const TeamContainer = styled.div`
       justify-center
       pt-24
     `}
-  color: ${theme`colors.cimc_dark`};
+  color: ${theme`colors.cimc_team_dark`};
 `
 
 const TeamLayout = styled.div`
   ${tw`
-      md:w-[1024px]
+      md:w-[860px]
       max-md:px-6
     `}
 `

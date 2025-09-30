@@ -24,7 +24,7 @@ const JobsLayout = styled.div`
     md:flex-row
     justify-between
     w-full
-    max-w-[1216px]
+    max-w-[1280px]
     mx-auto
     px-6
   `}
@@ -98,9 +98,9 @@ const ListItem = styled.li`
 const Label = styled.p`
   ${tw`
     text-cimc-helvetica-normal
+    text-cimc_dark
     mb-3
   `}
-  color: #181D27;
 `
 
 const EmailLink = styled.a`

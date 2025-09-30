@@ -1,9 +1,11 @@
+import { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
-import newsData from "../data/news.json"
+import { snakeToCamel } from "../lib/snakeToCamel"
+import { supabase } from "../lib/supabaseClient"
 
 const NewsListContainer = styled.div`
-  ${tw`flex flex-col gap-12 max-w-[860px] justify-center items-center`}
+  ${tw`flex flex-col gap-12 max-w-[860px] justify-center items-center pb-24`}
 `
 
 const NewsItem = styled.div`
@@ -34,10 +36,52 @@ const NewsDesc = styled.p`
 const NewsButton = styled.a`
   ${tw`block bg-black border border-black text-white text-lg py-4 w-full md:w-[320px] text-center rounded-tr-[10px] rounded-tl-none rounded-br-none rounded-bl-none transition  hover:bg-white hover:text-black`}
 `
+
+interface NewsItemProps {
+  hide?: boolean
+  backgroundColor?: string
+  pictureUrl?: string
+  youtubeId?: string
+  title: string
+  date?: string
+  description?: string
+  linkUrl?: string
+}
+
 export function NewsList() {
+  const [news, setNews] = useState<NewsItemProps[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const didFetch = useRef(false)
+
+  useEffect(() => {
+    if (didFetch.current) return
+    didFetch.current = true
+    async function fetchNews() {
+      setLoading(true)
+      const { data, error } = await supabase
+        .from("news")
+        .select("*")
+        .eq("hide", false)
+        .order("date", { ascending: true })
+      if (error) setError(error.message)
+      else {
+        const mapped = (data || []).map(
+          (item) => snakeToCamel(item) as unknown as NewsItemProps,
+        )
+        setNews(mapped)
+      }
+      setLoading(false)
+    }
+    fetchNews()
+  }, [])
+
+  if (loading) return <div>Loading news…</div>
+  if (error) return <div>Error: {error}</div>
+
   return (
     <NewsListContainer>
-      {newsData.map((item) => (
+      {news.map((item) => (
         <NewsItem key={item.title}>
           {item.youtubeId ? (
             <iframe

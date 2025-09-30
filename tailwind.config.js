@@ -4,11 +4,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Questrial", "Helvetica", "Arial", "sans-serif"],
+        sans: ["Questrial", "Helvetica Neue", "Arial", "sans-serif"],
       },
       colors: {
         cimc_blue: "#626dd6",
-        cimc_dark: "#272727",
+        cimc_team_dark: "#272727",
+        cimc_dark: "#181D27",
+        cimc_light: "#EAEAEA",
         "color-border-neutral-default": "var(--color-border-neutral-default)",
         "color-primitives-gray-900": "var(--color-primitives-gray-900)",
         "color-primitives-slate-900": "var(--color-primitives-slate-900)",
@@ -21,7 +23,7 @@ export default {
           "18px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "24px",
@@ -32,7 +34,7 @@ export default {
           "28px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "24px",
@@ -43,7 +45,7 @@ export default {
           "14px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "112%",
@@ -54,7 +56,7 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "140%" /* 22.4px */,
@@ -64,7 +66,7 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "120%" /* 19.2px */,
@@ -75,7 +77,7 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%" /* 24px */,
@@ -85,7 +87,7 @@ export default {
           "18px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%",
@@ -96,7 +98,7 @@ export default {
           "20px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "120%" /* 24px */,
@@ -107,7 +109,7 @@ export default {
           "20px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%",
@@ -117,7 +119,7 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "140%",
@@ -128,20 +130,42 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "125%",
+          },
+        ],
+        "cimc-helvetica-normal-alt": [
+          "24px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica Neue",
+            lineHeight: "105%",
+            fontStyle: "normal",
+            letterSpacing: "-0.72px",
+            fontWeight: "400",
           },
         ],
         "cimc-forward": [
           "28px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             lineHeight: "110%",
             fontStyle: "normal",
             fontWeight: "400",
+          },
+        ],
+        "cimc-helvetica-30": [
+          "30px",
+          {
+            colors: "#181D27",
+            fontFamily: "Helvetica Neue",
+            lineHeight: "125%",
+            fontStyle: "normal",
+            fontWeight: "400",
+            letterSpacing: "-0.6px",
           },
         ],
         "cimc-heading": [
@@ -187,7 +211,7 @@ export default {
           "36px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica",
+            fontFamily: "Helvetica Neue",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -259,6 +283,17 @@ export default {
             fontWeight: "400",
             lineHeight: "105%" /* 58.8px */,
             letterSpacing: "-2.24px",
+          },
+        ],
+        "cimc-white-hero": [
+          "60px",
+          {
+            color: "white",
+            fontFamily: "Questrial",
+            fontStyle: "normal",
+            fontWeight: "400",
+            lineHeight: "105%" /* 63px */,
+            letterSpacing: "9.6px;",
           },
         ],
       },

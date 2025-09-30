@@ -2,13 +2,14 @@ import { type RefObject, createRef } from "react"
 import { Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
+import Events from "./pages/Events"
 import Home from "./pages/Home"
 import Jobs from "./pages/Jobs"
 import Library from "./pages/Library"
 import Mission from "./pages/Mission"
 import ResearchProposals from "./pages/Proposals"
+import Research from "./pages/Research"
 import Team from "./pages/Team"
-import Terms from "./pages/Terms"
 
 export interface CIMCRoutes {
   path: string
@@ -31,8 +32,14 @@ export const routes: CIMCRoutes[] = [
     nodeRef: createRef(),
   },
   {
-    path: "/proposals",
+    path: "/research",
     name: "Research",
+    element: <Research />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/research/proposals",
+    name: "Proposals",
     element: <ResearchProposals />,
     nodeRef: createRef(),
   },
@@ -49,6 +56,12 @@ export const routes: CIMCRoutes[] = [
     nodeRef: createRef(),
   },
   {
+    path: "/events",
+    name: "Events",
+    element: <Events />,
+    nodeRef: createRef(),
+  },
+  {
     path: "/jobs",
     name: "Join us",
     element: <Jobs />,
@@ -57,11 +70,13 @@ export const routes: CIMCRoutes[] = [
 ]
 
 function App() {
+  // Only pass routes with root-level paths (no slashes after the first character)
+  const rootRoutes = routes.filter((r) => r.path.match(/^\/?[^/]*$/))
   return (
     <div>
-      <Navbar routes={routes} />
+      <Navbar routes={rootRoutes} />
       <Outlet />
-      <Footer />
+      <Footer routes={rootRoutes} />
       <ScrollRestoration />
     </div>
   )

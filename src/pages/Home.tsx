@@ -2,6 +2,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 import { CIMCSquareLogo } from "../components/CIMCSquareLogo"
 import Forward from "../components/Forward"
+import { LaunchEvent } from "../components/LaunchEventSection"
 import { LineBreak } from "../components/LineBreak"
 import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
 import { NewsList } from "../components/NewsList"
@@ -20,15 +21,6 @@ const HomeContainer = styled.div`
       bg-white
     `}
 `
-const ContentContainer = styled.div`
-  ${tw`
-      md:w-[987px]
-      max-md:w-full
-      max-md:pb-20
-      z-10
-    `}
-`
-
 const VideoContainer = styled.div`
   ${tw`
       flex
@@ -76,27 +68,26 @@ const ForwardContainer = styled.div`
 export const Home = () => {
   return (
     <HomeContainer id="home">
-      <ContentContainer>
-        <CIMCSquareLogo showName />
-        <HeroTextContainer>
-          <LineBreak width="196px" />
-          <HeroText>
-            Understanding the mind is the most important project in the history
-            of philosophy.
-          </HeroText>
-        </HeroTextContainer>
-        <VideoContainer>
-          <video controls width={879} poster="cimcintro.jpg">
-            <source src="./cimcintro.mp4" type="video/mp4" />
-            <track kind="captions" src="./joschamoc.vtt" label="English" />
-          </video>
-        </VideoContainer>
-        <ForwardContainer>
-          <Forward />
-          <LogoBackgroundedHero text="Understanding the nature and functionality of consciousness from a computationalist perspective" />
-          <NewsList />
-        </ForwardContainer>
-      </ContentContainer>
+      <CIMCSquareLogo showName />
+      <HeroTextContainer>
+        <LineBreak width="196px" />
+        <HeroText>
+          Understanding the mind is the most important project in the history of
+          philosophy.
+        </HeroText>
+      </HeroTextContainer>
+      <VideoContainer>
+        <video controls width={879} poster="cimcintro.jpg">
+          <source src="./cimcintro.mp4" type="video/mp4" />
+          <track kind="captions" src="./joschamoc.vtt" label="English" />
+        </video>
+      </VideoContainer>
+      <ForwardContainer>
+        <Forward />
+        <LogoBackgroundedHero text="Understanding the nature and functionality of consciousness from a computationalist perspective" />
+        <NewsList />
+      </ForwardContainer>
+      <LaunchEvent />
       <SubstackSection />
     </HomeContainer>
   )
