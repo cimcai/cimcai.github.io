@@ -94,12 +94,13 @@ const EventDate = styled.div`
   `}
 `
 
-const EventImage = styled.img`
+const EventImage = styled.img<{ $backgroundColor?: string }>`
   ${tw`
     w-96
     h-52
-    object-contain
+    object-cover
   `}
+  background-color: ${({ $backgroundColor }) => $backgroundColor || "#f3f4f6"};
 `
 
 const EventDetails = styled.div`
@@ -144,12 +145,14 @@ const LearnMoreButton = styled.a`
 interface EventCellProps {
   datesLabel?: string
   imageUrl?: string
+  backgroundColor?: string
   name: string
   location: string
   description?: string
   eventUrl?: string
   startDate?: Date
   endDate?: Date
+
 }
 
 const Events = () => {
@@ -196,7 +199,7 @@ const Events = () => {
           return event.endDate && dayjs(event.endDate).isBefore(today)
         }
         if (filterType === "upcoming") {
-          return event.startDate && dayjs(event.startDate).isAfter(today)
+          return event.endDate && dayjs(event.endDate).isAfter(today)
         }
         return false
       })
@@ -248,6 +251,7 @@ const Events = () => {
             <EventImage
               src={event.imageUrl ? event.imageUrl : "./defaultEvent.png"}
               alt={event.name}
+              $backgroundColor={event.backgroundColor}
             />
             <EventDetails>
               <EventTitle>{event.name}</EventTitle>
