@@ -45,6 +45,7 @@ const HeroTextContainer = styled.div`
 
 const HeroText = styled.div`
   ${tw`
+      font-questrial
       md:text-cimc-hero
       md:w-[732px]
       text-center

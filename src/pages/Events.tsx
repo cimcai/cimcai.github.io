@@ -66,14 +66,14 @@ const EventsContainer = styled.div`
 
 const EventsHeader = styled.div`
   ${tw`
-    md:w-[860px]
+    md:max-w-[960px]
     mb-12
   `}
 `
 
 const EventsSectionsContainer = styled.div`
   ${tw`
-    md:w-[860px]
+    md:max-w-[960px]
   `}
 `
 
@@ -112,7 +112,8 @@ const EventDetails = styled.div`
 
 const EventTitle = styled.h3`
   ${tw`
-    text-xl
+    font-questrial
+    text-cimc-logo
     mb-2
   `}
 `
@@ -216,7 +217,7 @@ const Events = () => {
     <EventsContainer id="events">
       <PageHeroGraphic />
       <EventsHeader>
-        <p className="text-cimc-hero mb-8">CIMC Events</p>
+        <p className="font-questrial text-cimc-hero mb-8">CIMC Events</p>
         <p className="text-cimc-helvetica-standard">
           We need an open, transdisciplinary, non-profit research initiative.
           This institute will integrate insights from philosophy, psychology,

@@ -1,10 +1,13 @@
+import plugin from "tailwindcss/plugin";
+
 /** @type {import("tailwindcss").Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Questrial", "Helvetica Neue", "Arial", "sans-serif"],
+        questrial: ["questrial", "sans-serif"],
+        helvetica: ["helvetica", "Helvetica", "Arial", "sans-serif"],
       },
       colors: {
         cimc_blue: "#626dd6",
@@ -23,7 +26,7 @@ export default {
           "18px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "24px",
@@ -34,7 +37,7 @@ export default {
           "28px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "24px",
@@ -45,7 +48,7 @@ export default {
           "14px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "112%",
@@ -56,7 +59,7 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "140%" /* 22.4px */,
@@ -66,7 +69,7 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "120%" /* 19.2px */,
@@ -77,7 +80,7 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%" /* 24px */,
@@ -87,7 +90,7 @@ export default {
           "18px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%",
@@ -98,7 +101,7 @@ export default {
           "20px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "120%" /* 24px */,
@@ -109,7 +112,7 @@ export default {
           "20px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%",
@@ -119,7 +122,7 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "140%",
@@ -130,7 +133,7 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "125%",
@@ -140,7 +143,7 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             lineHeight: "105%",
             fontStyle: "normal",
             letterSpacing: "-0.72px",
@@ -151,27 +154,49 @@ export default {
           "28px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             lineHeight: "110%",
             fontStyle: "normal",
             fontWeight: "400",
+          },
+        ],
+        "cimc-forward-lh": [
+          "28px",
+          {
+            colors: "#181D27",
+            fontFamily: "helvetica",
+            lineHeight: "85.714%",
+            fontStyle: "normal",
+            fontWeight: "400",
+            letterSpacing: "-0.56px",
           },
         ],
         "cimc-helvetica-30": [
           "30px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             lineHeight: "125%",
             fontStyle: "normal",
             fontWeight: "400",
             letterSpacing: "-0.6px",
           },
         ],
+        "cimc-helvetica-48": [
+          "48px",
+          {
+            colors: "#00000",
+            fontFamily: "helvetica",
+            fontStyle: "normal",
+            fontWeight: "200",
+            lineHeight: "50%",
+            letterSpacing: "-0.96px",
+          },
+        ],
         "cimc-heading": [
           "18px",
           {
-            fontFamily: "Questrial, sans-serif",
+            fontFamily: "questrial", // Updated to use the new questrial font-family
             lineHeight: "1.4rem",
             letterSpacing: "-0.01em",
             fontWeight: "700",
@@ -180,7 +205,7 @@ export default {
         "cimc-subheading": [
           "16px",
           {
-            fontFamily: "Questrial, sans-serif",
+            fontFamily: "questrial", // Updated to use the new questrial font-family
             lineHeight: "1.4rem",
             letterSpacing: "-0.01em",
             fontWeight: "700",
@@ -189,17 +214,27 @@ export default {
         "cimc-standard": [
           "16px",
           {
-            fontFamily: "Questrial, sans-serif",
+            fontFamily: "questrial",
             lineHeight: "28px",
             letterSpacing: "-0.01em",
             fontWeight: "400",
             colors: "#272727",
           },
         ],
+        "cimc-standard-18": [
+          "18px",
+          {
+            colors: "#000000",
+            fontFamily: "questrial",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+            lineHeight: "24px",
+          },
+        ],
         "cimc-large": [
           "24px",
           {
-            fontFamily: "Questrial, sans-serif",
+            fontFamily: "questrial",
             lineHeight: "105%",
             fontStyle: "normal",
             letterSpacing: "-0.72px",
@@ -211,7 +246,7 @@ export default {
           "36px",
           {
             colors: "#181D27",
-            fontFamily: "Helvetica Neue",
+            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -222,7 +257,7 @@ export default {
           "32px",
           {
             color: "#181D27",
-            fontFamily: "Questrial",
+            fontFamily: "questrial",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -233,7 +268,7 @@ export default {
           "40px",
           {
             color: "#181D27",
-            fontFamily: "Questrial",
+            fontFamily: "questrial",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -244,7 +279,7 @@ export default {
           "36px",
           {
             color: "#181D27",
-            fontFamily: "Questrial",
+            fontFamily: "questrial",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -254,7 +289,7 @@ export default {
         "cimc-substack": [
           "44px",
           {
-            fontFamily: "Questrial",
+            fontFamily: "questrial",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -267,7 +302,7 @@ export default {
           "44px",
           {
             color: "#181D27",
-            fontFamily: "Questrial",
+            fontFamily: "questrial",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",
@@ -278,7 +313,7 @@ export default {
           "56px",
           {
             color: "#181D27",
-            fontFamily: "Questrial",
+            fontFamily: "questrial",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%" /* 58.8px */,
@@ -289,7 +324,7 @@ export default {
           "60px",
           {
             color: "white",
-            fontFamily: "Questrial",
+            fontFamily: "questrial",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%" /* 63px */,
@@ -300,4 +335,4 @@ export default {
     },
   },
   plugins: [],
-}
+};

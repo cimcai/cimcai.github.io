@@ -11,12 +11,19 @@
     font-weight: 400;
     line-height: normal;
   }
+  @font-face {
+    font-family: "Helvetica Neue";
+    src: url(./fonts/HelveticaNeueRoman.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }
 
 :root {
   --color-border-neutral-default: var(--color-primitives-slate-900);
   --color-primitives-gray-900: rgba(30, 30, 30, 1);
-  --color-primitives-slate-100: rgba(243, 243, 243, 1);
+  --color-primitives-slate-100: rgb(124, 62, 62);
   --color-primitives-slate-1000: rgba(36, 36, 36, 1);
   --color-primitives-slate-900: rgba(48, 48, 48, 1);
   --color-primitives-white-1000: rgba(255, 255, 255, 1);
