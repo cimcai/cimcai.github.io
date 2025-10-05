@@ -1,4 +1,4 @@
-import { type RefObject, createRef } from "react"
+import { type RefObject, createRef, useEffect } from "react"
 import { Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
@@ -10,6 +10,7 @@ import Mission from "./pages/Mission"
 import ResearchProposals from "./pages/Proposals"
 import Research from "./pages/Research"
 import Team from "./pages/Team"
+import { useProjectsStore } from "./store/projectsStore"
 
 export interface CIMCRoutes {
   path: string
@@ -72,6 +73,11 @@ export const routes: CIMCRoutes[] = [
 function App() {
   // Only pass routes with root-level paths (no slashes after the first character)
   const rootRoutes = routes.filter((r) => r.path.match(/^\/?[^/]*$/))
+  const fetchProjects = useProjectsStore((s) => s.fetchProjects)
+  useEffect(() => {
+    fetchProjects()
+  }, [fetchProjects])
+
   return (
     <div>
       <Navbar routes={rootRoutes} />
