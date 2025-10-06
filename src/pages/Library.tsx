@@ -96,9 +96,6 @@ const Library = () => {
     return matchesTag && matchesSearch
   })
 
-  // Prioritize 'Launch Event' in filtered links
-  const prioritizedLinks = prioritizeLaunchEvent(filteredLinks)
-
   if (loading) return <div>Loading library…</div>
   if (error) return <div>Error: {error}</div>
 
@@ -116,7 +113,7 @@ const Library = () => {
         }}
       />
       <LibraryGridContainer>
-        {prioritizedLinks.map((link) => {
+        {filteredLinks.map((link) => {
           const key = link.linkUrl || link.title
           return (
             <div key={key}>
