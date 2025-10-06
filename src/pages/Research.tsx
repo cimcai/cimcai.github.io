@@ -103,16 +103,25 @@ function Research() {
     }, [searchParams])
 
   useEffect(() => {
-    const handlePopState = () => {
-      setSelectedProjectId("");
+    const handleUrlChange = () => {
+      const projectIdFromUrl = searchParams.get("projectId");
+      if (!projectIdFromUrl) {
+        setSelectedProjectId("");
+      }
     };
 
-    window.addEventListener("popstate", handlePopState);
+    handleUrlChange(); // Check on initial render
+
+    const observer = new MutationObserver(() => {
+      handleUrlChange();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      window.removeEventListener("popstate", handlePopState);
+      observer.disconnect();
     };
-  }, []);
+  }, [searchParams]);
 
   return (
     <ResearchContainer>
