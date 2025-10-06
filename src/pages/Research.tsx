@@ -4,6 +4,7 @@ import styled from "styled-components"
 import tw from "twin.macro"
 import { OngoingResearchHeader } from "../components/OngoingResearchHeader"
 import { PageHeroGraphic } from "../components/PageHeroGraphic"
+import { ProjectDetails } from "../components/ProjectDetails"
 import { ProjectsAccordion } from "../components/ProjectsAccordion"
 
 const ResearchContainer = styled.div`
@@ -129,7 +130,7 @@ function Research() {
       <ResearchLayout>
         {
           selectedProjectId ? (
-            null
+            <ProjectDetails projectId={selectedProjectId} />
           ) : (
             <>
               <div className="flex flex-col gap-14 justify-start">

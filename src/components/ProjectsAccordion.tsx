@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import { useProjectsStore } from "../store/projectsStore";
 
 const AccordionContainer = styled.div`
-  ${tw`flex flex-col`}
+  ${tw`flex flex-col pb-[120px]`}
 `;
 
 const ProjectRow = styled.div`
@@ -52,9 +52,11 @@ export const ProjectsAccordion: FC<ProjectsAccordionProps> = ({ isFullListMode =
   if (error) return <div>Error: {error}</div>;
   if (!projects.length) return <div>No projects found.</div>;
 
+  const sortedProjects = [...projects].sort((a, b) => a.id - b.id);
+
   return (
     <AccordionContainer>
-      {projects.map((project, idx) => {
+      {sortedProjects.map((project, idx) => {
         const isOpen = openIndex === idx;
         return (
           <div key={project.id}>

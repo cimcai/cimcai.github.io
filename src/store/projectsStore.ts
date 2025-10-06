@@ -2,9 +2,18 @@ import { create } from "zustand";
 import { supabase } from "../lib/supabaseClient";
 
 export interface Project {
-  id: string;
+  id: number;
   name: string;
+  need?: string;
   mission?: string;
+  missionLong?: string;
+  institution?: string;
+  approach?: string;
+  teamDescription?: string;
+  pictureUrl?: string;
+  references?: string;
+  teamMembers?: string;
+  submitTime: Date;
 }
 
 interface ProjectsState {
