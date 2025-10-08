@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { snakeToCamel } from "../lib/snakeToCamel";
 import { supabase } from "../lib/supabaseClient";
 
 export interface Project {
@@ -9,10 +10,9 @@ export interface Project {
   missionLong?: string;
   institution?: string;
   approach?: string;
-  teamDescription?: string;
+  teamDescription?: string[];
   pictureUrl?: string;
-  references?: string;
-  teamMembers?: string;
+  teamMembers?: string[];
   submitTime: Date;
 }
 
@@ -33,7 +33,14 @@ export const useProjectsStore = create<ProjectsState>((set) => ({
     if (error) {
       set({ error: error.message, loading: false });
     } else {
-      set({ projects: data || [], loading: false, error: null });
+      const transformedData = (data || []).map((project) => {
+        const camelProject = snakeToCamel(project) as Omit<Project, "submitTime"> & { submitTime: string | Date };
+        return {
+          ...camelProject,
+          submitTime: new Date(camelProject.submitTime),
+        } as Project;
+      });
+      set({ projects: transformedData, loading: false, error: null });
     }
   },
 }));

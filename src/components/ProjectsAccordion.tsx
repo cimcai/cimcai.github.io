@@ -17,7 +17,7 @@ const ProjectName = styled.div`
 `;
 
 const IconButton = styled.button`
-  ${tw`ml-4 text-cimc-helvetica-48 bg-transparent border-none outline-none cursor-pointer select-none`}
+  ${tw`ml-4 text-cimc-48px bg-transparent border-none outline-none cursor-pointer select-none`}
 `;
 
 const ProjectDetails = styled.div`

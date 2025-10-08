@@ -26,7 +26,6 @@ export default {
           "18px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "24px",
@@ -37,7 +36,6 @@ export default {
           "28px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "24px",
@@ -48,7 +46,6 @@ export default {
           "14px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "112%",
@@ -59,7 +56,6 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "140%" /* 22.4px */,
@@ -69,7 +65,6 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "120%" /* 19.2px */,
@@ -80,7 +75,6 @@ export default {
           "16px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%" /* 24px */,
@@ -90,7 +84,6 @@ export default {
           "18px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%",
@@ -101,7 +94,6 @@ export default {
           "20px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "120%" /* 24px */,
@@ -112,7 +104,6 @@ export default {
           "20px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "150%",
@@ -122,7 +113,6 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "140%",
@@ -133,7 +123,6 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "125%",
@@ -143,7 +132,6 @@ export default {
           "24px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             lineHeight: "105%",
             fontStyle: "normal",
             letterSpacing: "-0.72px",
@@ -154,7 +142,6 @@ export default {
           "28px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             lineHeight: "110%",
             fontStyle: "normal",
             fontWeight: "400",
@@ -164,7 +151,6 @@ export default {
           "28px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             lineHeight: "85.714%",
             fontStyle: "normal",
             fontWeight: "400",
@@ -175,18 +161,15 @@ export default {
           "30px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             lineHeight: "125%",
             fontStyle: "normal",
             fontWeight: "400",
             letterSpacing: "-0.6px",
           },
         ],
-        "cimc-helvetica-48": [
+        "cimc-48px": [
           "48px",
           {
-            colors: "#00000",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "200",
             lineHeight: "50%",
@@ -246,7 +229,6 @@ export default {
           "36px",
           {
             colors: "#181D27",
-            fontFamily: "helvetica",
             fontStyle: "normal",
             fontWeight: "400",
             lineHeight: "105%",

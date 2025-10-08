@@ -11,6 +11,7 @@ import ResearchProposals from "./pages/Proposals"
 import Research from "./pages/Research"
 import Team from "./pages/Team"
 import { useProjectsStore } from "./store/projectsStore"
+import { useReferencesStore } from "./store/referencesStore"
 
 export interface CIMCRoutes {
   path: string
@@ -74,9 +75,11 @@ function App() {
   // Only pass routes with root-level paths (no slashes after the first character)
   const rootRoutes = routes.filter((r) => r.path.match(/^\/?[^/]*$/))
   const fetchProjects = useProjectsStore((s) => s.fetchProjects)
+  const fetchReferences = useReferencesStore((s) => s.fetchReferences)
   useEffect(() => {
     fetchProjects()
-  }, [fetchProjects])
+    fetchReferences()
+  }, [fetchProjects, fetchReferences])
 
   return (
     <div>
