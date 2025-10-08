@@ -72,6 +72,7 @@ const ProfileInfo = styled.div`
 
 const ProfileName = styled.div`
   ${tw`
+    font-questrial
     text-cimc-large
     mb-[6px]
   `}
@@ -187,7 +188,7 @@ const Team = () => {
     <TeamContainer id="team">
       <PageHeroGraphic />
       <TeamLayout>
-        <p className="text-cimc-hero mb-16">Team</p>
+        <p className="font-questrial text-cimc-hero mb-16">Team</p>
         {profilesData.teams.map((team) => (
           <div key={team.teamName}>
             <ProfileList

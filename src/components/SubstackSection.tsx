@@ -28,11 +28,10 @@ const SubstackContentCol = styled.div`
   ${tw`flex flex-col items-center justify-center h-full`}
 `
 const SubstackTitle = styled.h2`
-  ${tw`text-cimc-substack text-center`}
+  ${tw`font-questrial text-cimc-substack text-center`}
 `
 const SubstackDesc = styled.p`
-  ${tw`text-cimc-substack-description md:text-base mb-6 text-center`}
-  rgba(24, 29, 39, 0.70);
+  ${tw`text-cimc-substack-description md:text-base mb-6 text-center text-cimc_dark/70`}
 `
 const SubstackButton = styled.a`
   ${tw`

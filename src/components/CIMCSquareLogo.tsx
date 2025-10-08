@@ -502,7 +502,7 @@ export function CIMCSquareLogo({ showName }: CIMCLogoProps): React.ReactNode {
         <CIMCSquareLogoSVG />
       </LogoImageContainer>
       {showName ? (
-        <div className="pt-14 flex justify-center">
+        <div className="font-questrial pt-14 flex justify-center">
           <div
             className={
               "md:text-cimc-logo max-md:text-cimc-logo-small text-center"

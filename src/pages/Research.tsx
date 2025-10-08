@@ -1,6 +1,11 @@
+import { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
+import { OngoingResearchHeader } from "../components/OngoingResearchHeader"
 import { PageHeroGraphic } from "../components/PageHeroGraphic"
+import { ProjectDetails } from "../components/ProjectDetails"
+import { ProjectsAccordion } from "../components/ProjectsAccordion"
 
 const ResearchContainer = styled.div`
   ${tw`
@@ -20,6 +25,7 @@ const ResearchContainer = styled.div`
 const ResearchLayout = styled.div`
   ${tw`
     flex
+    flex-col
     justify-between
     w-full
     max-w-[1280px]
@@ -68,24 +74,79 @@ const ProposalButton = styled.a`
   `}
 `
 
+const CallForTitle = styled.div`
+  ${tw`
+    font-questrial
+    text-cimc-hero
+    self-stretch
+    text-center
+    mb-4
+  `}
+`
+
+const CallForSubtitle = styled.div`
+  ${tw`
+    text-cimc-helvetica-normal-alt
+    self-stretch
+    text-center
+    text-cimc_dark/60
+  `}
+`
+
 function Research() {
+  const [selectedProjectId, setSelectedProjectId] = useState<string>("")
+  const [searchParams] = useSearchParams()
+  useEffect(() => {
+    const projectIdFromUrl = searchParams.get("projectId")
+    if (projectIdFromUrl) {
+      setSelectedProjectId(projectIdFromUrl)
+    }
+  }, [searchParams])
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const projectIdFromUrl = searchParams.get("projectId")
+      if (!projectIdFromUrl) {
+        setSelectedProjectId("")
+      }
+    }
+
+    handleUrlChange() // Check on initial render
+
+    const observer = new MutationObserver(() => {
+      handleUrlChange()
+    })
+
+    observer.observe(document.body, { childList: true, subtree: true })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [searchParams])
+
   return (
     <ResearchContainer>
       <PageHeroGraphic />
       <ResearchLayout>
-        <CallForProposalsContainer>
-          <div>
-            <div className="text-cimc-hero self-stretch text-center mb-4">
-              Call for Research Proposals
+        {selectedProjectId ? (
+          <ProjectDetails projectId={selectedProjectId} />
+        ) : (
+          <>
+            <div className="flex flex-col gap-14 justify-start">
+              <OngoingResearchHeader />
+              <ProjectsAccordion isFullListMode />
             </div>
-            <div className="text-cimc-helvetica-normal-alt self-stretch text-center text-cimc_dark/60">
-              Applications are reviewed on a rolling bases
-            </div>
-          </div>
-          <ProposalButton href="/#/research/proposals">
-            DETAILS FOR APPLYING
-          </ProposalButton>
-        </CallForProposalsContainer>
+            <CallForProposalsContainer>
+              <CallForTitle>Call for Research Proposals</CallForTitle>
+              <CallForSubtitle>
+                Applications are reviewed on a rolling bases
+              </CallForSubtitle>
+              <ProposalButton href="/#/research/proposals">
+                DETAILS FOR APPLYING
+              </ProposalButton>
+            </CallForProposalsContainer>
+          </>
+        )}
       </ResearchLayout>
     </ResearchContainer>
   )

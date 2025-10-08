@@ -18,6 +18,7 @@ const LogoBGHeroContainer = styled.div`
 
 const HeadingText = styled.div`
   ${tw`
+    font-questrial
     md:text-cimc-hero
     max-w-[860px]
     max-md:h-[88px]

@@ -25,7 +25,7 @@ const NewsMeta = styled.div`
   letter-spacing: 0.1em;
 `
 const NewsTitle = styled.h2`
-  ${tw`text-3xl font-light mb-2`}
+  ${tw`font-questrial text-cimc-logo-small mb-2`}
 `
 const NewsDate = styled.div`
   ${tw`text-gray-400 text-sm mb-2`}

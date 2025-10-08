@@ -6,6 +6,8 @@ import { LaunchEvent } from "../components/LaunchEventSection"
 import { LineBreak } from "../components/LineBreak"
 import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
 import { NewsList } from "../components/NewsList"
+import { OngoingResearchHeader } from "../components/OngoingResearchHeader"
+import { ProjectsAccordion } from "../components/ProjectsAccordion"
 import { SubstackSection } from "../components/SubstackSection"
 
 const HomeContainer = styled.div`
@@ -45,6 +47,7 @@ const HeroTextContainer = styled.div`
 
 const HeroText = styled.div`
   ${tw`
+      font-questrial
       md:text-cimc-hero
       md:w-[732px]
       text-center
@@ -88,6 +91,10 @@ export const Home = () => {
         <NewsList />
       </ForwardContainer>
       <LaunchEvent />
+      <div className="md:w-[860px] md:py-[100px] flex flex-col md:gap-14">
+        <OngoingResearchHeader />
+        <ProjectsAccordion />
+      </div>
       <SubstackSection />
     </HomeContainer>
   )

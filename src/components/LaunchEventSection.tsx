@@ -14,9 +14,6 @@ const LaunchEventSection = styled.div`
     selection:bg-gray-500
     to-white
     bg-black
-    md:text-cimc-forward
-    text-cimc-substack-button
-
   `}
 `
 
@@ -31,6 +28,8 @@ const LaunchEventContainer = styled.div`
     max-md:pb-8
     md:pt-28
     md:pb-24
+    md:text-cimc-forward
+    text-cimc-substack-button
   `}
 `
 
@@ -49,6 +48,7 @@ const LaunchEventHeader = styled.div`
 
 const LaunchEventTitle = styled.div`
   ${tw`
+    font-questrial
     md:text-cimc-white-hero
     max-md:text-cimc-logo
   `}

@@ -58,6 +58,7 @@ const Header = styled.header`
 
 const Title = styled.h1`
   ${tw`
+    font-questrial
     text-cimc-hero
     mb-4
   `}
