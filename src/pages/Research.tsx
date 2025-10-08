@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
@@ -97,60 +97,56 @@ function Research() {
   const [selectedProjectId, setSelectedProjectId] = useState<string>("")
   const [searchParams] = useSearchParams()
   useEffect(() => {
-      const projectIdFromUrl = searchParams.get("projectId")
-      if (projectIdFromUrl) {
-        setSelectedProjectId(projectIdFromUrl)
-      }
-    }, [searchParams])
+    const projectIdFromUrl = searchParams.get("projectId")
+    if (projectIdFromUrl) {
+      setSelectedProjectId(projectIdFromUrl)
+    }
+  }, [searchParams])
 
   useEffect(() => {
     const handleUrlChange = () => {
-      const projectIdFromUrl = searchParams.get("projectId");
+      const projectIdFromUrl = searchParams.get("projectId")
       if (!projectIdFromUrl) {
-        setSelectedProjectId("");
+        setSelectedProjectId("")
       }
-    };
+    }
 
-    handleUrlChange(); // Check on initial render
+    handleUrlChange() // Check on initial render
 
     const observer = new MutationObserver(() => {
-      handleUrlChange();
-    });
+      handleUrlChange()
+    })
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(document.body, { childList: true, subtree: true })
 
     return () => {
-      observer.disconnect();
-    };
-  }, [searchParams]);
+      observer.disconnect()
+    }
+  }, [searchParams])
 
   return (
     <ResearchContainer>
       <PageHeroGraphic />
       <ResearchLayout>
-        {
-          selectedProjectId ? (
-            <ProjectDetails projectId={selectedProjectId} />
-          ) : (
-            <>
-              <div className="flex flex-col gap-14 justify-start">
-                <OngoingResearchHeader />
-                <ProjectsAccordion isFullListMode/>
-              </div>
-              <CallForProposalsContainer>
-                <CallForTitle>
-                  Call for Research Proposals
-                </CallForTitle>
-                <CallForSubtitle>
-                  Applications are reviewed on a rolling bases
-                </CallForSubtitle>
-                <ProposalButton href="/#/research/proposals">
-                  DETAILS FOR APPLYING
-                </ProposalButton>
-              </CallForProposalsContainer>
-            </>
-          )
-        }
+        {selectedProjectId ? (
+          <ProjectDetails projectId={selectedProjectId} />
+        ) : (
+          <>
+            <div className="flex flex-col gap-14 justify-start">
+              <OngoingResearchHeader />
+              <ProjectsAccordion isFullListMode />
+            </div>
+            <CallForProposalsContainer>
+              <CallForTitle>Call for Research Proposals</CallForTitle>
+              <CallForSubtitle>
+                Applications are reviewed on a rolling bases
+              </CallForSubtitle>
+              <ProposalButton href="/#/research/proposals">
+                DETAILS FOR APPLYING
+              </ProposalButton>
+            </CallForProposalsContainer>
+          </>
+        )}
       </ResearchLayout>
     </ResearchContainer>
   )

@@ -1,4 +1,4 @@
-import plugin from "tailwindcss/plugin";
+import plugin from "tailwindcss/plugin"
 
 /** @type {import("tailwindcss").Config} */
 export default {
@@ -317,4 +317,4 @@ export default {
     },
   },
   plugins: [],
-};
+}

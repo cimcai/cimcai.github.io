@@ -3,11 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "browserslist": [
-    "last 2 versions",
-    "ie >= 11",
-    "defaults"
-  ],
+  "browserslist": ["last 2 versions", "ie >= 11", "defaults"],
   "babelMacros": {
     "twin": {
       "preset": "styled-components"
@@ -33,7 +29,7 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "^1.9.4",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@types/react-scroll": "^1.8.10",

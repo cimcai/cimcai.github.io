@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import tw from "twin.macro";
+import styled from "styled-components"
+import tw from "twin.macro"
 
 const OngoingResearchHeaderContainer = styled.div`
   ${tw`
@@ -8,7 +8,7 @@ const OngoingResearchHeaderContainer = styled.div`
     items-start
     gap-4
   `}
-`;
+`
 
 const OngoingResearchTitle = styled.div`
   ${tw`
@@ -16,7 +16,7 @@ const OngoingResearchTitle = styled.div`
     text-cimc-hero
     self-stretch
   `}
-`;
+`
 
 const OngoingResearchSubtitle = styled.div`
   ${tw`
@@ -24,15 +24,13 @@ const OngoingResearchSubtitle = styled.div`
     self-stretch
     text-cimc_dark/60
   `}
-`;
+`
 
 export const OngoingResearchHeader = () => (
   <OngoingResearchHeaderContainer>
-    <OngoingResearchTitle>
-      Ongoing Research Projects
-    </OngoingResearchTitle>
+    <OngoingResearchTitle>Ongoing Research Projects</OngoingResearchTitle>
     <OngoingResearchSubtitle>
       A look into the new research projects being done under CIMC
     </OngoingResearchSubtitle>
   </OngoingResearchHeaderContainer>
-);
+)

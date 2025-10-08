@@ -28,7 +28,9 @@ const Mission = () => {
     <MissionContainer>
       <PageHeroGraphic />
       <MissionStyle>
-        <p className="font-questrial text-cimc-hero pb-8">The Missing Institute</p>
+        <p className="font-questrial text-cimc-hero pb-8">
+          The Missing Institute
+        </p>
         <p className="pb-20">
           We need an open, transdisciplinary, non-profit research initiative.
           This institute will integrate insights from philosophy, psychology,
