@@ -22,8 +22,8 @@ const EventsButtonsContainer = styled.div`
     justify-center
     items-center
     flex-wrap
-    gap-[102px]
-    max-md:gap-6
+    gap-6
+    md:gap-[102px]
     md:flex-row
     flex-col
   `}
@@ -64,7 +64,8 @@ const EventButton = styled.button<{ $active?: boolean }>`
 const EventsContainer = styled.div`
   ${tw`
     bg-white
-    max-md:px-6
+    px-6
+    md:px-0
     text-cimc-standard
     flex
     flex-col

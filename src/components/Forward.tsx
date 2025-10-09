@@ -1,7 +1,30 @@
+import styled from "styled-components"
+import tw from "twin.macro"
+
+const ForwardContainer = styled.div`
+  ${tw`
+    flex
+    flex-col
+    md:max-w-[860px]
+    px-6
+    md:px-0
+    pb-10
+    border-b
+    border-b-color-text-default-default
+  `}
+`
+
+const ForwardParagraph = styled.p`
+  ${tw`
+    md:text-cimc-forward
+    text-cimc-substack-button
+  `}
+`
+
 function Forward() {
   return (
-    <div className="flex flex-col md:w-[860px]">
-      <p className="md:text-cimc-forward text-cimc-substack-button border-b pb-10 border-b-color-text-default-default">
+    <ForwardContainer>
+      <ForwardParagraph>
         The development of powerful, generally intelligent agents—driven by
         economic, cultural, and military incentives—appears inevitable.
         Attempting to control highly advanced agentic systems far more powerful
@@ -26,8 +49,8 @@ function Forward() {
         <br />
         Will we be colonized by digital golems or can we spread life, mind and
         consciousness onto new substrates?
-      </p>
-    </div>
+      </ForwardParagraph>
+    </ForwardContainer>
   )
 }
 

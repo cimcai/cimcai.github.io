@@ -13,6 +13,8 @@ const NewsListContainer = styled.div`
     justify-center
     items-center
     pb-24
+    px-6
+    md:px-0
   `}
 `
 

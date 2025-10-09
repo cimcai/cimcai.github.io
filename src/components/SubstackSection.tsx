@@ -6,19 +6,18 @@ const SubstackSectionContainer = styled.section`
   ${tw`
     w-full
     md:min-h-[900px]
-    min-h-[667px]
     flex
     md:flex-row
     flex-col
     items-center
     bg-white
+    pb-20
   `}
 `
 const SubstackLogoCol = styled.div`
   ${tw`
     h-full
     w-full
-    max-md:w-full
     flex
     relative
     md:flex-1
@@ -27,7 +26,7 @@ const SubstackLogoCol = styled.div`
   ;
   @media (max-width: 768px) {
     position: relative;
-    height: 375px;
+    height: 240px;
     overflow: hidden;
   }
 `
@@ -76,7 +75,8 @@ const SubstackButton = styled.a`
   ${tw`
     border border-black
     text-cimc-substack-button
-    py-4 px-36
+    py-4
+    px-36
     transition
     hover:bg-black hover:text-white
     text-center

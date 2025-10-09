@@ -24,8 +24,9 @@ const LaunchEventContainer = styled.div`
     flex-col
     justify-center
     md:items-center
-    max-md:px-6
-    max-md:pb-8
+    px-6
+    md:px-0
+    pb-8
     md:pt-28
     md:pb-24
     md:text-cimc-forward
@@ -38,9 +39,12 @@ const LaunchEventHeader = styled.div`
     md:w-[860px]
     md:mb-16
     flex
-    max-md:flex-col
-    max-md:gap-12
-    max-md:py-16
+    flex-col
+    gap-12
+    py-16
+    md:flex-row
+    md:gap-0
+    md:py-0
     md:justify-between
     md:items-center
   `}
@@ -50,7 +54,7 @@ const LaunchEventTitle = styled.div`
   ${tw`
     font-questrial
     md:text-cimc-white-hero
-    max-md:text-cimc-logo
+    text-cimc-logo
   `}
 `
 
@@ -75,7 +79,8 @@ const LaunchEventButton = styled.a`
 const LaunchEventContent = styled.a`
   ${tw`
     flex
-    max-md:flex-col
+    flex-col
+    md:flex-row
     md:w-[860px]
     md:h-[179px]
     items-center

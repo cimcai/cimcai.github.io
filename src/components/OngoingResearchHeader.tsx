@@ -6,14 +6,20 @@ const OngoingResearchHeaderContainer = styled.div`
     flex
     flex-col
     items-start
-    gap-4
+    gap-8
+    md:px-0
+    md:py-0
+    px-6
+    pt-16
+    pb-[56px]
   `}
 `
 
 const OngoingResearchTitle = styled.div`
   ${tw`
     font-questrial
-    text-cimc-hero
+    md:text-cimc-hero
+    text-cimc-hero-small
     self-stretch
   `}
 `

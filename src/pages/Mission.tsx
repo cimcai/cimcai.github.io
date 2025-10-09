@@ -17,7 +17,8 @@ const MissionStyle = styled.div`
   ${tw`
     md:w-[860px]
     md:py-4
-    max-md:px-6
+    px-6
+    md:px-0
     selection:text-black
     selection:bg-gray-500
     text-cimc-helvetica-normal

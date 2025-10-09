@@ -8,7 +8,10 @@ const AccordionContainer = styled.div`
   ${tw`
     flex
     flex-col
-    pb-[120px]
+    md:pb-[120px]
+    pb-20
+    px-6
+    md:px-0
   `}
 `
 

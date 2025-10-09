@@ -476,8 +476,9 @@ const LogoContainer = styled.div`
     flex-col
     justify-center
     items-center
-    max-md:px-6
-    max-md:pt-24
+    px-6
+    md:px-0
+    pt-24
     md:pt-36
     z-0
   `}
@@ -503,11 +504,7 @@ export function CIMCSquareLogo({ showName }: CIMCLogoProps): React.ReactNode {
       </LogoImageContainer>
       {showName ? (
         <div className="font-questrial pt-14 flex justify-center">
-          <div
-            className={
-              "md:text-cimc-logo max-md:text-cimc-logo-small text-center"
-            }
-          >
+          <div className={"text-cimc-logo-small md:text-cimc-logo text-center"}>
             California Institute for Machine Consciousness
           </div>
         </div>

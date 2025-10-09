@@ -24,7 +24,8 @@ const TeamContainer = styled.div`
 const TeamLayout = styled.div`
   ${tw`
       md:w-[860px]
-      max-md:px-6
+      px-6
+      md:px-0
     `}
 `
 const TeamName = styled.p`

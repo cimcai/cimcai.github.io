@@ -6,8 +6,8 @@ import tw from "twin.macro"
 const HeaderContainer = styled.div`
   ${tw`
     md:min-w-[860px]
+    px-6
     md:px-20
-    max-md:px-6
     flex
     flex-col
     items-start
