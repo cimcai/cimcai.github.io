@@ -4,27 +4,60 @@ import { useProjectsStore } from "../store/projectsStore"
 import { useReferencesStore } from "../store/referencesStore"
 
 const DetailsContainer = styled.div`
-  ${tw`flex flex-col items-start bg-white p-8 font-questrial md:max-w-[860px]`}
+  ${tw`
+    flex
+    flex-col
+    items-start
+    bg-white
+    p-8
+    font-questrial
+    md:max-w-[860px]
+  `}
 `
 
 const Title = styled.h1`
-  ${tw`text-cimc-48px mb-9 leading-[105%]`}
+  ${tw`
+    text-cimc-48px
+    mb-9
+    leading-[105%]
+  `}
 `
 
 const SectionTitle = styled.h2`
-  ${tw`text-cimc-navbar-mobile mt-6 mb-5`}
+  ${tw`
+    text-cimc-navbar-mobile
+    mt-6
+    mb-5
+  `}
 `
 
 const Paragraph = styled.p`
-  ${tw`text-[21px] mb-5`}
+  ${tw`
+    text-[21px]
+    mb-5
+  `}
 `
 
 const LinkSection = styled.div`
-  ${tw`mt-6`}
+  ${tw`
+    mt-6
+  `}
 `
 
 const LinkButton = styled.a`
-  ${tw`inline-block mx-6 px-6 py-2 text-sm rounded-[40px] bg-[#F2F2F7] p-[var(--sds-size-space-300)] justify-center items-center flex-shrink-0`}
+  ${tw`
+    inline-block
+    mx-6
+    px-6
+    py-2
+    text-sm
+    rounded-[40px]
+    bg-[#F2F2F7]
+    p-[var(--sds-size-space-300)]
+    justify-center
+    items-center
+    flex-shrink-0
+  `}
 `
 
 interface ProjectDetailsProps {

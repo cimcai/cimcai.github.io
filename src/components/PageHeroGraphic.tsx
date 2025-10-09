@@ -3,7 +3,14 @@ import tw from "twin.macro"
 import { CIMCSquareLogoSVG } from "./CIMCSquareLogo"
 
 const PageHeroGraphicContainer = styled.div`
-  ${tw`w-full flex justify-center items-start bg-white mb-20`}
+  ${tw`
+    w-full
+    flex
+    justify-center
+    items-start
+    bg-white
+    mb-20
+  `}
   position: relative;
   height: 320px;
   overflow: hidden;

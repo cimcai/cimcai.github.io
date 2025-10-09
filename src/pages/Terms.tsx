@@ -3,31 +3,60 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 const Container = styled.div`
-  ${tw`pt-32 max-w-3xl mx-auto px-4 py-16 text-white`}
+  ${tw`
+    pt-32
+    max-w-3xl
+    mx-auto
+    px-4
+    py-16
+    text-white
+  `}
 `
 
 const Title = styled.h1`
-  ${tw`text-3xl font-bold mb-6`}
+  ${tw`
+    text-3xl
+    font-bold
+    mb-6
+  `}
 `
 
 const EffectiveDate = styled.p`
-  ${tw`mb-4 text-sm text-white/60`}
+  ${tw`
+    mb-4
+    text-sm
+    text-white/60
+  `}
 `
 
 const SectionTitle = styled.h2`
-  ${tw`text-xl font-semibold mb-2 mt-10`}
+  ${tw`
+    text-xl
+    font-semibold
+    mb-2
+    mt-10
+  `}
 `
 
 const Paragraph = styled.p`
-  ${tw`mb-4`}
+  ${tw`
+    mb-4
+  `}
 `
 
 const List = styled.ul`
-  ${tw`list-disc pl-6 mb-4`}
+  ${tw`
+    list-disc
+    pl-6
+    mb-4
+  `}
 `
 
 const Divider = styled.hr`
-  ${tw`my-8 border-white/20`}
+  ${tw`
+    my-8
+    border-white/20
+  `}
 `
 
 function Terms() {

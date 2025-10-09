@@ -8,7 +8,9 @@ const CustomStyles = createGlobalStyle({
   body: {
     minHeight: "100vh",
     backgroundColor: theme`colors.black`,
-    ...tw`antialiased`,
+    ...tw`
+      antialiased
+    `,
   },
 })
 

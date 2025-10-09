@@ -20,36 +20,68 @@ const FooterLayout = styled.div`
   ${tw`
     w-full
     max-w-[1280px]
-  bg-black
-  text-white
+    bg-black
+    text-white
     pt-20
     px-6
     md:px-4
     justify-center
-    flex flex-col
-`}
+    flex
+    flex-col
+  `}
 `
 const FooterContent = styled.div`
-  ${tw`flex flex-col md:flex-row justify-between gap-10 pb-10`}
+  ${tw`
+    flex
+    flex-col
+    md:flex-row
+    justify-between
+    gap-10
+    pb-10
+  `}
 `
 const FooterCol = styled.div`
-  ${tw`flex flex-col gap-4 min-w-[180px]`}
+  ${tw`
+    flex
+    flex-col
+    gap-4
+    min-w-[180px]
+  `}
 `
 const FooterHeading = styled.div`
-  ${tw`mb-2 text-base`}
+  ${tw`
+    mb-2
+    text-base
+  `}
 `
 const SocialRow = styled.div`
-  ${tw`flex items-center gap-4 mt-6 mb-2`}
+  ${tw`
+    flex
+    items-center
+    gap-4
+    mt-6
+    mb-2
+  `}
 `
 const FooterBottomRow = styled.div`
-  ${tw`w-full flex justify-center py-12`}
+  ${tw`
+    w-full
+    flex
+    justify-center
+    py-12
+  `}
 `
 const FooterBottomContent = styled.div`
-  ${tw`w-full flex md:flex-row flex-col
-     md:justify-between
-     gap-6
-     items-center
-     text-white text-cimc-helvetica-small
+  ${tw`
+    w-full
+    flex
+    md:flex-row
+    flex-col
+    md:justify-between
+    gap-6
+    items-center
+    text-white
+    text-cimc-helvetica-small
   `}
 `
 

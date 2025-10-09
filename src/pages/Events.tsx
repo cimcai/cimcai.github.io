@@ -9,7 +9,10 @@ import { supabase } from "../lib/supabaseClient"
 
 // Styled components for the events buttons section
 const EventsButtonsSection = styled.section`
-  ${tw`py-10 px-5`}
+  ${tw`
+    py-10
+    px-5
+  `}
 `
 
 const EventsButtonsContainer = styled.div`
@@ -46,8 +49,16 @@ const EventButton = styled.button<{ $active?: boolean }>`
   `}
   ${({ $active }) =>
     $active
-      ? tw`bg-black text-white border-black`
-      : tw`bg-white text-black hover:bg-gray-200`}
+      ? tw`
+          bg-black
+          text-white
+          border-black
+        `
+      : tw`
+          bg-white
+          text-black
+          hover:bg-gray-200
+        `}
 `
 
 const EventsContainer = styled.div`

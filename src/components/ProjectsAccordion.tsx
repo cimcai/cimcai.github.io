@@ -5,27 +5,68 @@ import tw from "twin.macro"
 import { useProjectsStore } from "../store/projectsStore"
 
 const AccordionContainer = styled.div`
-  ${tw`flex flex-col pb-[120px]`}
+  ${tw`
+    flex
+    flex-col
+    pb-[120px]
+  `}
 `
 
 const ProjectRow = styled.div`
-  ${tw`border-b border-black flex items-center justify-between py-6 pr-8 cursor-pointer text-cimc-helvetica-normal-alt text-black`}
+  ${tw`
+    border-b
+    border-black
+    flex
+    items-center
+    justify-between
+    py-6
+    pr-8
+    cursor-pointer
+    text-cimc-helvetica-normal-alt
+    text-black
+  `}
 `
 
 const ProjectName = styled.div`
-  ${tw`flex-1 text-left text-cimc-forward-lh`}
+  ${tw`
+    flex-1
+    text-left
+    text-cimc-forward-lh
+  `}
 `
 
 const IconButton = styled.button`
-  ${tw`ml-4 text-cimc-48px bg-transparent border-none outline-none cursor-pointer select-none`}
+  ${tw`
+    ml-4
+    text-cimc-48px
+    bg-transparent
+    border-none
+    outline-none
+    cursor-pointer
+    select-none
+  `}
 `
 
 const ProjectDetails = styled.div`
-  ${tw`bg-gray-50 p-8 text-cimc-helvetica-small text-black`}
+  ${tw`
+    bg-gray-50
+    p-8
+    text-cimc-helvetica-small
+    text-black
+  `}
 `
 
 const TeamButton = styled.a`
-  ${tw`inline-block mt-6 px-6 py-2 rounded-full bg-black text-white text-cimc-helvetica-small`}
+  ${tw`
+    inline-block
+    mt-6
+    px-6
+    py-2
+    rounded-full
+    bg-black
+    text-white
+    text-cimc-helvetica-small
+  `}
 `
 
 interface ProjectsAccordionProps {

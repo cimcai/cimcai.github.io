@@ -166,23 +166,42 @@ const GuidelinesListItem = styled.li`
 
 const LetsConnect = styled.div`
   ${tw`
-    flex flex-col gap-0 text-right md:w-[250px] md:pl-10 md:ml-10`}
+    flex
+    flex-col
+    gap-0
+    text-right
+    md:w-[250px]
+    md:pl-10
+    md:ml-10
+  `}
   color: rgba(24, 29, 39, 0.70);
   position: sticky;
   top: 120px;
   align-self: flex-start;
 
   & > .lets-title {
-    ${tw`mb-8 pb-[20px] text-cimc-helvetica-medium`}
+    ${tw`
+      mb-8
+      pb-[20px]
+      text-cimc-helvetica-medium
+    `}
     border-bottom: 1px solid #000000;
     text-align: left;
   }
   & a {
-    ${tw`text-cimc-helvetica-medium underline hover:underline text-black pb-[20px]`}
+    ${tw`
+      text-cimc-helvetica-medium
+      underline
+      hover:underline
+      text-black
+      pb-[20px]
+    `}
     text-align: left;
   }
   & .lets-label {
-    ${tw`text-cimc-helvetica-medium`}
+    ${tw`
+      text-cimc-helvetica-medium
+    `}
     text-align: left;
   }
   color: rgba(24, 29, 39, 0.70);

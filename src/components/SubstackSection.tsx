@@ -3,10 +3,27 @@ import tw from "twin.macro"
 import { CIMCSquareLogoSVG } from "../components/CIMCSquareLogo"
 
 const SubstackSectionContainer = styled.section`
-  ${tw`w-full md:min-h-[900px] min-h-[667px] flex md:flex-row flex-col items-center bg-white`}
+  ${tw`
+    w-full
+    md:min-h-[900px]
+    min-h-[667px]
+    flex
+    md:flex-row
+    flex-col
+    items-center
+    bg-white
+  `}
 `
 const SubstackLogoCol = styled.div`
-  ${tw`h-full w-full max-md:w-full flex relative md:flex-1 md:max-w-[50%]`}
+  ${tw`
+    h-full
+    w-full
+    max-md:w-full
+    flex
+    relative
+    md:flex-1
+    md:max-w-[50%]
+  `}
   ;
   @media (max-width: 768px) {
     position: relative;
@@ -15,7 +32,13 @@ const SubstackLogoCol = styled.div`
   }
 `
 const SubstackLogoWrapper = styled.div`
-  ${tw`md:h-[845px] md:w-[845px] flex items-center absolute`}
+  ${tw`
+    md:h-[845px]
+    md:w-[845px]
+    flex
+    items-center
+    absolute
+  `}
   @media (min-width: 768px) {
     transform: translate(-50%, -50%);
   }
@@ -25,13 +48,29 @@ const SubstackLogoWrapper = styled.div`
   }
 `
 const SubstackContentCol = styled.div`
-  ${tw`flex flex-col items-center justify-center h-full`}
+  ${tw`
+    flex
+    flex-col
+    items-center
+    justify-center
+    h-full
+  `}
 `
 const SubstackTitle = styled.h2`
-  ${tw`font-questrial text-cimc-substack text-center`}
+  ${tw`
+    font-questrial
+    text-cimc-substack
+    text-center
+  `}
 `
 const SubstackDesc = styled.p`
-  ${tw`text-cimc-substack-description md:text-base mb-6 text-center text-cimc_dark/70`}
+  ${tw`
+    text-cimc-substack-description
+    md:text-base
+    mb-6
+    text-center
+    text-cimc_dark/70
+  `}
 `
 const SubstackButton = styled.a`
   ${tw`
