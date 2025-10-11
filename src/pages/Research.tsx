@@ -41,7 +41,8 @@ const CallForProposalsContainer = styled.div`
     justify-center
     items-center
     gap-[59px]
-    w-[1100px]
+    md:w-[1100px]
+    w-full
     md:mt-[70px]
     md:mb-[40px]
   `}

@@ -29,7 +29,7 @@ const Mission = () => {
     <MissionContainer>
       <PageHeroGraphic />
       <MissionStyle>
-        <p className="font-questrial text-cimc-hero pb-8">
+        <p className="font-questrial md:text-cimc-hero text-[2.5rem] pb-8">
           The Missing Institute
         </p>
         <p className="pb-20">
@@ -41,7 +41,7 @@ const Mission = () => {
           academics, AI industry experts, and independent scholars conduct
           practical research in-house.
         </p>
-        <p className="font-questrial text-cimc-hero-sub pb-8">
+        <p className="font-questrial md:text-cimc-hero-sub text-[2.5rem] pb-8">
           Mission of the California Institute for Machine Consciousness
         </p>
         <p className="pb-10">

@@ -11,7 +11,7 @@ import { supabase } from "../lib/supabaseClient"
 const EventsButtonsSection = styled.section`
   ${tw`
     py-10
-    px-5
+    w-full
   `}
 `
 
@@ -64,14 +64,16 @@ const EventButton = styled.button<{ $active?: boolean }>`
 const EventsContainer = styled.div`
   ${tw`
     bg-white
-    px-6
-    md:px-0
     text-cimc-standard
+  `}
+`
+
+const EventsContentContainer = styled.div`
+  ${tw`
     flex
     flex-col
     items-center
     justify-center
-    pt-24
     pb-40
   `}
 `
@@ -80,27 +82,50 @@ const EventsHeader = styled.div`
   ${tw`
     md:max-w-[960px]
     mb-12
+    px-6
+    md:px-0
+  `}
+`
+
+const EventPageTitle = styled.p`
+  ${tw`
+    font-questrial
+    md:text-cimc-hero
+    text-[2.5rem]
+    mb-8
+  `}
+`
+
+const EventPageDescription = styled.p`
+  ${tw`
+    text-cimc-helvetica-standard
   `}
 `
 
 const EventsSectionsContainer = styled.div`
   ${tw`
     md:max-w-[960px]
+    px-6
+    md:px-0
   `}
 `
 
 const EventRow = styled.div`
   ${tw`
     flex
-    items-center
+    md:flex-row
+    flex-col
+    md:items-center
     gap-4
-    py-4
+    md:py-4
+    pt-4
+    pb-10
   `}
 `
 
 const EventDate = styled.div`
   ${tw`
-    w-40
+    md:w-40
     text-lg
     shrink-0
   `}
@@ -118,7 +143,7 @@ const EventImage = styled.img<{ $backgroundColor?: string }>`
 const EventDetails = styled.div`
   ${tw`
     flex-1
-    ml-4
+    md:ml-4
   `}
 `
 
@@ -228,61 +253,63 @@ const Events = () => {
   return (
     <EventsContainer id="events">
       <PageHeroGraphic />
-      <EventsHeader>
-        <p className="font-questrial text-cimc-hero mb-8">CIMC Events</p>
-        <p className="text-cimc-helvetica-standard">
-          We need an open, transdisciplinary, non-profit research initiative.
-          This institute will integrate insights from philosophy, psychology,
-          neuroscience, the arts, mathematics and AI into a unified framework,
-          breaking down the conceptual barriers that have hindered progress in
-          consciousness research. We envision this institute as a hub where
-          academics, AI industry experts, and independent scholars conduct
-          practical research in-house.
-        </p>
-      </EventsHeader>
-      <EventsButtonsSection>
-        <LineBreak width="1440px" mt="0px" mb="23px" />
-        <EventsButtonsContainer>
-          <EventButton
-            $active={activeFilter === "past"}
-            onClick={() => filterEvents("past")}
-          >
-            SEE PAST EVENTS
-          </EventButton>
-          <EventButton
-            $active={activeFilter === "upcoming"}
-            onClick={() => filterEvents("upcoming")}
-          >
-            SEE UPCOMING EVENTS
-          </EventButton>
-        </EventsButtonsContainer>
-        <LineBreak width="1440px" mt="27px" mb="0px" />
-      </EventsButtonsSection>
-      <EventsSectionsContainer>
-        {filteredEvents.map((event) => (
-          <EventRow key={event.name}>
-            <EventDate>{event.datesLabel}</EventDate>
-            <EventImage
-              src={event.imageUrl ? event.imageUrl : "./defaultEvent.png"}
-              alt={event.name}
-              $backgroundColor={event.backgroundColor}
-            />
-            <EventDetails>
-              <EventTitle>{event.name}</EventTitle>
-              <EventLocation>{event.location}</EventLocation>
-              {event.eventUrl && (
-                <LearnMoreButton
-                  href={event.eventUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn more
-                </LearnMoreButton>
-              )}
-            </EventDetails>
-          </EventRow>
-        ))}
-      </EventsSectionsContainer>
+      <EventsContentContainer>
+        <EventsHeader>
+          <EventPageTitle>CIMC Events</EventPageTitle>
+          <EventPageDescription>
+            We need an open, transdisciplinary, non-profit research initiative.
+            This institute will integrate insights from philosophy, psychology,
+            neuroscience, the arts, mathematics and AI into a unified framework,
+            breaking down the conceptual barriers that have hindered progress in
+            consciousness research. We envision this institute as a hub where
+            academics, AI industry experts, and independent scholars conduct
+            practical research in-house.
+          </EventPageDescription>
+        </EventsHeader>
+        <EventsButtonsSection>
+          <LineBreak width="100%" mt="0px" mb="23px" />
+          <EventsButtonsContainer>
+            <EventButton
+              $active={activeFilter === "past"}
+              onClick={() => filterEvents("past")}
+            >
+              SEE PAST EVENTS
+            </EventButton>
+            <EventButton
+              $active={activeFilter === "upcoming"}
+              onClick={() => filterEvents("upcoming")}
+            >
+              SEE UPCOMING EVENTS
+            </EventButton>
+          </EventsButtonsContainer>
+          <LineBreak width="100%" mt="27px" mb="0px" />
+        </EventsButtonsSection>
+        <EventsSectionsContainer>
+          {filteredEvents.map((event) => (
+            <EventRow key={event.name}>
+              <EventDate>{event.datesLabel}</EventDate>
+              <EventImage
+                src={event.imageUrl ? event.imageUrl : "./defaultEvent.png"}
+                alt={event.name}
+                $backgroundColor={event.backgroundColor}
+              />
+              <EventDetails>
+                <EventTitle>{event.name}</EventTitle>
+                <EventLocation>{event.location}</EventLocation>
+                {event.eventUrl && (
+                  <LearnMoreButton
+                    href={event.eventUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn more
+                  </LearnMoreButton>
+                )}
+              </EventDetails>
+            </EventRow>
+          ))}
+        </EventsSectionsContainer>
+      </EventsContentContainer>
     </EventsContainer>
   )
 }
