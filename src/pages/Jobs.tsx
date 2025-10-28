@@ -294,8 +294,7 @@ function Jobs() {
                 </ListItem>
               </List>
               <Paragraph>
-                Applications are open now; we’ll schedule interviews in the
-                second half of September and aim for a October start date.
+                Applications will be reviewed on a rolling basis.
               </Paragraph>
             </Section>
           </div>
