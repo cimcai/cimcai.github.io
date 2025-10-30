@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { PageHeroGraphic } from "../components/PageHeroGraphic"
 
-const JobsContainer = styled.div`
+const JobsPageContainer = styled.div`
   ${tw`
     bg-white
     selection:text-black
@@ -10,303 +11,210 @@ const JobsContainer = styled.div`
     flex
     flex-col
     items-center
-    md:justify-center
     px-0
     pt-24
     pb-20
   `}
 `
 
-const JobsLayout = styled.div`
+const JobsContent = styled.div`
   ${tw`
     flex
-    flex-col-reverse
-    md:flex-row
-    justify-between
     w-full
     max-w-[1280px]
-    mx-auto
+    flex-col
+    gap-16
     px-6
   `}
 `
 
-const JobsStyle = styled.div`
-  ${tw`
-    md:w-[860px]
-  `}
-`
-
-const JobsColumn = styled.div`
+const JobsHeader = styled.header`
   ${tw`
     flex
     flex-col
-    gap-4
+    gap-6
+    md:flex-row
+    md:items-center
+    md:justify-between
+  `}
+`
+
+const JobsHeading = styled.h1`
+  ${tw`
+    text-black
+  `}
+  font-family: "Questrial", "questrial", "sans-serif";
+  font-size: 55px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 5.5px;
+  margin: 0;
+  text-transform: uppercase;
+  white-space: normal;
+
+  @media (min-width: 768px) {
+    white-space: nowrap;
+  }
+`
+
+const JobsSubheading = styled.p`
+  ${tw`
+    text-black
+  `}
+  font-family: "Helvetica Neue", "helvetica", "Helvetica", "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.72px;
+  margin: 0;
+  white-space: normal;
+
+  @media (min-width: 768px) {
+    white-space: nowrap;
+  }
+`
+
+const JobsIntro = styled.p`
+  ${tw`
     text-cimc-helvetica-standard
-    text-right
-    md:w-[300px]
-    min-h-[200px]
-    mb-20
   `}
-  color: rgba(24, 29, 39, 0.70);
+  color: rgba(24, 29, 39, 0.7);
+  max-width: 860px;
 `
 
-const Header = styled.header`
+const JobsList = styled.div`
   ${tw`
-    mb-8
+    flex
+    flex-col
+    border-y-[0.5px] border-[#8A8989]
   `}
 `
 
-const Title = styled.h1`
+const JobRow = styled.div`
   ${tw`
+    flex
+    flex-col
+    gap-6
+    py-8
+    md:flex-row
+    md:items-center
+    md:justify-between
+    [&:not(:last-of-type)]:border-b-[0.5px]
+    [&:not(:last-of-type)]:border-[#8A8989]
+  `}
+`
+
+const JobRowTitle = styled.h3`
+  ${tw`
+    text-black
     font-questrial
-    text-cimc-hero
-    mb-4
+    [font-size: 24px]
+    md:[font-size: 40px]
   `}
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  margin: 0;
+  max-width: 700px;
 `
 
-const Subtitle = styled.h2`
+const JobRowApply = styled(Link)`
   ${tw`
-    text-cimc-helvetica-normal
-    mb-12
+    flex
+    h-6
+    md:h-16
+    w-[154px]
+    md:w-[306px]
+    items-center
+    justify-center
+    bg-black
+    text-white
+    no-underline
+    cursor-pointer
+    md:h-16
+    font-questrial
+    [font-size: 12px]
+    md:[font-size: 24px]
   `}
-  color: rgba(24, 29, 39, 0.60);
+  border-top-right-radius: 15px;
+  letter-spacing: 3.9px;
+  line-height: 1.05;
+  transition: background-color 150ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: #1f1f1f;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+  }
 `
 
-const Section = styled.section``
-
-const Paragraph = styled.p`
+const JobsFooterNote = styled.p`
   ${tw`
     text-cimc-helvetica-standard
-    mb-12
   `}
-  color: rgba(24, 29, 39, 0.70);
+  color: rgba(24, 29, 39, 0.7);
+  max-width: 860px;
 `
 
-const List = styled.ul`
-  ${tw`
-    text-cimc-helvetica-standard
-    pl-2
-    mb-8
-    list-inside
-    list-disc
-  `}
-`
-
-const ListItem = styled.li`
-  color: rgba(24, 29, 39, 0.70);
-`
-
-const Label = styled.p`
-  ${tw`
-    text-cimc-helvetica-normal
-    text-cimc_dark
-    mb-3
-  `}
-`
-
-const EmailLink = styled.a`
+const JobsFooterLink = styled.a`
   ${tw`
     underline
     hover:underline
     text-black
   `}
+
 `
 
-const JobsConnect = styled.div`
-  ${tw`
-    flex
-    flex-col
-    gap-0
-    text-right
-    md:w-[250px]
-    md:pl-10
-    md:ml-10
-  `}
-  color: rgba(24, 29, 39, 0.70);
-  position: sticky;
-  top: 120px;
-  align-self: flex-start;
+interface JobListing {
+  title: string
+  to: string
+}
 
-  & > .jobs-title {
-    ${tw`
-      pb-1
-      text-cimc-helvetica-medium
-    `}
-    text-align: left;
-  }
-  & a {
-    ${tw`
-      text-cimc-helvetica-medium
-      underline
-      hover:underline
-      text-black
-      pb-[20px]
-    `}
-    text-align: left;
-  }
-  & .jobs-label {
-    ${tw`
-      text-cimc-helvetica-medium
-    `}
-    text-align: left;
-  }
-  color: rgba(24, 29, 39, 0.70);
-`
+const jobListings: JobListing[] = [
+  {
+    title: "Research Engineer – Machine Consciousness",
+    to: "/jobs/engineer",
+  },
+  {
+    title: "Executive Assistant to the Founding Team",
+    to: "/jobs/executive-assistant",
+  },
+]
 
 function Jobs() {
   return (
-    <JobsContainer>
+    <JobsPageContainer>
       <PageHeroGraphic />
-      <JobsLayout>
-        <JobsStyle>
-          <div id="jobs" className="w-full">
-            <Header>
-              <Title>Research Engineer – Machine Consciousness</Title>
-              <Subtitle>
-                Full-time · On-site preferred (San Francisco) · California
-                Institute for Machine Consciousness (CIMC)
-              </Subtitle>
-            </Header>
-            <Section>
-              <Paragraph>
-                <b>About CIMC</b>
-                <br />
-                The California Institute for Machine Consciousness (CIMC) is an
-                independent, non-profit research organization building testable
-                theories—and working prototypes—of artificial consciousness. We
-                want to test the theory that current hardware is sufficient to
-                recreate the mechanisms of consciousness of the human mind,
-                while expecting to have to move past the current ML paradigms.
-              </Paragraph>
-            </Section>
-            <Section>
-              <Paragraph>
-                <b>The Role</b>
-                <br />
-                We are looking for a highly creative research engineer
-                intrinsically motivated to contribute to and advance our
-                mission. You would work with an early stage, mission-driven team
-                tackling one of the hardest questions in the history of science
-                and philosophy.
-                <br />
-                <br />
-                This role involves an opportunity to shape new research programs
-                spanning our focus areas: formalizing strange loops,
-                self-organizing learners, foundation-model phenomenology,
-                embodied simulation, and beyond.
-                <br />
-                <br />
-                We value scientific rigor and intellectual openness. We welcome
-                applicants from all backgrounds who share our drive to build and
-                understand machine consciousness.
-              </Paragraph>
-              <Label>In this role you will:</Label>
-              <List>
-                <ListItem>
-                  Design and implement experimental AI systems from scratch.
-                </ListItem>
-                <ListItem>
-                  Hack up tasks that explore attention, self-modeling, and
-                  self-organizing learning.
-                </ListItem>
-                <ListItem>
-                  Translate questions from philosophers and cognitive scientists
-                  into runnable experiments; publish open-source code and
-                  preprints.
-                </ListItem>
-                <ListItem>
-                  Develop a testing paradigm for artificial consciousness.
-                </ListItem>
-                <ListItem>
-                  Run experiments that inform CIMC’s broader research areas
-                  (from developmental learning to foundation-model
-                  phenomenology).
-                </ListItem>
-              </List>
-            </Section>
-            <Section>
-              <Label>What makes you a fit:</Label>
-              <List>
-                <ListItem>
-                  Programming skills, of course Python, Pytorch, …
-                  CUDA/WebGL/C++ is a bonus
-                </ListItem>
-                <ListItem>Experience in AI/ML</ListItem>
-                <ListItem>
-                  You enjoy hacking, unusual research questions, spinning up
-                  demos
-                </ListItem>
-                <ListItem>You think that minds are software</ListItem>
-                <ListItem>
-                  You believe that understanding consciousness is the most
-                  important thing in the world
-                </ListItem>
-                <ListItem>
-                  Living in the bay area or willing to relocate there
-                </ListItem>
-              </List>
-            </Section>
-            <Section>
-              <Label>Bonus Signals</Label>
-              <List>
-                <ListItem>
-                  Published code/papers on emergent agency, ARC-style
-                  generalization, or self-organizing systems.
-                </ListItem>
-                <ListItem>
-                  Background in neuroscience, philosophy of mind, or cognitive
-                  psychology.
-                </ListItem>
-                <ListItem>
-                  Blog posts, talks, or repos that show you can explain complex
-                  ideas clearly
-                </ListItem>
-              </List>
-            </Section>
-            <Section>
-              <Label>How to Apply</Label>
-              <Paragraph>
-                Email{" "}
-                <EmailLink href="mailto:apply@cimc.ai">apply@cimc.ai</EmailLink>{" "}
-                with:
-              </Paragraph>
-              <List>
-                <ListItem>
-                  <b>Portfolio links</b> – GitHub, papers, videos, or a short
-                  write-up of your projects and/or experiments.
-                </ListItem>
-                <ListItem>
-                  <b>Two brief answers (≤ 200 words each)</b>
-                  <List>
-                    <ListItem>
-                      <i>
-                        What is your current working definition of
-                        consciousness?
-                      </i>
-                    </ListItem>
-                    <ListItem>
-                      <i>How would you test for machine consciousness?</i>
-                    </ListItem>
-                  </List>
-                </ListItem>
-                <ListItem>
-                  <b>Resume / CV.</b>
-                </ListItem>
-              </List>
-              <Paragraph>
-                Applications will be reviewed on a rolling basis.
-              </Paragraph>
-            </Section>
-          </div>
-        </JobsStyle>
-        <JobsColumn>
-          <JobsConnect>
-            <div className="jobs-title">Email to apply</div>
-            <a href="mailto:apply@cimc.ai">apply@cimc.ai</a>
-          </JobsConnect>
-        </JobsColumn>
-      </JobsLayout>
-    </JobsContainer>
+      <JobsContent>
+        <JobsHeader>
+          <JobsHeading>Open Positions</JobsHeading>
+        </JobsHeader>
+        <JobsIntro>
+          We&apos;re assembling a multidisciplinary team to explore machine
+          consciousness. Explore our current openings below or share your
+          background if you believe you can help shape this field.
+        </JobsIntro>
+        <JobsList>
+          {jobListings.map((job) => (
+            <JobRow key={job.title}>
+              <JobRowTitle>{job.title}</JobRowTitle>
+              <JobRowApply to={job.to}>Apply</JobRowApply>
+            </JobRow>
+          ))}
+        </JobsList>
+        <JobsFooterNote>
+          Don&apos;t see a perfect fit yet? Email{" "}
+          <JobsFooterLink href="mailto:apply@cimc.ai">
+            apply@cimc.ai
+          </JobsFooterLink>{" "}
+          with your background and ambitions.
+        </JobsFooterNote>
+      </JobsContent>
+    </JobsPageContainer>
   )
 }
 
