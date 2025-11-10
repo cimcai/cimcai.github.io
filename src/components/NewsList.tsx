@@ -40,6 +40,19 @@ const NewsImage = styled.img<{ $backgroundColor?: string }>`
   min-height: 320px;
   background-color: ${({ $backgroundColor }) => $backgroundColor || "#f3f4f6"};
 `
+const NewsVideo = styled.iframe`
+  ${tw`
+    w-full
+    md:w-[400px]
+    md:h-[400px]
+    rounded
+  `}
+  aspect-ratio: 1 / 1;
+  max-width: 400px;
+  min-width: 320px;
+  min-height: 320px;
+  border: none;
+`
 const NewsContent = styled.div`
   ${tw`
     flex
@@ -146,9 +159,7 @@ export function NewsList() {
       {news.map((item) => (
         <NewsItem key={item.title}>
           {item.youtubeId ? (
-            <iframe
-              width="400"
-              height="400"
+            <NewsVideo
               src={`https://www.youtube.com/embed/${item.youtubeId}`}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

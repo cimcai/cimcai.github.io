@@ -62,7 +62,8 @@ const ContentContainer = styled.div`
     flex
     flex-col
     justify-center
-    items-center
+    w-full
+    md:items-center
     gap-10
   `}
 `
