@@ -84,16 +84,6 @@
           "portraitUrl": "/portraitMalsburg.jpg"
         },
         {
-          "name": "Michael Levin",
-          "job": "Biologist",
-          "description": "",
-          "institution": "The Levin Lab",
-          "institutionUrl": "https://drmichaellevin.org",
-          "xUrl": "https://x.com/drmichaellevin",
-          "linkedInUrl": "",
-          "portraitUrl": "/portraitLevin.jpg"
-        },
-        {
           "name": "Stephen Wolfram",
           "job": "Computer Scientist, Physicist, Mathematician",
           "description": "",
@@ -110,7 +100,7 @@
       "teamMembers": [
         {
           "name": "Jim Rutt",
-          "job": "Board Chairman",
+          "job": "Board Chairman Emeritus",
           "description": "",
           "institution": "Santa Fe Institute",
           "institutionUrl": "https://www.santafe.edu/people/profile/jim-rutt",

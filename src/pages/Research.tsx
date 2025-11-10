@@ -137,15 +137,6 @@ function Research() {
               <OngoingResearchHeader />
               <ProjectsAccordion isFullListMode />
             </div>
-            <CallForProposalsContainer>
-              <CallForTitle>Call for Research Proposals</CallForTitle>
-              <CallForSubtitle>
-                Applications are reviewed on a rolling bases
-              </CallForSubtitle>
-              <ProposalButton href="/#/research/proposals">
-                DETAILS FOR APPLYING
-              </ProposalButton>
-            </CallForProposalsContainer>
           </>
         )}
       </ResearchLayout>
