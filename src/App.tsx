@@ -2,6 +2,7 @@ import { type RefObject, createRef, useEffect } from "react"
 import { Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
+import AaaiSymposium from "./pages/AaaiSymposium"
 import Events from "./pages/Events"
 import ExecutiveAssistant from "./pages/ExecutiveAssistant"
 import Home from "./pages/Home"
@@ -57,6 +58,12 @@ export const routes: CIMCRoutes[] = [
     path: "/events",
     name: "Events",
     element: <Events />,
+    nodeRef: createRef(),
+  },
+  {
+    path: "/events/aaai-symposium",
+    name: "Events",
+    element: <AaaiSymposium />,
     nodeRef: createRef(),
   },
   {
