@@ -10,37 +10,39 @@ const Container = styled.div`
     items-center
     justify-center
     pt-24
+    w-full
   `}
 `
 
 const Content = styled.div`
   ${tw`
+    w-full
     md:w-[860px]
     md:py-4
     px-6
     md:px-0
     selection:text-black
     selection:bg-gray-500
-    text-cimc-helvetica-normal
+    text-cimc-helvetica-standard
     pb-20
   `}
 `
 
 const Title = styled.h1`
   ${tw`
-    font-questrial
-    md:text-cimc-hero
-    text-[2.5rem]
+    text-[40px]
     pb-4
     leading-tight
+    text-black
   `}
+  font-family: "Helvetica Neue", "helvetica", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.8px;
 `
 
 const Subtitle = styled.h2`
   ${tw`
-    font-questrial
-    md:text-cimc-hero-sub
-    text-[1.8rem]
+    text-cimc-helvetica-normal
     pb-8
     text-gray-600
   `}
@@ -48,9 +50,8 @@ const Subtitle = styled.h2`
 
 const SectionTitle = styled.h3`
   ${tw`
-    font-questrial
-    md:text-cimc-hero-sub
-    text-[2rem]
+    text-cimc-helvetica-normal
+    text-cimc_dark
     pt-12
     pb-6
   `}
@@ -60,7 +61,9 @@ const Paragraph = styled.p`
   ${tw`
     pb-6
     leading-relaxed
+    text-cimc-helvetica-standard
   `}
+  color: rgba(24, 29, 39, 0.7);
 `
 
 const List = styled.ul`
@@ -69,6 +72,7 @@ const List = styled.ul`
     pl-6
     pb-6
     space-y-2
+    text-cimc-helvetica-standard
   `}
 `
 
@@ -76,6 +80,7 @@ const ListItem = styled.li`
   ${tw`
     pl-2
   `}
+  color: rgba(24, 29, 39, 0.7);
 `
 
 const Table = styled.table`
@@ -113,6 +118,36 @@ const DayHeader = styled.tr`
     bg-gray-100
     font-bold
   `}
+`
+
+const SubmissionButton = styled.a`
+  ${tw`
+    flex
+    h-14
+    w-full
+    items-center
+    justify-center
+    bg-black
+    text-white
+    no-underline
+    cursor-pointer
+    md:h-16
+    md:w-4/12
+    md:px-8
+    mt-4
+    mb-8
+  `}
+  border-top-right-radius: 15px;
+  font-family: "Questrial", "questrial", "sans-serif";
+  font-size: 22px;
+  letter-spacing: 2px;
+  line-height: 1.05;
+  transition: background-color 150ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: #1f1f1f;
+  }
 `
 
 const AaaiSymposium = () => {
@@ -338,8 +373,7 @@ const AaaiSymposium = () => {
 
         <SectionTitle>Call for Participation</SectionTitle>
         <Paragraph>
-          Submissions open November 28, 2025. The EasyChair submission site will
-          be posted here.
+          Submissions are now open. The submissions deadline is January 9, 2026.
         </Paragraph>
         <Paragraph>
           <strong>Submission Requirements</strong>
@@ -351,6 +385,13 @@ const AaaiSymposium = () => {
           themes or explicitly connecting multiple symposium topics are
           particularly encouraged.
         </Paragraph>
+        <SubmissionButton
+          href="https://easychair.org/conferences?conf=sss26"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Make a submission
+        </SubmissionButton>
 
         <SectionTitle>Tentative Schedule</SectionTitle>
         <Table>
