@@ -19,7 +19,7 @@ export const JobDetailContainer = styled.div`
 export const JobDetailLayout = styled.div`
   ${tw`
     flex
-    flex-col-reverse
+    flex-col
     md:flex-row
     justify-between
     w-full
@@ -45,11 +45,11 @@ export const JobSidebar = styled.aside`
     md:w-[300px]
     min-h-[200px]
     mb-20
+    md:sticky
+    md:top-[120px]
+    self-start
   `}
   color: rgba(24, 29, 39, 0.7);
-  position: sticky;
-  top: 120px;
-  align-self: flex-start;
 `
 
 export const JobSidebarTitle = styled.p`
