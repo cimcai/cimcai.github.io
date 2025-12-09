@@ -214,7 +214,7 @@ const Events = () => {
         const sortedEvents = mapped.sort((a, b) => {
           if (a.startDate && b.startDate) {
             return (
-              new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
             )
           }
           return 0
