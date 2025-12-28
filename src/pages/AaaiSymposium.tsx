@@ -373,7 +373,7 @@ const AaaiSymposium = () => {
 
         <SectionTitle>Call for Participation</SectionTitle>
         <Paragraph>
-          Submissions are now open. The submissions deadline is January 9, 2026.
+          Submissions are now open. The submissions deadline is January 23, 2026.
         </Paragraph>
         <Paragraph>
           <strong>Submission Requirements</strong>
