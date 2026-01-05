@@ -1,12 +1,12 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
-import { RouterProvider, createHashRouter } from "react-router-dom"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import GlobalStyles from "./styles/GlobalStyles"
 import "./styles/tailwind.css"
 import App, { routes } from "./App"
 import NotFound from "./pages/NotFound"
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,

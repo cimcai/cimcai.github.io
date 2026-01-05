@@ -8,6 +8,7 @@ import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
 import { NewsList } from "../components/NewsList"
 import { OngoingResearchHeader } from "../components/OngoingResearchHeader"
 import { ProjectsAccordion } from "../components/ProjectsAccordion"
+import { StructuredData } from "../components/StructuredData"
 import { SubstackSection } from "../components/SubstackSection"
 
 const HomeContainer = styled.div`
@@ -69,8 +70,20 @@ const ContentContainer = styled.div`
 `
 
 export const Home = () => {
+  const videoStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "CIMC Introduction",
+    description:
+      "Understanding the mind is the most important project in the history of philosophy. An introduction to the California Institute for Machine Consciousness.",
+    thumbnailUrl: "https://cimc.ai/cimcintro.jpg",
+    uploadDate: "2024-10-02",
+    contentUrl: "https://cimc.ai/cimcintro.mp4",
+  }
+
   return (
     <HomeContainer id="home">
+      <StructuredData data={videoStructuredData} />
       <CIMCSquareLogo showName />
       <HeroTextContainer>
         <LineBreak width="196px" />

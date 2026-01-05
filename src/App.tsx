@@ -1,5 +1,5 @@
 import { type RefObject, createRef, useEffect } from "react"
-import { Outlet, ScrollRestoration } from "react-router-dom"
+import { Navigate, Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
 import AaaiSymposium from "./pages/AaaiSymposium"
@@ -21,6 +21,7 @@ export interface CIMCRoutes {
   name: string
   element: JSX.Element
   nodeRef: RefObject<unknown>
+  hidden?: boolean
 }
 
 export const routes: CIMCRoutes[] = [
