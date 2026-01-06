@@ -10,6 +10,7 @@ import { OngoingResearchHeader } from "../components/OngoingResearchHeader"
 import { ProjectsAccordion } from "../components/ProjectsAccordion"
 import { StructuredData } from "../components/StructuredData"
 import { SubstackSection } from "../components/SubstackSection"
+import { WhitePaperSection } from "../components/WhitePaperSection"
 
 const HomeContainer = styled.div`
   ${tw`
@@ -87,6 +88,10 @@ export const Home = () => {
       <CIMCSquareLogo showName />
       <HeroTextContainer>
         <LineBreak width="196px" />
+        <WhitePaperSection
+          ctaHref="https://drive.google.com/file/d/1IztggGcF19hYvGKCHLenIcPyfX2Nszyr/view"
+          ctaTarget="_blank"
+        />
         <HeroText>
           Understanding the mind is the most important project in the history of
           philosophy.
@@ -100,7 +105,6 @@ export const Home = () => {
       </VideoContainer>
       <ContentContainer>
         <Forward />
-        <LogoBackgroundedHero text="Understanding the nature and functionality of consciousness from a computationalist perspective" />
         <NewsList />
       </ContentContainer>
       <LaunchEvent />
