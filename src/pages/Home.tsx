@@ -78,7 +78,7 @@ export const Home = () => {
     description:
       "Understanding the mind is the most important project in the history of philosophy. An introduction to the California Institute for Machine Consciousness.",
     thumbnailUrl: "https://cimc.ai/cimcintro.jpg",
-    uploadDate: "2024-10-02",
+    uploadDate: "2024-10-02T00:00:00-08:00",
     contentUrl: "https://cimc.ai/cimcintro.mp4",
   }
 
