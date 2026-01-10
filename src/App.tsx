@@ -2,6 +2,7 @@ import { type RefObject, createRef, useEffect } from "react"
 import { Navigate, Outlet, ScrollRestoration } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/NavBar"
+import { useHashRedirect } from "./hooks/useHashRedirect"
 import AaaiSymposium from "./pages/AaaiSymposium"
 import Events from "./pages/Events"
 import ExecutiveAssistant from "./pages/ExecutiveAssistant"
@@ -92,6 +93,9 @@ function App() {
   const rootRoutes = routes.filter((r) => r.path.match(/^\/?[^/]*$/))
   const fetchProjects = useProjectsStore((s) => s.fetchProjects)
   const fetchReferences = useReferencesStore((s) => s.fetchReferences)
+
+  useHashRedirect()
+
   useEffect(() => {
     fetchProjects()
     fetchReferences()
