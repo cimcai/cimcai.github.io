@@ -80,12 +80,6 @@ export const routes: CIMCRoutes[] = [
     element: <ResearchEngineer />,
     nodeRef: createRef(),
   },
-  {
-    path: "/jobs/executive-assistant",
-    name: "Executive Assistant",
-    element: <ExecutiveAssistant />,
-    nodeRef: createRef(),
-  },
 ]
 
 function App() {

@@ -179,10 +179,6 @@ const jobListings: JobListing[] = [
     title: "Research Engineer – Machine Consciousness",
     to: "/jobs/engineer",
   },
-  {
-    title: "Executive Assistant to the Founding Team",
-    to: "/jobs/executive-assistant",
-  },
 ]
 
 function Jobs() {
