@@ -4,7 +4,6 @@ import { CIMCSquareLogo } from "../components/CIMCSquareLogo"
 import Forward from "../components/Forward"
 import { LaunchEvent } from "../components/LaunchEventSection"
 import { LineBreak } from "../components/LineBreak"
-import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
 import { NewsList } from "../components/NewsList"
 import { OngoingResearchHeader } from "../components/OngoingResearchHeader"
 import { ProjectsAccordion } from "../components/ProjectsAccordion"
@@ -88,10 +87,7 @@ export const Home = () => {
       <CIMCSquareLogo showName />
       <HeroTextContainer>
         <LineBreak width="196px" />
-        <WhitePaperSection
-          ctaHref="https://drive.google.com/file/d/1IztggGcF19hYvGKCHLenIcPyfX2Nszyr/view"
-          ctaTarget="_blank"
-        />
+        <WhitePaperSection ctaHref="/cimcWhitepaper.pdf" ctaTarget="_blank" />
         <HeroText>
           Understanding the mind is the most important project in the history of
           philosophy.
