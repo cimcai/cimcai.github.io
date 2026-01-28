@@ -103,7 +103,7 @@ const TocLink = styled.a`
     duration-150
   `}
   color: rgba(24, 29, 39, 0.7);
-  
+
   &:hover {
     color: rgba(24, 29, 39, 1);
     text-decoration: underline;
@@ -234,9 +234,7 @@ const AaaiSymposium = () => {
               </TocLink>
             </TocItem>
             <TocItem>
-              <TocLink href="#tentative-schedule">
-                Tentative Schedule
-              </TocLink>
+              <TocLink href="#tentative-schedule">Tentative Schedule</TocLink>
             </TocItem>
           </TocList>
         </TableOfContents>
@@ -457,7 +455,8 @@ const AaaiSymposium = () => {
           Call for Participation
         </SectionTitle>
         <Paragraph>
-          Submissions are now open. The submissions deadline is January 30, 2026.
+          Submissions are now open. The submissions deadline is January 30,
+          2026.
         </Paragraph>
         <Paragraph>
           <strong>Submission Requirements</strong>
