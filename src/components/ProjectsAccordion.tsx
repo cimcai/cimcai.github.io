@@ -109,7 +109,7 @@ export const ProjectsAccordion: FC<ProjectsAccordionProps> = ({
             <ProjectRow
               onClick={() => {
                 if (isFullListMode) {
-                  window.location.href = `#research/?projectId=${project.id}`
+                  window.location.href = `/research/?projectId=${project.id}`
                 } else {
                   setOpenIndex(isOpen ? null : idx)
                 }
@@ -137,7 +137,7 @@ export const ProjectsAccordion: FC<ProjectsAccordionProps> = ({
                   <br />
                   <p>{project.mission}</p>
                 </div>
-                <TeamButton href={`#research/?projectId=${project.id}`}>
+                <TeamButton href={`/research/?projectId=${project.id}`}>
                   Research Team Page
                 </TeamButton>
               </ProjectDetails>

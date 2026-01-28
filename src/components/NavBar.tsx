@@ -83,6 +83,22 @@ const NavbarLogoContainer = styled.div`
   `}
 `
 
+const navbarLinkStyles = tw`
+  select-none
+  cursor-pointer
+  underline-offset-4
+  text-black
+  hover:underline
+`
+
+const NavbarExternalLink = styled.a`
+  ${navbarLinkStyles}
+`
+
+const NavbarInternalLink = styled(NavLink)`
+  ${navbarLinkStyles}
+`
+
 const ContactButton = styled.a.withConfig({
   shouldForwardProp: (prop) => !["isOpen"].includes(prop),
 })<NavbarIsOpenProps>`
@@ -142,23 +158,34 @@ export default function Navbar({ routes }: NavbarProps) {
           <CIMCLogo width={108} />
         </NavbarLogoContainer>
         <NavbarStyle isOpen={isOpen}>
-          {routes.map((route) => (
-            <NavLink
-              key={route.path}
-              to={route.path}
-              className="select-none cursor-pointer underline-offset-4"
-              style={({ isActive, isPending, isTransitioning }) => {
-                return {
-                  textDecorationLine: isActive ? "underline" : "",
-                  color: isPending ? "red" : "black",
-                  viewTransitionName: isTransitioning ? "fade" : "",
-                }
-              }}
-              onClick={toggleMenu}
-            >
-              {route.name}
-            </NavLink>
-          ))}
+          {routes.map((route) =>
+            route.externalUrl ? (
+              <NavbarExternalLink
+                key={route.path}
+                href={route.externalUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={toggleMenu}
+              >
+                {route.name}
+              </NavbarExternalLink>
+            ) : (
+              <NavbarInternalLink
+                key={route.path}
+                to={route.path}
+                style={({ isActive, isPending, isTransitioning }) => {
+                  return {
+                    textDecorationLine: isActive ? "underline" : "",
+                    color: isPending ? "red" : "black",
+                    viewTransitionName: isTransitioning ? "fade" : "",
+                  }
+                }}
+                onClick={toggleMenu}
+              >
+                {route.name}
+              </NavbarInternalLink>
+            ),
+          )}
         </NavbarStyle>
       </NavbarInnerContainer>
       <ContactButton href="mailto:proposals@cimc.ai" isOpen={isOpen}>

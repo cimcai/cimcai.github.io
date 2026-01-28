@@ -4,11 +4,12 @@ import { CIMCSquareLogo } from "../components/CIMCSquareLogo"
 import Forward from "../components/Forward"
 import { LaunchEvent } from "../components/LaunchEventSection"
 import { LineBreak } from "../components/LineBreak"
-import { LogoBackgroundedHero } from "../components/LogoBackgroundedHero"
 import { NewsList } from "../components/NewsList"
 import { OngoingResearchHeader } from "../components/OngoingResearchHeader"
 import { ProjectsAccordion } from "../components/ProjectsAccordion"
+import { StructuredData } from "../components/StructuredData"
 import { SubstackSection } from "../components/SubstackSection"
+import { WhitePaperSection } from "../components/WhitePaperSection"
 
 const HomeContainer = styled.div`
   ${tw`
@@ -69,11 +70,24 @@ const ContentContainer = styled.div`
 `
 
 export const Home = () => {
+  const videoStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "CIMC Introduction",
+    description:
+      "Understanding the mind is the most important project in the history of philosophy. An introduction to the California Institute for Machine Consciousness.",
+    thumbnailUrl: "https://cimc.ai/cimcintro.jpg",
+    uploadDate: "2024-10-02T00:00:00-08:00",
+    contentUrl: "https://cimc.ai/cimcintro.mp4",
+  }
+
   return (
     <HomeContainer id="home">
+      <StructuredData data={videoStructuredData} />
       <CIMCSquareLogo showName />
       <HeroTextContainer>
         <LineBreak width="196px" />
+        <WhitePaperSection ctaHref="/cimcWhitepaper.pdf" ctaTarget="_blank" />
         <HeroText>
           Understanding the mind is the most important project in the history of
           philosophy.
@@ -87,7 +101,6 @@ export const Home = () => {
       </VideoContainer>
       <ContentContainer>
         <Forward />
-        <LogoBackgroundedHero text="Understanding the nature and functionality of consciousness from a computationalist perspective" />
         <NewsList />
       </ContentContainer>
       <LaunchEvent />

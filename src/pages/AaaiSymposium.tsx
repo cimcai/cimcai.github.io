@@ -55,6 +55,59 @@ const SectionTitle = styled.h3`
     pt-12
     pb-6
   `}
+  scroll-margin-top: 100px;
+`
+
+const TableOfContents = styled.div`
+  ${tw`
+    bg-gray-50
+    border-l-4
+    border-gray-300
+    pl-6
+    pr-6
+    py-6
+    mb-8
+    rounded
+  `}
+`
+
+const TocTitle = styled.h3`
+  ${tw`
+    text-cimc-helvetica-normal
+    text-cimc_dark
+    pb-4
+    font-semibold
+  `}
+`
+
+const TocList = styled.ul`
+  ${tw`
+    list-none
+    space-y-2
+    text-cimc-helvetica-standard
+  `}
+`
+
+const TocItem = styled.li`
+  ${tw`
+    pl-0
+  `}
+`
+
+const TocLink = styled.a`
+  ${tw`
+    text-gray-700
+    hover:text-black
+    no-underline
+    transition-colors
+    duration-150
+  `}
+  color: rgba(24, 29, 39, 0.7);
+  
+  &:hover {
+    color: rgba(24, 29, 39, 1);
+    text-decoration: underline;
+  }
 `
 
 const Paragraph = styled.p`
@@ -161,6 +214,33 @@ const AaaiSymposium = () => {
         </Title>
         <Subtitle>April 7-9, 2026 | Burlingame, CA, USA</Subtitle>
 
+        <TableOfContents>
+          <TocTitle>Table of Contents</TocTitle>
+          <TocList>
+            <TocItem>
+              <TocLink href="#goals-of-the-symposium">
+                Goals of the Symposium
+              </TocLink>
+            </TocItem>
+            <TocItem>
+              <TocLink href="#topics">Topics</TocLink>
+            </TocItem>
+            <TocItem>
+              <TocLink href="#symposium-format">Symposium Format</TocLink>
+            </TocItem>
+            <TocItem>
+              <TocLink href="#call-for-participation">
+                Call for Participation
+              </TocLink>
+            </TocItem>
+            <TocItem>
+              <TocLink href="#tentative-schedule">
+                Tentative Schedule
+              </TocLink>
+            </TocItem>
+          </TocList>
+        </TableOfContents>
+
         <Paragraph>
           Recent AI advances have forced us to confront the possibility of
           consciousness, beyond intelligence, in machines. Asking “Can machines
@@ -230,7 +310,9 @@ const AaaiSymposium = () => {
           dimensions.
         </Paragraph>
 
-        <SectionTitle>Goals of the Symposium</SectionTitle>
+        <SectionTitle id="goals-of-the-symposium">
+          Goals of the Symposium
+        </SectionTitle>
         <List>
           <ListItem>
             <strong>
@@ -262,7 +344,7 @@ const AaaiSymposium = () => {
           </ListItem>
         </List>
 
-        <SectionTitle>Topics</SectionTitle>
+        <SectionTitle id="topics">Topics</SectionTitle>
         <Paragraph>
           In the interest of fostering integration across traditionally separate
           approaches to machine consciousness, we welcome submissions on topics
@@ -360,7 +442,7 @@ const AaaiSymposium = () => {
           </ListItem>
         </List>
 
-        <SectionTitle>Symposium Format</SectionTitle>
+        <SectionTitle id="symposium-format">Symposium Format</SectionTitle>
         <Paragraph>
           The symposium will use a progressive integration format over 2.5 days.
           Each half-day session focuses on one of the core topics (Theoretical
@@ -371,9 +453,11 @@ const AaaiSymposium = () => {
           cross-cutting problems, synthesizing insights from all domains.
         </Paragraph>
 
-        <SectionTitle>Call for Participation</SectionTitle>
+        <SectionTitle id="call-for-participation">
+          Call for Participation
+        </SectionTitle>
         <Paragraph>
-          Submissions are now open. The submissions deadline is January 9, 2026.
+          Submissions are now open. The submissions deadline is January 30, 2026.
         </Paragraph>
         <Paragraph>
           <strong>Submission Requirements</strong>
@@ -393,7 +477,7 @@ const AaaiSymposium = () => {
           Make a submission
         </SubmissionButton>
 
-        <SectionTitle>Tentative Schedule</SectionTitle>
+        <SectionTitle id="tentative-schedule">Tentative Schedule</SectionTitle>
         <Table>
           <thead>
             <tr>

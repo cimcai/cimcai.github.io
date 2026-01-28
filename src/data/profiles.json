@@ -184,6 +184,14 @@
           "xUrl": "",
           "linkedInUrl": "",
           "portraitUrl": "/portraitAdam.jpg"
+        },
+        {
+          "name": "Trent McConoghany",
+          "description": "",
+          "institution": "trent.st",
+          "institutionUrl": "https://trent.st",
+          "xUrl": "https://x.com/trentmc0",
+          "portraitUrl": "/portraitTrent.jpg"
         }
       ]
     }

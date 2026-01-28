@@ -145,7 +145,7 @@ export function CIMCSquareLogoSVG({
         <path
           d="M295 295H0"
           stroke={color}
-          strokeWidth="4"
+          strokeWidth={strokeWidth}
           strokeMiterlimit="5"
         />
         <path
@@ -361,7 +361,7 @@ export function CIMCSquareLogoSVG({
         <path
           d="M295 295H590"
           stroke={color}
-          strokeWidth="4"
+          strokeWidth={strokeWidth}
           strokeMiterlimit="5"
         />
         <path

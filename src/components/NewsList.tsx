@@ -138,7 +138,7 @@ export function NewsList() {
         .from("news")
         .select("*")
         .eq("hide", false)
-        .order("date", { ascending: true })
+        .order("order", { ascending: true })
       if (error) setError(error.message)
       else {
         const mapped = (data || []).map(

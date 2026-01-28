@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import tw from "twin.macro"
+import type { CIMCRoutes } from "../App"
 import { CIMCLogo } from "./CIMCLogo"
 import LinkedInIcon from "./icons/LinkedInIcon"
 import LumaIcon from "./icons/LumaIcon"
@@ -85,11 +86,24 @@ const FooterBottomContent = styled.div`
   `}
 `
 
+const footerLinkStyles = tw`
+  select-none
+  cursor-pointer
+  underline-offset-4
+  text-white/90
+  hover:underline
+`
+
+const FooterExternalLink = styled.a`
+  ${footerLinkStyles}
+`
+
+const FooterInternalLink = styled(NavLink)`
+  ${footerLinkStyles}
+`
+
 interface FooterProps {
-  routes: Array<{
-    path: string
-    name: string
-  }>
+  routes: CIMCRoutes[]
 }
 
 function Footer({ routes }: FooterProps) {
@@ -146,23 +160,33 @@ function Footer({ routes }: FooterProps) {
 
           <FooterContent>
             <FooterCol>
-              <div className="flex flex-col gap-1 text-white/90">
-                {routes.map((route) => (
-                  <NavLink
-                    key={route.path}
-                    to={route.path}
-                    className="select-none cursor-pointer underline-offset-4"
-                    style={({ isActive, isPending, isTransitioning }) => {
-                      return {
-                        textDecorationLine: isActive ? "underline" : "",
-                        color: isPending ? "red" : "white",
-                        viewTransitionName: isTransitioning ? "fade" : "",
-                      }
-                    }}
-                  >
-                    {route.name}
-                  </NavLink>
-                ))}
+              <div className="flex flex-col gap-1">
+                {routes.map((route) =>
+                  route.externalUrl ? (
+                    <FooterExternalLink
+                      key={route.path}
+                      href={route.externalUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {route.name}
+                    </FooterExternalLink>
+                  ) : (
+                    <FooterInternalLink
+                      key={route.path}
+                      to={route.path}
+                      style={({ isActive, isPending, isTransitioning }) => {
+                        return {
+                          textDecorationLine: isActive ? "underline" : "",
+                          color: isPending ? "red" : "white",
+                          viewTransitionName: isTransitioning ? "fade" : "",
+                        }
+                      }}
+                    >
+                      {route.name}
+                    </FooterInternalLink>
+                  ),
+                )}
               </div>
             </FooterCol>
 

@@ -68,26 +68,29 @@ const Library = () => {
     fetchLinks()
   }, [])
 
-  const prioritizeLaunchEventTag = (tags: string[]) => {
-    return tags.includes("Launch Event")
-      ? ["Launch Event", ...tags.filter((tag) => tag !== "Launch Event")]
+  const prioritizeTag = (tags: string[]) => {
+    return tags.includes("CIMC Publication")
+      ? [
+          "CIMC Publication",
+          ...tags.filter((tag) => tag !== "CIMC Publication"),
+        ]
       : tags
   }
 
-  // Prioritize 'Launch Event' in allTags
+  // Prioritize 'CIMC Publication' in allTags
   const allTags = Array.from(new Set(links.flatMap((link) => link.tags || [])))
-  const sortedAllTags = prioritizeLaunchEventTag(allTags)
+  const sortedAllTags = prioritizeTag(allTags)
 
-  const prioritizeLaunchEvent = (items: LibraryCellProps[]) => {
+  const prioritize = (items: LibraryCellProps[]) => {
     return items.sort((a, b) => {
-      const aIsLaunchEvent = a.tags?.includes("Launch Event") ? -1 : 1
-      const bIsLaunchEvent = b.tags?.includes("Launch Event") ? -1 : 1
-      return aIsLaunchEvent - bIsLaunchEvent
+      const aIsCIMCPublication = a.tags?.includes("CIMC Publication") ? -1 : 1
+      const bIsCIMCPublication = b.tags?.includes("CIMC Publication") ? -1 : 1
+      return aIsCIMCPublication - bIsCIMCPublication
     })
   }
 
   // Filter links by selected tag and search
-  const filteredLinks = links.filter((link) => {
+  const filteredLinks = prioritize(links).filter((link) => {
     const matchesTag = selectedTag ? link.tags?.includes(selectedTag) : true
     const matchesSearch = search
       ? link.title.toLowerCase().includes(search.toLowerCase()) ||

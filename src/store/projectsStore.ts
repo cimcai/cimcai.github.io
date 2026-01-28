@@ -29,7 +29,10 @@ export const useProjectsStore = create<ProjectsState>((set) => ({
   error: null,
   fetchProjects: async () => {
     set({ loading: true, error: null })
-    const { data, error } = await supabase.from("projects").select("*")
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*")
+      .or("hide.is.null,hide.eq.false")
     if (error) {
       set({ error: error.message, loading: false })
     } else {
