@@ -117,6 +117,7 @@ interface NewsItemProps {
   backgroundColor?: string
   pictureUrl?: string
   youtubeId?: string
+  embedVideoUrl?: string
   title: string
   date?: string
   description?: string
@@ -153,15 +154,18 @@ export function NewsList() {
 
   if (loading) return <div>Loading news…</div>
   if (error) return <div>Error: {error}</div>
-
   return (
     <NewsListContainer>
       {news.map((item) => (
         <NewsItem key={item.title}>
-          {item.youtubeId ? (
+          {item.youtubeId || item.embedVideoUrl ? (
             <NewsVideo
-              src={`https://www.youtube.com/embed/${item.youtubeId}`}
-              title="YouTube video player"
+              src={
+                item.youtubeId
+                  ? `https://www.youtube.com/embed/${item.youtubeId}`
+                  : item.embedVideoUrl
+              }
+              title="video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
