@@ -85,9 +85,9 @@ export const Home = () => {
     <HomeContainer id="home">
       <StructuredData data={videoStructuredData} />
       <CIMCSquareLogo showName />
+      <LineBreak width="196px" />
+      <WhitePaperSection />
       <HeroTextContainer>
-        <LineBreak width="196px" />
-        <WhitePaperSection ctaHref="/cimcWhitepaper.pdf" ctaTarget="_blank" />
         <HeroText>
           Understanding the mind is the most important project in the history of
           philosophy.

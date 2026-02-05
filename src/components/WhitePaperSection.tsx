@@ -1,25 +1,9 @@
-import type { MouseEvent } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 
-type WhitePaperVariant = "light" | "dark"
-type WhitePaperAlign = "center" | "start"
+const WHITEPAPER_URL = "/cimcWhitepaper.pdf"
 
-type WhitePaperSectionProps = {
-  title?: string
-  description?: string
-  ctaLabel?: string
-  ctaHref?: string
-  ctaTarget?: "_blank" | "_self" | "_parent" | "_top"
-  onCtaClick?: (
-    event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
-  ) => void
-  className?: string
-  variant?: WhitePaperVariant
-  align?: WhitePaperAlign
-}
-
-const Container = styled.section<{ $variant: WhitePaperVariant }>`
+const Container = styled.section`
   ${tw`
     w-full
     flex
@@ -30,9 +14,8 @@ const Container = styled.section<{ $variant: WhitePaperVariant }>`
     md:px-0
     py-[55px]
     text-center
+    bg-white
   `}
-  ${({ $variant }) =>
-    $variant === "dark" ? tw`bg-black text-white` : tw`bg-white text-black`}
 `
 
 const Title = styled.h2`
@@ -47,10 +30,10 @@ const Title = styled.h2`
     font-normal
   `}
 `
-const CTAButton = styled.button<{ $variant: WhitePaperVariant }>`
+const CTAButton = styled.a`
   ${tw`
     flex
-    w-[394px]
+    max-w-[394px]
     h-[55px]
     px-[56px]
     py-[10px]
@@ -60,51 +43,25 @@ const CTAButton = styled.button<{ $variant: WhitePaperVariant }>`
     shrink-0
     rounded-tr-[10px]
     border-[2px]
+    border-[#8A8989]
+    bg-white
+    text-[#2C2C2C]
     text-[20px]
     tracking-[-0.02em]
     transition-colors
     duration-200
     shadow-[inset_0_0_0_1px_rgba(10,13,18,0.18),inset_0_-2px_0_0_rgba(10,13,18,0.05),0_1px_2px_0_rgba(10,13,18,0.05)]
+    no-underline
+    hover:(bg-[#2C2C2C] text-white)
   `}
-  ${({ $variant }) =>
-    $variant === "dark"
-      ? tw`bg-transparent border-white text-white hover:(bg-white text-black)`
-      : tw`bg-white border-[#8A8989] text-[#2C2C2C] hover:(bg-[#2C2C2C] text-white)`}
 `
-
-export const WhitePaperSection = ({
-  title = "WHITEPAPER",
-  ctaLabel = "Read the Whitepaper",
-  ctaHref,
-  ctaTarget = "_self",
-  onCtaClick,
-  className,
-  variant = "light",
-  align = "center",
-}: WhitePaperSectionProps) => {
-  const anchorProps = ctaHref
-    ? {
-        href: ctaHref,
-        target: ctaTarget,
-        rel: ctaTarget === "_blank" ? "noreferrer" : undefined,
-      }
-    : {}
-  const buttonProps = ctaHref ? {} : { type: "button" as const }
-
+export const WhitePaperSection = () => {
   return (
-    <Container $variant={variant} className={className}>
-      <Title>{title}</Title>
-      <CTAButton
-        as={ctaHref ? "a" : "button"}
-        $variant={variant}
-        {...anchorProps}
-        {...buttonProps}
-        onClick={onCtaClick}
-      >
-        {ctaLabel}
+    <Container>
+      <Title>WHITEPAPER</Title>
+      <CTAButton href={WHITEPAPER_URL} target="_blank" rel="noreferrer">
+        Read the Whitepaper
       </CTAButton>
     </Container>
   )
 }
-
-export type { WhitePaperSectionProps }

@@ -97,32 +97,10 @@ const CallForSubtitle = styled.div`
 function Research() {
   const [selectedProjectId, setSelectedProjectId] = useState<string>("")
   const [searchParams] = useSearchParams()
+
   useEffect(() => {
     const projectIdFromUrl = searchParams.get("projectId")
-    if (projectIdFromUrl) {
-      setSelectedProjectId(projectIdFromUrl)
-    }
-  }, [searchParams])
-
-  useEffect(() => {
-    const handleUrlChange = () => {
-      const projectIdFromUrl = searchParams.get("projectId")
-      if (!projectIdFromUrl) {
-        setSelectedProjectId("")
-      }
-    }
-
-    handleUrlChange() // Check on initial render
-
-    const observer = new MutationObserver(() => {
-      handleUrlChange()
-    })
-
-    observer.observe(document.body, { childList: true, subtree: true })
-
-    return () => {
-      observer.disconnect()
-    }
+    setSelectedProjectId(projectIdFromUrl || "")
   }, [searchParams])
 
   return (
