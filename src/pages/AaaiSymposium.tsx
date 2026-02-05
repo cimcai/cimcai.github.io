@@ -229,9 +229,7 @@ const AaaiSymposium = () => {
               <TocLink href="#symposium-format">Symposium Format</TocLink>
             </TocItem>
             <TocItem>
-              <TocLink href="#call-for-participation">
-                Call for Participation
-              </TocLink>
+              <TocLink href="#call-for-participation">Registration</TocLink>
             </TocItem>
             <TocItem>
               <TocLink href="#tentative-schedule">Tentative Schedule</TocLink>
@@ -451,30 +449,37 @@ const AaaiSymposium = () => {
           cross-cutting problems, synthesizing insights from all domains.
         </Paragraph>
 
-        <SectionTitle id="call-for-participation">
-          Call for Participation
-        </SectionTitle>
+        <SectionTitle id="call-for-participation">Registration</SectionTitle>
         <Paragraph>
-          Submissions are now open. The submissions deadline is January 30,
-          2026.
-        </Paragraph>
-        <Paragraph>
-          <strong>Submission Requirements</strong>
+          How to register and pricing:
           <br />
-          We invite full technical papers (6-8 pages excluding references),
-          extended abstracts (2 pages including brief speaker biography), and
-          position papers (4-6 pages excluding references). Submissions should
-          follow AAAI formatting guidelines. Papers addressing cross-cutting
-          themes or explicitly connecting multiple symposium topics are
-          particularly encouraged.
+          <a
+            href="https://aaai.org/conference/spring-symposia/sss26/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            https://aaai.org/conference/spring-symposia/sss26/
+          </a>
+          <br />
+          <br />
+          Hotel:
+          <br />
+          <a
+            href="https://www.hyatt.com/events/en-US/group-booking/SFOBU/G-AAAI"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            https://www.hyatt.com/events/en-US/group-booking/SFOBU/G-AAAI
+          </a>
         </Paragraph>
-        <SubmissionButton
-          href="https://easychair.org/conferences?conf=sss26"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Make a submission
-        </SubmissionButton>
+        <Paragraph>
+          <strong>Note</strong>
+          <br />
+          Anyone whose paper is accepted must register in order to present. We
+          encourage general attendees who just want to attend to also register.
+        </Paragraph>
 
         <SectionTitle id="tentative-schedule">Tentative Schedule</SectionTitle>
         <Table>
