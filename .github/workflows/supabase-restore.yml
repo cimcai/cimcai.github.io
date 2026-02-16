@@ -1,0 +1,131 @@
+name: Manual Supabase Restore
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Workflow run ID that produced the backup artifact"
+        required: true
+        type: string
+      artifact_name:
+        description: "Artifact name (example: supabase-backup-1234567890)"
+        required: true
+        type: string
+      restore_mode:
+        description: "Restore mode: full (default) or public"
+        required: true
+        type: choice
+        options:
+          - full
+          - public
+        default: full
+      confirm_restore:
+        description: "Type RESTORE to continue"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  restore:
+    runs-on: ${{ vars.SUPABASE_ACTIONS_RUNNER || 'ubuntu-latest' }}
+    steps:
+      - name: Validate manual confirmation
+        run: |
+          if [ "${{ inputs.confirm_restore }}" != "RESTORE" ]; then
+            echo "Confirmation phrase mismatch. Type RESTORE to run this workflow."
+            exit 1
+          fi
+
+      - name: Install PostgreSQL client
+        run: |
+          set -euo pipefail
+          pg17_bin="/usr/lib/postgresql/17/bin"
+          if [ -x "${pg17_bin}/pg_dump" ] && [ -x "${pg17_bin}/psql" ]; then
+            echo "PG_BIN=${pg17_bin}" >> "$GITHUB_ENV"
+            "${pg17_bin}/psql" --version
+            exit 0
+          fi
+
+          if command -v psql >/dev/null 2>&1; then
+            psql_major="$(psql --version | awk '{print $3}' | cut -d. -f1)"
+            if [ "${psql_major}" -ge 17 ]; then
+              current_pg_bin="$(dirname "$(command -v psql)")"
+              echo "PG_BIN=${current_pg_bin}" >> "$GITHUB_ENV"
+              "${current_pg_bin}/psql" --version
+              exit 0
+            fi
+          fi
+
+          if command -v apt-get >/dev/null 2>&1; then
+            if [ ! -f /etc/apt/sources.list.d/pgdg.list ]; then
+              sudo install -d -m 0755 /usr/share/postgresql-common/pgdg
+              sudo curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc
+              echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(. /etc/os-release && echo ${VERSION_CODENAME})-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list >/dev/null
+            fi
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client-17
+            if [ -x "${pg17_bin}/pg_dump" ] && [ -x "${pg17_bin}/psql" ]; then
+              echo "PG_BIN=${pg17_bin}" >> "$GITHUB_ENV"
+              "${pg17_bin}/psql" --version
+              exit 0
+            fi
+            echo "PostgreSQL 17 client was installed but binaries were not found at ${pg17_bin}."
+            exit 1
+          fi
+
+          echo "psql 17+ not found and apt-get is unavailable on this runner."
+          echo "Install PostgreSQL client 17+ on the runner or use ubuntu-latest."
+          exit 1
+
+      - name: Validate restore database connectivity
+        env:
+          SUPABASE_RESTORE_DB_URL: ${{ secrets.SUPABASE_RESTORE_DB_URL }}
+        run: |
+          set -euo pipefail
+          : "${SUPABASE_RESTORE_DB_URL:?SUPABASE_RESTORE_DB_URL is not set}"
+          "${PG_BIN}/psql" "${SUPABASE_RESTORE_DB_URL}" -v ON_ERROR_STOP=1 -c "select 1;"
+
+      - name: Download selected backup artifact
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ inputs.run_id }}
+          name: ${{ inputs.artifact_name }}
+          path: restore-input
+          github-token: ${{ github.token }}
+
+      - name: Restore database from backup
+        env:
+          SUPABASE_RESTORE_DB_URL: ${{ secrets.SUPABASE_RESTORE_DB_URL }}
+        run: |
+          set -euo pipefail
+          : "${SUPABASE_RESTORE_DB_URL:?SUPABASE_RESTORE_DB_URL is not set}"
+
+          backup_file="$(find restore-input -maxdepth 2 -type f -name '*.sql.gz' | head -n 1)"
+          if [ -z "${backup_file}" ]; then
+            echo "No .sql.gz backup file found in downloaded artifact."
+            exit 1
+          fi
+
+          restore_sql="$(mktemp -t supabase-restore-XXXXXX.sql)"
+          trap 'rm -f "${restore_sql}"' EXIT
+          gunzip -c "${backup_file}" > "${restore_sql}"
+
+          restore_mode="${{ inputs.restore_mode }}"
+          echo "Running restore mode: ${restore_mode}"
+
+          if [ "${restore_mode}" = "public" ]; then
+            if grep -Eiq '(^|[^a-z_])(schema|search_path)[[:space:]]+(auth|storage|graphql|realtime|extensions)($|[^a-z_])' "${restore_sql}"; then
+              echo "Selected public mode, but dump appears to include non-public Supabase-managed schemas."
+              echo "Use restore_mode=full for this artifact, or restore from a newer public-only backup."
+              exit 1
+            fi
+            "${PG_BIN}/psql" "${SUPABASE_RESTORE_DB_URL}" -v ON_ERROR_STOP=1 -f "${restore_sql}"
+          else
+            "${PG_BIN}/psql" "${SUPABASE_RESTORE_DB_URL}" -v ON_ERROR_STOP=0 -f "${restore_sql}"
+          fi
+
+      - name: Confirm completion
+        run: echo "Supabase restore completed."

@@ -1,0 +1,87 @@
+name: Daily Supabase Backup
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ${{ vars.SUPABASE_ACTIONS_RUNNER || 'ubuntu-latest' }}
+    steps:
+      - name: Install PostgreSQL client
+        run: |
+          set -euo pipefail
+          pg17_bin="/usr/lib/postgresql/17/bin"
+          if [ -x "${pg17_bin}/pg_dump" ] && [ -x "${pg17_bin}/psql" ]; then
+            echo "PG_BIN=${pg17_bin}" >> "$GITHUB_ENV"
+            "${pg17_bin}/pg_dump" --version
+            exit 0
+          fi
+
+          if command -v pg_dump >/dev/null 2>&1; then
+            pg_dump_major="$(pg_dump --version | awk '{print $3}' | cut -d. -f1)"
+            if [ "${pg_dump_major}" -ge 17 ]; then
+              current_pg_bin="$(dirname "$(command -v pg_dump)")"
+              echo "PG_BIN=${current_pg_bin}" >> "$GITHUB_ENV"
+              "${current_pg_bin}/pg_dump" --version
+              exit 0
+            fi
+          fi
+
+          if command -v apt-get >/dev/null 2>&1; then
+            if [ ! -f /etc/apt/sources.list.d/pgdg.list ]; then
+              sudo install -d -m 0755 /usr/share/postgresql-common/pgdg
+              sudo curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc
+              echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $(. /etc/os-release && echo ${VERSION_CODENAME})-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list >/dev/null
+            fi
+            sudo apt-get update
+            sudo apt-get install -y postgresql-client-17
+            if [ -x "${pg17_bin}/pg_dump" ] && [ -x "${pg17_bin}/psql" ]; then
+              echo "PG_BIN=${pg17_bin}" >> "$GITHUB_ENV"
+              "${pg17_bin}/pg_dump" --version
+              exit 0
+            fi
+            echo "PostgreSQL 17 client was installed but binaries were not found at ${pg17_bin}."
+            exit 1
+          fi
+
+          echo "pg_dump 17+ not found and apt-get is unavailable on this runner."
+          echo "Install PostgreSQL client 17+ on the runner or use ubuntu-latest."
+          exit 1
+
+      - name: Validate database connectivity
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          set -euo pipefail
+          : "${SUPABASE_DB_URL:?SUPABASE_DB_URL is not set}"
+          "${PG_BIN}/psql" "${SUPABASE_DB_URL}" -v ON_ERROR_STOP=1 -c "select 1;"
+
+      - name: Create database backup
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          set -euo pipefail
+          : "${SUPABASE_DB_URL:?SUPABASE_DB_URL is not set}"
+          timestamp="$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
+          backup_dir="backups"
+          backup_file="${backup_dir}/supabase-${timestamp}.sql.gz"
+
+          mkdir -p "${backup_dir}"
+          "${PG_BIN}/pg_dump" "${SUPABASE_DB_URL}" \
+            --schema=public \
+            --clean \
+            --if-exists \
+            --no-owner \
+            --no-privileges | gzip > "${backup_file}"
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: supabase-backup-${{ github.run_id }}
+          path: backups/*.sql.gz
+          retention-days: 90
