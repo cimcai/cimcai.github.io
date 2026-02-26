@@ -1,4 +1,4 @@
-import type { MouseEvent } from "react"
+import { type MouseEvent, useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { PageHeroGraphic } from "../components/PageHeroGraphic"
@@ -27,8 +27,7 @@ const Section = styled.div`
     items-center
     gap-[36px]
     md:gap-[56px]
-    py-[72px]
-    md:py-[120px]
+    pb-[72px]
     w-full
   `}
 `
@@ -345,20 +344,60 @@ const TalkInfo = styled.div`
   color: rgba(24, 29, 39, 0.7);
 `
 
+const FloatingTocButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => !["visible"].includes(prop),
+})<{ visible: boolean }>`
+  ${tw`
+    fixed
+    right-4
+    bottom-5
+    md:right-8
+    md:bottom-8
+    z-30
+    bg-[#f2f2f79e]
+    w-11
+    h-11
+    md:w-12
+    md:h-12
+    rounded-[10px]
+    border
+    border-[#dcdcdc]
+    flex
+    items-center
+    justify-center
+    transition-all
+    duration-200
+    shadow-[0px_2px_8px_rgba(10,13,18,0.18)]
+    hover:opacity-85
+  `}
+  color: rgba(24, 29, 39, 0.6);
+
+  ${({ visible }) =>
+    visible
+      ? tw`
+          opacity-100
+          translate-y-0
+        `
+      : tw`
+          opacity-0
+          translate-y-2
+          pointer-events-none
+        `}
+`
+
 const AaaiSymposium = () => {
-  const handleTocClick = (
-    event: MouseEvent<HTMLAnchorElement>,
-    targetId: string,
-  ) => {
+  const tocRef = useRef<HTMLDivElement | null>(null)
+  const [isBackToTocVisible, setIsBackToTocVisible] = useState(false)
+
+  const scrollToSection = (targetId: string) => {
     const target = document.getElementById(targetId)
 
     if (!target) {
       return
     }
 
-    event.preventDefault()
-
-    const topOffset = 110
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches
+    const topOffset = isDesktop ? 112 : 80
     const top = target.getBoundingClientRect().top + window.scrollY - topOffset
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -367,6 +406,38 @@ const AaaiSymposium = () => {
     window.history.replaceState(null, "", `#${targetId}`)
     window.scrollTo({ top, behavior: prefersReducedMotion ? "auto" : "smooth" })
   }
+
+  const handleTocClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    targetId: string,
+  ) => {
+    event.preventDefault()
+    scrollToSection(targetId)
+  }
+
+  useEffect(() => {
+    const updateBackToTocVisibility = () => {
+      if (!tocRef.current) {
+        setIsBackToTocVisible(false)
+        return
+      }
+
+      const tocBottom =
+        tocRef.current.getBoundingClientRect().bottom + window.scrollY
+      setIsBackToTocVisible(window.scrollY > tocBottom + 24)
+    }
+
+    updateBackToTocVisibility()
+    window.addEventListener("scroll", updateBackToTocVisibility, {
+      passive: true,
+    })
+    window.addEventListener("resize", updateBackToTocVisibility)
+
+    return () => {
+      window.removeEventListener("scroll", updateBackToTocVisibility)
+      window.removeEventListener("resize", updateBackToTocVisibility)
+    }
+  }, [])
 
   return (
     <Container>
@@ -383,7 +454,7 @@ const AaaiSymposium = () => {
         </Content>
 
         <Content>
-          <TocBox>
+          <TocBox id="table-of-contents" ref={tocRef}>
             <TocInner>
               <TocTitle>Table of Contents</TocTitle>
               <TocList>
@@ -835,6 +906,30 @@ const AaaiSymposium = () => {
           </MainContent>
         </Content>
       </Section>
+
+      <FloatingTocButton
+        type="button"
+        visible={isBackToTocVisible}
+        onClick={() => scrollToSection("table-of-contents")}
+        aria-label="Back to table of contents"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 14L12 8L18 14"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </FloatingTocButton>
     </Container>
   )
 }
