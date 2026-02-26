@@ -28,7 +28,7 @@ const ResearchLayout = styled.div`
     flex-col
     justify-between
     w-full
-    max-w-[1280px]
+    md:w-[860px]
     mx-auto
     px-6
   `}

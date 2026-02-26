@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Ryota Kanai",
+    "image": "speaker/ryota.jpg",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/ryota-kanai-3585979"
+      },
+      {
+        "label": "Website",
+        "url": "https://research.araya.org/member/ryota-kanai-phd"
+      }
+    ],
+    "bio": "Ryota Kanai is the Founder and CEO of Araya, Inc., a Tokyo-based company working at the intersection of neuroscience and artificial intelligence to understand and create artificial consciousness. He graduated from Kyoto University's Faculty of Science in 2000 and earned his PhD (Cum Laude) from Utrecht University in 2005, studying visual information processing in the human brain. He went on to research at Caltech, University College London, and the University of Sussex, where he served as Associate Professor of Cognitive Neuroscience. He founded Araya in 2013 and has led it full-time since 2015.",
+    "talkTitle": "Measuring Consciousness Beyond Biology: Universality, Structure, and Functional Indicators in Artificial Systems",
+    "abstract": [
+      "The prospect of consciousness in artificial systems raises a foundational problem of measurement and attribution. How can consciousness be assessed in systems that differ from biological brains, and what kinds of measurements could justify such assessments?",
+      "This talk argues that progress requires a clear distinction between intrinsic, universality-based accounts of consciousness and observer-relative approaches based on functional indicators. The notion of universality provides a theoretical framework for predicting consciousness in non-biological systems by appealing to system-internal organizational principles that are invariant across physical substrates, rather than to biological implementation details. From this perspective, structural theories such as Integrated Information Theory (IIT) and recent symmetry-based mathematical approaches aim to characterize consciousness in terms of intrinsic structure in an observer-independent manner. By contrast, functionalist indicator approaches attempt to assess consciousness in an observer-relative way by appealing to functions attributed to a system by an external observer, such as global broadcasting, recurrence, or predictive processing. While functional indicators remain observer-relative, they play an important role in guiding practical judgments about consciousness.",
+      "I argue that recognizing this distinction is essential for avoiding category errors in the measurement of consciousness and for framing productive debates about how, and whether, consciousness should be attributed to artificial agents. By situating these approaches within a broader philosophical context, the talk aims to stimulate discussion on what consciousness measurements can realistically claim, what they cannot, and how different methodological commitments shape the conclusions we draw about artificial minds."
+    ]
+  },
+  {
+    "name": "Michael Timothy Bennett",
+    "image": "speaker/michael.jpg",
+    "links": [
+      { "label": "Website", "url": "https://michaeltimothybennett.com/" },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/michael-timothy-bennett-32531b18"
+      }
+    ],
+    "bio": "Dr. Michael Timothy Bennett is a computer scientist at the Australian National University. His research explores the mechanics of life, intelligence and consciousness from first principles with an integrated philosophical, mathematical, and experimental approach. His path to research was rather unconventional, which is what predisposed him to cross-disciplinary methods. He began as a musician, co-founded London-based Eigen Technologies, and worked in game development across four continents on franchises including The Sims, Sniper Elite, and Total War. He holds degrees in music from Queensland Conservatorium, management science from London Business School, and computer science from the Australian National University.",
+    "talkTitle": "TBD",
+    "abstract": ["TBD"]
+  },
+  {
+    "name": "Blaise Agüera y Arcas",
+    "image": "speaker/blaise.jpg",
+    "links": [
+      { "label": "Website", "url": "https://www.blaiseaguera.com/" },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/blaise-ag%C3%BCera-y-arcas-85626a42"
+      }
+    ],
+    "bio": "Blaise Agüera y Arcas is a VP and Fellow at Google, where he is the CTO of Technology & Society and founder of Paradigms of Intelligence (Pi). Pi is an organization working on fundamental research in AI and related fields, especially the foundations of neural computing, active inference, sociality, evolution, and Artificial Life. In 2008, Blaise was awarded MIT’s TR35 prize. During his tenure at Google, Blaise has innovated on-device machine learning for Android and Pixel; invented Federated Learning, an approach to decentralized model training that avoids sharing private data; and founded the Artists + Machine Intelligence program. An External Professor at Santa Fe Institute and a frequent public speaker, Blaise has given multiple TED talks and keynoted NeurIPS. He has also authored numerous papers, essays, op-eds, and chapters, as well as two previous books, Who Are We Now? and Ubi Sunt. He recently published What Is Life?, which is part 1 of the larger book.",
+    "talkTitle": "TBD",
+    "abstract": ["TBD"]
+  },
+  {
+    "name": "Takashi Ikegami",
+    "image": "speaker/takashi.jpg",
+    "links": [
+      {
+        "label": "Website",
+        "url": "https://www.sacral.c.u-tokyo.ac.jp/people"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/takashi-ikegami-6279361"
+      }
+    ],
+    "bio": "Takashi Ikegami is a professor at the University of Tokyo. He works across artificial life, cognitive science, robotics, and art, exploring how intelligence and selfhood emerge from interactions rather than isolated individuals. His research combines mathematical modeling with embodied systems, including the humanoid android ALTER, to study human–machine co-creation and emergent agency.",
+    "talkTitle": "TBD",
+    "abstract": ["TBD"]
+  }
+]
