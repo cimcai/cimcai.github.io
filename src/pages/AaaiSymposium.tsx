@@ -7,6 +7,20 @@ import LinkedInIcon from "../components/icons/LinkedInIcon"
 import XIcon from "../components/icons/XIcon"
 import speakers from "../data/speakers.json"
 
+interface SpeakerLink {
+  label?: string
+  url: string
+}
+
+interface Speaker {
+  name: string
+  image?: string
+  links?: SpeakerLink[]
+  bio: string
+  talkTitle?: string
+  abstract?: string[]
+}
+
 const Container = styled.div`
   ${tw`
     bg-white
@@ -803,7 +817,7 @@ const AaaiSymposium = () => {
             <ContentSection>
               <SectionHeading id="speakers">Speakers</SectionHeading>
 
-              {speakers.map((sp: any, idx: number) => {
+              {(speakers as Speaker[]).map((sp, idx) => {
                 const base = (sp.image || "").split("/").pop() || ""
                 const filename = base.replace(/^image/, "speaker")
                 const imgSrc = sp.image?.startsWith("/")
@@ -811,15 +825,15 @@ const AaaiSymposium = () => {
                   : `/speakers/${filename}`
 
                 const website = (sp.links || []).find(
-                  (l: any) =>
+                  (l: SpeakerLink) =>
                     (l.label && /website/i.test(l.label)) ||
                     /https?:\/\//i.test(l.url),
                 )
-                const xLink = (sp.links || []).find((l: any) =>
+                const xLink = (sp.links || []).find((l: SpeakerLink) =>
                   /x\.com|twitter/i.test(l.url || ""),
                 )
                 const linkedin = (sp.links || []).find(
-                  (l: any) =>
+                  (l: SpeakerLink) =>
                     (l.label && /linkedin/i.test(l.label)) ||
                     /linkedin\.com/i.test(l.url || ""),
                 )
@@ -874,7 +888,7 @@ const AaaiSymposium = () => {
                       </SpeakerInfoCol>
                     </SpeakerCard>
 
-                    {(sp.talkTitle || (sp.abstract && sp.abstract.length)) && (
+                    {(sp.talkTitle || sp.abstract?.length) && (
                       <TalkInfo>
                         {sp.talkTitle ? (
                           <p className="mb-2">
@@ -883,12 +897,12 @@ const AaaiSymposium = () => {
                           </p>
                         ) : null}
 
-                        {sp.abstract && sp.abstract.length
+                        {sp.abstract?.length
                           ? sp.abstract.map((para: string, pi: number) => (
                               <p
-                                key={pi}
+                                key={`abstract-${para.slice(0, 20)}`}
                                 className={
-                                  pi < sp.abstract.length - 1
+                                  pi < (sp.abstract?.length ?? 0) - 1
                                     ? "mb-2"
                                     : undefined
                                 }
