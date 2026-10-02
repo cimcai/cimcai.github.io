@@ -19,13 +19,13 @@
     },
     {
       "path": "publications/index.html",
-      "sha256": "61501c85c27aca90498551ea3a42cf6cf28cee9d1e9ea50f2a553ce0ad82bf4f",
+      "sha256": "817bcd923852114f01ded597aaf381e315eb4c4150e49df629d145fa5fd0eb11",
       "bytes": 87122
     },
     {
       "path": "publications/research-program-whitepaper/index.html",
-      "sha256": "0e5213be108f86c82b67973586a24e8ac41f0d79bc70d8ee3ad794fac0571a29",
-      "bytes": 409548
+      "sha256": "00f96cdb5ee9206072be36483b53b6f78973a9a315b61beb28233f95e35a98c2",
+      "bytes": 411584
     },
     {
       "path": "writing/research-program-whitepaper/index.html",
@@ -34,7 +34,7 @@
     },
     {
       "path": "publications/the-machine-consciousness-hypothesis/index.html",
-      "sha256": "eff73cd5e855b22a5d0d889f38d399dbea79062c438c7b56b6ff814592f462b8",
+      "sha256": "980d5ec09868df07e2dde7bd5b23890d3e2278c3d79ef7975498db279329281f",
       "bytes": 232614
     },
     {

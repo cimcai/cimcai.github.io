@@ -106198,15 +106198,7 @@ function getCitedReferences(doc) {
 function getBibliographyReferences(doc) {
   const bibliography = doc.content?.find((node2) => node2.type === "bibliography");
   const ids = bibliography?.attrs?.referenceIds;
-  if (Array.isArray(ids)) {
-    const references = getManuscript(doc)?.references || [];
-    const seen = /* @__PURE__ */ new Set();
-    return ids.flatMap((id) => {
-      if (typeof id !== "string" || seen.has(id)) return [];
-      seen.add(id);
-      return references.find((reference) => reference.id === id) || [];
-    });
-  }
+  const selectedIds = Array.isArray(ids) ? new Set(ids) : void 0;
   const collator = new Intl.Collator("en", {
     sensitivity: "base",
     numeric: false
@@ -106217,13 +106209,16 @@ function getBibliographyReferences(doc) {
       name.literal || `${name.family}, ${initials(name.given || "")}`
     )
   ).join("; ") || referenceText(reference.title);
-  return [...getManuscript(doc)?.references || []].sort(
-    (left, right) => collator.compare(author(left), author(right)) || collator.compare(left.year || "n.d.", right.year || "n.d.") || collator.compare(referenceText(left.title), referenceText(right.title)) || collator.compare(left.key, right.key) || left.key.localeCompare(right.key, "en")
+  return (getManuscript(doc)?.references || []).filter((reference) => !selectedIds || selectedIds.has(reference.id)).sort(
+    (left, right) => collator.compare(author(left), author(right)) || collator.compare(left.year || "n.d.", right.year || "n.d.") || collator.compare(
+      referenceText(left.title),
+      referenceText(right.title)
+    ) || collator.compare(left.key, right.key) || left.key.localeCompare(right.key, "en")
   );
 }
-function getBibliographyTitle(doc) {
-  const title = doc.content?.find((node2) => node2.type === "bibliography")?.attrs?.title;
-  return typeof title === "string" && title.trim() ? title.trim() : "Works Cited";
+var BIBLIOGRAPHY_TITLE = "Works Cited";
+function getBibliographyTitle(_doc) {
+  return BIBLIOGRAPHY_TITLE;
 }
 function referenceYear(reference, cited = []) {
   const year = reference.year || "n.d.";
@@ -106252,6 +106247,17 @@ function isHeadingLevel(value) {
 function getHeadingLevel(node2) {
   return isHeadingLevel(node2.attrs?.level) ? node2.attrs.level : 2;
 }
+var CONTENTS_LOCATION_LEVELS = [2, 3, 4];
+function isContentsLocationLevel(value) {
+  return CONTENTS_LOCATION_LEVELS.some((level) => level === value);
+}
+function isContentsLocation(node2) {
+  const label = node2.type === "contentsAnchor" ? node2.attrs?.label : node2.type === "paragraph" ? node2.attrs?.tocLabel : void 0;
+  return typeof label === "string" && Boolean(label.trim()) && typeof node2.attrs?.id === "string" && MANUSCRIPT_ID.test(node2.attrs.id);
+}
+function getContentsLocationLevel(node2) {
+  return isContentsLocationLevel(node2.attrs?.tocLevel) ? node2.attrs.tocLevel : 2;
+}
 function getHeadingNumbering(doc) {
   const result = /* @__PURE__ */ new Map();
   const hasBibliography = getBibliographyReferences(doc).length > 0;
@@ -106273,8 +106279,9 @@ function getHeadingNumbering(doc) {
   const visit = (node2, topLevel = false) => {
     if (topLevel && node2.type === "bibliography" && hasBibliography)
       afterBibliography = true;
-    if (node2.type === "heading") {
-      const level = getHeadingLevel(node2);
+    const location2 = node2.type !== "heading" && isContentsLocation(node2);
+    if (node2.type === "heading" || location2) {
+      const level = location2 ? getContentsLocationLevel(node2) : getHeadingLevel(node2);
       const isSubsection = level > 2;
       if (isSubsection) {
         while ((subsections.at(-1)?.level || 0) >= level) subsections.pop();
@@ -106492,6 +106499,12 @@ function validateRichDocument(doc, complete = false) {
         );
       if (node2.type === "paragraph" && (typeof attrs.id !== "string" || !MANUSCRIPT_ID.test(attrs.id)))
         issue("A paragraph Contents location requires a valid label ID.");
+    }
+    if (attrs.tocLevel != null) {
+      if (!(node2.type === "contentsAnchor" || node2.type === "paragraph" && attrs.tocLabel != null) || !isContentsLocationLevel(attrs.tocLevel))
+        issue(
+          "A Contents level belongs to a named Contents location and must be 2 (section), 3 (subsection) or 4 (sub-subsection)."
+        );
     }
     if (attrs.id != null && attrs.id !== "") {
       if (!LABELED.has(node2.type) || note)
@@ -106808,7 +106821,7 @@ function getArticleHeadings(doc) {
     for (const [index2, node2] of (content ?? []).entries()) {
       const key = `${parentKey}-${index2}`;
       const label = node2.type === "contentsAnchor" ? node2.attrs?.label : node2.attrs?.tocLabel;
-      const location2 = ["paragraph", "contentsAnchor"].includes(node2.type) && typeof label === "string" && label.trim() && typeof node2.attrs?.id === "string" && MANUSCRIPT_ID.test(node2.attrs.id);
+      const location2 = node2.type !== "heading" && isContentsLocation(node2);
       if (node2.type === "heading" || location2) {
         const appendix = numbering.get(node2)?.appendix;
         const text2 = nodeText(node2).trim();
@@ -106822,7 +106835,7 @@ function getArticleHeadings(doc) {
           id,
           key,
           text: contentsLabel || text2 || "Untitled section",
-          level: location2 ? 2 : getHeadingLevel(node2),
+          level: location2 ? getContentsLocationLevel(node2) : getHeadingLevel(node2),
           ...appendix ? { appendix } : {},
           ...location2 ? { location: true } : {}
         });
@@ -107405,7 +107418,7 @@ function buildRenderContext(doc, contextDoc) {
     noteOrder: [],
     markers: /* @__PURE__ */ new Map(),
     bibliography: [],
-    bibliographyTitle: getBibliographyTitle(source2)
+    bibliographyTitle: getBibliographyTitle()
   };
   let hasBibliography = false;
   const collect = (node2, key, inNote = false) => {
@@ -107481,7 +107494,7 @@ function ArticleRenderer({
 }
 
 // node_modules/@cimc/publishing-reader/dist/ArticleNavigation.js
-var RAIL_ROW_GAP = 4;
+var RAIL_ROW_GAP = 2;
 var RAIL_WINDOW_MIN = 10;
 function round(value) {
   return Math.round(value * 2) / 2;
@@ -107495,8 +107508,21 @@ function readingBranch(levels, active) {
   }
   return branch;
 }
-function chooseLabels(entries) {
-  return entries.map(() => true);
+function chooseLabels(entries, active, expanded = false) {
+  if (expanded || !entries.length) return entries.map(() => true);
+  const levels = entries.map((entry) => entry.level);
+  const top = Math.min(...levels);
+  const branch = new Set(readingBranch(levels, active));
+  const parents = [];
+  const stack = [];
+  levels.forEach((level, index2) => {
+    while (stack.length && levels[stack[stack.length - 1]] >= level) stack.pop();
+    parents.push(stack.length ? stack[stack.length - 1] : -1);
+    stack.push(index2);
+  });
+  return levels.map(
+    (level, index2) => level === top || branch.has(index2) || parents[index2] >= 0 && branch.has(parents[index2])
+  );
 }
 function entryShares(entries) {
   const shares = entries.map(
@@ -107513,66 +107539,66 @@ function entryShares(entries) {
   }
   return shares;
 }
-function placeRows(entries, height) {
-  const offsets = [];
-  let minimum = 0;
-  for (const entry of entries) {
-    offsets.push(minimum);
-    minimum += entry.min;
-  }
-  const railHeight = Math.max(height, minimum);
-  const free = railHeight - minimum;
-  const shares = entryShares(entries);
-  const groups = [];
-  entries.forEach((entry, index2) => {
-    groups.push({
-      start: index2,
-      end: index2,
-      total: shares[index2] * railHeight - entry.dotOffset - offsets[index2],
-      count: 1
+function distributeRows(shares, mins, height) {
+  if (!shares.length) return { lead: 0, sizes: [] };
+  const scales = [
+    shares[0],
+    ...shares.map(
+      (share, index2) => Math.max(0, (index2 + 1 < shares.length ? shares[index2 + 1] : 1) - share)
+    )
+  ];
+  const floors = [0, ...mins];
+  const sizes = [...floors];
+  const frozen = scales.map(() => false);
+  for (let pass = 0; pass <= scales.length; pass++) {
+    let free = height;
+    let sum = 0;
+    scales.forEach((scale, index2) => {
+      if (frozen[index2]) free -= sizes[index2];
+      else sum += scale;
     });
-    while (groups.length > 1) {
-      const right = groups[groups.length - 1];
-      const left = groups[groups.length - 2];
-      if (left.total / left.count <= right.total / right.count) break;
-      left.end = right.end;
-      left.total += right.total;
-      left.count += right.count;
-      groups.pop();
-    }
-  });
-  const tops = [];
-  for (const group of groups) {
-    const position2 = Math.min(free, Math.max(0, group.total / group.count));
-    for (let index2 = group.start; index2 <= group.end; index2++)
-      tops[index2] = round(position2 + offsets[index2]);
+    let changed = false;
+    scales.forEach((scale, index2) => {
+      if (frozen[index2]) return;
+      const want = sum > 0 ? scale / sum * free : 0;
+      if (want < floors[index2]) {
+        sizes[index2] = floors[index2];
+        frozen[index2] = true;
+        changed = true;
+      } else sizes[index2] = want;
+    });
+    if (!changed) break;
   }
-  return { height: round(railHeight), tops };
+  return { lead: sizes[0], sizes: sizes.slice(1) };
 }
 function planContentsRail({
   entries,
   active,
   height,
-  view
+  view,
+  expanded = false
 }) {
-  const labelled = chooseLabels(entries);
+  const labelled = chooseLabels(entries, active, expanded);
   const indexes = labelled.flatMap((on, index2) => on ? [index2] : []);
-  const placement = placeRows(
-    indexes.map((index2) => entries[index2]),
+  const shares = entryShares(entries);
+  const { lead, sizes } = distributeRows(
+    indexes.map((index2) => shares[index2]),
+    indexes.map((index2) => entries[index2].min),
     height
   );
   const tops = entries.map(() => null);
-  const keys = [{ share: 0, y: 0 }];
+  let y2 = lead;
   indexes.forEach((index2, position2) => {
-    const top = placement.tops[position2];
-    tops[index2] = top;
-    if (Number.isFinite(entries[index2].share))
-      keys.push({
-        share: entries[index2].share,
-        y: top + entries[index2].dotOffset
-      });
+    tops[index2] = round(y2);
+    y2 += sizes[position2];
   });
-  const railHeight = placement.height;
+  const railHeight = round(Math.max(height, y2));
+  const keys = [{ share: 0, y: 0 }];
+  for (const index2 of indexes) {
+    const top = tops[index2];
+    if (Number.isFinite(entries[index2].share))
+      keys.push({ share: shares[index2], y: top + entries[index2].dotOffset });
+  }
   keys.push({ share: 1, y: railHeight });
   const toRail = (share) => {
     const value = Math.min(1, Math.max(0, share));
@@ -107588,6 +107614,11 @@ function planContentsRail({
   const ticks = entries.map(
     (entry, index2) => labelled[index2] || Number.isNaN(entry.share) ? null : round(toRail(entry.share))
   );
+  const parked = entries.map((entry, index2) => {
+    const top = tops[index2];
+    if (top !== null) return top;
+    return round(Math.max(0, toRail(shares[index2]) - entry.dotOffset));
+  });
   const windowStart = toRail(view.top);
   const windowHeight = Math.max(
     RAIL_WINDOW_MIN,
@@ -107600,6 +107631,7 @@ function planContentsRail({
   return {
     height: railHeight,
     tops,
+    parked,
     ticks,
     branch: readingBranch(
       entries.map((entry) => entry.level),
@@ -107757,7 +107789,7 @@ function getArticleOutline(doc) {
   const headings = getArticleHeadings(doc);
   const byKey = new Map(headings.map((heading) => [heading.key, heading]));
   const bibliography = getBibliographyReferences(doc).length > 0;
-  const bibliographyTitle = getBibliographyTitle(doc);
+  const bibliographyTitle = getBibliographyTitle();
   const outline = [];
   let hasBibliography = false;
   let hasNotes = false;
@@ -107796,7 +107828,7 @@ function getArticleOutline(doc) {
 var RAIL_BOTTOM_INSET = 32;
 function samePlan(a2, b) {
   const same = (x2, y2) => x2.length === y2.length && x2.every((value, index2) => value === y2[index2]);
-  return a2.height === b.height && a2.windowTop === b.windowTop && a2.windowHeight === b.windowHeight && same(a2.branch, b.branch) && same(a2.tops, b.tops) && same(a2.ticks, b.ticks);
+  return a2.height === b.height && a2.windowTop === b.windowTop && a2.windowHeight === b.windowHeight && same(a2.branch, b.branch) && same(a2.tops, b.tops) && same(a2.parked, b.parked) && same(a2.ticks, b.ticks);
 }
 function ArticleNavigation({
   doc,
@@ -107811,6 +107843,9 @@ function ArticleNavigation({
   const [rail, setRail] = (0, import_react5.useState)(null);
   const railList = (0, import_react5.useRef)(null);
   const railBox = (0, import_react5.useRef)(null);
+  const railExpanded = (0, import_react5.useRef)(false);
+  const requestRail = (0, import_react5.useRef)(() => {
+  });
   const activeRowShown = (0, import_react5.useRef)("");
   const dialogId = (0, import_react5.useId)();
   const dialogHeadingId = `${dialogId}-heading`;
@@ -107903,7 +107938,7 @@ function ArticleNavigation({
       setProgress(Math.round(read * 100));
       setFraction(Math.round(read * 1e3) / 1e3);
       const span = Math.max(1, bounds.height);
-      let active = 0;
+      let active = -1;
       const shares = [];
       headings.forEach((heading, index2) => {
         const element = body.querySelector(`#${CSS.escape(heading.id)}`);
@@ -107947,6 +107982,7 @@ function ArticleNavigation({
       const next2 = planContentsRail({
         entries,
         active,
+        expanded: railExpanded.current,
         height,
         view: {
           top: (readingStart - bounds.top) / span,
@@ -107960,6 +107996,7 @@ function ArticleNavigation({
     function scheduleUpdate() {
       if (!frame) frame = frameWindow.requestAnimationFrame(update);
     }
+    requestRail.current = scheduleUpdate;
     update();
     frameWindow.addEventListener("scroll", scheduleUpdate, { passive: true });
     frameWindow.addEventListener("resize", scheduleUpdate);
@@ -107991,8 +108028,15 @@ function ArticleNavigation({
       observer.disconnect();
       frameWindow.cancelAnimationFrame(frame);
       menuObserver.disconnect();
+      requestRail.current = () => {
+      };
     };
   }, [headings, bodyRef, closeContents]);
+  function expandRail(expanded) {
+    if (railExpanded.current === expanded) return;
+    railExpanded.current = expanded;
+    requestRail.current();
+  }
   function navigate(event, id, mobile) {
     if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
       return;
@@ -108031,10 +108075,11 @@ function ArticleNavigation({
     activeRowShown.current = activeId;
   }, [activeId, rail]);
   const firstAppendix = headings.findIndex((heading) => heading.appendix);
+  const isBackMatter = (heading) => heading.key === "bibliography" || heading.key === "endnotes";
   let sectionNumber = 0;
   const numbers = headings.map((heading) => {
     if (heading.appendix) return heading.appendix;
-    if (heading.level !== 2 || heading.location || heading.key === "bibliography" || heading.key === "endnotes")
+    if (heading.level !== 2 || heading.key === "bibliography" || heading.key === "endnotes")
       return "";
     return String(++sectionNumber).padStart(2, "0");
   });
@@ -108055,7 +108100,11 @@ function ArticleNavigation({
             `pub-contents-level-${heading.level}`,
             heading.level > 2 ? "pub-contents-subsection" : "",
             index2 === firstAppendix ? "pub-contents-appendices-start" : "",
-            heading.id === "pub-endnotes" && firstAppendix >= 0 && index2 > firstAppendix ? "pub-contents-after-appendices" : "",
+            isBackMatter(heading) ? "pub-contents-back-matter" : "",
+            // Works Cited and Notes are each a section of their own, every
+            // one below its own rule; after the appendices that rule is the
+            // appendices' closing one.
+            heading.id === "pub-endnotes" && firstAppendix >= 0 && index2 > firstAppendix ? "pub-contents-after-appendices" : isBackMatter(heading) ? "pub-contents-back-matter-start" : "",
             plan?.branch.includes(index2) ? "is-current-branch" : "",
             unlabelled ? "is-unlabelled" : ""
           ].filter(Boolean).join(" ");
@@ -108067,7 +108116,7 @@ function ArticleNavigation({
               "data-heading-level": heading.level,
               className,
               style: {
-                ...plan ? { top: top ?? 0 } : {},
+                ...plan ? { top: plan.parked[index2] } : {},
                 "--pub-contents-indent": `${heading.level > 2 ? Math.min(76, 32 + (heading.level - 3) * 20) : 0}px`
               },
               children: [
@@ -108082,8 +108131,15 @@ function ArticleNavigation({
                     onClick: (event) => navigate(event, heading.id, mobile),
                     children: [
                       /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-mark", "aria-hidden": "true" }),
-                      heading.level === 2 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-number", "aria-hidden": "true", children: numbers[index2] }),
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-text", children: heading.text })
+                      heading.level === 2 && !isBackMatter(heading) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-number", "aria-hidden": "true", children: numbers[index2] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                        "span",
+                        {
+                          className: "pub-contents-text",
+                          title: mobile ? void 0 : heading.text,
+                          children: heading.text
+                        }
+                      )
                     ]
                   }
                 )
@@ -108198,39 +108254,57 @@ function ArticleNavigation({
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
     progressTarget ? (0, import_react_dom2.createPortal)(progressBar, progressTarget) : progressBar,
     headings.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("aside", { className: "pub-margin-contents", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("nav", { "aria-label": "Contents", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "pub-contents-heading", children: "Contents" }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
-          "div",
-          {
-            className: "pub-contents-rail",
-            ref: railBox,
-            style: rail ? { height: rail.height } : void 0,
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-line", "aria-hidden": "true" }),
-              rail && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-                "span",
-                {
-                  className: "pub-contents-window",
-                  "aria-hidden": "true",
-                  style: { top: rail.windowTop, height: rail.windowHeight }
-                }
-              ),
-              list(false),
-              ticks
-            ]
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
-          "a",
-          {
-            className: "pub-back-to-top",
-            href: "#pub-article-top",
-            onClick: (event) => navigate(event, "pub-article-top", false),
-            children: "Back to top \u2191"
-          }
-        )
-      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        "aside",
+        {
+          className: "pub-margin-contents",
+          onMouseEnter: () => expandRail(true),
+          onMouseLeave: (event) => {
+            const rail2 = event.currentTarget;
+            if (!rail2.contains(rail2.ownerDocument.activeElement))
+              expandRail(false);
+          },
+          onFocus: () => expandRail(true),
+          onBlur: (event) => {
+            const next2 = event.relatedTarget;
+            if (!event.currentTarget.contains(next2) && !event.currentTarget.matches(":hover"))
+              expandRail(false);
+          },
+          children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("nav", { "aria-label": "Contents", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "pub-contents-heading", children: "Contents" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+              "div",
+              {
+                className: "pub-contents-rail",
+                ref: railBox,
+                style: rail ? { height: rail.height } : void 0,
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-line", "aria-hidden": "true" }),
+                  rail && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                    "span",
+                    {
+                      className: "pub-contents-window",
+                      "aria-hidden": "true",
+                      style: { top: rail.windowTop, height: rail.windowHeight }
+                    }
+                  ),
+                  list(false),
+                  ticks
+                ]
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              "a",
+              {
+                className: "pub-back-to-top",
+                href: "#pub-article-top",
+                onClick: (event) => navigate(event, "pub-article-top", false),
+                children: "Back to top \u2191"
+              }
+            )
+          ] })
+        }
+      ),
       mobileTarget ? (0, import_react_dom2.createPortal)(mobileMenu, mobileTarget) : mobileMenu,
       contentsDialog
     ] })
