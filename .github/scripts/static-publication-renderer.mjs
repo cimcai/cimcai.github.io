@@ -1381,7 +1381,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useReducer(reducer, initialArg, init);
         }
-        function useRef11(initialValue) {
+        function useRef12(initialValue) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
@@ -2175,7 +2175,7 @@ var require_react_development = __commonJS({
         exports.useLayoutEffect = useLayoutEffect7;
         exports.useMemo = useMemo8;
         exports.useReducer = useReducer;
-        exports.useRef = useRef11;
+        exports.useRef = useRef12;
         exports.useState = useState15;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
@@ -10386,7 +10386,7 @@ var require_react_dom_server_legacy_node_development = __commonJS({
           workInProgressHook.memoizedState = [nextValue, nextDeps];
           return nextValue;
         }
-        function useRef11(initialValue) {
+        function useRef12(initialValue) {
           currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
           workInProgressHook = createWorkInProgressHook();
           var previousRef = workInProgressHook.memoizedState;
@@ -10477,7 +10477,7 @@ var require_react_dom_server_legacy_node_development = __commonJS({
           useContext: useContext7,
           useMemo: useMemo8,
           useReducer,
-          useRef: useRef11,
+          useRef: useRef12,
           useState: useState15,
           useInsertionEffect: noop,
           useLayoutEffect: useLayoutEffect7,
@@ -15865,7 +15865,7 @@ var require_react_dom_server_node_development = __commonJS({
           workInProgressHook.memoizedState = [nextValue, nextDeps];
           return nextValue;
         }
-        function useRef11(initialValue) {
+        function useRef12(initialValue) {
           currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
           workInProgressHook = createWorkInProgressHook();
           var previousRef = workInProgressHook.memoizedState;
@@ -15956,7 +15956,7 @@ var require_react_dom_server_node_development = __commonJS({
           useContext: useContext7,
           useMemo: useMemo8,
           useReducer,
-          useRef: useRef11,
+          useRef: useRef12,
           useState: useState15,
           useInsertionEffect: noop,
           useLayoutEffect: useLayoutEffect7,
@@ -117955,6 +117955,23 @@ var PageHeroLogo = dt.div.withConfig({
 function PageHeroGraphic() {
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PageHeroGraphicContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PageHeroLogo, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(CIMCSunburstLogoSVG, { strokeWidth: 0.3 }) }) });
 }
+var PDF_REQUEST_TYPE = "cimc:open-canonical-pdf";
+function createPdfClickBridge(pdfUrl) {
+  const serializedUrl = JSON.stringify(pdfUrl).replace(/</g, "\\u003c");
+  return `(() => {
+    const pdfUrl = ${serializedUrl};
+    document.addEventListener("click", (event) => {
+      if (!event.isTrusted || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || window.parent === window) return;
+      const anchor = event.target instanceof Element ? event.target.closest("a") : null;
+      if (!anchor || anchor.href !== pdfUrl) return;
+      event.preventDefault();
+      window.parent.postMessage({ type: ${JSON.stringify(PDF_REQUEST_TYPE)} }, "*");
+    }, true);
+  })();`;
+}
+function isCanonicalPdfRequest(event, expectedSource) {
+  return expectedSource !== null && event.source === expectedSource && typeof event.data === "object" && event.data !== null && !Array.isArray(event.data) && event.data.type === PDF_REQUEST_TYPE;
+}
 var navigation = [["/", "Home"], ["/mission", "Mission"], ["/research", "Research"], ["/publications/", "Publications"], ["/team", "Team"], ["/library", "Library"], ["/events", "Events"]].map(([path2, name]) => ({
   path: path2,
   name
@@ -118072,6 +118089,18 @@ function StaticPublicationPage({
     feedUrl: "/pub/feed.xml"
   });
   const article = data2.article;
+  const editionFrame = (0, import_react10.useRef)(null);
+  const pdfUrl = article ? canonicalPdfUrl(getManuscript(article.doc)?.pdf?.filename) : void 0;
+  (0, import_react10.useEffect)(() => {
+    if (!data2.editionUrl || !pdfUrl) return;
+    const openPdf = (event) => {
+      if (isCanonicalPdfRequest(event, editionFrame.current?.contentWindow ?? null) && navigator.userActivation?.isActive !== false) {
+        window.location.assign(pdfUrl);
+      }
+    };
+    window.addEventListener("message", openPdf);
+    return () => window.removeEventListener("message", openPdf);
+  }, [data2.editionUrl, pdfUrl]);
   const plainDoc = article ? {
     ...article.doc,
     attrs: {
@@ -118095,7 +118124,7 @@ function StaticPublicationPage({
       paddingTop: 96
     }, children: [
       data2.editionUrl ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("iframe", { title: article.meta.title, src: data2.editionUrl, sandbox: "allow-scripts", className: "static-edition" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("iframe", { ref: editionFrame, title: article.meta.title, src: data2.editionUrl, sandbox: "allow-scripts", className: "static-edition" }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("noscript", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("style", { children: ".static-edition{display:none}" }),
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArticleReadingView, { meta: article.meta, doc: plainDoc || article.doc })
@@ -118127,7 +118156,7 @@ function prepareEdition(html, origin, pdf) {
     enabled: false,
     siteOrigin: origin
   });
-  return prepareWebEditionHtml(html, void 0, pdf, true).replace('<base href="about:srcdoc">', "").replace("</head>", `<style>${readingStyles}</style></head>`);
+  return prepareWebEditionHtml(html, void 0, pdf, true).replace('<base href="about:srcdoc">', "").replace("</head>", `<style>${readingStyles}</style>${pdf ? `<script>${createPdfClickBridge(pdf.url)}</script>` : ""}</head>`);
 }
 export {
   getWebEdition,

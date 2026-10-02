@@ -1799,7 +1799,16 @@ body {
     font-size: 16px;
   }
 }
-</style></head>
+</style><script>(() => {
+    const pdfUrl = "https://cimc.ai/publications/the-machine-consciousness-hypothesis.pdf";
+    document.addEventListener("click", (event) => {
+      if (!event.isTrusted || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || window.parent === window) return;
+      const anchor = event.target instanceof Element ? event.target.closest("a") : null;
+      if (!anchor || anchor.href !== pdfUrl) return;
+      event.preventDefault();
+      window.parent.postMessage({ type: "cimc:open-canonical-pdf" }, "*");
+    }, true);
+  })();</script></head>
 <body>
   <a class="skip-link" href="#introduction">Skip to the essay</a>
   <header class="site-header">
