@@ -1,0 +1,56 @@
+{
+  "managedBy": "cimc-static-publications",
+  "version": 1,
+  "articles": [
+    "research-program-whitepaper",
+    "the-machine-consciousness-hypothesis"
+  ],
+  "adoptedReleaseSlugs": [],
+  "files": [
+    {
+      "path": "publications/the-machine-consciousness-hypothesis.pdf",
+      "sha256": "68e89a05766f76d82ea2115455129f30a8647294b137d5ccbd528aa733e780bc",
+      "bytes": 399551
+    },
+    {
+      "path": "pub/static-editions/bb862b0c49ea5634a9a28d731115a738b918d0586fffb2c6f24fa3d8ac4ccba5.html",
+      "sha256": "bb862b0c49ea5634a9a28d731115a738b918d0586fffb2c6f24fa3d8ac4ccba5",
+      "bytes": 1255315
+    },
+    {
+      "path": "publications/index.html",
+      "sha256": "61501c85c27aca90498551ea3a42cf6cf28cee9d1e9ea50f2a553ce0ad82bf4f",
+      "bytes": 87122
+    },
+    {
+      "path": "publications/research-program-whitepaper/index.html",
+      "sha256": "0e5213be108f86c82b67973586a24e8ac41f0d79bc70d8ee3ad794fac0571a29",
+      "bytes": 409548
+    },
+    {
+      "path": "writing/research-program-whitepaper/index.html",
+      "sha256": "c3d8c8ca9d793957f6689b4755e68f64fb1a917dca36f8a04611e4c498350416",
+      "bytes": 526
+    },
+    {
+      "path": "publications/the-machine-consciousness-hypothesis/index.html",
+      "sha256": "87c5ced6c1fea53e81cbb24ee72eec688bfe9a49d90595aad83f9f5efdd39d39",
+      "bytes": 232614
+    },
+    {
+      "path": "writing/the-machine-consciousness-hypothesis/index.html",
+      "sha256": "bd8dea0cd004148e5a676597f2bedc82f88cb33276f4e52f2616772b32da6bd3",
+      "bytes": 469
+    },
+    {
+      "path": "writing/index.html",
+      "sha256": "73eda0f792669f129b795aabc67323591737871e53764040597c20cf18ed847f",
+      "bytes": 163
+    },
+    {
+      "path": "pub/feed.xml",
+      "sha256": "1c13d70fca7c047385006f87dcf488c6003c7f4e541109bd7b8953a7fe1aba67",
+      "bytes": 887
+    }
+  ]
+}
