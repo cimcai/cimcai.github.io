@@ -361,16 +361,25 @@ export async function buildPublications({
     const title = data.article ? data.article.meta.title : "Publications"
     const canonical = `${origin}${data.path}`
     const meta = data.article?.meta
+    const citationAuthors = meta && settings.citationAuthors?.[meta.slug]
+    const contributors = meta?.authors.map((a) => ({
+      "@type": "Person",
+      name: a.name,
+    }))
     const structured = meta
       ? {
           "@context": "https://schema.org",
           "@type": "Article",
           headline: meta.title,
           description: meta.summary,
-          author: meta.authors.map((a) => ({
-            "@type": "Person",
-            name: a.name,
-          })),
+          author: citationAuthors
+            ? citationAuthors.map(({ type, name, url }) => ({
+                "@type": type,
+                name,
+                ...(url ? { url } : {}),
+              }))
+            : contributors,
+          ...(citationAuthors ? { contributor: contributors } : {}),
           datePublished: meta.publishedAt,
           dateModified: meta.updatedAt || meta.publishedAt,
           url: canonical,

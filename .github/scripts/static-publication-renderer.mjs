@@ -116778,6 +116778,7 @@ function hasRepeatedOpeningTitle(meta, doc) {
 }
 function ArticleReadingView({
   meta,
+  citationAuthors,
   doc,
   preview = false,
   beforeHeader,
@@ -116885,7 +116886,7 @@ function ArticleReadingView({
                   omitOpeningTitle: hasRepeatedOpeningTitle(meta, doc)
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CiteBlock, { meta, preview })
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CiteBlock, { meta: citationAuthors ? { ...meta, authors: citationAuthors } : meta, preview })
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ArticleSidenotes, { doc, bodyRef })
           ] })
@@ -117955,6 +117956,9 @@ var PageHeroLogo = dt.div.withConfig({
 function PageHeroGraphic() {
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PageHeroGraphicContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PageHeroLogo, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(CIMCSunburstLogoSVG, { strokeWidth: 0.3 }) }) });
 }
+var publicationCitationAuthors = {
+  "research-program-whitepaper": [{ "type": "Organization", "name": "CIMC", "url": "https://cimc.ai" }]
+};
 var PDF_REQUEST_TYPE = "cimc:open-canonical-pdf";
 function createPdfClickBridge(pdfUrl) {
   const serializedUrl = JSON.stringify(pdfUrl).replace(/</g, "\\u003c");
@@ -118089,6 +118093,7 @@ function StaticPublicationPage({
     feedUrl: "/pub/feed.xml"
   });
   const article = data2.article;
+  const citationAuthors = article ? publicationCitationAuthors[article.meta.slug] : void 0;
   const editionFrame = (0, import_react10.useRef)(null);
   const pdfUrl = article ? canonicalPdfUrl(getManuscript(article.doc)?.pdf?.filename) : void 0;
   (0, import_react10.useEffect)(() => {
@@ -118127,9 +118132,9 @@ function StaticPublicationPage({
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("iframe", { ref: editionFrame, title: article.meta.title, src: data2.editionUrl, sandbox: "allow-scripts", className: "static-edition" }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("noscript", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("style", { children: ".static-edition{display:none}" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArticleReadingView, { meta: article.meta, doc: plainDoc || article.doc })
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArticleReadingView, { meta: article.meta, citationAuthors, doc: plainDoc || article.doc })
         ] })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArticleReadingView, { meta: article.meta, doc: article.doc }),
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArticleReadingView, { meta: article.meta, citationAuthors, doc: article.doc }),
       /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("section", { className: "static-related", children: [
         /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { children: "Related publications" }),
         data2.articles.filter((a2) => a2.slug !== article.meta.slug).slice(0, 3).map((a2) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: `/publications/${a2.slug}/`, children: a2.title }) }, a2.slug))
