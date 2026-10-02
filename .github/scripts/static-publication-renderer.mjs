@@ -106048,6 +106048,13 @@ var import_react_dom = __toESM(require_react_dom(), 1);
 // node_modules/@cimc/publishing-reader/dist/manuscript.js
 var CITATION_KEY = /^[A-Za-z0-9][A-Za-z0-9_:.-]{0,99}$/;
 var MANUSCRIPT_ID = /^[A-Za-z][A-Za-z0-9_-]{0,79}$/;
+var CALLOUT_COLORS = ["pink", "blue", "green", "amber"];
+function getCalloutColor(node2) {
+  if (node2.type !== "blockquote" || node2.attrs?.variant !== "callout")
+    return void 0;
+  const color = node2.attrs.color;
+  return CALLOUT_COLORS.includes(color) ? color : "pink";
+}
 var HASH = /^[a-f0-9]{64}$/;
 var INLINE = /* @__PURE__ */ new Set([
   "text",
@@ -106055,7 +106062,8 @@ var INLINE = /* @__PURE__ */ new Set([
   "mathInline",
   "citation",
   "footnoteRef",
-  "crossReference"
+  "crossReference",
+  "contentsAnchor"
 ]);
 var BLOCK = /* @__PURE__ */ new Set([
   "paragraph",
@@ -106084,6 +106092,8 @@ var KNOWN = /* @__PURE__ */ new Set([
   "tableHeader"
 ]);
 var LABELED = /* @__PURE__ */ new Set([
+  "contentsAnchor",
+  "paragraph",
   "heading",
   "figure",
   "embed",
@@ -106104,52 +106114,59 @@ function referenceSentenceEnding(value) {
 }
 function getReferenceContributors(reference) {
   const role = reference.authors.length ? "author" : "editor";
-  const editors = [];
-  if (role === "editor") {
-    const source2 = reference.fields?.editor || "";
-    const names2 = [];
-    let depth = 0;
-    let start = 0;
-    for (let index2 = 0; index2 < source2.length; index2++) {
-      if (source2[index2] === "\\") index2++;
-      else if (source2[index2] === "{") depth++;
-      else if (source2[index2] === "}") depth--;
-      else if (depth === 0) {
-        const separator = /^\s+and\s+/i.exec(source2.slice(index2));
-        if (separator) {
-          names2.push(source2.slice(start, index2).trim());
-          index2 += separator[0].length - 1;
-          start = index2 + 1;
-        }
-      }
-    }
-    names2.push(source2.slice(start).trim());
-    const clean = (value) => referenceText(value.replace(/\\([&%_$#])/g, "$1").replace(/[{}]/g, ""));
-    for (const name of names2.filter(Boolean)) {
-      if (name.startsWith("{") && name.endsWith("}"))
-        editors.push({ family: "", literal: clean(name) });
-      else if (name.includes(",")) {
-        const comma = name.indexOf(",");
-        editors.push({
-          family: clean(name.slice(0, comma)),
-          given: clean(name.slice(comma + 1))
-        });
-      } else {
-        const words = name.split(/\s+/);
-        editors.push({
-          family: clean(words.pop() || ""),
-          given: clean(words.join(" "))
-        });
-      }
-    }
-  }
-  const names = role === "author" ? reference.authors : editors;
+  const names = role === "author" ? reference.authors : parseReferenceNames(reference.fields?.editor || "");
   const isOthers = (name) => !name.literal && !name.given && name.family.toLowerCase() === "others";
   return {
     names: names.filter((name) => !isOthers(name)),
     role,
     abbreviated: names.some(isOthers)
   };
+}
+function parseReferenceNames(source2) {
+  const result = [];
+  const names = [];
+  let depth = 0;
+  let start = 0;
+  for (let index2 = 0; index2 < source2.length; index2++) {
+    if (source2[index2] === "\\") index2++;
+    else if (source2[index2] === "{") depth++;
+    else if (source2[index2] === "}") depth--;
+    else if (depth === 0) {
+      const separator = /^\s+and\s+/i.exec(source2.slice(index2));
+      if (separator) {
+        names.push(source2.slice(start, index2).trim());
+        index2 += separator[0].length - 1;
+        start = index2 + 1;
+      }
+    }
+  }
+  names.push(source2.slice(start).trim());
+  const clean = (value) => referenceText(value.replace(/\\([&%_$#])/g, "$1").replace(/[{}]/g, ""));
+  for (const name of names.filter(Boolean)) {
+    if (name.startsWith("{") && name.endsWith("}"))
+      result.push({ family: "", literal: clean(name) });
+    else if (name.includes(",")) {
+      const comma = name.indexOf(",");
+      result.push({
+        family: clean(name.slice(0, comma)),
+        given: clean(name.slice(comma + 1))
+      });
+    } else {
+      const words = name.split(/\s+/);
+      result.push({
+        family: clean(words.pop() || ""),
+        given: clean(words.join(" "))
+      });
+    }
+  }
+  return result;
+}
+function referenceContributorNames(source2) {
+  const names = parseReferenceNames(source2).map(
+    (name) => name.literal || [name.given, name.family].filter(Boolean).join(" ")
+  );
+  if (names.length < 3) return names.join(" and ");
+  return `${names.slice(0, -1).join(", ")}, and ${names.at(-1)}`;
 }
 function citationAuthor(reference) {
   const contributors = getReferenceContributors(reference);
@@ -106177,6 +106194,36 @@ function getCitedReferences(doc) {
   return [...cited].flatMap(
     (id) => manuscript?.references.find((reference) => reference.id === id) || []
   );
+}
+function getBibliographyReferences(doc) {
+  const bibliography = doc.content?.find((node2) => node2.type === "bibliography");
+  const ids = bibliography?.attrs?.referenceIds;
+  if (Array.isArray(ids)) {
+    const references = getManuscript(doc)?.references || [];
+    const seen = /* @__PURE__ */ new Set();
+    return ids.flatMap((id) => {
+      if (typeof id !== "string" || seen.has(id)) return [];
+      seen.add(id);
+      return references.find((reference) => reference.id === id) || [];
+    });
+  }
+  const collator = new Intl.Collator("en", {
+    sensitivity: "base",
+    numeric: false
+  });
+  const initials = (given) => given.trim().split(/[\s~-]+/).filter(Boolean).map((part) => Array.from(part)[0]).join(" ");
+  const author = (reference) => getReferenceContributors(reference).names.map(
+    (name) => referenceText(
+      name.literal || `${name.family}, ${initials(name.given || "")}`
+    )
+  ).join("; ") || referenceText(reference.title);
+  return [...getManuscript(doc)?.references || []].sort(
+    (left, right) => collator.compare(author(left), author(right)) || collator.compare(left.year || "n.d.", right.year || "n.d.") || collator.compare(referenceText(left.title), referenceText(right.title)) || collator.compare(left.key, right.key) || left.key.localeCompare(right.key, "en")
+  );
+}
+function getBibliographyTitle(doc) {
+  const title = doc.content?.find((node2) => node2.type === "bibliography")?.attrs?.title;
+  return typeof title === "string" && title.trim() ? title.trim() : "Works Cited";
 }
 function referenceYear(reference, cited = []) {
   const year = reference.year || "n.d.";
@@ -106207,7 +106254,7 @@ function getHeadingLevel(node2) {
 }
 function getHeadingNumbering(doc) {
   const result = /* @__PURE__ */ new Map();
-  const hasBibliography = getCitedReferences(doc).length > 0;
+  const hasBibliography = getBibliographyReferences(doc).length > 0;
   let afterBibliography = false;
   let section = 0;
   const subsections = [];
@@ -106270,7 +106317,7 @@ function getCrossReferenceTargets(doc) {
         }[kind] || kind;
         result.push({
           id,
-          label: headings.get(node2)?.label || `${name} ${counters[kind]}`
+          label: node2.type === "contentsAnchor" ? String(node2.attrs?.label || "Contents location") : node2.type === "paragraph" ? String(node2.attrs?.tocLabel || `Passage ${counters[kind]}`) : headings.get(node2)?.label || `${name} ${counters[kind]}`
         });
       }
     }
@@ -106291,6 +106338,7 @@ function validateRichDocument(doc, complete = false) {
   const keys = /* @__PURE__ */ new Set();
   const labels = /* @__PURE__ */ new Set();
   const citations = [];
+  const bibliographyReferences = [];
   const notes = [];
   const crossRefs = [];
   const mediaSources = /* @__PURE__ */ new Set();
@@ -106365,6 +106413,12 @@ function validateRichDocument(doc, complete = false) {
       return;
     }
     const attrs = node2.attrs || {};
+    if (node2.type === "blockquote") {
+      if (attrs.variant != null && attrs.variant !== "callout")
+        issue("The blockquote variant must be callout or empty.");
+      if (attrs.color != null && (attrs.variant !== "callout" || !CALLOUT_COLORS.includes(attrs.color)))
+        issue("Choose pink, blue, green or amber for a colored block.");
+    }
     if (attrs.manuscript != null && (depth !== 0 || note || node2.type !== "doc"))
       issue("Only the main document can contain a manuscript envelope.");
     const children = node2.content || [];
@@ -106386,6 +106440,19 @@ function validateRichDocument(doc, complete = false) {
       issue("Code blocks may contain only text.");
     if (node2.type === "bibliography" && (note || depth !== 1 || ++bibliographies > 1))
       issue("Use a single bibliography block in the main document.");
+    if (node2.type === "bibliography") {
+      if (attrs.title != null && (typeof attrs.title !== "string" || !attrs.title.trim() || attrs.title.length > 200))
+        issue(
+          "The bibliography title must be nonempty text of at most 200 characters."
+        );
+      if (attrs.referenceIds != null) {
+        if (!Array.isArray(attrs.referenceIds) || attrs.referenceIds.some(
+          (id) => typeof id !== "string" || !MANUSCRIPT_ID.test(id)
+        ) || new Set(attrs.referenceIds).size !== attrs.referenceIds.length)
+          issue("Bibliography reference IDs must be valid and unique.");
+        else bibliographyReferences.push(...attrs.referenceIds);
+      }
+    }
     if (node2.type === "text" && typeof node2.text !== "string")
       issue("Text nodes must contain text.");
     if (["paragraph", "heading", "aside"].includes(node2.type) && children.some((child) => !INLINE.has(child.type)))
@@ -106412,10 +106479,24 @@ function validateRichDocument(doc, complete = false) {
       issue("Inline nodes cannot contain child nodes.");
     if (node2.type === "heading" && !isHeadingLevel(attrs.level))
       issue("Headings must use a safe integer level of 2 or greater.");
+    if (node2.type === "contentsAnchor") {
+      if (note || typeof attrs.id !== "string" || !MANUSCRIPT_ID.test(attrs.id) || typeof attrs.label !== "string" || !attrs.label.trim() || attrs.label.length > 200)
+        issue(
+          "A Contents location needs a valid ID and a nonempty label of at most 200 characters, in the main document."
+        );
+    }
+    if (attrs.tocLabel != null) {
+      if (!["paragraph", "heading"].includes(node2.type) || note || typeof attrs.tocLabel !== "string" || !attrs.tocLabel.trim() || attrs.tocLabel.length > 200)
+        issue(
+          "Contents labels belong to main-document paragraphs or headings and must be nonempty text of at most 200 characters."
+        );
+      if (node2.type === "paragraph" && (typeof attrs.id !== "string" || !MANUSCRIPT_ID.test(attrs.id)))
+        issue("A paragraph Contents location requires a valid label ID.");
+    }
     if (attrs.id != null && attrs.id !== "") {
       if (!LABELED.has(node2.type) || note)
         issue(
-          "Only labeled blocks in the main document can have cross-reference IDs."
+          "Only labeled blocks and Contents locations in the main document can have cross-reference IDs."
         );
       if (typeof attrs.id !== "string" || !MANUSCRIPT_ID.test(attrs.id) || labels.has(attrs.id))
         issue("Labels must be valid and unique across the manuscript.");
@@ -106474,15 +106555,23 @@ function validateRichDocument(doc, complete = false) {
       issue("Each footnote needs a valid ID and rich document.");
     visit(note, 0, true);
   }
-  if (!manuscript && (citations.length || notes.length || crossRefs.length))
+  if (!manuscript && (citations.length || bibliographyReferences.length || notes.length || crossRefs.length))
     issue("Rich content requires a manuscript envelope.");
   if (complete) {
+    const selected = doc.content?.find((node2) => node2.type === "bibliography")?.attrs?.referenceIds;
+    if (Array.isArray(selected)) {
+      for (const reference of getCitedReferences(doc))
+        if (!selected.includes(reference.id))
+          issue(
+            `The bibliography must include cited reference: ${reference.id}.`
+          );
+    }
     if (manuscript) {
       for (const source2 of mediaSources)
         if (!manuscript.assets.some((asset) => asset.src === source2))
           issue(`Register the static image before publication: ${source2}.`);
     }
-    for (const id of citations)
+    for (const id of [...citations, ...bibliographyReferences])
       if (!references.has(id)) issue(`Missing reference: ${id}.`);
     for (const id of notes)
       if (!Object.hasOwn(manuscript?.notes || {}, id))
@@ -106718,9 +106807,12 @@ function getArticleHeadings(doc) {
   function visit(content, parentKey) {
     for (const [index2, node2] of (content ?? []).entries()) {
       const key = `${parentKey}-${index2}`;
-      if (node2.type === "heading") {
+      const label = node2.type === "contentsAnchor" ? node2.attrs?.label : node2.attrs?.tocLabel;
+      const location2 = ["paragraph", "contentsAnchor"].includes(node2.type) && typeof label === "string" && label.trim() && typeof node2.attrs?.id === "string" && MANUSCRIPT_ID.test(node2.attrs.id);
+      if (node2.type === "heading" || location2) {
         const appendix = numbering.get(node2)?.appendix;
         const text2 = nodeText(node2).trim();
+        const contentsLabel = typeof label === "string" ? label.trim() : "";
         const stem = typeof node2.attrs?.id === "string" && MANUSCRIPT_ID.test(node2.attrs.id) ? `pub-label-${node2.attrs.id}` : `section-${text2.normalize("NFKD").toLowerCase().replace(new RegExp("\\p{M}", "gu"), "").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "") || "untitled"}`;
         let id = stem;
         let suffix = 2;
@@ -106729,9 +106821,10 @@ function getArticleHeadings(doc) {
         headings.push({
           id,
           key,
-          text: text2 || "Untitled section",
-          level: getHeadingLevel(node2),
-          ...appendix ? { appendix } : {}
+          text: contentsLabel || text2 || "Untitled section",
+          level: location2 ? 2 : getHeadingLevel(node2),
+          ...appendix ? { appendix } : {},
+          ...location2 ? { location: true } : {}
         });
       }
       visit(node2.content, key);
@@ -106812,7 +106905,14 @@ function hastToReact(node2, key) {
 function renderNode(node2, key, context) {
   switch (node2.type) {
     case "paragraph":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "p",
+        {
+          id: context.preview ? void 0 : context.headingIds.get(key) || labelId(node2, context),
+          children: renderChildren(node2.content, key, context)
+        },
+        key
+      );
     case "heading": {
       const level = getHeadingLevel(node2);
       const appendix = context.appendices.get(key);
@@ -106834,6 +106934,17 @@ function renderNode(node2, key, context) {
         renderChildren(node2.content, key, context)
       );
     }
+    case "contentsAnchor":
+      return context.preview ? null : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "span",
+        {
+          id: context.headingIds.get(key) || labelId(node2, context),
+          className: "pub-contents-anchor",
+          "aria-label": String(node2.attrs?.label || "Contents location"),
+          tabIndex: -1
+        },
+        key
+      );
     case "text":
       return applyMarks(node2.text ?? "", node2.marks, key);
     case "hardBreak":
@@ -106846,8 +106957,21 @@ function renderNode(node2, key, context) {
     }
     case "listItem":
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("li", { children: renderChildren(node2.content, key, context) }, key);
-    case "blockquote":
+    case "blockquote": {
+      const color = getCalloutColor(node2);
+      if (color)
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+          "aside",
+          {
+            className: `pub-callout pub-callout-${color}`,
+            "data-callout": "true",
+            "data-callout-color": color,
+            children: renderChildren(node2.content, key, context)
+          },
+          key
+        );
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("blockquote", { children: renderChildren(node2.content, key, context) }, key);
+    }
     case "horizontalRule":
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("hr", {}, key);
     case "codeBlock": {
@@ -107096,9 +107220,9 @@ function Bibliography({ context }) {
     {
       className: "pub-bibliography",
       id: context.preview ? void 0 : "pub-bibliography",
-      "aria-label": "Works Cited",
+      "aria-label": context.bibliographyTitle,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { children: "Works Cited" }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { children: context.bibliographyTitle }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("ol", { children: context.bibliography.map((reference) => {
           const fields = reference.fields || {};
           const doi = (reference.doi || fields.doi || "").replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)/i, "").trim();
@@ -107122,6 +107246,17 @@ function Bibliography({ context }) {
             pages
           ].filter(Boolean).join(", ");
           const publisher = referenceText(fields.publisher || "");
+          const address = referenceText(fields.address || "");
+          const translators = referenceContributorNames(fields.translator || "");
+          const editors = contributors.role === "author" ? referenceContributorNames(fields.editor || "") : "";
+          const credits = translators && translators === editors ? [`Translated and edited by ${translators}`] : [
+            translators && `Translated by ${translators}`,
+            editors && `Edited by ${editors}`
+          ].filter(Boolean);
+          const edition = referenceText(fields.edition || "");
+          const series = referenceText(fields.series || "");
+          const publicationCredits = [...credits, edition, series].filter(Boolean).map((detail) => `${detail}${referenceSentenceEnding(detail)}`).join(" ");
+          const note = referenceText(fields.note || "");
           return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
             "li",
             {
@@ -107140,8 +107275,10 @@ function Bibliography({ context }) {
                   }
                 ) : title,
                 referenceSentenceEnding(title),
+                publicationCredits ? ` ${publicationCredits}` : "",
                 (venue || details) && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
                   " ",
+                  venue === publisher && address ? `${address}: ` : "",
                   venue && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("em", { children: venue }),
                   venue && details ? ", " : "",
                   details,
@@ -107149,8 +107286,14 @@ function Bibliography({ context }) {
                 ] }),
                 reference.type === "incollection" && publisher && publisher !== venue && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
                   " ",
+                  address ? `${address}: ` : "",
                   publisher,
                   referenceSentenceEnding(publisher)
+                ] }),
+                note && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+                  " ",
+                  note,
+                  referenceSentenceEnding(note)
                 ] }),
                 doi && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
                   " ",
@@ -107261,7 +107404,8 @@ function buildRenderContext(doc, contextDoc) {
     ),
     noteOrder: [],
     markers: /* @__PURE__ */ new Map(),
-    bibliography: []
+    bibliography: [],
+    bibliographyTitle: getBibliographyTitle(source2)
   };
   let hasBibliography = false;
   const collect = (node2, key, inNote = false) => {
@@ -107281,7 +107425,7 @@ function buildRenderContext(doc, contextDoc) {
       collect(child, `${key}-${index2}`, inNote);
   };
   collect(source2, "doc");
-  context.bibliography = getCitedReferences(source2);
+  context.bibliography = getBibliographyReferences(source2);
   return { context, manuscript, hasBibliography };
 }
 function ArticleRenderer({
@@ -107338,7 +107482,6 @@ function ArticleRenderer({
 
 // node_modules/@cimc/publishing-reader/dist/ArticleNavigation.js
 var RAIL_ROW_GAP = 4;
-var RAIL_MIN_HEIGHT = 320;
 var RAIL_WINDOW_MIN = 10;
 function round(value) {
   return Math.round(value * 2) / 2;
@@ -107355,35 +107498,56 @@ function readingBranch(levels, active) {
 function chooseLabels(entries) {
   return entries.map(() => true);
 }
-function distributeRows(entries, labelled, height) {
-  const indexes = labelled.flatMap((on, index2) => on ? [index2] : []);
-  const scales = indexes.map((index2, position2) => {
-    const own = entries[index2].share;
-    const next2 = position2 + 1 < indexes.length ? entries[indexes[position2 + 1]].share : 1;
-    return Number.isNaN(own) || Number.isNaN(next2) ? 0 : Math.max(0, next2 - own);
-  });
-  const sizes = indexes.map((index2) => entries[index2].min);
-  const frozen = indexes.map(() => false);
-  for (let pass = 0; pass <= indexes.length; pass++) {
-    let free = height;
-    let sum = 0;
-    indexes.forEach((_2, position2) => {
-      if (frozen[position2]) free -= sizes[position2];
-      else sum += scales[position2];
-    });
-    let changed = false;
-    indexes.forEach((index2, position2) => {
-      if (frozen[position2]) return;
-      const want = sum > 0 ? scales[position2] / sum * free : 0;
-      if (want < entries[index2].min) {
-        sizes[position2] = entries[index2].min;
-        frozen[position2] = true;
-        changed = true;
-      } else sizes[position2] = want;
-    });
-    if (!changed) break;
+function entryShares(entries) {
+  const shares = entries.map(
+    (entry) => Number.isFinite(entry.share) ? Math.min(1, Math.max(0, entry.share)) : Number.NaN
+  );
+  let before = -1;
+  for (let after = 0; after <= shares.length; after++) {
+    if (after < shares.length && Number.isNaN(shares[after])) continue;
+    const start = before < 0 ? 0 : shares[before];
+    const end = after === shares.length ? 1 : shares[after];
+    for (let index2 = before + 1; index2 < after; index2++)
+      shares[index2] = start + (end - start) * (index2 - before) / (after - before);
+    before = after;
   }
-  return sizes;
+  return shares;
+}
+function placeRows(entries, height) {
+  const offsets = [];
+  let minimum = 0;
+  for (const entry of entries) {
+    offsets.push(minimum);
+    minimum += entry.min;
+  }
+  const railHeight = Math.max(height, minimum);
+  const free = railHeight - minimum;
+  const shares = entryShares(entries);
+  const groups = [];
+  entries.forEach((entry, index2) => {
+    groups.push({
+      start: index2,
+      end: index2,
+      total: shares[index2] * railHeight - entry.dotOffset - offsets[index2],
+      count: 1
+    });
+    while (groups.length > 1) {
+      const right = groups[groups.length - 1];
+      const left = groups[groups.length - 2];
+      if (left.total / left.count <= right.total / right.count) break;
+      left.end = right.end;
+      left.total += right.total;
+      left.count += right.count;
+      groups.pop();
+    }
+  });
+  const tops = [];
+  for (const group of groups) {
+    const position2 = Math.min(free, Math.max(0, group.total / group.count));
+    for (let index2 = group.start; index2 <= group.end; index2++)
+      tops[index2] = round(position2 + offsets[index2]);
+  }
+  return { height: round(railHeight), tops };
 }
 function planContentsRail({
   entries,
@@ -107393,20 +107557,22 @@ function planContentsRail({
 }) {
   const labelled = chooseLabels(entries);
   const indexes = labelled.flatMap((on, index2) => on ? [index2] : []);
-  const sizes = distributeRows(entries, labelled, height);
+  const placement = placeRows(
+    indexes.map((index2) => entries[index2]),
+    height
+  );
   const tops = entries.map(() => null);
   const keys = [{ share: 0, y: 0 }];
-  let cursor = 0;
   indexes.forEach((index2, position2) => {
-    tops[index2] = round(cursor);
-    if (!Number.isNaN(entries[index2].share))
+    const top = placement.tops[position2];
+    tops[index2] = top;
+    if (Number.isFinite(entries[index2].share))
       keys.push({
         share: entries[index2].share,
-        y: cursor + entries[index2].dotOffset
+        y: top + entries[index2].dotOffset
       });
-    cursor += sizes[position2];
   });
-  const railHeight = round(Math.max(height, cursor));
+  const railHeight = placement.height;
   keys.push({ share: 1, y: railHeight });
   const toRail = (share) => {
     const value = Math.min(1, Math.max(0, share));
@@ -107587,26 +107753,23 @@ function ArticleReadingBar({
     }
   );
 }
-var APPENDIX_CONTENTS_MAX_LEVEL = 3;
 function getArticleOutline(doc) {
   const headings = getArticleHeadings(doc);
   const byKey = new Map(headings.map((heading) => [heading.key, heading]));
-  const bibliography = getCitedReferences(doc).length > 0;
+  const bibliography = getBibliographyReferences(doc).length > 0;
+  const bibliographyTitle = getBibliographyTitle(doc);
   const outline = [];
   let hasBibliography = false;
   let hasNotes = false;
-  let inAppendices = false;
   function visit(node2, key) {
     const heading = byKey.get(key);
-    if (heading?.appendix) inAppendices = true;
-    if (heading && (!inAppendices || heading.level <= APPENDIX_CONTENTS_MAX_LEVEL))
-      outline.push(heading);
+    if (heading) outline.push(heading);
     if (node2.type === "footnoteRef") hasNotes = true;
     if (node2.type === "bibliography" && bibliography && !hasBibliography) {
       outline.push({
         id: "pub-bibliography",
         key: "bibliography",
-        text: "Works Cited",
+        text: bibliographyTitle,
         level: 2
       });
       hasBibliography = true;
@@ -107618,7 +107781,7 @@ function getArticleOutline(doc) {
     outline.push({
       id: "pub-bibliography",
       key: "bibliography",
-      text: "Works Cited",
+      text: bibliographyTitle,
       level: 2
     });
   if (hasNotes)
@@ -107778,7 +107941,7 @@ function ArticleNavigation({
       const footer = margin.querySelector(".pub-back-to-top");
       const below = footer ? footer.getBoundingClientRect().height + (Number.parseFloat(frameWindow.getComputedStyle(footer).marginTop) || 0) : 0;
       const height = Math.max(
-        RAIL_MIN_HEIGHT,
+        0,
         frameWindow.innerHeight - stickyTop - RAIL_BOTTOM_INSET - above - below
       );
       const next2 = planContentsRail({
@@ -107871,7 +108034,7 @@ function ArticleNavigation({
   let sectionNumber = 0;
   const numbers = headings.map((heading) => {
     if (heading.appendix) return heading.appendix;
-    if (heading.level !== 2 || heading.key === "bibliography" || heading.key === "endnotes")
+    if (heading.level !== 2 || heading.location || heading.key === "bibliography" || heading.key === "endnotes")
       return "";
     return String(++sectionNumber).padStart(2, "0");
   });

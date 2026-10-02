@@ -194,6 +194,7 @@ export async function buildPublications({
     source.map((article) => [article.meta.slug, structuredClone(article)]),
   )
   const bootstrapSlugs = new Set()
+  const stagingSlugs = new Set()
   const releaseSlugs = new Set()
   for (const article of approvedRelease?.articles || []) {
     if (
@@ -217,9 +218,19 @@ export async function buildPublications({
     if (snapshot.version !== 1 || !Array.isArray(snapshot.articles))
       throw new Error("Invalid approved staging snapshot")
     for (const article of snapshot.articles) {
-      if (!slugPattern.test(article.meta?.slug) || article.doc?.type !== "doc")
+      if (
+        !slugPattern.test(article.meta?.slug) ||
+        article.doc?.type !== "doc" ||
+        releaseSlugs.has(article.meta.slug)
+      )
         throw new Error("Invalid staging publication")
-      articles.set(article.meta.slug, structuredClone(article))
+      const slug = article.meta.slug
+      releaseSlugs.add(slug)
+      if (articles.has(slug)) adoptedReleaseSlugs.add(slug)
+      else if (!adoptedReleaseSlugs.has(slug)) {
+        articles.set(slug, structuredClone(article))
+        stagingSlugs.add(slug)
+      }
     }
   }
   const prepared = new Map()
@@ -273,6 +284,13 @@ export async function buildPublications({
         if (!publicPdfPaths.has(canonicalPath))
           prepared.set(canonicalPath, bytes)
       }
+      // Staging PDFs are copied separately, but still need an ownership receipt
+      // so public PDF synchronization can adopt or later remove these exact bytes.
+      if (stagingSlugs.has(article.meta.slug)) {
+        if (publicPdfPaths.has(canonicalPath))
+          throw new Error("Staging release PDF conflicts with a public article")
+        prepared.set(canonicalPath, bytes)
+      }
     }
     const edition = renderer.getWebEdition(article.doc)
     if (edition) {
@@ -280,7 +298,9 @@ export async function buildPublications({
       const bootstrap = bootstrapSlugs.has(article.meta.slug)
       const local = bootstrap
         ? approvedRelease.webEditions[edition.path]
-        : snapshot?.webEditions?.[edition.path]
+        : stagingSlugs.has(article.meta.slug)
+          ? snapshot?.webEditions?.[edition.path]
+          : undefined
       if (bootstrap && !local)
         throw new Error("Approved production web edition is missing")
       if (local) {
