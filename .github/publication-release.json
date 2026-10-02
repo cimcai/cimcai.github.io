@@ -40,25 +40,25 @@
             },
             "provenance": {
               "mode": "external",
-              "source": "custom-web:f1dc98a0898b49b783a6292bc3f750b5e056aad729c5434ad412bb611cd3f65b"
+              "source": "custom-web:829806870ebe1cd8ed3413596aef9b6d7149a66b98df361d219eda3b0823a5e7"
             },
             "pdf": {
               "path": "cfc2cdcb-e4ae-8b49-a576-95f03f774afe/68e89a05766f76d82ea2115455129f30a8647294b137d5ccbd528aa733e780bc.pdf",
               "sha256": "68e89a05766f76d82ea2115455129f30a8647294b137d5ccbd528aa733e780bc",
-              "manuscriptHash": "c95307aa212cbc92d6dc5a786790c3b40713c56bd3ab23f78839fef7827a91df",
+              "manuscriptHash": "72f4eb3a93588e4b9cb2eed37236c1866203565f207238acdb6bcded7351511e",
               "bytes": 399551,
               "filename": "the-machine-consciousness-hypothesis.pdf"
             }
           },
           "webEdition": {
             "version": 1,
-            "path": "cfc2cdcb-e4ae-8b49-a576-95f03f774afe/afd2d6a80f4a172661a69383ccfdf6e2d5c18074600bdf1b406d6e00dee71c02.html",
-            "sha256": "afd2d6a80f4a172661a69383ccfdf6e2d5c18074600bdf1b406d6e00dee71c02",
-            "bytes": 2319237,
+            "path": "cfc2cdcb-e4ae-8b49-a576-95f03f774afe/61cd016fcf615be9f222e6a124a53d264d6f41dadd459f5bab81aa5f236594c2.html",
+            "sha256": "61cd016fcf615be9f222e6a124a53d264d6f41dadd459f5bab81aa5f236594c2",
+            "bytes": 2322990,
             "filename": "machine-consciousness-web.zip",
-            "sourcePath": "cfc2cdcb-e4ae-8b49-a576-95f03f774afe/f1dc98a0898b49b783a6292bc3f750b5e056aad729c5434ad412bb611cd3f65b.zip",
-            "sourceSha256": "f1dc98a0898b49b783a6292bc3f750b5e056aad729c5434ad412bb611cd3f65b",
-            "sourceBytes": 3555060,
+            "sourcePath": "cfc2cdcb-e4ae-8b49-a576-95f03f774afe/829806870ebe1cd8ed3413596aef9b6d7149a66b98df361d219eda3b0823a5e7.zip",
+            "sourceSha256": "829806870ebe1cd8ed3413596aef9b6d7149a66b98df361d219eda3b0823a5e7",
+            "sourceBytes": 3557538,
             "entrypoint": "machine-consciousness-web/index.html"
           }
         },
@@ -77,8 +77,8 @@
     }
   ],
   "webEditions": {
-    "cfc2cdcb-e4ae-8b49-a576-95f03f774afe/afd2d6a80f4a172661a69383ccfdf6e2d5c18074600bdf1b406d6e00dee71c02.html": "/pub/approved-release/edition.html"
+    "cfc2cdcb-e4ae-8b49-a576-95f03f774afe/61cd016fcf615be9f222e6a124a53d264d6f41dadd459f5bab81aa5f236594c2.html": "/pub/approved-release/edition.html"
   },
   "siteOrigin": "https://cimc.ai",
-  "approval": "Production website release approved by site owner on 2026-10-01; Contents back-matter update (Works Cited and Notes set apart, unnumbered) approved by site owner on 2026-10-02"
+  "approval": "Production website release approved by site owner on 2026-10-01; Contents back-matter update (Works Cited and Notes set apart, unnumbered) approved by site owner on 2026-10-02; Contents rail update (rows spaced by section length, expanding in place on hover; Works Cited and Notes each set apart) requested by site owner on 2026-10-02"
 }
