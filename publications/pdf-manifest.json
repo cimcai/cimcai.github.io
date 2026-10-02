@@ -1,0 +1,12 @@
+{
+  "managedBy": "cimc-publication-pdf-sync",
+  "version": 1,
+  "pdfs": [
+    {
+      "filename": "cimc-whitepaper.pdf",
+      "sha256": "52d49969df5be29d8603a623101135932868c8a350f8f51b168ac1e4cfed80cf",
+      "bytes": 182562,
+      "articleSlug": "research-program-whitepaper"
+    }
+  ]
+}
