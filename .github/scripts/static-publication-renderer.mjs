@@ -106596,6 +106596,28 @@ function validateRichDocument(doc, complete = false) {
 }
 
 // node_modules/@cimc/publishing-reader/dist/ArticleRenderer.js
+var EDGE = 12;
+var GAP = 8;
+var MAX_HEIGHT = 560;
+function placeNoteCard(anchor, cardHeight, viewport) {
+  const width = Math.min(420, viewport.width - 2 * EDGE);
+  const limit = Math.min(MAX_HEIGHT, viewport.height * 0.7);
+  const below = viewport.height - EDGE - (anchor.bottom + GAP);
+  const above = anchor.top - GAP - EDGE;
+  const height = Math.min(cardHeight, limit);
+  const downward = height <= below || below >= above;
+  const maxHeight = Math.max(80, Math.min(limit, downward ? below : above));
+  const shown = Math.min(height, maxHeight);
+  return {
+    width,
+    left: Math.max(
+      EDGE,
+      Math.min(anchor.left - 24, viewport.width - width - EDGE)
+    ),
+    top: downward ? anchor.bottom + GAP : Math.max(EDGE, anchor.top - GAP - shown),
+    maxHeight
+  };
+}
 var useBrowserLayoutEffect = typeof window === "undefined" ? import_react4.useEffect : import_react4.useLayoutEffect;
 function Footnote({ noteId, markerId, number, children }) {
   const marker = (0, import_react4.useRef)(null);
@@ -106607,7 +106629,12 @@ function Footnote({ noteId, markerId, number, children }) {
   const pinned = (0, import_react4.useRef)(false);
   const [open2, setOpen] = (0, import_react4.useState)(false);
   const [interactive, setInteractive] = (0, import_react4.useState)(false);
-  const [position2, setPosition] = (0, import_react4.useState)({ top: 0, left: 12, width: 400 });
+  const [position2, setPosition] = (0, import_react4.useState)({
+    top: 0,
+    left: 12,
+    width: 400,
+    maxHeight: 560
+  });
   const cardId = `${markerId}-preview`;
   const contains = (0, import_react4.useCallback)(
     (target) => target !== null && "nodeType" in target && (marker.current?.contains(target) || card.current?.contains(target)),
@@ -106642,20 +106669,14 @@ function Footnote({ noteId, markerId, number, children }) {
     const positionCard = () => {
       const anchor = marker.current?.getBoundingClientRect();
       if (!anchor) return;
-      const width = Math.min(420, window2.innerWidth - 24);
-      const height = card.current?.getBoundingClientRect().height || 240;
-      const below = anchor.bottom + 8;
-      setPosition({
-        width,
-        left: Math.max(
-          12,
-          Math.min(anchor.left - 24, window2.innerWidth - width - 12)
-        ),
-        top: Math.max(
-          12,
-          below + height > window2.innerHeight - 12 ? anchor.top - height - 8 : below
-        )
+      const content = card.current?.scrollHeight || 240;
+      const next2 = placeNoteCard(anchor, content, {
+        width: window2.innerWidth,
+        height: window2.innerHeight
       });
+      setPosition(
+        (current) => current.top === next2.top && current.left === next2.left && current.width === next2.width && current.maxHeight === next2.maxHeight ? current : next2
+      );
     };
     positionCard();
     const observer = typeof window2.ResizeObserver !== "undefined" ? new window2.ResizeObserver(positionCard) : void 0;
@@ -107499,6 +107520,28 @@ var RAIL_WINDOW_MIN = 10;
 function round(value) {
   return Math.round(value * 2) / 2;
 }
+function currentEntry({
+  tops,
+  articleTop,
+  articleBottom,
+  windowTop,
+  windowBottom
+}) {
+  const shown = tops.map((top, index2) => ({ top, index: index2 })).filter(({ top }) => !Number.isNaN(top));
+  const covered = (from2, to) => Math.max(0, Math.min(to, windowBottom) - Math.max(from2, windowTop));
+  let current = -1;
+  let most = covered(articleTop, shown[0]?.top ?? articleBottom);
+  shown.forEach(({ top, index: index2 }, order) => {
+    const share = covered(top, shown[order + 1]?.top ?? articleBottom);
+    if (share > most) {
+      current = index2;
+      most = share;
+    }
+  });
+  if (most > 0) return current;
+  for (const { top, index: index2 } of shown) if (top <= windowTop + 1) current = index2;
+  return current;
+}
 function readingBranch(levels, active) {
   const branch = [];
   for (let index2 = 0; index2 <= active && index2 < levels.length; index2++) {
@@ -107938,15 +107981,22 @@ function ArticleNavigation({
       setProgress(Math.round(read * 100));
       setFraction(Math.round(read * 1e3) / 1e3);
       const span = Math.max(1, bounds.height);
-      let active = -1;
       const shares = [];
+      const tops = [];
       headings.forEach((heading, index2) => {
         const element = body.querySelector(`#${CSS.escape(heading.id)}`);
         const top = element ? element.getBoundingClientRect().top : Number.NaN;
         shares.push(
           Number.isNaN(top) ? Number.NaN : Math.min(1, Math.max(0, (top - bounds.top) / span))
         );
-        if (element && top <= readingStart + 1) active = index2;
+        tops.push(top);
+      });
+      const active = currentEntry({
+        tops,
+        articleTop: bounds.top,
+        articleBottom: bounds.bottom,
+        windowTop: readingStart,
+        windowBottom: frameWindow.innerHeight
       });
       setActiveId(headings[active]?.id || "");
       const list2 = railList.current;
@@ -117015,13 +117065,13 @@ function hasRepeatedOpeningTitle(meta, doc) {
 }
 function ArticleReadingView({
   meta,
-  citationAuthors,
   doc,
   preview = false,
   beforeHeader,
   children,
   resolvePdfUrl,
-  loadWebEdition
+  loadWebEdition,
+  citationAuthors
 }) {
   const articleRef = (0, import_react9.useRef)(null);
   const bodyRef = (0, import_react9.useRef)(null);
@@ -117123,7 +117173,13 @@ function ArticleReadingView({
                   omitOpeningTitle: hasRepeatedOpeningTitle(meta, doc)
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CiteBlock, { meta: citationAuthors ? { ...meta, authors: citationAuthors } : meta, preview })
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+                CiteBlock,
+                {
+                  meta: citationAuthors ? { ...meta, authors: citationAuthors } : meta,
+                  preview
+                }
+              )
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ArticleSidenotes, { doc, bodyRef })
           ] })
