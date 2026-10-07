@@ -1770,44 +1770,11 @@ body {
   
   
   
-<style>/* Draw the external PDF arrow so mobile fonts cannot replace it with emoji. */
-.pub-pdf-actions .pub-resource-link > span[aria-hidden="true"] {
-  position: relative;
-  display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  font-size: 0;
-  line-height: 0;
-  flex-shrink: 0;
-}
-
-.pub-pdf-actions .pub-resource-link > span[aria-hidden="true"]::before {
-  content: "";
-  position: absolute;
-  top: 0.0625rem;
-  right: 0.0625rem;
-  width: 0.4375rem;
-  height: 0.4375rem;
-  border-top: 1px solid currentColor;
-  border-right: 1px solid currentColor;
-}
-
-.pub-pdf-actions .pub-resource-link > span[aria-hidden="true"]::after {
-  content: "";
-  position: absolute;
-  top: 0.0625rem;
-  right: 0.0625rem;
-  width: 0.8125rem;
-  height: 1px;
-  background: currentColor;
-  transform: rotate(-45deg);
-  transform-origin: right center;
-}
-
-/* Screen reading sizes shared by native articles and hosted custom editions. */
+<style>/*
+ * Screen reading sizes for hosted custom editions. Native articles bring
+ * theirs with the reader that rendered them (since reader 0.9.28).
+ */
 @media screen {
-  .pub-reading-view .pub-article-body,
-  .pub-reading-view .pub-article-body blockquote,
   .essay,
   .essay blockquote {
     font-size: 18px;
@@ -1816,13 +1783,6 @@ body {
   .introduction,
   .genesis-passage {
     font-size: 17px;
-  }
-
-  @container publication (max-width: 600px) {
-    .pub-reading-view .pub-article-body,
-    .pub-reading-view .pub-article-body blockquote {
-      font-size: 16px;
-    }
   }
 }
 

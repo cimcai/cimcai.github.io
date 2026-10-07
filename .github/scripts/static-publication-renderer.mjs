@@ -1373,7 +1373,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context);
         }
-        function useState15(initialState) {
+        function useState16(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1381,11 +1381,11 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useReducer(reducer, initialArg, init);
         }
-        function useRef12(initialValue) {
+        function useRef14(initialValue) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect14(create, deps) {
+        function useEffect15(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -2168,15 +2168,15 @@ var require_react_development = __commonJS({
         exports.useContext = useContext7;
         exports.useDebugValue = useDebugValue;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect14;
+        exports.useEffect = useEffect15;
         exports.useId = useId4;
         exports.useImperativeHandle = useImperativeHandle;
         exports.useInsertionEffect = useInsertionEffect;
         exports.useLayoutEffect = useLayoutEffect7;
         exports.useMemo = useMemo8;
         exports.useReducer = useReducer;
-        exports.useRef = useRef12;
-        exports.useState = useState15;
+        exports.useRef = useRef14;
+        exports.useState = useState16;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -3108,11 +3108,11 @@ var require_react_jsx_runtime_development = __commonJS({
             return jsxWithValidation(type, props, key, false);
           }
         }
-        var jsx10 = jsxWithValidationDynamic;
-        var jsxs10 = jsxWithValidationStatic;
+        var jsx13 = jsxWithValidationDynamic;
+        var jsxs12 = jsxWithValidationStatic;
         exports.Fragment = REACT_FRAGMENT_TYPE;
-        exports.jsx = jsx10;
-        exports.jsxs = jsxs10;
+        exports.jsx = jsx13;
+        exports.jsxs = jsxs12;
       })();
     }
   }
@@ -10296,7 +10296,7 @@ var require_react_dom_server_legacy_node_development = __commonJS({
         function basicStateReducer(state, action) {
           return typeof action === "function" ? action(state) : action;
         }
-        function useState15(initialState) {
+        function useState16(initialState) {
           {
             currentHookNameInDev = "useState";
           }
@@ -10386,7 +10386,7 @@ var require_react_dom_server_legacy_node_development = __commonJS({
           workInProgressHook.memoizedState = [nextValue, nextDeps];
           return nextValue;
         }
-        function useRef12(initialValue) {
+        function useRef14(initialValue) {
           currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
           workInProgressHook = createWorkInProgressHook();
           var previousRef = workInProgressHook.memoizedState;
@@ -10477,8 +10477,8 @@ var require_react_dom_server_legacy_node_development = __commonJS({
           useContext: useContext7,
           useMemo: useMemo8,
           useReducer,
-          useRef: useRef12,
-          useState: useState15,
+          useRef: useRef14,
+          useState: useState16,
           useInsertionEffect: noop,
           useLayoutEffect: useLayoutEffect7,
           useCallback: useCallback6,
@@ -15775,7 +15775,7 @@ var require_react_dom_server_node_development = __commonJS({
         function basicStateReducer(state, action) {
           return typeof action === "function" ? action(state) : action;
         }
-        function useState15(initialState) {
+        function useState16(initialState) {
           {
             currentHookNameInDev = "useState";
           }
@@ -15865,7 +15865,7 @@ var require_react_dom_server_node_development = __commonJS({
           workInProgressHook.memoizedState = [nextValue, nextDeps];
           return nextValue;
         }
-        function useRef12(initialValue) {
+        function useRef14(initialValue) {
           currentlyRenderingComponent = resolveCurrentlyRenderingComponent();
           workInProgressHook = createWorkInProgressHook();
           var previousRef = workInProgressHook.memoizedState;
@@ -15956,8 +15956,8 @@ var require_react_dom_server_node_development = __commonJS({
           useContext: useContext7,
           useMemo: useMemo8,
           useReducer,
-          useRef: useRef12,
-          useState: useState15,
+          useRef: useRef14,
+          useState: useState16,
           useInsertionEffect: noop,
           useLayoutEffect: useLayoutEffect7,
           useCallback: useCallback6,
@@ -38319,7 +38319,7 @@ var require_react_dom_development = __commonJS({
         var HostPortal = 4;
         var HostComponent = 5;
         var HostText = 6;
-        var Fragment12 = 7;
+        var Fragment13 = 7;
         var Mode = 8;
         var ContextConsumer = 9;
         var ContextProvider = 10;
@@ -39476,7 +39476,7 @@ var require_react_dom_development = __commonJS({
               return "DehydratedFragment";
             case ForwardRef2:
               return getWrappedName$1(type, type.render, "ForwardRef");
-            case Fragment12:
+            case Fragment13:
               return "Fragment";
             case HostComponent:
               return type;
@@ -47905,7 +47905,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-            if (current2 === null || current2.tag !== Fragment12) {
+            if (current2 === null || current2.tag !== Fragment13) {
               var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
               created.return = returnFiber;
               return created;
@@ -48308,7 +48308,7 @@ var require_react_dom_development = __commonJS({
               if (child.key === key) {
                 var elementType = element.type;
                 if (elementType === REACT_FRAGMENT_TYPE) {
-                  if (child.tag === Fragment12) {
+                  if (child.tag === Fragment13) {
                     deleteRemainingChildren(returnFiber, child.sibling);
                     var existing = useFiber(child, element.props.children);
                     existing.return = returnFiber;
@@ -53784,7 +53784,7 @@ var require_react_dom_development = __commonJS({
               var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
               return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
             }
-            case Fragment12:
+            case Fragment13:
               return updateFragment(current2, workInProgress2, renderLanes2);
             case Mode:
               return updateMode(current2, workInProgress2, renderLanes2);
@@ -54056,7 +54056,7 @@ var require_react_dom_development = __commonJS({
             case SimpleMemoComponent:
             case FunctionComponent:
             case ForwardRef2:
-            case Fragment12:
+            case Fragment13:
             case Mode:
             case Profiler:
             case ContextConsumer:
@@ -58317,7 +58317,7 @@ var require_react_dom_development = __commonJS({
           return fiber;
         }
         function createFiberFromFragment(elements, mode, lanes, key) {
-          var fiber = createFiber(Fragment12, elements, key, mode);
+          var fiber = createFiber(Fragment13, elements, key, mode);
           fiber.lanes = lanes;
           return fiber;
         }
@@ -61893,7 +61893,7 @@ var require_url_state_machine = __commonJS({
       }
       return true;
     };
-    URLStateMachine.prototype["parse fragment"] = function parseFragment(c3) {
+    URLStateMachine.prototype["parse fragment"] = function parseFragment2(c3) {
       if (isNaN(c3)) {
       } else if (c3 === 0) {
         this.parseError = true;
@@ -71769,7 +71769,7 @@ var require_core = __commonJS({
 });
 
 // .static-renderer/render.js
-var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
 var import_server = __toESM(require_server_node(), 1);
 var import_react_router_dom2 = __toESM(require_dist2(), 1);
 
@@ -73134,6 +73134,89 @@ function getPublishingConfiguration() {
 // node_modules/@cimc/publishing-reader/dist/media.js
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 var import_react3 = __toESM(require_react(), 1);
+
+// node_modules/@cimc/publishing-reader/dist/managedAsset-Cuv79pAH.js
+function managedAssetPath(src, supabaseUrl) {
+  try {
+    if (/[\u0000-\u0020\u007f\\]/.test(src)) return null;
+    const base = new URL(supabaseUrl);
+    const url = new URL(src);
+    if (!["https:", "http:"].includes(base.protocol) || url.origin !== base.origin || url.username || url.password)
+      return null;
+    let path2 = url.pathname;
+    for (let pass = 0; pass < 3 && path2.includes("%"); pass++)
+      path2 = decodeURIComponent(path2);
+    const match2 = path2.match(
+      /^\/storage\/v1\/object\/(?:(?:public|authenticated|sign)\/)?publishing-assets\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/[a-z0-9][a-z0-9._-]{0,119})$/
+    );
+    return match2?.[1] ?? null;
+  } catch {
+    return null;
+  }
+}
+function startPublishingMediaRequest(src, download, ready, failed) {
+  let disposed = false;
+  let objectUrl;
+  Promise.resolve().then(async () => {
+    if (disposed) return;
+    const blob = await download(src);
+    if (disposed) return;
+    objectUrl = URL.createObjectURL(blob);
+    ready(objectUrl);
+  }).catch(() => {
+    if (!disposed) failed();
+  });
+  return () => {
+    disposed = true;
+    if (objectUrl) URL.revokeObjectURL(objectUrl);
+    objectUrl = void 0;
+  };
+}
+async function downloadMediaAttachment(src, download) {
+  return new Blob([await download(src)], { type: "application/octet-stream" });
+}
+async function downloadMediaImage(src, download) {
+  const blob = await download(src);
+  const type = blob.type.split(";")[0].trim().toLowerCase();
+  if (type === "image/svg+xml") {
+    const source2 = URL.createObjectURL(blob);
+    try {
+      const image = new Image();
+      image.src = source2;
+      await image.decode();
+      const width = image.naturalWidth;
+      const height = image.naturalHeight;
+      if (!width || !height) throw new Error("This image has no dimensions.");
+      const scale = Math.min(
+        1,
+        8192 / width,
+        8192 / height,
+        Math.sqrt(16777216 / (width * height))
+      );
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(width * scale));
+      canvas.height = Math.max(1, Math.round(height * scale));
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("Image preview is unavailable.");
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      return await new Promise((resolve, reject) => {
+        canvas.toBlob(
+          (result) => result ? resolve(result) : reject(new Error("Image preview is unavailable.")),
+          "image/png"
+        );
+      });
+    } finally {
+      URL.revokeObjectURL(source2);
+    }
+  }
+  const header = new Uint8Array(await blob.slice(0, 64).arrayBuffer());
+  const ascii = String.fromCharCode(...header);
+  const raster = type === "image/png" && [137, 80, 78, 71, 13, 10, 26, 10].every(
+    (byte, index2) => header[index2] === byte
+  ) || type === "image/jpeg" && header[0] === 255 && header[1] === 216 && header[2] === 255 || type === "image/gif" && /^(GIF87a|GIF89a)/.test(ascii) || type === "image/webp" && ascii.startsWith("RIFF") && ascii.slice(8, 12) === "WEBP" || type === "image/avif" && ascii.slice(4, 8) === "ftyp" && /avif|avis/.test(ascii.slice(8)) || type === "image/bmp" && ascii.startsWith("BM");
+  if (!raster) throw new Error("This file is not a supported image.");
+  return blob;
+}
 
 // node_modules/@supabase/supabase-js/dist/module/index.js
 var module_exports = {};
@@ -77589,6 +77672,9 @@ var createClient = (supabaseUrl, supabaseKey, options) => {
 };
 
 // node_modules/@cimc/publishing-reader/dist/types.js
+function citationAuthorsOf(meta) {
+  return meta.citationAuthors?.length ? meta.citationAuthors : meta.authors;
+}
 var PUB_SLUG_REGEX = /^[a-z0-9](?:[a-z0-9-]{1,78})[a-z0-9]$/;
 
 // node_modules/@cimc/publishing-reader/dist/webEdition.js
@@ -77655,88 +77741,7 @@ async function verifyWebEditionHtml(edition, data2) {
   return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
 }
 
-// node_modules/@cimc/publishing-reader/dist/publicClient-CWmwdo1S.js
-function managedAssetPath(src, supabaseUrl) {
-  try {
-    if (/[\u0000-\u0020\u007f\\]/.test(src)) return null;
-    const base = new URL(supabaseUrl);
-    const url = new URL(src);
-    if (!["https:", "http:"].includes(base.protocol) || url.origin !== base.origin || url.username || url.password)
-      return null;
-    let path2 = url.pathname;
-    for (let pass = 0; pass < 3 && path2.includes("%"); pass++)
-      path2 = decodeURIComponent(path2);
-    const match2 = path2.match(
-      /^\/storage\/v1\/object\/(?:(?:public|authenticated|sign)\/)?publishing-assets\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/[a-z0-9][a-z0-9._-]{0,119})$/
-    );
-    return match2?.[1] ?? null;
-  } catch {
-    return null;
-  }
-}
-function startPublishingMediaRequest(src, download, ready, failed) {
-  let disposed = false;
-  let objectUrl;
-  Promise.resolve().then(async () => {
-    if (disposed) return;
-    const blob = await download(src);
-    if (disposed) return;
-    objectUrl = URL.createObjectURL(blob);
-    ready(objectUrl);
-  }).catch(() => {
-    if (!disposed) failed();
-  });
-  return () => {
-    disposed = true;
-    if (objectUrl) URL.revokeObjectURL(objectUrl);
-    objectUrl = void 0;
-  };
-}
-async function downloadMediaAttachment(src, download) {
-  return new Blob([await download(src)], { type: "application/octet-stream" });
-}
-async function downloadMediaImage(src, download) {
-  const blob = await download(src);
-  const type = blob.type.split(";")[0].trim().toLowerCase();
-  if (type === "image/svg+xml") {
-    const source2 = URL.createObjectURL(blob);
-    try {
-      const image = new Image();
-      image.src = source2;
-      await image.decode();
-      const width = image.naturalWidth;
-      const height = image.naturalHeight;
-      if (!width || !height) throw new Error("This image has no dimensions.");
-      const scale = Math.min(
-        1,
-        8192 / width,
-        8192 / height,
-        Math.sqrt(16777216 / (width * height))
-      );
-      const canvas = document.createElement("canvas");
-      canvas.width = Math.max(1, Math.round(width * scale));
-      canvas.height = Math.max(1, Math.round(height * scale));
-      const context = canvas.getContext("2d");
-      if (!context) throw new Error("Image preview is unavailable.");
-      context.drawImage(image, 0, 0, canvas.width, canvas.height);
-      return await new Promise((resolve, reject) => {
-        canvas.toBlob(
-          (result) => result ? resolve(result) : reject(new Error("Image preview is unavailable.")),
-          "image/png"
-        );
-      });
-    } finally {
-      URL.revokeObjectURL(source2);
-    }
-  }
-  const header = new Uint8Array(await blob.slice(0, 64).arrayBuffer());
-  const ascii = String.fromCharCode(...header);
-  const raster = type === "image/png" && [137, 80, 78, 71, 13, 10, 26, 10].every(
-    (byte, index2) => header[index2] === byte
-  ) || type === "image/jpeg" && header[0] === 255 && header[1] === 216 && header[2] === 255 || type === "image/gif" && /^(GIF87a|GIF89a)/.test(ascii) || type === "image/webp" && ascii.startsWith("RIFF") && ascii.slice(8, 12) === "WEBP" || type === "image/avif" && ascii.slice(4, 8) === "ftyp" && /avif|avis/.test(ascii.slice(8)) || type === "image/bmp" && ascii.startsWith("BM");
-  if (!raster) throw new Error("This file is not a supported image.");
-  return blob;
-}
+// node_modules/@cimc/publishing-reader/dist/publicClient.js
 var MAX_RELEASE_MANIFEST_BYTES = 2 * 1024 * 1024;
 var manifestRequests = /* @__PURE__ */ new Map();
 function invalidManifest() {
@@ -78014,12 +78019,11 @@ function PublishingEmbed({
 }
 
 // node_modules/@cimc/publishing-reader/dist/ArticleNavigation.js
-var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
-var import_react5 = __toESM(require_react(), 1);
-var import_react_dom2 = __toESM(require_react_dom(), 1);
+var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+var import_react7 = __toESM(require_react(), 1);
 
-// node_modules/@cimc/publishing-reader/dist/ArticleRenderer.js
-var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-CYCew4UM.js
+var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 
 // node_modules/katex/dist/katex.mjs
 var ParseError = class _ParseError extends Error {
@@ -106041,9 +106045,338 @@ var HastEmitter = class {
   }
 };
 
-// node_modules/@cimc/publishing-reader/dist/ArticleRenderer.js
+// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-CYCew4UM.js
+var import_react5 = __toESM(require_react(), 1);
+
+// node_modules/@cimc/publishing-reader/dist/sidenotes-Faem4g_d.js
+var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
 var import_react4 = __toESM(require_react(), 1);
 var import_react_dom = __toESM(require_react_dom(), 1);
+var EDGE = 12;
+var GAP = 8;
+var MAX_HEIGHT = 560;
+function placeNoteCard(anchor, cardHeight, viewport) {
+  const width = Math.min(420, viewport.width - 2 * EDGE);
+  const limit = Math.min(MAX_HEIGHT, viewport.height * 0.7);
+  const below = viewport.height - EDGE - (anchor.bottom + GAP);
+  const above = anchor.top - GAP - EDGE;
+  const height = Math.min(cardHeight, limit);
+  const downward = height <= below || below >= above;
+  const maxHeight = Math.max(80, Math.min(limit, downward ? below : above));
+  const shown = Math.min(height, maxHeight);
+  return {
+    width,
+    left: Math.max(
+      EDGE,
+      Math.min(anchor.left - 24, viewport.width - width - EDGE)
+    ),
+    top: downward ? anchor.bottom + GAP : Math.max(EDGE, anchor.top - GAP - shown),
+    maxHeight
+  };
+}
+var useBrowserLayoutEffect = typeof window === "undefined" ? import_react4.useEffect : import_react4.useLayoutEffect;
+function Footnote({ noteId, markerId, number, children }) {
+  const [marker, setMarker] = (0, import_react4.useState)(null);
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("sup", { className: "pub-note-marker", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      "a",
+      {
+        ref: setMarker,
+        id: markerId,
+        href: `#pub-note-${noteId}`,
+        role: "doc-noteref",
+        "aria-label": `Footnote ${number}`,
+        "aria-haspopup": "dialog",
+        "aria-expanded": "false",
+        children: number
+      }
+    ) }),
+    marker && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(FootnoteCard, { marker, noteId, number, children })
+  ] });
+}
+function FootnoteCard({
+  marker,
+  noteId,
+  number,
+  children,
+  html
+}) {
+  const card = (0, import_react4.useRef)(null);
+  const heading = (0, import_react4.useRef)(null);
+  const closeTimer = (0, import_react4.useRef)();
+  const suppressed = (0, import_react4.useRef)(false);
+  const hovering = (0, import_react4.useRef)(false);
+  const pinned = (0, import_react4.useRef)(false);
+  const [open2, setOpen] = (0, import_react4.useState)(false);
+  const [interactive, setInteractive] = (0, import_react4.useState)(false);
+  const [position2, setPosition] = (0, import_react4.useState)({
+    top: 0,
+    left: 12,
+    width: 400,
+    maxHeight: 560
+  });
+  const cardId = `${marker.id}-preview`;
+  const contains = (0, import_react4.useCallback)(
+    (target) => target !== null && "nodeType" in target && (marker.contains(target) || Boolean(card.current?.contains(target))),
+    [marker]
+  );
+  const close2 = (0, import_react4.useCallback)(
+    (restore = false) => {
+      clearTimeout(closeTimer.current);
+      suppressed.current = true;
+      pinned.current = false;
+      setOpen(false);
+      setInteractive(false);
+      if (restore) marker.focus({ preventScroll: true });
+    },
+    [marker]
+  );
+  const leave = (0, import_react4.useCallback)(() => {
+    hovering.current = false;
+    if (!contains(marker.ownerDocument.activeElement))
+      suppressed.current = false;
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => {
+      if (!hovering.current && !pinned.current && !contains(marker.ownerDocument.activeElement))
+        setOpen(false);
+    }, 200);
+  }, [contains, marker]);
+  (0, import_react4.useEffect)(() => {
+    const show = () => {
+      clearTimeout(closeTimer.current);
+      if (!suppressed.current) setOpen(true);
+    };
+    const enter = (event) => {
+      if (event.pointerType === "mouse") {
+        hovering.current = true;
+        show();
+      }
+    };
+    const blur = (event) => {
+      if (!contains(event.relatedTarget)) {
+        if (!hovering.current) suppressed.current = false;
+        leave();
+      }
+    };
+    const click = (event) => {
+      event.preventDefault();
+      if (pinned.current) {
+        close2(true);
+        return;
+      }
+      suppressed.current = false;
+      pinned.current = true;
+      setOpen(true);
+      setInteractive(true);
+    };
+    marker.addEventListener("pointerenter", enter);
+    marker.addEventListener("pointerleave", leave);
+    marker.addEventListener("focus", show);
+    marker.addEventListener("blur", blur);
+    marker.addEventListener("click", click);
+    return () => {
+      marker.removeEventListener("pointerenter", enter);
+      marker.removeEventListener("pointerleave", leave);
+      marker.removeEventListener("focus", show);
+      marker.removeEventListener("blur", blur);
+      marker.removeEventListener("click", click);
+    };
+  }, [marker, close2, contains, leave]);
+  (0, import_react4.useEffect)(() => {
+    marker.setAttribute("aria-expanded", open2 ? "true" : "false");
+    if (open2) marker.setAttribute("aria-controls", cardId);
+    else marker.removeAttribute("aria-controls");
+  }, [marker, open2, cardId]);
+  (0, import_react4.useEffect)(() => () => clearTimeout(closeTimer.current), []);
+  useBrowserLayoutEffect(() => {
+    const window2 = marker.ownerDocument.defaultView;
+    if (!open2 || !window2) return;
+    const positionCard = () => {
+      const content = card.current?.scrollHeight || 240;
+      const next2 = placeNoteCard(marker.getBoundingClientRect(), content, {
+        width: window2.innerWidth,
+        height: window2.innerHeight
+      });
+      setPosition(
+        (current) => current.top === next2.top && current.left === next2.left && current.width === next2.width && current.maxHeight === next2.maxHeight ? current : next2
+      );
+    };
+    positionCard();
+    const observer = typeof window2.ResizeObserver !== "undefined" ? new window2.ResizeObserver(positionCard) : void 0;
+    if (card.current) observer?.observe(card.current);
+    window2.addEventListener("resize", positionCard);
+    window2.addEventListener("scroll", positionCard, true);
+    return () => {
+      observer?.disconnect();
+      window2.removeEventListener("resize", positionCard);
+      window2.removeEventListener("scroll", positionCard, true);
+    };
+  }, [open2, marker]);
+  useBrowserLayoutEffect(() => {
+    if (open2 && interactive) heading.current?.focus({ preventScroll: true });
+  }, [open2, interactive]);
+  (0, import_react4.useEffect)(() => {
+    const document2 = marker.ownerDocument;
+    if (!open2) return;
+    const outside = (event) => {
+      if (!contains(event.target)) close2(false);
+    };
+    const dismissOnEscape = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close2(Boolean(card.current?.contains(document2.activeElement)));
+      }
+    };
+    const focus = (event) => {
+      if (!contains(event.target)) {
+        suppressed.current = false;
+        if (pinned.current || !hovering.current) close2(false);
+      }
+    };
+    document2.addEventListener("pointerdown", outside);
+    document2.addEventListener("keydown", dismissOnEscape);
+    document2.addEventListener("focusin", focus);
+    return () => {
+      document2.removeEventListener("pointerdown", outside);
+      document2.removeEventListener("keydown", dismissOnEscape);
+      document2.removeEventListener("focusin", focus);
+    };
+  }, [open2, close2, contains, marker]);
+  if (!open2) return null;
+  return (0, import_react_dom.createPortal)(
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      "dialog",
+      {
+        open: true,
+        ref: card,
+        id: cardId,
+        "aria-modal": "false",
+        "aria-labelledby": `${cardId}-title`,
+        className: "pub-scope pub-note-card",
+        style: position2,
+        onPointerEnter: (event) => {
+          if (event.pointerType === "mouse") {
+            hovering.current = true;
+            clearTimeout(closeTimer.current);
+          }
+        },
+        onPointerLeave: leave,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "pub-note-card-bar", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("h2", { ref: heading, id: `${cardId}-title`, tabIndex: -1, children: [
+              "Footnote ",
+              number
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "button",
+              {
+                type: "button",
+                "aria-label": `Close footnote ${number}`,
+                onClick: () => close2(true),
+                children: "Close"
+              }
+            )
+          ] }),
+          html === void 0 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "pub-article-body pub-note-card-body", children }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "div",
+            {
+              className: "pub-article-body pub-note-card-body",
+              dangerouslySetInnerHTML: { __html: html }
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+            "a",
+            {
+              className: "pub-note-original",
+              href: `#pub-note-${noteId}`,
+              onClick: () => {
+                close2(false);
+                const document2 = marker.ownerDocument;
+                document2.defaultView?.requestAnimationFrame(
+                  () => document2.getElementById(`pub-note-${noteId}`)?.focus()
+                );
+              },
+              children: [
+                "Go to note ",
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { "aria-hidden": "true", children: "\u2193" })
+              ]
+            }
+          )
+        ]
+      }
+    ),
+    marker.ownerDocument.body
+  );
+}
+var SIDENOTE_GAP = 14;
+function useSidenotePlacement(aside, bodyRef, markerIds) {
+  const markerKey = markerIds?.join("|");
+  (0, import_react4.useEffect)(() => {
+    const container = aside.current;
+    const body = bodyRef.current;
+    const view = container?.ownerDocument.defaultView;
+    if (!container || !body || !view) return;
+    const markers = () => {
+      if (markerKey !== void 0)
+        return markerKey.split("|").map((id) => id ? body.querySelector(`#${CSS.escape(id)}`) : null);
+      const seen = /* @__PURE__ */ new Set();
+      return Array.from(body.querySelectorAll('a[role="doc-noteref"]')).filter(
+        (marker) => {
+          const href2 = marker.getAttribute("href") || "";
+          if (seen.has(href2)) return false;
+          seen.add(href2);
+          return true;
+        }
+      );
+    };
+    let frame = 0;
+    let placed = null;
+    const measure = () => {
+      frame = 0;
+      const items = Array.from(container.children);
+      if (view.getComputedStyle(container).display === "none") {
+        if (placed)
+          for (const item of items) {
+            item.classList.remove("is-placed");
+            item.style.removeProperty("top");
+          }
+        placed = null;
+        return;
+      }
+      const origin = container.getBoundingClientRect().top;
+      const anchors = markers();
+      let floor = 0;
+      const next2 = items.map((item, index2) => {
+        const marker = anchors[index2];
+        const anchored = marker ? marker.getBoundingClientRect().top - origin - 4 : floor;
+        const top = Math.max(floor, anchored);
+        floor = top + (item.offsetHeight || 0) + SIDENOTE_GAP;
+        return Math.round(top);
+      });
+      if (placed && placed.length === next2.length && placed.every((value, index2) => value === next2[index2]))
+        return;
+      placed = next2;
+      items.forEach((item, index2) => {
+        item.classList.add("is-placed");
+        item.style.top = `${next2[index2]}px`;
+      });
+    };
+    const schedule = () => {
+      if (!frame) frame = view.requestAnimationFrame(measure);
+    };
+    measure();
+    const observer = new view.ResizeObserver(schedule);
+    observer.observe(body);
+    observer.observe(container);
+    view.addEventListener("resize", schedule);
+    void container.ownerDocument.fonts?.ready.then(schedule);
+    return () => {
+      observer.disconnect();
+      view.removeEventListener("resize", schedule);
+      view.cancelAnimationFrame(frame);
+    };
+  }, [aside, bodyRef, markerKey]);
+}
 
 // node_modules/@cimc/publishing-reader/dist/manuscript.js
 var CITATION_KEY = /^[A-Za-z0-9][A-Za-z0-9_:.-]{0,99}$/;
@@ -106122,6 +106455,9 @@ function getReferenceContributors(reference) {
     abbreviated: names.some(isOthers)
   };
 }
+function referenceNameList(source2) {
+  return parseReferenceNames(source2);
+}
 function parseReferenceNames(source2) {
   const result = [];
   const names = [];
@@ -106161,13 +106497,6 @@ function parseReferenceNames(source2) {
   }
   return result;
 }
-function referenceContributorNames(source2) {
-  const names = parseReferenceNames(source2).map(
-    (name) => name.literal || [name.given, name.family].filter(Boolean).join(" ")
-  );
-  if (names.length < 3) return names.join(" and ");
-  return `${names.slice(0, -1).join(", ")}, and ${names.at(-1)}`;
-}
 function citationAuthor(reference) {
   const contributors = getReferenceContributors(reference);
   const names = contributors.names.map((author) => author.literal || author.family).filter(Boolean);
@@ -106198,7 +106527,16 @@ function getCitedReferences(doc) {
 function getBibliographyReferences(doc) {
   const bibliography = doc.content?.find((node2) => node2.type === "bibliography");
   const ids = bibliography?.attrs?.referenceIds;
-  const selectedIds = Array.isArray(ids) ? new Set(ids) : void 0;
+  const selectedIds = new Set(
+    Array.isArray(ids) ? ids : getCitedReferences(doc).map((reference) => reference.id)
+  );
+  return sortReferences(
+    (getManuscript(doc)?.references || []).filter(
+      (reference) => selectedIds.has(reference.id)
+    )
+  );
+}
+function sortReferences(references) {
   const collator = new Intl.Collator("en", {
     sensitivity: "base",
     numeric: false
@@ -106209,11 +106547,8 @@ function getBibliographyReferences(doc) {
       name.literal || `${name.family}, ${initials(name.given || "")}`
     )
   ).join("; ") || referenceText(reference.title);
-  return (getManuscript(doc)?.references || []).filter((reference) => !selectedIds || selectedIds.has(reference.id)).sort(
-    (left, right) => collator.compare(author(left), author(right)) || collator.compare(left.year || "n.d.", right.year || "n.d.") || collator.compare(
-      referenceText(left.title),
-      referenceText(right.title)
-    ) || collator.compare(left.key, right.key) || left.key.localeCompare(right.key, "en")
+  return [...references].sort(
+    (left, right) => collator.compare(author(left), author(right)) || collator.compare(left.year || "n.d.", right.year || "n.d.") || collator.compare(referenceText(left.title), referenceText(right.title)) || collator.compare(left.key, right.key) || left.key.localeCompare(right.key, "en")
   );
 }
 var BIBLIOGRAPHY_TITLE = "Works Cited";
@@ -106234,12 +106569,14 @@ function referenceYear(reference, cited = []) {
 }
 function formatCitation(reference, attrs, cited = []) {
   if (!reference) return "[Missing reference]";
+  const custom = attrs.customText?.trim();
+  if (custom) return custom;
   const authors = citationAuthor(reference);
   const year = referenceYear(reference, cited);
   const locator = attrs.locator ? `, ${attrs.locatorType === "chapter" ? "ch." : attrs.locatorType === "section" ? "\xA7" : /[-–,]/.test(attrs.locator) ? "pp." : "p."} ${attrs.locator}` : "";
   const prefix2 = attrs.prefix ? `${attrs.prefix.trim()} ` : "";
   const suffix = attrs.suffix ? ` ${attrs.suffix.trim()}` : "";
-  return attrs.mode === "narrative" ? `${prefix2}${authors} (${year}${locator})${suffix}` : `(${prefix2}${authors}, ${year}${locator}${suffix})`;
+  return attrs.mode === "narrative" ? `${prefix2}${authors} (${year}${locator})${suffix}` : `${prefix2}${authors}, ${year}${locator}${suffix}`;
 }
 function isHeadingLevel(value) {
   return typeof value === "number" && Number.isSafeInteger(value) && value >= 2;
@@ -106518,7 +106855,7 @@ function validateRichDocument(doc, complete = false) {
     if (node2.type === "citation") {
       if (!MANUSCRIPT_ID.test(String(attrs.referenceId || "")) || !["parenthetical", "narrative"].includes(String(attrs.mode)))
         issue("A citation needs a reference ID and citation mode.");
-      for (const name of ["locator", "prefix", "suffix"])
+      for (const name of ["locator", "prefix", "suffix", "customText"])
         if (attrs[name] != null && typeof attrs[name] !== "string")
           issue("Citation details must be text.");
       if (attrs.locatorType != null && !["page", "chapter", "section"].includes(String(attrs.locatorType)))
@@ -106595,235 +106932,176 @@ function validateRichDocument(doc, complete = false) {
   return errors;
 }
 
-// node_modules/@cimc/publishing-reader/dist/ArticleRenderer.js
-var EDGE = 12;
-var GAP = 8;
-var MAX_HEIGHT = 560;
-function placeNoteCard(anchor, cardHeight, viewport) {
-  const width = Math.min(420, viewport.width - 2 * EDGE);
-  const limit = Math.min(MAX_HEIGHT, viewport.height * 0.7);
-  const below = viewport.height - EDGE - (anchor.bottom + GAP);
-  const above = anchor.top - GAP - EDGE;
-  const height = Math.min(cardHeight, limit);
-  const downward = height <= below || below >= above;
-  const maxHeight = Math.max(80, Math.min(limit, downward ? below : above));
-  const shown = Math.min(height, maxHeight);
-  return {
-    width,
-    left: Math.max(
-      EDGE,
-      Math.min(anchor.left - 24, viewport.width - width - EDGE)
-    ),
-    top: downward ? anchor.bottom + GAP : Math.max(EDGE, anchor.top - GAP - shown),
-    maxHeight
-  };
+// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-CYCew4UM.js
+var STANDALONE = /* @__PURE__ */ new Set([
+  "book",
+  "booklet",
+  "manual",
+  "phdthesis",
+  "mastersthesis",
+  "techreport",
+  "unpublished"
+]);
+var IN_COLLECTION = /* @__PURE__ */ new Set(["incollection", "inbook", "inproceedings"]);
+var ORDINAL_WORDS = {
+  first: 1,
+  second: 2,
+  third: 3,
+  fourth: 4,
+  fifth: 5,
+  sixth: 6,
+  seventh: 7,
+  eighth: 8,
+  ninth: 9,
+  tenth: 10
+};
+function apaInitials(given = "") {
+  return given.trim().split(/\s+/).filter(Boolean).map(
+    (word) => word.split("-").filter(Boolean).map(
+      (part) => `${Array.from(part.replace(/^[^\p{L}]+/u, ""))[0] || ""}.`
+    ).join("-")
+  ).filter((initial) => initial !== ".").join(" ");
 }
-var useBrowserLayoutEffect = typeof window === "undefined" ? import_react4.useEffect : import_react4.useLayoutEffect;
-function Footnote({ noteId, markerId, number, children }) {
-  const marker = (0, import_react4.useRef)(null);
-  const card = (0, import_react4.useRef)(null);
-  const heading = (0, import_react4.useRef)(null);
-  const closeTimer = (0, import_react4.useRef)();
-  const suppressed = (0, import_react4.useRef)(false);
-  const hovering = (0, import_react4.useRef)(false);
-  const pinned = (0, import_react4.useRef)(false);
-  const [open2, setOpen] = (0, import_react4.useState)(false);
-  const [interactive, setInteractive] = (0, import_react4.useState)(false);
-  const [position2, setPosition] = (0, import_react4.useState)({
-    top: 0,
-    left: 12,
-    width: 400,
-    maxHeight: 560
-  });
-  const cardId = `${markerId}-preview`;
-  const contains = (0, import_react4.useCallback)(
-    (target) => target !== null && "nodeType" in target && (marker.current?.contains(target) || card.current?.contains(target)),
-    []
-  );
-  const close2 = (0, import_react4.useCallback)((restore = false) => {
-    clearTimeout(closeTimer.current);
-    suppressed.current = true;
-    pinned.current = false;
-    setOpen(false);
-    setInteractive(false);
-    if (restore) marker.current?.focus({ preventScroll: true });
-  }, []);
-  const show = () => {
-    clearTimeout(closeTimer.current);
-    if (!suppressed.current) setOpen(true);
+function invertedName(name) {
+  if (name.literal) return name.literal;
+  const initials = apaInitials(name.given);
+  return initials ? `${name.family}, ${initials}` : name.family;
+}
+function directName(name) {
+  if (name.literal) return name.literal;
+  const initials = apaInitials(name.given);
+  return initials ? `${initials} ${name.family}` : name.family;
+}
+function apaAuthorList(names, abbreviated = false) {
+  if (abbreviated) return [...names, "et al."].join(", ");
+  if (names.length > 20)
+    return `${names.slice(0, 19).join(", ")}, . . . ${names.at(-1)}`;
+  if (names.length < 2) return names[0] || "";
+  if (names.length === 2) return `${names[0]}, & ${names[1]}`;
+  return `${names.slice(0, -1).join(", ")}, & ${names.at(-1)}`;
+}
+function proseList(names) {
+  if (names.length < 3) return names.join(" & ");
+  return `${names.slice(0, -1).join(", ")}, & ${names.at(-1)}`;
+}
+function ordinal(value) {
+  const tens = value % 100;
+  const suffix = tens >= 11 && tens <= 13 ? "th" : { 1: "st", 2: "nd", 3: "rd" }[value % 10] || "th";
+  return `${value}${suffix}`;
+}
+function apaEdition(edition) {
+  const text2 = edition.trim();
+  const value = text2.replace(/\s+ed(ition)?\.?$/i, "");
+  const number = /^\d+$/.test(value) ? Number(value) : ORDINAL_WORDS[value.toLowerCase()] || (/^\d+(st|nd|rd|th)$/i.test(value) ? Number.parseInt(value, 10) : 0);
+  if (number === 1) return "";
+  return number ? `${ordinal(number)} ed.` : text2;
+}
+function sentence(text2) {
+  return text2 ? `${text2}${referenceSentenceEnding(text2)}` : "";
+}
+function formatApaReference(reference, year) {
+  const fields = reference.fields || {};
+  const field = (name) => referenceText(fields[name] || "");
+  const parts = [];
+  const add = (text2, options = {}) => {
+    if (text2) parts.push({ text: text2, ...options });
   };
-  const leave = () => {
-    hovering.current = false;
-    if (!contains(marker.current?.ownerDocument.activeElement || null))
-      suppressed.current = false;
-    clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => {
-      if (!hovering.current && !pinned.current && !contains(marker.current?.ownerDocument.activeElement || null))
-        setOpen(false);
-    }, 200);
-  };
-  (0, import_react4.useEffect)(() => () => clearTimeout(closeTimer.current), []);
-  useBrowserLayoutEffect(() => {
-    const window2 = marker.current?.ownerDocument.defaultView;
-    if (!open2 || !window2) return;
-    const positionCard = () => {
-      const anchor = marker.current?.getBoundingClientRect();
-      if (!anchor) return;
-      const content = card.current?.scrollHeight || 240;
-      const next2 = placeNoteCard(anchor, content, {
-        width: window2.innerWidth,
-        height: window2.innerHeight
-      });
-      setPosition(
-        (current) => current.top === next2.top && current.left === next2.left && current.width === next2.width && current.maxHeight === next2.maxHeight ? current : next2
+  const contributors = getReferenceContributors(reference);
+  const names = contributors.names.map(invertedName).map(referenceText);
+  let byline = apaAuthorList(names, contributors.abbreviated);
+  if (byline && contributors.role === "editor")
+    byline += names.length > 1 || contributors.abbreviated ? " (Eds.)" : " (Ed.)";
+  const type = reference.type.toLowerCase();
+  const standalone = STANDALONE.has(type);
+  const title = referenceText(reference.title);
+  const translators = referenceNameList(fields.translator || "").map(directName);
+  const editors = contributors.role === "author" ? referenceNameList(fields.editor || "").map(directName) : [];
+  const inCollection = IN_COLLECTION.has(type);
+  const titleEditors = inCollection ? [] : editors;
+  const credits = [];
+  const edition = apaEdition(field("edition"));
+  if (edition) credits.push(edition);
+  if (translators.length && titleEditors.length && proseList(translators) === proseList(titleEditors))
+    credits.push(`${proseList(translators)}, Eds. & Trans.`);
+  else {
+    if (titleEditors.length)
+      credits.push(
+        `${proseList(titleEditors)}, ${titleEditors.length > 1 ? "Eds." : "Ed."}`
       );
-    };
-    positionCard();
-    const observer = typeof window2.ResizeObserver !== "undefined" ? new window2.ResizeObserver(positionCard) : void 0;
-    if (card.current) observer?.observe(card.current);
-    window2.addEventListener("resize", positionCard);
-    window2.addEventListener("scroll", positionCard, true);
-    return () => {
-      observer?.disconnect();
-      window2.removeEventListener("resize", positionCard);
-      window2.removeEventListener("scroll", positionCard, true);
-    };
-  }, [open2]);
-  useBrowserLayoutEffect(() => {
-    if (open2 && interactive) heading.current?.focus({ preventScroll: true });
-  }, [open2, interactive]);
-  (0, import_react4.useEffect)(() => {
-    const document2 = marker.current?.ownerDocument;
-    if (!open2 || !document2) return;
-    const outside = (event) => {
-      if (!contains(event.target)) close2(false);
-    };
-    const dismissOnEscape = (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        close2(
-          Boolean(
-            card.current?.contains(
-              marker.current?.ownerDocument.activeElement || null
-            )
-          )
-        );
+    if (translators.length) credits.push(`${proseList(translators)}, Trans.`);
+  }
+  const reportNumber = type === "techreport" ? field("number") : "";
+  if (reportNumber) credits.push(`Report No. ${reportNumber}`);
+  const description = type === "phdthesis" || type === "mastersthesis" ? `[${type === "phdthesis" ? "Doctoral dissertation" : "Master's thesis"}${field("school") ? `, ${field("school")}` : ""}]` : "";
+  const date = `(${year}).`;
+  const titleRun = (italic2) => {
+    const tail = [credits.length ? `(${credits.join("; ")})` : "", description].filter(Boolean).join(" ");
+    if (tail) {
+      add(title, { italic: italic2 });
+      add(` ${tail}.`);
+    } else {
+      add(title, { italic: italic2 });
+      add(referenceSentenceEnding(title));
+    }
+  };
+  const italicTitle = type !== "article" && !inCollection;
+  if (byline) {
+    add(/\(Eds?\.\)$/.test(byline) ? `${byline}.` : sentence(byline));
+    add(` ${date} `);
+    titleRun(italicTitle);
+  } else {
+    titleRun(italicTitle);
+    add(` ${date}`);
+  }
+  const publisher = field("publisher") || field("institution");
+  const venue = referenceText(
+    reference.venue || fields.journal || fields.booktitle || ""
+  );
+  if (type === "article") {
+    const volume = field("volume");
+    const issue = field("number") || field("issue");
+    const pages = field("pages");
+    if (venue) {
+      add(" ");
+      add(venue, { italic: true });
+      if (volume) {
+        add(", ");
+        add(volume, { italic: true });
       }
-    };
-    const focus = (event) => {
-      if (!contains(event.target)) {
-        suppressed.current = false;
-        if (pinned.current || !hovering.current) close2(false);
-      }
-    };
-    document2.addEventListener("pointerdown", outside);
-    document2.addEventListener("keydown", dismissOnEscape);
-    document2.addEventListener("focusin", focus);
-    return () => {
-      document2.removeEventListener("pointerdown", outside);
-      document2.removeEventListener("keydown", dismissOnEscape);
-      document2.removeEventListener("focusin", focus);
-    };
-  }, [open2, close2, contains]);
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("sup", { className: "pub-note-marker", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      "a",
-      {
-        ref: marker,
-        id: markerId,
-        href: `#pub-note-${noteId}`,
-        role: "doc-noteref",
-        "aria-label": `Footnote ${number}`,
-        "aria-haspopup": "dialog",
-        "aria-expanded": open2,
-        "aria-controls": open2 ? cardId : void 0,
-        onPointerEnter: (event) => {
-          if (event.pointerType === "mouse") {
-            hovering.current = true;
-            show();
-          }
-        },
-        onPointerLeave: leave,
-        onFocus: show,
-        onBlur: (event) => {
-          if (!contains(event.relatedTarget)) {
-            if (!hovering.current) suppressed.current = false;
-            leave();
-          }
-        },
-        onClick: (event) => {
-          event.preventDefault();
-          if (pinned.current) {
-            close2(true);
-            return;
-          }
-          suppressed.current = false;
-          pinned.current = true;
-          setOpen(true);
-          setInteractive(true);
-        },
-        children: number
-      }
-    ) }),
-    open2 && marker.current && (0, import_react_dom.createPortal)(
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-        "dialog",
-        {
-          open: true,
-          ref: card,
-          id: cardId,
-          "aria-modal": "false",
-          "aria-labelledby": `${cardId}-title`,
-          className: "pub-scope pub-note-card",
-          style: position2,
-          onPointerEnter: (event) => {
-            if (event.pointerType === "mouse") {
-              hovering.current = true;
-              clearTimeout(closeTimer.current);
-            }
-          },
-          onPointerLeave: leave,
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "pub-note-card-bar", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("h2", { ref: heading, id: `${cardId}-title`, tabIndex: -1, children: [
-                "Footnote ",
-                number
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-                "button",
-                {
-                  type: "button",
-                  "aria-label": `Close footnote ${number}`,
-                  onClick: () => close2(true),
-                  children: "Close"
-                }
-              )
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "pub-article-body pub-note-card-body", children }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-              "a",
-              {
-                className: "pub-note-original",
-                href: `#pub-note-${noteId}`,
-                onClick: () => {
-                  close2(false);
-                  const document2 = marker.current?.ownerDocument;
-                  document2?.defaultView?.requestAnimationFrame(
-                    () => document2.getElementById(`pub-note-${noteId}`)?.focus()
-                  );
-                },
-                children: [
-                  "Go to note ",
-                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { "aria-hidden": "true", children: "\u2193" })
-                ]
-              }
-            )
-          ]
-        }
-      ),
-      marker.current.ownerDocument.body
-    )
-  ] });
+      if (issue) add(`(${issue})`);
+      if (pages) add(`, ${pages}`);
+      add(".");
+    }
+  } else if (inCollection) {
+    const book = referenceText(fields.booktitle || reference.venue || "");
+    const pages = field("pages");
+    add(" In ");
+    if (editors.length)
+      add(`${proseList(editors)} (${editors.length > 1 ? "Eds." : "Ed."}), `);
+    if (book) add(book, { italic: true });
+    const bookCredits = [
+      apaEdition(field("edition")) && !edition ? apaEdition(field("edition")) : "",
+      pages ? `${/[-–,]/.test(pages) ? "pp." : "p."} ${pages}` : ""
+    ].filter(Boolean);
+    if (bookCredits.length) add(` (${bookCredits.join("; ")})`);
+    add(".");
+    if (publisher && publisher !== book) add(` ${sentence(publisher)}`);
+  } else {
+    const source2 = standalone || type === "techreport" ? publisher || venue : venue || field("howpublished") || publisher;
+    if (source2 && source2 !== title) add(` ${sentence(source2)}`);
+  }
+  const note = field("note");
+  if (note) add(` ${sentence(note)}`);
+  const doi = (reference.doi || fields.doi || "").replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)/i, "").trim();
+  const doiUrl = doi ? `https://doi.org/${doi}` : "";
+  const href2 = [doiUrl, reference.url, fields.url].map((candidate) => candidate ? safeLinkUrl(candidate) : void 0).find(Boolean);
+  if (href2) {
+    add(" ");
+    add(doiUrl && href2 === safeLinkUrl(doiUrl) ? doiUrl : href2, { href: href2 });
+  }
+  const original = field("origyear") || field("origdate").slice(0, 4);
+  if (original) add(` (Original work published ${original})`);
+  return parts;
 }
 var lowlight = createLowlight(grammars);
 function labelId(node2, context) {
@@ -106892,20 +107170,20 @@ function applyMarks(children, marks, key) {
     const markKey = `${key}-mark-${i2}`;
     switch (mark.type) {
       case "bold":
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("strong", { children: acc }, markKey);
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: acc }, markKey);
       case "italic":
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("em", { children: acc }, markKey);
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("em", { children: acc }, markKey);
       case "strike":
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("s", { children: acc }, markKey);
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("s", { children: acc }, markKey);
       case "code":
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("code", { children: acc }, markKey);
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("code", { children: acc }, markKey);
       case "link": {
         const href2 = safeLinkUrl(mark.attrs?.href);
         if (!href2) return acc;
         const rawTarget = mark.attrs?.target;
         const target = rawTarget === void 0 ? isExternalHref(href2) ? "_blank" : void 0 : rawTarget === "_blank" ? "_blank" : void 0;
         const rel2 = target === "_blank" ? "noopener noreferrer" : void 0;
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
           PublishingMediaLink,
           {
             href: href2,
@@ -106932,14 +107210,14 @@ function hastToReact(node2, key) {
     const children = (node2.children ?? []).map(
       (child, i2) => hastToReact(child, `${key}-${i2}`)
     );
-    return (0, import_react4.createElement)(node2.tagName, { key, className }, ...children);
+    return (0, import_react5.createElement)(node2.tagName, { key, className }, ...children);
   }
   return null;
 }
 function renderNode(node2, key, context) {
   switch (node2.type) {
     case "paragraph":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
         "p",
         {
           id: context.preview ? void 0 : context.headingIds.get(key) || labelId(node2, context),
@@ -106950,7 +107228,7 @@ function renderNode(node2, key, context) {
     case "heading": {
       const level = getHeadingLevel(node2);
       const appendix = context.appendices.get(key);
-      return (0, import_react4.createElement)(
+      return (0, import_react5.createElement)(
         level <= 6 ? `h${level}` : "div",
         {
           key,
@@ -106958,8 +107236,8 @@ function renderNode(node2, key, context) {
           className: appendix ? "pub-appendix-heading" : level > 6 ? "pub-deep-heading" : void 0,
           ...level > 6 ? { role: "heading", "aria-level": level } : {}
         },
-        appendix && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { className: "pub-appendix-label", children: [
+        appendix && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { className: "pub-appendix-label", children: [
             "Appendix ",
             appendix
           ] }),
@@ -106969,7 +107247,7 @@ function renderNode(node2, key, context) {
       );
     }
     case "contentsAnchor":
-      return context.preview ? null : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      return context.preview ? null : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
         "span",
         {
           id: context.headingIds.get(key) || labelId(node2, context),
@@ -106982,19 +107260,19 @@ function renderNode(node2, key, context) {
     case "text":
       return applyMarks(node2.text ?? "", node2.marks, key);
     case "hardBreak":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("br", {}, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("br", {}, key);
     case "bulletList":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("ul", { children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ul", { children: renderChildren(node2.content, key, context) }, key);
     case "orderedList": {
       const start = typeof node2.attrs?.start === "number" ? node2.attrs.start : void 0;
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("ol", { start, children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ol", { start, children: renderChildren(node2.content, key, context) }, key);
     }
     case "listItem":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("li", { children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: renderChildren(node2.content, key, context) }, key);
     case "blockquote": {
       const color = getCalloutColor(node2);
       if (color)
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
           "aside",
           {
             className: `pub-callout pub-callout-${color}`,
@@ -107004,10 +107282,10 @@ function renderNode(node2, key, context) {
           },
           key
         );
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("blockquote", { children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("blockquote", { children: renderChildren(node2.content, key, context) }, key);
     }
     case "horizontalRule":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("hr", {}, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("hr", {}, key);
     case "codeBlock": {
       const language = typeof node2.attrs?.language === "string" ? node2.attrs.language : void 0;
       const code = getCodeText(node2.content);
@@ -107022,7 +107300,7 @@ function renderNode(node2, key, context) {
           highlighted = code;
         }
       }
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("pre", { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("code", { className: language ? `language-${language}` : void 0, children: highlighted }) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("pre", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("code", { className: language ? `language-${language}` : void 0, children: highlighted }) }, key);
     }
     case "figure": {
       const src = safeMediaUrl(node2.attrs?.src);
@@ -107030,13 +107308,13 @@ function renderNode(node2, key, context) {
       const alt = typeof node2.attrs?.alt === "string" ? node2.attrs.alt : "";
       const caption = typeof node2.attrs?.caption === "string" ? node2.attrs.caption.trim() : "";
       const size = node2.attrs?.size === "wide" || node2.attrs?.size === "full" ? node2.attrs.size : "normal";
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
         "figure",
         {
           id: labelId(node2, context),
           className: `pub-figure pub-size-${size}`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               PublishingImage,
               {
                 src,
@@ -107045,8 +107323,8 @@ function renderNode(node2, key, context) {
                 decoding: "async"
               }
             ),
-            caption !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("figcaption", { className: "pub-figcaption", children: [
-              context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("strong", { children: [
+            caption !== "" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("figcaption", { className: "pub-figcaption", children: [
+              context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("strong", { children: [
                 context.targets.get(String(node2.attrs?.id)),
                 ". "
               ] }),
@@ -107063,13 +107341,13 @@ function renderNode(node2, key, context) {
       const height = typeof node2.attrs?.height === "number" && Number.isFinite(node2.attrs.height) ? Math.min(1600, Math.max(180, node2.attrs.height)) : 480;
       const caption = typeof node2.attrs?.caption === "string" ? node2.attrs.caption.trim() : "";
       const size = node2.attrs?.size === "wide" || node2.attrs?.size === "full" ? node2.attrs.size : "normal";
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
         "figure",
         {
           id: labelId(node2, context),
           className: `pub-embed pub-size-${size}`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               PublishingEmbed,
               {
                 src,
@@ -107077,7 +107355,7 @@ function renderNode(node2, key, context) {
                 title: caption !== "" ? caption : "Embedded content"
               }
             ),
-            safeMediaUrl(node2.attrs?.staticSrc) && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            safeMediaUrl(node2.attrs?.staticSrc) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               PublishingMediaLink,
               {
                 className: "pub-static-figure",
@@ -107085,8 +107363,8 @@ function renderNode(node2, key, context) {
                 children: "View static figure"
               }
             ),
-            caption !== "" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("figcaption", { className: "pub-figcaption", children: [
-              context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("strong", { children: [
+            caption !== "" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("figcaption", { className: "pub-figcaption", children: [
+              context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("strong", { children: [
                 context.targets.get(String(node2.attrs?.id)),
                 ". "
               ] }),
@@ -107098,7 +107376,7 @@ function renderNode(node2, key, context) {
       );
     }
     case "aside":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("aside", { className: "pub-aside", children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("aside", { className: "pub-aside", children: renderChildren(node2.content, key, context) }, key);
     case "mathInline": {
       const latex = typeof node2.attrs?.latex === "string" ? node2.attrs.latex : "";
       const html = katex.renderToString(latex, {
@@ -107107,7 +107385,7 @@ function renderNode(node2, key, context) {
         trust: false,
         macros: { ...context.manuscript?.profile.macros }
       });
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
         "span",
         {
           className: "pub-math-inline",
@@ -107124,15 +107402,15 @@ function renderNode(node2, key, context) {
         trust: false,
         macros: { ...context.manuscript?.profile.macros }
       });
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { id: labelId(node2, context), className: "pub-equation", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { id: labelId(node2, context), className: "pub-equation", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
           "div",
           {
             className: "pub-math-block",
             dangerouslySetInnerHTML: { __html: html }
           }
         ),
-        context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+        context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
           "span",
           {
             className: "pub-equation-number",
@@ -107151,7 +107429,7 @@ function renderNode(node2, key, context) {
       const reference = context.manuscript?.references.find(
         (item) => item.id === attrs?.referenceId
       );
-      return reference ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      return reference ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
         "a",
         {
           className: "pub-citation",
@@ -107159,26 +107437,26 @@ function renderNode(node2, key, context) {
           children: formatCitation(reference, attrs, context.bibliography)
         },
         key
-      ) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "pub-content-warning", children: "[Missing reference]" }, key);
+      ) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-content-warning", children: "[Missing reference]" }, key);
     }
     case "crossReference": {
       const targetId = String(node2.attrs?.targetId || "");
       const label = context.targets.get(targetId);
-      return label ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", { href: `#pub-label-${targetId}`, children: label }, key) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "pub-content-warning", children: "[Missing cross-reference]" }, key);
+      return label ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: `#pub-label-${targetId}`, children: label }, key) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-content-warning", children: "[Missing cross-reference]" }, key);
     }
     case "footnoteRef": {
       const noteId = String(node2.attrs?.noteId || "");
       const note = context.manuscript?.notes[noteId];
       const number = context.noteOrder.indexOf(noteId) + 1;
       if (!note || !number)
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "pub-content-warning", children: "[Missing footnote]" }, key);
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-content-warning", children: "[Missing footnote]" }, key);
       if (context.preview)
-        return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("a", { href: `#pub-note-${noteId}`, children: [
+        return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("a", { href: `#pub-note-${noteId}`, children: [
           "[",
           number,
           "]"
         ] }, key);
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
         Footnote,
         {
           noteId,
@@ -107193,54 +107471,54 @@ function renderNode(node2, key, context) {
       );
     }
     case "table":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
         "section",
         {
           className: "pub-table-scroll",
           tabIndex: 0,
           "aria-label": String(node2.attrs?.caption || "Table"),
-          children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("table", { id: labelId(node2, context), className: "pub-table", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("caption", { children: [
-              context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("strong", { children: [
+          children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("table", { id: labelId(node2, context), className: "pub-table", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("caption", { children: [
+              context.targets.get(String(node2.attrs?.id)) && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("strong", { children: [
                 context.targets.get(String(node2.attrs?.id)),
                 ". "
               ] }),
               String(node2.attrs?.caption || "")
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("tbody", { children: renderChildren(node2.content, key, context) })
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tbody", { children: renderChildren(node2.content, key, context) })
           ] })
         },
         key
       );
     case "tableRow":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("tr", { children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("tr", { children: renderChildren(node2.content, key, context) }, key);
     case "tableCell":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("td", { children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("td", { children: renderChildren(node2.content, key, context) }, key);
     case "tableHeader":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("th", { scope: "col", children: renderChildren(node2.content, key, context) }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("th", { scope: "col", children: renderChildren(node2.content, key, context) }, key);
     case "theorem":
     case "proof":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
         "section",
         {
           id: labelId(node2, context),
           className: `pub-${node2.type}`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { className: "pub-theorem-title", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("strong", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "pub-theorem-title", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("strong", { children: [
               context.targets.get(String(node2.attrs?.id)) || (node2.type === "proof" ? "Proof" : "Theorem"),
               node2.attrs?.title ? ` (${String(node2.attrs.title)})` : "",
               "."
             ] }) }),
             renderChildren(node2.content, key, context),
-            node2.type === "proof" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "pub-proof-end", "aria-label": "End of proof", children: "\u25A1" })
+            node2.type === "proof" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-proof-end", "aria-label": "End of proof", children: "\u25A1" })
           ]
         },
         key
       );
     case "bibliography":
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Bibliography, { context }, key);
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Bibliography, { context }, key);
     default:
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("output", { className: "pub-content-warning", children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("output", { className: "pub-content-warning", children: [
         "Unsupported content: ",
         node2.type,
         ". This passage needs conversion before publication."
@@ -107249,177 +107527,70 @@ function renderNode(node2, key, context) {
 }
 function Bibliography({ context }) {
   if (!context.bibliography.length) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
     "section",
     {
       className: "pub-bibliography",
       id: context.preview ? void 0 : "pub-bibliography",
       "aria-label": context.bibliographyTitle,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { children: context.bibliographyTitle }),
-        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("ol", { children: context.bibliography.map((reference) => {
-          const fields = reference.fields || {};
-          const doi = (reference.doi || fields.doi || "").replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)/i, "").trim();
-          const href2 = safeLinkUrl(reference.url) || safeLinkUrl(fields.url) || (doi ? safeLinkUrl(`https://doi.org/${doi}`) : void 0);
-          const contributors = getReferenceContributors(reference);
-          const names = contributors.names.map(
-            (author) => author.literal || `${author.family}${author.given ? `, ${author.given}` : ""}`
-          ).join("; ");
-          const byline = referenceText(
-            `${names}${contributors.abbreviated ? `${names ? "; " : ""}et al.` : ""}${contributors.role === "editor" && names ? ` (${contributors.names.length > 1 || contributors.abbreviated ? "Eds." : "Ed."})` : ""}`
-          ) || "Anonymous";
-          const title = referenceText(reference.title);
-          const venue = referenceText(
-            reference.venue || fields.journal || fields.booktitle || fields.publisher || ""
-          );
-          const volume = referenceText(fields.volume || "");
-          const issue = referenceText(fields.number || fields.issue || "");
-          const pages = referenceText(fields.pages || "");
-          const details = [
-            `${volume}${issue ? volume ? `(${issue})` : `no. ${issue}` : ""}`,
-            pages
-          ].filter(Boolean).join(", ");
-          const publisher = referenceText(fields.publisher || "");
-          const address = referenceText(fields.address || "");
-          const translators = referenceContributorNames(fields.translator || "");
-          const editors = contributors.role === "author" ? referenceContributorNames(fields.editor || "") : "";
-          const credits = translators && translators === editors ? [`Translated and edited by ${translators}`] : [
-            translators && `Translated by ${translators}`,
-            editors && `Edited by ${editors}`
-          ].filter(Boolean);
-          const edition = referenceText(fields.edition || "");
-          const series = referenceText(fields.series || "");
-          const publicationCredits = [...credits, edition, series].filter(Boolean).map((detail) => `${detail}${referenceSentenceEnding(detail)}`).join(" ");
-          const note = referenceText(fields.note || "");
-          return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-            "li",
-            {
-              id: context.preview ? void 0 : `pub-reference-${reference.id}`,
-              children: [
-                byline,
-                referenceSentenceEnding(byline),
-                ` (${referenceYear(reference, context.bibliography)}). `,
-                href2 ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-                  PublishingMediaLink,
-                  {
-                    href: href2,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    children: title
-                  }
-                ) : title,
-                referenceSentenceEnding(title),
-                publicationCredits ? ` ${publicationCredits}` : "",
-                (venue || details) && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
-                  " ",
-                  venue === publisher && address ? `${address}: ` : "",
-                  venue && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("em", { children: venue }),
-                  venue && details ? ", " : "",
-                  details,
-                  referenceSentenceEnding(details || venue)
-                ] }),
-                reference.type === "incollection" && publisher && publisher !== venue && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
-                  " ",
-                  address ? `${address}: ` : "",
-                  publisher,
-                  referenceSentenceEnding(publisher)
-                ] }),
-                note && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
-                  " ",
-                  note,
-                  referenceSentenceEnding(note)
-                ] }),
-                doi && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
-                  " ",
-                  "DOI: ",
-                  doi,
-                  referenceSentenceEnding(doi)
-                ] })
-              ]
-            },
-            reference.id
-          );
-        }) })
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { children: context.bibliographyTitle }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ol", { children: context.bibliography.map((reference) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          "li",
+          {
+            id: context.preview ? void 0 : `pub-reference-${reference.id}`,
+            children: formatApaReference(
+              reference,
+              referenceYear(reference, context.bibliography)
+            ).map(
+              (part, index2) => part.href ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                PublishingMediaLink,
+                {
+                  href: part.href,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  children: part.text
+                },
+                index2
+              ) : part.italic ? (
+                // biome-ignore lint/suspicious/noArrayIndexKey: parts are positional
+                /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("em", { children: part.text }, index2)
+              ) : part.text
+            )
+          },
+          reference.id
+        )) })
       ]
     }
   );
 }
-var SIDENOTE_GAP = 14;
 function ArticleSidenotes({
   doc,
   bodyRef
 }) {
-  const container = (0, import_react4.useRef)(null);
-  const [tops, setTops] = (0, import_react4.useState)(null);
+  const container = (0, import_react5.useRef)(null);
   const { context, manuscript } = buildRenderContext(doc);
   const notes = context.noteOrder;
-  const count = notes.length;
-  const markerKey = notes.map((id) => context.markers.get(id)?.[0] || "").join("|");
-  (0, import_react4.useEffect)(() => {
-    const aside = container.current;
-    const body = bodyRef.current;
-    const view = aside?.ownerDocument.defaultView;
-    if (!aside || !body || !view || !count) return;
-    const markerIds = markerKey.split("|");
-    let frame = 0;
-    const measure = () => {
-      frame = 0;
-      if (view.getComputedStyle(aside).display === "none") {
-        setTops(null);
-        return;
-      }
-      const origin = aside.getBoundingClientRect().top;
-      const items = Array.from(aside.children);
-      let floor = 0;
-      const next2 = markerIds.map((markerId, index2) => {
-        const marker = markerId ? body.querySelector(`#${CSS.escape(markerId)}`) : null;
-        const anchored = marker ? marker.getBoundingClientRect().top - origin - 4 : floor;
-        const top = Math.max(floor, anchored);
-        floor = top + (items[index2]?.offsetHeight || 0) + SIDENOTE_GAP;
-        return Math.round(top);
-      });
-      setTops(
-        (current) => current && current.length === next2.length && current.every((value, index2) => value === next2[index2]) ? current : next2
-      );
-    };
-    const schedule = () => {
-      if (!frame) frame = view.requestAnimationFrame(measure);
-    };
-    measure();
-    const observer = new view.ResizeObserver(schedule);
-    observer.observe(body);
-    observer.observe(aside);
-    view.addEventListener("resize", schedule);
-    void aside.ownerDocument.fonts?.ready.then(schedule);
-    return () => {
-      observer.disconnect();
-      view.removeEventListener("resize", schedule);
-      view.cancelAnimationFrame(frame);
-    };
-  }, [bodyRef, markerKey, count]);
-  if (!count) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+  useSidenotePlacement(
+    container,
+    bodyRef,
+    notes.map((id) => context.markers.get(id)?.[0] || "")
+  );
+  if (!notes.length) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "aside",
     {
       ref: container,
       className: "pub-margin-notes",
       "aria-hidden": "true",
       ...{ inert: "" },
-      children: notes.map((id, index2) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
-        "div",
-        {
-          className: `pub-sidenote${tops ? " is-placed" : ""}`,
-          style: tops ? { top: tops[index2] } : void 0,
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "pub-sidenote-number", children: index2 + 1 }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "pub-sidenote-body", children: manuscript?.notes[id] ? renderChildren(manuscript.notes[id].content, `side-${id}`, {
-              ...context,
-              preview: true
-            }) : null })
-          ]
-        },
-        id
-      ))
+      children: notes.map((id, index2) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "pub-sidenote", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-sidenote-number", children: index2 + 1 }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "pub-sidenote-body", children: manuscript?.notes[id] ? renderChildren(manuscript.notes[id].content, `side-${id}`, {
+          ...context,
+          preview: true
+        }) : null })
+      ] }, id))
     }
   );
 }
@@ -107471,11 +107642,11 @@ function ArticleRenderer({
     doc,
     contextDoc
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
     renderChildren(doc.content, "doc", context, omitOpeningTitle),
-    !contextDoc && !hasBibliography && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Bibliography, { context }),
+    !contextDoc && !hasBibliography && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Bibliography, { context }),
     !contextDoc && context.noteOrder.length > 0 && // biome-ignore lint/a11y/useValidAriaRole: DPUB-ARIA defines doc-endnotes.
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
       "section",
       {
         className: "pub-endnotes",
@@ -107483,17 +107654,17 @@ function ArticleRenderer({
         id: "pub-endnotes",
         "aria-label": "Notes",
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", { children: "Notes" }),
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("ol", { children: context.noteOrder.map((id, index2) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("li", { id: `pub-note-${id}`, tabIndex: -1, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { children: "Notes" }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("ol", { children: context.noteOrder.map((id, index2) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("li", { id: `pub-note-${id}`, tabIndex: -1, children: [
             manuscript?.notes[id] ? renderChildren(
               manuscript.notes[id].content,
               `note-${id}`,
               context
-            ) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "pub-content-warning", children: "Missing footnote" }),
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "pub-note-backlinks", children: context.markers.get(id)?.map((marker, occurrence) => (
+            ) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-content-warning", children: "Missing footnote" }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-note-backlinks", children: context.markers.get(id)?.map((marker, occurrence) => (
               // biome-ignore lint/a11y/useValidAriaRole: DPUB-ARIA defines doc-backlink as a link role.
               // biome-ignore lint/a11y/noInteractiveElementToNoninteractiveRole: DPUB-ARIA defines doc-backlink as a link role.
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
                 "a",
                 {
                   href: `#${marker}`,
@@ -107514,7 +107685,10 @@ function ArticleRenderer({
   ] });
 }
 
-// node_modules/@cimc/publishing-reader/dist/ArticleNavigation.js
+// node_modules/@cimc/publishing-reader/dist/ContentsNavigation-BWEtLFFk.js
+var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+var import_react6 = __toESM(require_react(), 1);
+var import_react_dom2 = __toESM(require_react_dom(), 1);
 var RAIL_ROW_GAP = 2;
 var RAIL_WINDOW_MIN = 10;
 function round(value) {
@@ -107712,12 +107886,12 @@ function ArticleReadingBar({
   onProgressTarget,
   onVisibilityChange
 }) {
-  const barRef = (0, import_react5.useRef)(null);
-  const [scrolled, setScrolled] = (0, import_react5.useState)(false);
-  const [menuOpen, setMenuOpen] = (0, import_react5.useState)(false);
-  const [hosted, setHosted] = (0, import_react5.useState)(false);
-  const [narrow, setNarrow] = (0, import_react5.useState)(false);
-  (0, import_react5.useEffect)(() => {
+  const barRef = (0, import_react6.useRef)(null);
+  const [scrolled, setScrolled] = (0, import_react6.useState)(false);
+  const [menuOpen, setMenuOpen] = (0, import_react6.useState)(false);
+  const [hosted, setHosted] = (0, import_react6.useState)(false);
+  const [narrow, setNarrow] = (0, import_react6.useState)(false);
+  (0, import_react6.useEffect)(() => {
     const bar = barRef.current;
     const article = articleRef.current;
     const heading = article?.querySelector(".pub-title");
@@ -107787,7 +107961,7 @@ function ArticleReadingBar({
     };
   }, [articleRef, onVisibilityChange]);
   const visible = scrolled && !menuOpen;
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
     "div",
     {
       ref: barRef,
@@ -107796,8 +107970,8 @@ function ArticleReadingBar({
       "aria-hidden": !visible,
       ...!visible ? { inert: "" } : {},
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "pub-reading-bar-inner", children: [
-          hosted ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { "aria-hidden": "true" }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "pub-reading-bar-inner", children: [
+          hosted ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { "aria-hidden": "true" }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
             "a",
             {
               className: "pub-reading-brand",
@@ -107806,7 +107980,7 @@ function ArticleReadingBar({
               children: "CIMC"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
             "button",
             {
               type: "button",
@@ -107821,90 +107995,49 @@ function ArticleReadingBar({
               children: title
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "pub-mobile-contents-slot", ref: onContentsTarget })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "pub-mobile-contents-slot", ref: onContentsTarget })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "pub-reading-progress-slot", ref: onProgressTarget })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "pub-reading-progress-slot", ref: onProgressTarget })
       ]
     }
   );
-}
-function getArticleOutline(doc) {
-  const headings = getArticleHeadings(doc);
-  const byKey = new Map(headings.map((heading) => [heading.key, heading]));
-  const bibliography = getBibliographyReferences(doc).length > 0;
-  const bibliographyTitle = getBibliographyTitle();
-  const outline = [];
-  let hasBibliography = false;
-  let hasNotes = false;
-  function visit(node2, key) {
-    const heading = byKey.get(key);
-    if (heading) outline.push(heading);
-    if (node2.type === "footnoteRef") hasNotes = true;
-    if (node2.type === "bibliography" && bibliography && !hasBibliography) {
-      outline.push({
-        id: "pub-bibliography",
-        key: "bibliography",
-        text: bibliographyTitle,
-        level: 2
-      });
-      hasBibliography = true;
-    }
-    node2.content?.forEach((child, index2) => visit(child, `${key}-${index2}`));
-  }
-  visit(doc, "doc");
-  if (bibliography && !hasBibliography)
-    outline.push({
-      id: "pub-bibliography",
-      key: "bibliography",
-      text: bibliographyTitle,
-      level: 2
-    });
-  if (hasNotes)
-    outline.push({
-      id: "pub-endnotes",
-      key: "endnotes",
-      text: "Notes",
-      level: 2
-    });
-  return outline;
 }
 var RAIL_BOTTOM_INSET = 32;
 function samePlan(a2, b) {
   const same = (x2, y2) => x2.length === y2.length && x2.every((value, index2) => value === y2[index2]);
   return a2.height === b.height && a2.windowTop === b.windowTop && a2.windowHeight === b.windowHeight && same(a2.branch, b.branch) && same(a2.tops, b.tops) && same(a2.parked, b.parked) && same(a2.ticks, b.ticks);
 }
-function ArticleNavigation({
-  doc,
+function ContentsNavigation({
+  headings,
   bodyRef,
   mobileTarget,
   progressTarget
 }) {
-  const headings = (0, import_react5.useMemo)(() => getArticleOutline(doc), [doc]);
-  const [activeId, setActiveId] = (0, import_react5.useState)("");
-  const [progress, setProgress] = (0, import_react5.useState)(0);
-  const [fraction, setFraction] = (0, import_react5.useState)(0);
-  const [rail, setRail] = (0, import_react5.useState)(null);
-  const railList = (0, import_react5.useRef)(null);
-  const railBox = (0, import_react5.useRef)(null);
-  const railExpanded = (0, import_react5.useRef)(false);
-  const requestRail = (0, import_react5.useRef)(() => {
+  const [activeId, setActiveId] = (0, import_react6.useState)("");
+  const [progress, setProgress] = (0, import_react6.useState)(0);
+  const [fraction, setFraction] = (0, import_react6.useState)(0);
+  const [rail, setRail] = (0, import_react6.useState)(null);
+  const railList = (0, import_react6.useRef)(null);
+  const railBox = (0, import_react6.useRef)(null);
+  const railExpanded = (0, import_react6.useRef)(false);
+  const requestRail = (0, import_react6.useRef)(() => {
   });
-  const activeRowShown = (0, import_react5.useRef)("");
-  const dialogId = (0, import_react5.useId)();
+  const activeRowShown = (0, import_react6.useRef)("");
+  const dialogId = (0, import_react6.useId)();
   const dialogHeadingId = `${dialogId}-heading`;
-  const mobileContents = (0, import_react5.useRef)(null);
-  const contentsButton = (0, import_react5.useRef)(null);
-  const [contentsOpen, setContentsOpen] = (0, import_react5.useState)(false);
-  const scrollLock = (0, import_react5.useRef)(
+  const mobileContents = (0, import_react6.useRef)(null);
+  const contentsButton = (0, import_react6.useRef)(null);
+  const [contentsOpen, setContentsOpen] = (0, import_react6.useState)(false);
+  const scrollLock = (0, import_react6.useRef)(
     null
   );
-  const focusAfterClose = (0, import_react5.useRef)(null);
-  const unlockScroll = (0, import_react5.useCallback)(() => {
+  const focusAfterClose = (0, import_react6.useRef)(null);
+  const unlockScroll = (0, import_react6.useCallback)(() => {
     if (!scrollLock.current) return;
     scrollLock.current.element.style.overflow = scrollLock.current.overflow;
     scrollLock.current = null;
   }, []);
-  const closeContents = (0, import_react5.useCallback)(
+  const closeContents = (0, import_react6.useCallback)(
     (focusTarget) => {
       focusAfterClose.current = focusTarget || contentsButton.current;
       unlockScroll();
@@ -107923,8 +108056,8 @@ function ArticleNavigation({
     dialog.showModal();
     setContentsOpen(true);
   }
-  (0, import_react5.useEffect)(() => () => unlockScroll(), [unlockScroll]);
-  (0, import_react5.useEffect)(() => {
+  (0, import_react6.useEffect)(() => () => unlockScroll(), [unlockScroll]);
+  (0, import_react6.useEffect)(() => {
     const body = bodyRef.current;
     const view = body?.ownerDocument.defaultView;
     const container = body?.closest(".pub-reading-view");
@@ -107952,7 +108085,7 @@ function ArticleNavigation({
       view.removeEventListener("resize", closeWhenWide);
     };
   }, [bodyRef, closeContents]);
-  (0, import_react5.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     const body = bodyRef.current;
     const view = body?.ownerDocument.defaultView;
     if (!body || !view) return;
@@ -108107,7 +108240,7 @@ function ArticleNavigation({
     }
     setActiveId(id);
   }
-  (0, import_react5.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     if (!rail) return;
     const list2 = railList.current;
     const viewport = list2?.closest(".pub-margin-contents");
@@ -108136,7 +108269,7 @@ function ArticleNavigation({
   const label = (heading) => heading.appendix ? `Appendix ${heading.appendix} \u2014 ${heading.text}` : heading.text;
   const list = (mobile) => {
     const plan = mobile ? null : rail;
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
       "ol",
       {
         className: `pub-contents-list${plan ? " is-proportional" : ""}`,
@@ -108158,7 +108291,7 @@ function ArticleNavigation({
             plan?.branch.includes(index2) ? "is-current-branch" : "",
             unlabelled ? "is-unlabelled" : ""
           ].filter(Boolean).join(" ");
-          return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+          return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
             "li",
             {
               "aria-level": heading.level - 1,
@@ -108170,8 +108303,8 @@ function ArticleNavigation({
                 "--pub-contents-indent": `${heading.level > 2 ? Math.min(76, 32 + (heading.level - 3) * 20) : 0}px`
               },
               children: [
-                index2 === firstAppendix && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "pub-contents-heading pub-appendices-heading", children: "Appendices" }),
-                /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+                index2 === firstAppendix && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "pub-contents-heading pub-appendices-heading", children: "Appendices" }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
                   "a",
                   {
                     href: `#${heading.id}`,
@@ -108180,9 +108313,9 @@ function ArticleNavigation({
                     tabIndex: unlabelled ? -1 : void 0,
                     onClick: (event) => navigate(event, heading.id, mobile),
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-mark", "aria-hidden": "true" }),
-                      heading.level === 2 && !isBackMatter(heading) && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-number", "aria-hidden": "true", children: numbers[index2] }),
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "pub-contents-mark", "aria-hidden": "true" }),
+                      heading.level === 2 && !isBackMatter(heading) && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "pub-contents-number", "aria-hidden": "true", children: numbers[index2] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                         "span",
                         {
                           className: "pub-contents-text",
@@ -108201,10 +108334,10 @@ function ArticleNavigation({
       }
     );
   };
-  const ticks = rail && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "pub-contents-ticks", children: headings.map((heading, index2) => {
+  const ticks = rail && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "pub-contents-ticks", children: headings.map((heading, index2) => {
     const top = rail.ticks[index2];
     if (top === null) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
       "a",
       {
         href: `#${heading.id}`,
@@ -108213,12 +108346,12 @@ function ArticleNavigation({
         "aria-current": activeId === heading.id ? "location" : void 0,
         title: heading.text,
         onClick: (event) => navigate(event, heading.id, false),
-        children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-sr-only", children: label(heading) })
+        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "pub-sr-only", children: label(heading) })
       },
       heading.id
     );
   }) });
-  const mobileMenu = /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "pub-mobile-contents", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+  const mobileMenu = /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "pub-mobile-contents", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
     "button",
     {
       ref: contentsButton,
@@ -108230,13 +108363,13 @@ function ArticleNavigation({
       onClick: openContents,
       children: [
         "Contents ",
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { "aria-hidden": "true", children: "\u2630" })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { "aria-hidden": "true", children: "\u2630" })
       ]
     }
   ) });
   const contentsDialog = (
     // biome-ignore lint/a11y/useKeyWithClickEvents: Escape is handled by onCancel.
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
       "dialog",
       {
         ref: mobileContents,
@@ -108262,9 +108395,9 @@ function ArticleNavigation({
             closeContents();
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "pub-contents-dialog-header", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { id: dialogHeadingId, children: "Contents" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "pub-contents-dialog-header", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { id: dialogHeadingId, children: "Contents" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
               "button",
               {
                 type: "button",
@@ -108272,25 +108405,25 @@ function ArticleNavigation({
                 onClick: () => closeContents(),
                 children: [
                   "Close ",
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { "aria-hidden": "true", children: "\xD7" })
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { "aria-hidden": "true", children: "\xD7" })
                 ]
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("nav", { "aria-label": "Contents", children: list(true) })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("nav", { "aria-label": "Contents", children: list(true) })
         ]
       }
     )
   );
-  const fill = /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+  const fill = /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     "span",
     {
       className: "pub-reading-progress-fill",
       style: { width: `${(fraction * 100).toFixed(1)}%` }
     }
   );
-  const progressBar = /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+  const progressBar = /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
       "progress",
       {
         className: "pub-reading-progress pub-sr-only",
@@ -108301,10 +108434,10 @@ function ArticleNavigation({
     ),
     fill
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
     progressTarget ? (0, import_react_dom2.createPortal)(progressBar, progressTarget) : progressBar,
-    headings.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    headings.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
         "aside",
         {
           className: "pub-margin-contents",
@@ -108320,17 +108453,17 @@ function ArticleNavigation({
             if (!event.currentTarget.contains(next2) && !event.currentTarget.matches(":hover"))
               expandRail(false);
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("nav", { "aria-label": "Contents", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "pub-contents-heading", children: "Contents" }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("nav", { "aria-label": "Contents", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "pub-contents-heading", children: "Contents" }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
               "div",
               {
                 className: "pub-contents-rail",
                 ref: railBox,
                 style: rail ? { height: rail.height } : void 0,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "pub-contents-line", "aria-hidden": "true" }),
-                  rail && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "pub-contents-line", "aria-hidden": "true" }),
+                  rail && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                     "span",
                     {
                       className: "pub-contents-window",
@@ -108343,7 +108476,7 @@ function ArticleNavigation({
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
               "a",
               {
                 className: "pub-back-to-top",
@@ -108361,12 +108494,61 @@ function ArticleNavigation({
   ] });
 }
 
+// node_modules/@cimc/publishing-reader/dist/ArticleNavigation.js
+function getArticleOutline(doc) {
+  const headings = getArticleHeadings(doc);
+  const byKey = new Map(headings.map((heading) => [heading.key, heading]));
+  const bibliography = getBibliographyReferences(doc).length > 0;
+  const bibliographyTitle = getBibliographyTitle();
+  const outline = [];
+  let hasBibliography = false;
+  let hasNotes = false;
+  function visit(node2, key) {
+    const heading = byKey.get(key);
+    if (heading) outline.push(heading);
+    if (node2.type === "footnoteRef") hasNotes = true;
+    if (node2.type === "bibliography" && bibliography && !hasBibliography) {
+      outline.push({
+        id: "pub-bibliography",
+        key: "bibliography",
+        text: bibliographyTitle,
+        level: 2
+      });
+      hasBibliography = true;
+    }
+    node2.content?.forEach((child, index2) => visit(child, `${key}-${index2}`));
+  }
+  visit(doc, "doc");
+  if (bibliography && !hasBibliography)
+    outline.push({
+      id: "pub-bibliography",
+      key: "bibliography",
+      text: bibliographyTitle,
+      level: 2
+    });
+  if (hasNotes)
+    outline.push({
+      id: "pub-endnotes",
+      key: "endnotes",
+      text: "Notes",
+      level: 2
+    });
+  return outline;
+}
+function ArticleNavigation({
+  doc,
+  ...props
+}) {
+  const headings = (0, import_react7.useMemo)(() => getArticleOutline(doc), [doc]);
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ContentsNavigation, { headings, ...props });
+}
+
 // node_modules/@cimc/publishing-reader/dist/ArticleReadingView.js
-var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
-var import_react9 = __toESM(require_react(), 1);
+var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+var import_react11 = __toESM(require_react(), 1);
 
 // node_modules/@cimc/publishing-reader/dist/ArticleHeader.js
-var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
 var import_react_router_dom = __toESM(require_dist2(), 1);
 function formatPubDate(iso) {
   const [y2, m2, d] = iso.split("-").map(Number);
@@ -108395,12 +108577,12 @@ function ArticleHeader({
     heroImage
   } = meta;
   const heroSrc = safeMediaUrl(heroImage);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("header", { className: "pub-article-header", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { className: "pub-title", children: title }),
-    subtitle && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "pub-subtitle", children: subtitle }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "pub-byline", children: authors.map((author, i2) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "pub-author", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "pub-article-header", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "pub-title", children: title }),
+    subtitle && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "pub-subtitle", children: subtitle }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "pub-byline", children: authors.map((author, i2) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "pub-author", children: [
       i2 > 0 && ", ",
-      safeLinkUrl(author.url) ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      safeLinkUrl(author.url) ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
         PublishingMediaLink,
         {
           href: safeLinkUrl(author.url),
@@ -108409,27 +108591,27 @@ function ArticleHeader({
           children: author.name
         }
       ) : author.name,
-      author.affiliation && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "pub-author-affiliation", children: [
+      author.affiliation && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "pub-author-affiliation", children: [
         " ",
         "(",
         author.affiliation,
         ")"
       ] })
     ] }, `${author.name}-${i2}`)) }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "pub-meta-row", children: [
-      preview ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: "Draft preview" }) : publishedAt ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("time", { dateTime: publishedAt, children: formatPubDate(publishedAt) }) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pub-meta-row", children: [
+      preview ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Draft preview" }) : publishedAt ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("time", { dateTime: publishedAt, children: formatPubDate(publishedAt) }) : null,
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
         " \xB7 ",
         readingTimeMin,
         " min read"
       ] }),
-      !preview && updatedAt && updatedAt !== publishedAt && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
+      !preview && updatedAt && updatedAt !== publishedAt && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
         " \xB7 Updated ",
         formatPubDate(updatedAt)
       ] })
     ] }),
-    tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "pub-tags", children: tags.map(
-      (tag) => linkTags ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "pub-tags", children: tags.map(
+      (tag) => linkTags ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
         import_react_router_dom.Link,
         {
           to: `${PUB_BASE_PATH}?tag=${encodeURIComponent(tag)}`,
@@ -108437,9 +108619,9 @@ function ArticleHeader({
           children: tag
         },
         tag
-      ) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "pub-tag", children: tag }, tag)
+      ) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "pub-tag", children: tag }, tag)
     ) }),
-    heroSrc && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    heroSrc && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
       PublishingImage,
       {
         className: "pub-hero",
@@ -108452,8 +108634,8 @@ function ArticleHeader({
 }
 
 // node_modules/@cimc/publishing-reader/dist/ArticleResources.js
-var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
-var import_react6 = __toESM(require_react(), 1);
+var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+var import_react8 = __toESM(require_react(), 1);
 
 // node_modules/@cimc/publishing-reader/dist/resourceLinks.js
 function canonicalPdfUrl(filename) {
@@ -108489,8 +108671,8 @@ function CanonicalPdf({
 }) {
   const pdf = getManuscript(doc)?.pdf;
   const external = safeArticleResourceUrl(externalUrl);
-  const [busy, setBusy] = (0, import_react6.useState)(false);
-  const [error, setError] = (0, import_react6.useState)("");
+  const [busy, setBusy] = (0, import_react8.useState)(false);
+  const [error, setError] = (0, import_react8.useState)("");
   if (externalUrl && !external) return null;
   const href2 = external || (pdf && !preview && !resolvePdfUrl ? canonicalPdfUrl(pdf.filename) : void 0);
   if (!href2 && !(pdf && resolvePdfUrl)) return null;
@@ -108517,8 +108699,8 @@ function CanonicalPdf({
       setBusy(false);
     }
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "pub-pdf-actions", children: [
-    href2 ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "pub-pdf-actions", children: [
+    href2 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
       "a",
       {
         className: "pub-resource-link",
@@ -108527,10 +108709,10 @@ function CanonicalPdf({
         rel: "noopener noreferrer",
         children: [
           "PDF ",
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { "aria-hidden": "true", children: "\u2197" })
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { "aria-hidden": "true", children: "\u2197" })
         ]
       }
-    ) : /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    ) : /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
       "button",
       {
         type: "button",
@@ -108540,11 +108722,11 @@ function CanonicalPdf({
         children: [
           busy ? "Opening PDF\u2026" : "PDF",
           " ",
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { "aria-hidden": "true", children: "\u2197" })
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { "aria-hidden": "true", children: "\u2197" })
         ]
       }
     ),
-    error && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "pub-resource-error", role: "alert", children: error })
+    error && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { className: "pub-resource-error", role: "alert", children: error })
   ] });
 }
 var destinations = [
@@ -108568,8 +108750,8 @@ function ArticleResources({
     if (disclosure) disclosure.open = true;
     citation.focus({ preventScroll: true });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "pub-resource-bar", "aria-label": "Article resources", children: [
-    meta.resources?.pdf?.enabled !== false && (!preview || resolvePdfUrl || meta.resources?.pdf?.url) && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "pub-resource-bar", "aria-label": "Article resources", children: [
+    meta.resources?.pdf?.enabled !== false && (!preview || resolvePdfUrl || meta.resources?.pdf?.url) && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
       CanonicalPdf,
       {
         doc,
@@ -108581,7 +108763,7 @@ function ArticleResources({
     destinations.map(([key, label]) => {
       const resource = meta.resources?.[key];
       const href2 = resource?.enabled ? safeArticleResourceUrl(resource.url) : void 0;
-      return href2 ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+      return href2 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
         "a",
         {
           className: "pub-resource-link",
@@ -108591,13 +108773,13 @@ function ArticleResources({
           children: [
             label,
             " ",
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { "aria-hidden": "true", children: "\u2197" })
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { "aria-hidden": "true", children: "\u2197" })
           ]
         },
         key
       ) : null;
     }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
       "a",
       {
         className: "pub-resource-link pub-resource-cite",
@@ -108605,7 +108787,7 @@ function ArticleResources({
         onClick: revealCitation,
         children: [
           "Cite this article ",
-          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { "aria-hidden": "true", children: "\u2193" })
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { "aria-hidden": "true", children: "\u2193" })
         ]
       }
     )
@@ -108613,8 +108795,8 @@ function ArticleResources({
 }
 
 // node_modules/@cimc/publishing-reader/dist/CiteBlock.js
-var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
-var import_react7 = __toESM(require_react(), 1);
+var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+var import_react9 = __toESM(require_react(), 1);
 function cleanText(value) {
   return Array.from(
     value,
@@ -108690,28 +108872,28 @@ function CopyCitation({
   label,
   format
 }) {
-  const [state, setState] = (0, import_react7.useState)(
+  const [state, setState] = (0, import_react9.useState)(
     "idle"
   );
-  const fallbackId = (0, import_react7.useId)();
-  const textarea = (0, import_react7.useRef)(null);
-  const button = (0, import_react7.useRef)(null);
-  const latestText = (0, import_react7.useRef)(text2);
+  const fallbackId = (0, import_react9.useId)();
+  const textarea = (0, import_react9.useRef)(null);
+  const button = (0, import_react9.useRef)(null);
+  const latestText = (0, import_react9.useRef)(text2);
   latestText.current = text2;
-  const timer = (0, import_react7.useRef)();
-  const mounted = (0, import_react7.useRef)(true);
-  (0, import_react7.useEffect)(() => {
+  const timer = (0, import_react9.useRef)();
+  const mounted = (0, import_react9.useRef)(true);
+  (0, import_react9.useEffect)(() => {
     mounted.current = true;
     return () => {
       mounted.current = false;
       clearTimeout(timer.current);
     };
   }, []);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (latestText.current === text2) setState("idle");
     clearTimeout(timer.current);
   }, [text2]);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (state !== "manual") return;
     textarea.current?.focus();
     textarea.current?.select();
@@ -108727,9 +108909,9 @@ function CopyCitation({
     setState(copied ? "copied" : "manual");
     if (copied) timer.current = setTimeout(() => setState("idle"), 3e3);
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pub-cite-copy", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pub-cite-actions", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-cite-copy", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-cite-actions", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "button",
         {
           ref: button,
@@ -108741,14 +108923,14 @@ function CopyCitation({
           children: state === "copied" ? "Copied \u2713" : state === "copying" ? "Copying\u2026" : label
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("output", { className: "pub-cite-feedback", "aria-live": "polite", children: state === "copied" ? `${format} copied.` : "" })
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("output", { className: "pub-cite-feedback", "aria-live": "polite", children: state === "copied" ? `${format} copied.` : "" })
     ] }),
-    state === "manual" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pub-cite-manual", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { id: fallbackId, "aria-live": "polite", children: "Automatic copying is unavailable. Select and copy the text below." }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("label", { children: [
+    state === "manual" && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-cite-manual", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { id: fallbackId, "aria-live": "polite", children: "Automatic copying is unavailable. Select and copy the text below." }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("label", { children: [
         format,
         " to copy",
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "textarea",
           {
             ref: textarea,
@@ -108768,8 +108950,8 @@ function CiteBlock({
   preview = false
 }) {
   const { plain, bibtex } = buildArticleCitation(meta, preview);
-  const details = (0, import_react7.useRef)(null);
-  (0, import_react7.useEffect)(() => {
+  const details = (0, import_react9.useRef)(null);
+  (0, import_react9.useEffect)(() => {
     const window2 = details.current?.ownerDocument.defaultView;
     if (!window2) return;
     const showLinkedCitation = () => {
@@ -108780,36 +108962,72 @@ function CiteBlock({
     window2.addEventListener("hashchange", showLinkedCitation);
     return () => window2.removeEventListener("hashchange", showLinkedCitation);
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
     "section",
     {
       id: "pub-cite",
       className: "pub-cite",
       "aria-labelledby": "pub-cite-heading",
       tabIndex: -1,
-      children: /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("details", { ref: details, className: "pub-cite-panel", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("summary", { className: "pub-cite-summary", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h2", { id: "pub-cite-heading", className: "pub-cite-heading", children: "Cite this article" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "pub-cite-summary-hint", children: "Citation & BibTeX" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "pub-cite-chevron", "aria-hidden": "true", children: "+" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("details", { ref: details, className: "pub-cite-panel", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("summary", { className: "pub-cite-summary", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h2", { id: "pub-cite-heading", className: "pub-cite-heading", children: "Cite this article" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "pub-cite-summary-hint", children: "Citation & BibTeX" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "pub-cite-chevron", "aria-hidden": "true", children: "+" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pub-cite-content", children: [
-          preview && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "pub-cite-preview-note", children: "Draft citation preview. The publication date and final article address will be confirmed when published." }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { className: "pub-cite-plain", children: plain }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CopyCitation, { text: plain, label: "Copy citation", format: "Citation" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h3", { className: "pub-cite-format-heading", children: "BibTeX" }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("pre", { className: "pub-cite-bibtex", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("code", { children: bibtex }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(CopyCitation, { text: bibtex, label: "Copy BibTeX", format: "BibTeX" })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-cite-content", children: [
+          preview && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "pub-cite-preview-note", children: "Draft citation preview. The publication date and final article address will be confirmed when published." }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { className: "pub-cite-plain", children: plain }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CopyCitation, { text: plain, label: "Copy citation", format: "Citation" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h3", { className: "pub-cite-format-heading", children: "BibTeX" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("pre", { className: "pub-cite-bibtex", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: bibtex }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(CopyCitation, { text: bibtex, label: "Copy BibTeX", format: "BibTeX" })
         ] })
       ] })
     }
   );
 }
 
+// node_modules/@cimc/publishing-reader/dist/Sunburst-BoHx6RXv.js
+var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+var angles = Array.from({ length: 36 }, (_2, index2) => index2 * 5);
+function Sunburst({ className }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    "svg",
+    {
+      className,
+      viewBox: "-50 -50 100 100",
+      "aria-hidden": "true",
+      focusable: "false",
+      children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("g", { fill: "none", stroke: "currentColor", children: angles.map((angle) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        "line",
+        {
+          y1: "-50",
+          y2: "50",
+          transform: angle ? `rotate(${angle})` : void 0
+        },
+        angle
+      )) })
+    }
+  );
+}
+function SunBand({ setting = false }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    "div",
+    {
+      className: `pub-sun-band ${setting ? "pub-sun-band-set" : "pub-sun-band-rise"}`,
+      "aria-hidden": "true",
+      children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "pub-sunburst-wrap", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Sunburst, { className: "pub-sunburst" }) })
+    }
+  );
+}
+
 // node_modules/@cimc/publishing-reader/dist/WebEditionFrame.js
-var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
-var import_react8 = __toESM(require_react(), 1);
+var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+var import_react10 = __toESM(require_react(), 1);
 var import_react_dom3 = __toESM(require_react_dom(), 1);
+
+// node_modules/@cimc/publishing-reader/dist/index-BYExPzQP.js
 var UNDEFINED_CODE_POINTS = /* @__PURE__ */ new Set([
   65534,
   65535,
@@ -116705,6 +116923,18 @@ function serializeDocumentTypeNode(node2, { treeAdapter }) {
 function parse3(html, options) {
   return Parser2.parse(html, options);
 }
+function parseFragment(fragmentContext, html, options) {
+  if (typeof fragmentContext === "string") {
+    options = html;
+    html = fragmentContext;
+    fragmentContext = null;
+  }
+  const parser = Parser2.getFragmentParser(fragmentContext, options);
+  parser.tokenizer.write(html, true);
+  return parser.getFragment();
+}
+
+// node_modules/@cimc/publishing-reader/dist/WebEditionFrame.js
 function prepareWebEditionHtml(html, nonce, publicPdf, hosted = false, scrollToken) {
   if (new TextEncoder().encode(html).length > WEB_EDITION_MAX_BYTES)
     throw new Error("The web edition exceeds the supported size.");
@@ -116814,13 +117044,13 @@ function WebEditionFrame({
   publicPdf,
   hosted = false
 }) {
-  const container = (0, import_react8.useRef)(null);
-  const frame = (0, import_react8.useRef)(null);
-  const [state, setState] = (0, import_react8.useState)({});
-  const [retry, setRetry] = (0, import_react8.useState)(0);
-  const [expanded, setExpanded] = (0, import_react8.useState)(false);
-  const [scrollToken] = (0, import_react8.useState)(() => crypto.randomUUID());
-  (0, import_react8.useEffect)(() => {
+  const container = (0, import_react10.useRef)(null);
+  const frame = (0, import_react10.useRef)(null);
+  const [state, setState] = (0, import_react10.useState)({});
+  const [retry, setRetry] = (0, import_react10.useState)(0);
+  const [expanded, setExpanded] = (0, import_react10.useState)(false);
+  const [scrollToken] = (0, import_react10.useState)(() => crypto.randomUUID());
+  (0, import_react10.useEffect)(() => {
     let cancelled = false;
     setState({});
     Promise.resolve().then(() => {
@@ -116858,7 +117088,7 @@ function WebEditionFrame({
     hosted,
     scrollToken
   ]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     const section = container.current;
     const view2 = section?.ownerDocument.defaultView;
     if (!hosted || !section || !view2 || expanded) return;
@@ -116917,7 +117147,7 @@ function WebEditionFrame({
       }
     };
   }, [hosted, expanded, scrollToken]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (!expanded) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -116933,7 +117163,7 @@ function WebEditionFrame({
       document.removeEventListener("keydown", closeOnEscape);
     };
   }, [expanded]);
-  const view = /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+  const view = /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
     "section",
     {
       ref: container,
@@ -116948,7 +117178,7 @@ function WebEditionFrame({
         flexDirection: "column"
       } : { width: "100%" },
       children: [
-        controls && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        controls && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "div",
           {
             style: {
@@ -116958,7 +117188,7 @@ function WebEditionFrame({
               padding: "0.5rem",
               background: "#fff"
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
               "button",
               {
                 type: "button",
@@ -116970,9 +117200,9 @@ function WebEditionFrame({
             )
           }
         ),
-        state.error ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { role: "alert", style: { padding: "2rem" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { children: state.error }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        state.error ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { role: "alert", style: { padding: "2rem" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { children: state.error }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "button",
             {
               type: "button",
@@ -116981,7 +117211,7 @@ function WebEditionFrame({
               children: "Try again"
             }
           )
-        ] }) : state.html ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        ] }) : state.html ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "iframe",
           {
             ref: frame,
@@ -117000,7 +117230,7 @@ function WebEditionFrame({
               background: "#fff"
             }
           }
-        ) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("output", { style: { display: "block", padding: "2rem" }, children: "Loading custom web edition\u2026" })
+        ) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("output", { style: { display: "block", padding: "2rem" }, children: "Loading custom web edition\u2026" })
       ]
     }
   );
@@ -117008,37 +117238,6 @@ function WebEditionFrame({
 }
 
 // node_modules/@cimc/publishing-reader/dist/ArticleReadingView.js
-var angles = Array.from({ length: 36 }, (_2, index2) => index2 * 5);
-function Sunburst({ className }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-    "svg",
-    {
-      className,
-      viewBox: "-50 -50 100 100",
-      "aria-hidden": "true",
-      focusable: "false",
-      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("g", { fill: "none", stroke: "currentColor", children: angles.map((angle) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-        "line",
-        {
-          y1: "-50",
-          y2: "50",
-          transform: angle ? `rotate(${angle})` : void 0
-        },
-        angle
-      )) })
-    }
-  );
-}
-function SunBand({ setting = false }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-    "div",
-    {
-      className: `pub-sun-band ${setting ? "pub-sun-band-set" : "pub-sun-band-rise"}`,
-      "aria-hidden": "true",
-      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "pub-sunburst-wrap", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Sunburst, { className: "pub-sunburst" }) })
-    }
-  );
-}
 function hasRepeatedOpeningTitle(meta, doc) {
   const provenance = getManuscript(doc)?.provenance;
   if (provenance?.mode !== "external" && !/(?:\bimport(?:;|:|$)|^(?:latex|markdown|docx|google-docs):)/i.test(
@@ -117073,33 +117272,33 @@ function ArticleReadingView({
   loadWebEdition,
   citationAuthors
 }) {
-  const articleRef = (0, import_react9.useRef)(null);
-  const bodyRef = (0, import_react9.useRef)(null);
-  const [readingBarVisible, setReadingBarVisible] = (0, import_react9.useState)(false);
-  const [inlineContentsTarget, setInlineContentsTarget] = (0, import_react9.useState)(null);
-  const [contentsTarget, setContentsTarget] = (0, import_react9.useState)(
+  const articleRef = (0, import_react11.useRef)(null);
+  const bodyRef = (0, import_react11.useRef)(null);
+  const [readingBarVisible, setReadingBarVisible] = (0, import_react11.useState)(false);
+  const [inlineContentsTarget, setInlineContentsTarget] = (0, import_react11.useState)(null);
+  const [contentsTarget, setContentsTarget] = (0, import_react11.useState)(
     null
   );
-  const [progressTarget, setProgressTarget] = (0, import_react9.useState)(
+  const [progressTarget, setProgressTarget] = (0, import_react11.useState)(
     null
   );
   let webEdition;
   try {
     webEdition = getWebEdition(doc);
   } catch (error) {
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("article", { className: "pub-article pub-reading-view", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { role: "alert", children: error instanceof Error ? error.message : "This custom web edition is invalid." }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("article", { className: "pub-article pub-reading-view", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { role: "alert", children: error instanceof Error ? error.message : "This custom web edition is invalid." }) });
   }
   if (webEdition) {
     const pdf = getManuscript(doc)?.pdf;
     const publicPdfUrl = pdf && !preview && !resolvePdfUrl ? canonicalPdfUrl(pdf.filename) : void 0;
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
       "article",
       {
         className: "pub-article pub-reading-view pub-custom-web-reading-view",
         id: "pub-article-top",
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "pub-custom-web-toolbar", children: beforeHeader }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "pub-custom-web-toolbar", children: beforeHeader }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
             WebEditionFrame,
             {
               edition: webEdition,
@@ -117110,15 +117309,15 @@ function ArticleReadingView({
               publicPdf: pdf && publicPdfUrl ? { filename: pdf.filename, url: publicPdfUrl } : void 0
             }
           ),
-          children && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "pub-reading-after", children })
+          children && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "pub-reading-after", children })
         ]
       }
     );
   }
   const hasContents = getArticleOutline(doc).length > 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-reading-shell", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(SunBand, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "pub-reading-shell", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(SunBand, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
       ArticleReadingBar,
       {
         title: meta.title,
@@ -117128,17 +117327,17 @@ function ArticleReadingView({
         onVisibilityChange: setReadingBarVisible
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
       "article",
       {
         ref: articleRef,
         className: "pub-article pub-reading-view",
         id: "pub-article-top",
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "pub-reading-header-grid", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-reading-header", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "pub-reading-header-grid", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "pub-reading-header", children: [
             beforeHeader,
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ArticleHeader, { meta, linkTags: !preview, preview }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ArticleHeader, { meta, linkTags: !preview, preview }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
               ArticleResources,
               {
                 meta,
@@ -117147,7 +117346,7 @@ function ArticleReadingView({
                 resolvePdfUrl
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
               "div",
               {
                 className: `pub-inline-contents-slot${readingBarVisible && hasContents ? " is-in-reading-bar" : ""}`,
@@ -117155,8 +117354,8 @@ function ArticleReadingView({
               }
             )
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-reading-layout", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "pub-reading-layout", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
               ArticleNavigation,
               {
                 doc,
@@ -117165,35 +117364,127 @@ function ArticleReadingView({
                 progressTarget
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "pub-reading-content", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "pub-article-body", ref: bodyRef, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "pub-reading-content", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "pub-article-body", ref: bodyRef, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 ArticleRenderer,
                 {
                   doc,
                   omitOpeningTitle: hasRepeatedOpeningTitle(meta, doc)
                 }
               ) }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 CiteBlock,
                 {
-                  meta: citationAuthors ? { ...meta, authors: citationAuthors } : meta,
+                  meta: {
+                    ...meta,
+                    authors: citationAuthors ?? citationAuthorsOf(meta)
+                  },
                   preview
                 }
               )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ArticleSidenotes, { doc, bodyRef })
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ArticleSidenotes, { doc, bodyRef })
           ] })
         ]
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(SunBand, { setting: true }),
-    children && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "pub-reading-view pub-reading-after", children })
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(SunBand, { setting: true }),
+    children && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "pub-reading-view pub-reading-after", children })
   ] });
 }
 
 // .static-renderer/render.js
 var React14 = __toESM(require_react(), 1);
-var import_react10 = __toESM(require_react(), 1);
+var import_react12 = __toESM(require_react(), 1);
+
+// node_modules/@cimc/publishing-reader/dist/storedRendering.js
+var STORED_RENDERING_MAX_BYTES = 8 * 1024 * 1024;
+var FORBIDDEN = /* @__PURE__ */ new Set([
+  "script",
+  "base",
+  "meta",
+  "link",
+  "style",
+  "object",
+  "embed",
+  "applet",
+  "frame",
+  "frameset",
+  "form",
+  "noscript",
+  "template"
+]);
+var URL_ATTRIBUTES = /* @__PURE__ */ new Set([
+  "href",
+  "src",
+  "action",
+  "formaction",
+  "xlink:href",
+  "poster",
+  "srcset"
+]);
+function safeUrl2(value) {
+  const compact = value.replace(/[\u0000- \u007f]/g, "").toLowerCase();
+  return !/^(?:javascript|vbscript|data|blob|file):/.test(compact);
+}
+function checkStoredRendering(html) {
+  if (new TextEncoder().encode(html).length > STORED_RENDERING_MAX_BYTES)
+    throw new Error("The stored rendering is too large.");
+  const fragment = parseFragment(html);
+  const top = fragment.childNodes.filter(
+    (node2) => !("value" in node2 && node2.nodeName === "#text" && !node2.value.trim())
+  );
+  const [island, script2] = top;
+  const attr = (element, name) => element.attrs.find((item) => item.name === name)?.value;
+  if (top.length !== 2 || island?.tagName !== "div" || attr(island, "class") !== "pub-article-island" || script2?.tagName !== "script" || attr(script2, "type") !== "application/json" || attr(script2, "class") !== "pub-island-data" || script2.attrs.length !== 2)
+    throw new Error(
+      "The stored rendering does not have the reader's structure."
+    );
+  const readerVersion = attr(island, "data-reader-version") || "";
+  if (!/^\d{1,4}\.\d{1,4}\.\d{1,6}$/.test(readerVersion))
+    throw new Error("The stored rendering has no valid reader version.");
+  let data2;
+  try {
+    const text2 = script2.childNodes.map((node2) => "value" in node2 ? node2.value : "").join("");
+    data2 = JSON.parse(text2);
+  } catch {
+    throw new Error("The stored rendering's island data is invalid.");
+  }
+  if (!data2 || data2.readerVersion !== readerVersion || typeof data2.siteOrigin !== "string" || !Array.isArray(data2.headings) || !data2.citationMeta || typeof data2.citationMeta.title !== "string")
+    throw new Error("The stored rendering's island data is invalid.");
+  const visit = (node2) => {
+    if (!("tagName" in node2)) return;
+    const name = node2.tagName;
+    if (FORBIDDEN.has(name))
+      throw new Error(`The stored rendering contains a <${name}> element.`);
+    for (const { name: attribute, value } of node2.attrs) {
+      const lower = attribute.toLowerCase();
+      if (lower.startsWith("on"))
+        throw new Error("The stored rendering contains an event handler.");
+      if (URL_ATTRIBUTES.has(lower) && !safeUrl2(value))
+        throw new Error("The stored rendering contains an executable URL.");
+      if (lower === "style" && /expression\s*\(|url\s*\(\s*['"]?\s*javascript:/i.test(value))
+        throw new Error("The stored rendering contains executable styling.");
+    }
+    if (name === "iframe") {
+      const sandbox = attr(node2, "sandbox");
+      if (sandbox === void 0 || sandbox.trim().split(/\s+/).some((token2) => token2 && token2 !== "allow-scripts"))
+        throw new Error("The stored rendering contains an unsandboxed frame.");
+      if (attr(node2, "srcdoc") !== void 0)
+        throw new Error(
+          "The stored rendering contains an inline frame document."
+        );
+    }
+    for (const child of node2.childNodes) visit(child);
+    if ("content" in node2)
+      for (const child of node2.content.childNodes)
+        visit(child);
+  };
+  visit(island);
+  return { readerVersion, data: data2 };
+}
+
+// .static-renderer/render.js
 var SvgCimcWordmark = (props, ref) => /* @__PURE__ */ React14.createElement("svg", { id: "svg2", width: 728.68225, height: 216.94318, viewBox: "0 0 728.68225 216.94318", "sodipodi:docname": "CIMC_KH_05.pdf", "xmlns:inkscape": "http://www.inkscape.org/namespaces/inkscape", "xmlns:sodipodi": "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd", xmlns: "http://www.w3.org/2000/svg", "xmlns:svg": "http://www.w3.org/2000/svg", ref, ...props }, /* @__PURE__ */ React14.createElement("defs", { id: "defs6" }, /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath352" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path350" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath376" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path374" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath392" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path390" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath416" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path414" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath436" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path434" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath452" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path450" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath468" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path466" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath532" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path530" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath564" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path562" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath580" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path578" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath600" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path598" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath636" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path634" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath668" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path666" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath748" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path746" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath860" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path858" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath884" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path882" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath904" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path902" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath924" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path922" })), /* @__PURE__ */ React14.createElement("clipPath", { clipPathUnits: "userSpaceOnUse", id: "clipPath940" }, /* @__PURE__ */ React14.createElement("path", { d: "M 0,0 H 595.276 V 3203.15 H 0 Z", id: "path938" }))), /* @__PURE__ */ React14.createElement("sodipodi:namedview", { id: "namedview4", pagecolor: "#ffffff", bordercolor: "#000000", borderopacity: 0.25, "inkscape:showpageshadow": 2, "inkscape:pageopacity": 0, "inkscape:pagecheckerboard": 0, "inkscape:deskcolor": "#d1d1d1", showgrid: "false" }), /* @__PURE__ */ React14.createElement("g", { id: "g10", "inkscape:groupmode": "layer", "inkscape:label": "Page 1", transform: "matrix(1.3333333,0,0,-1.3333333,-32.509464,3817.8544)" }, /* @__PURE__ */ React14.createElement("g", { id: "g346" }, /* @__PURE__ */ React14.createElement("g", { id: "g348", clipPath: "url(#clipPath352)" }, /* @__PURE__ */ React14.createElement("g", { id: "g354", transform: "translate(432.104,2826.9644)" }, /* @__PURE__ */ React14.createElement("path", { d: "m 0,0 19.269,-12.271 c 0.488,0.718 0.99,1.426 1.51,2.12 L 2.669,3.748 C 1.745,2.525 0.854,1.275 0,0", style: {
   fill: "currentColor",
   fillOpacity: 1,
@@ -117765,7 +118056,7 @@ var SvgCimcWordmark = (props, ref) => /* @__PURE__ */ React14.createElement("svg
   fillRule: "nonzero",
   stroke: "none"
 }, id: "path952" }))));
-var ForwardRef$1 = (0, import_react10.forwardRef)(SvgCimcWordmark);
+var ForwardRef$1 = (0, import_react12.forwardRef)(SvgCimcWordmark);
 var LogoContainer = dt.div.withConfig({
   displayName: "CIMCWordmark__LogoContainer",
   componentId: "sc-11sbkhs-0"
@@ -117783,24 +118074,24 @@ function CIMCWordmark({
   width = 215,
   className
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LogoContainer, { $width: width, $color: color, className, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ForwardRef$1, {}) });
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LogoContainer, { $width: width, $color: color, className, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(ForwardRef$1, {}) });
 }
-var LinkedInIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("title", { children: "LinkedIn" }),
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("g", { clipPath: "url(#clip0_6_34977)", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("path", { d: "M22.2234 0.964844H1.77187C0.792187 0.964844 0 1.73828 0 2.69453V23.2305C0 24.1867 0.792187 24.9648 1.77187 24.9648H22.2234C23.2031 24.9648 24 24.1867 24 23.2352V2.69453C24 1.73828 23.2031 0.964844 22.2234 0.964844ZM7.12031 21.4164H3.55781V9.96016H7.12031V21.4164ZM5.33906 8.39922C4.19531 8.39922 3.27188 7.47578 3.27188 6.33672C3.27188 5.19766 4.19531 4.27422 5.33906 4.27422C6.47813 4.27422 7.40156 5.19766 7.40156 6.33672C7.40156 7.47109 6.47813 8.39922 5.33906 8.39922ZM20.4516 21.4164H16.8937V15.8477C16.8937 14.5211 16.8703 12.8102 15.0422 12.8102C13.1906 12.8102 12.9094 14.2586 12.9094 15.7539V21.4164H9.35625V9.96016H12.7687V11.5258H12.8156C13.2891 10.6258 14.4516 9.67422 16.1813 9.67422C19.7859 9.67422 20.4516 12.0461 20.4516 15.1305V21.4164Z", fill: "currentColor" }) }),
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("clipPath", { id: "clip0_6_34977", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("rect", { width: "24", height: "24", fill: "white", transform: "translate(0 0.964844)" }) }) })
+var LinkedInIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("title", { children: "LinkedIn" }),
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("g", { clipPath: "url(#clip0_6_34977)", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { d: "M22.2234 0.964844H1.77187C0.792187 0.964844 0 1.73828 0 2.69453V23.2305C0 24.1867 0.792187 24.9648 1.77187 24.9648H22.2234C23.2031 24.9648 24 24.1867 24 23.2352V2.69453C24 1.73828 23.2031 0.964844 22.2234 0.964844ZM7.12031 21.4164H3.55781V9.96016H7.12031V21.4164ZM5.33906 8.39922C4.19531 8.39922 3.27188 7.47578 3.27188 6.33672C3.27188 5.19766 4.19531 4.27422 5.33906 4.27422C6.47813 4.27422 7.40156 5.19766 7.40156 6.33672C7.40156 7.47109 6.47813 8.39922 5.33906 8.39922ZM20.4516 21.4164H16.8937V15.8477C16.8937 14.5211 16.8703 12.8102 15.0422 12.8102C13.1906 12.8102 12.9094 14.2586 12.9094 15.7539V21.4164H9.35625V9.96016H12.7687V11.5258H12.8156C13.2891 10.6258 14.4516 9.67422 16.1813 9.67422C19.7859 9.67422 20.4516 12.0461 20.4516 15.1305V21.4164Z", fill: "currentColor" }) }),
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("clipPath", { id: "clip0_6_34977", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("rect", { width: "24", height: "24", fill: "white", transform: "translate(0 0.964844)" }) }) })
 ] });
-var LumaIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "25", fill: "none", viewBox: "0 0 133 134", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("title", { children: "Luma" }),
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("path", { fill: "currentColor", d: "M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67" })
+var LumaIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "25", fill: "none", viewBox: "0 0 133 134", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("title", { children: "Luma" }),
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { fill: "currentColor", d: "M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67" })
 ] });
-var XIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("title", { children: "X (Twitter)" }),
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M15.9455 23.9648L10.396 16.0549L3.44886 23.9648H0.509766L9.09209 14.1959L0.509766 1.96484H8.05571L13.286 9.41986L19.8393 1.96484H22.7784L14.5943 11.2813L23.4914 23.9648H15.9455ZM19.2185 21.7349H17.2398L4.71811 4.19484H6.6971L11.7121 11.218L12.5793 12.4367L19.2185 21.7349Z", fill: "currentColor" })
+var XIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("title", { children: "X (Twitter)" }),
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M15.9455 23.9648L10.396 16.0549L3.44886 23.9648H0.509766L9.09209 14.1959L0.509766 1.96484H8.05571L13.286 9.41986L19.8393 1.96484H22.7784L14.5943 11.2813L23.4914 23.9648H15.9455ZM19.2185 21.7349H17.2398L4.71811 4.19484H6.6971L11.7121 11.218L12.5793 12.4367L19.2185 21.7349Z", fill: "currentColor" })
 ] });
-var YouTubeIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("title", { children: "YouTube" }),
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("path", { d: "M23.7609 8.16489C23.7609 8.16489 23.5266 6.51021 22.8047 5.78364C21.8906 4.82739 20.8688 4.8227 20.4 4.76645C17.0438 4.5227 12.0047 4.52271 12.0047 4.52271H11.9953C11.9953 4.52271 6.95625 4.5227 3.6 4.76645C3.13125 4.8227 2.10938 4.82739 1.19531 5.78364C0.473438 6.51021 0.24375 8.16489 0.24375 8.16489C0.24375 8.16489 0 10.1102 0 12.0508V13.8696C0 15.8102 0.239062 17.7555 0.239062 17.7555C0.239062 17.7555 0.473437 19.4102 1.19062 20.1368C2.10469 21.093 3.30469 21.0602 3.83906 21.1633C5.76094 21.3461 12 21.4024 12 21.4024C12 21.4024 17.0438 21.393 20.4 21.154C20.8688 21.0977 21.8906 21.093 22.8047 20.1368C23.5266 19.4102 23.7609 17.7555 23.7609 17.7555C23.7609 17.7555 24 15.8149 24 13.8696V12.0508C24 10.1102 23.7609 8.16489 23.7609 8.16489ZM9.52031 16.0774V9.33208L16.0031 12.7165L9.52031 16.0774Z", fill: "currentColor" })
+var YouTubeIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("title", { children: "YouTube" }),
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { d: "M23.7609 8.16489C23.7609 8.16489 23.5266 6.51021 22.8047 5.78364C21.8906 4.82739 20.8688 4.8227 20.4 4.76645C17.0438 4.5227 12.0047 4.52271 12.0047 4.52271H11.9953C11.9953 4.52271 6.95625 4.5227 3.6 4.76645C3.13125 4.8227 2.10938 4.82739 1.19531 5.78364C0.473438 6.51021 0.24375 8.16489 0.24375 8.16489C0.24375 8.16489 0 10.1102 0 12.0508V13.8696C0 15.8102 0.239062 17.7555 0.239062 17.7555C0.239062 17.7555 0.473437 19.4102 1.19062 20.1368C2.10469 21.093 3.30469 21.0602 3.83906 21.1633C5.76094 21.3461 12 21.4024 12 21.4024C12 21.4024 17.0438 21.393 20.4 21.154C20.8688 21.0977 21.8906 21.093 22.8047 20.1368C23.5266 19.4102 23.7609 17.7555 23.7609 17.7555C23.7609 17.7555 24 15.8149 24 13.8696V12.0508C24 10.1102 23.7609 8.16489 23.7609 8.16489ZM9.52031 16.0774V9.33208L16.0031 12.7165L9.52031 16.0774Z", fill: "currentColor" })
 ] });
 var FooterContainer = dt.div.withConfig({
   displayName: "Footer__FooterContainer",
@@ -117922,19 +118213,19 @@ var FooterInternalLink = dt(import_react_router_dom2.NavLink).withConfig({
 function Footer({
   routes
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FooterContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(FooterLayout, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(FooterContent, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(FooterCol, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(CIMCWordmark, { color: "white" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(SocialRow, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { target: "_blank", href: "https://x.com/CIMCAI", "aria-label": "X", title: "X (Twitter)", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(XIcon, {}) }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { target: "_blank", href: "https://www.youtube.com/@CIMCAIYT", "aria-label": "YouTube", title: "YouTube", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(YouTubeIcon, {}) }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { target: "_blank", href: "https://www.linkedin.com/company/cimc-ai", "aria-label": "LinkedIn", title: "LinkedIn", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LinkedInIcon, {}) }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { target: "_blank", href: "https://lu.ma/cimc", "aria-label": "Luma", title: "Luma", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(LumaIcon, {}) })
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FooterContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterLayout, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterContent, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterCol, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CIMCWordmark, { color: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(SocialRow, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://x.com/CIMCAI", "aria-label": "X", title: "X (Twitter)", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(XIcon, {}) }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://www.youtube.com/@CIMCAIYT", "aria-label": "YouTube", title: "YouTube", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(YouTubeIcon, {}) }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://www.linkedin.com/company/cimc-ai", "aria-label": "LinkedIn", title: "LinkedIn", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LinkedInIcon, {}) }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://lu.ma/cimc", "aria-label": "Luma", title: "Luma", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LumaIcon, {}) })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(FooterContent, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FooterCol, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "flex flex-col gap-1", children: routes.map((route) => route.externalUrl ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FooterExternalLink, { href: route.externalUrl, target: "_blank", rel: "noreferrer", children: route.name }, route.path) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FooterInternalLink, { to: route.path, reloadDocument: route.path.startsWith("/publications"), style: ({
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterContent, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FooterCol, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "flex flex-col gap-1", children: routes.map((route) => route.externalUrl ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FooterExternalLink, { href: route.externalUrl, target: "_blank", rel: "noreferrer", children: route.name }, route.path) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FooterInternalLink, { to: route.path, reloadDocument: route.path.startsWith("/publications"), style: ({
           isActive,
           isPending,
           isTransitioning
@@ -117945,23 +118236,23 @@ function Footer({
             viewTransitionName: isTransitioning ? "fade" : ""
           };
         }, children: route.name }, route.path)) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(FooterCol, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FooterHeading, { children: "Contact" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "mb-1", children: "Address:" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "text-white/60 text-sm", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterCol, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FooterHeading, { children: "Contact" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "mb-1", children: "Address:" }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "text-white/60 text-sm", children: [
               "1388 Haight Street",
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("br", {}),
               "San Francisco, CA 94122",
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("br", {})
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("br", {})
             ] })
           ] })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(FooterBottomRow, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(FooterBottomContent, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { children: "\xA9 2026 CIMC. All rights reserved." }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: "/terms.html", className: "hover:underline text-white/60", children: "Terms and Conditions" })
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FooterBottomRow, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterBottomContent, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { children: "\xA9 2026 CIMC. All rights reserved." }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { href: "/terms.html", className: "hover:underline text-white/60", children: "Terms and Conditions" })
     ] }) })
   ] }) });
 }
@@ -117992,9 +118283,9 @@ var BarContainer = dt.div.withConfig({
 });
 var MenuButton = ({
   isOpen
-}) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Circle, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(BarContainer, { children: [
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Bar, {}),
-  !isOpen && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Bar, {})
+}) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Circle, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(BarContainer, { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Bar, {}),
+  !isOpen && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Bar, {})
 ] }) });
 var NavbarContainer = dt.div.withConfig({
   shouldForwardProp: (prop) => !["isOpen"].includes(prop)
@@ -118168,14 +118459,14 @@ var ContactButton = dt.a.withConfig({
 function Navbar({
   routes
 }) {
-  const [isOpen, setIsOpen] = (0, import_react10.useState)(false);
+  const [isOpen, setIsOpen] = (0, import_react12.useState)(false);
   const {
     pathname
   } = (0, import_react_router_dom2.useLocation)();
-  (0, import_react10.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     setIsOpen(false);
   }, [pathname]);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     const desktop = window.matchMedia("(min-width: 1280px)");
     const closeOnDesktop = () => {
       if (desktop.matches) setIsOpen(false);
@@ -118186,14 +118477,14 @@ function Navbar({
   }, []);
   const toggleMenu = () => setIsOpen((open2) => !open2);
   const closeMenu = () => setIsOpen(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(NavbarContainer, { isOpen, "data-pub-nav": "", "data-pub-menu-open": isOpen ? "true" : "false", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(NavbarInnerContainer, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(_StyledButton, { onClick: toggleMenu, "aria-expanded": isOpen, "aria-label": "Main navigation", type: "button", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(NavbarContainer, { isOpen, "data-pub-nav": "", "data-pub-menu-open": isOpen ? "true" : "false", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(NavbarInnerContainer, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(_StyledButton, { onClick: toggleMenu, "aria-expanded": isOpen, "aria-label": "Main navigation", type: "button", children: [
         isOpen ? "CLOSE" : "MENU",
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(MenuButton, { isOpen })
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(MenuButton, { isOpen })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavbarLogoContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(CIMCWordmark, { width: 108 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavbarStyle, { isOpen, children: routes.map((route) => route.externalUrl ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavbarExternalLink, { href: route.externalUrl, target: "_blank", rel: "noreferrer", onClick: closeMenu, children: route.name }, route.path) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavbarInternalLink, { to: route.path, reloadDocument: route.path.startsWith("/publications"), style: ({
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarLogoContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CIMCWordmark, { width: 108 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarStyle, { isOpen, children: routes.map((route) => route.externalUrl ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarExternalLink, { href: route.externalUrl, target: "_blank", rel: "noreferrer", onClick: closeMenu, children: route.name }, route.path) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarInternalLink, { to: route.path, reloadDocument: route.path.startsWith("/publications"), style: ({
         isActive,
         isPending,
         isTransitioning
@@ -118205,7 +118496,7 @@ function Navbar({
         };
       }, onClick: closeMenu, children: route.name }, route.path)) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ContactButton, { href: "mailto:proposals@cimc.ai", isOpen, children: "Contact" })
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(ContactButton, { href: "mailto:proposals@cimc.ai", isOpen, children: "Contact" })
   ] });
 }
 var _StyledButton = dt("button").withConfig({
@@ -118223,7 +118514,7 @@ var _StyledButton = dt("button").withConfig({
   }
 });
 var SvgCimcSunburst = (props, ref) => /* @__PURE__ */ React14.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "-50 -50 100 100", ref, ...props }, /* @__PURE__ */ React14.createElement("title", null, "CIMC Sunburst Logo"), /* @__PURE__ */ React14.createElement("g", { fill: "none", stroke: "currentColor" }, /* @__PURE__ */ React14.createElement("line", { id: "axis-0", y1: -50, y2: 50 }), /* @__PURE__ */ React14.createElement("use", { id: "axis-5", href: "#axis-0", transform: "rotate(5)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-10", href: "#axis-0", transform: "rotate(10)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-15", href: "#axis-0", transform: "rotate(15)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-20", href: "#axis-0", transform: "rotate(20)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-25", href: "#axis-0", transform: "rotate(25)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-30", href: "#axis-0", transform: "rotate(30)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-35", href: "#axis-0", transform: "rotate(35)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-40", href: "#axis-0", transform: "rotate(40)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-45", href: "#axis-0", transform: "rotate(45)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-50", href: "#axis-0", transform: "rotate(50)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-55", href: "#axis-0", transform: "rotate(55)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-60", href: "#axis-0", transform: "rotate(60)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-65", href: "#axis-0", transform: "rotate(65)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-70", href: "#axis-0", transform: "rotate(70)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-75", href: "#axis-0", transform: "rotate(75)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-80", href: "#axis-0", transform: "rotate(80)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-85", href: "#axis-0", transform: "rotate(85)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-90", href: "#axis-0", transform: "rotate(90)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-95", href: "#axis-0", transform: "rotate(95)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-100", href: "#axis-0", transform: "rotate(100)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-105", href: "#axis-0", transform: "rotate(105)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-110", href: "#axis-0", transform: "rotate(110)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-115", href: "#axis-0", transform: "rotate(115)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-120", href: "#axis-0", transform: "rotate(120)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-125", href: "#axis-0", transform: "rotate(125)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-130", href: "#axis-0", transform: "rotate(130)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-135", href: "#axis-0", transform: "rotate(135)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-140", href: "#axis-0", transform: "rotate(140)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-145", href: "#axis-0", transform: "rotate(145)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-150", href: "#axis-0", transform: "rotate(150)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-155", href: "#axis-0", transform: "rotate(155)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-160", href: "#axis-0", transform: "rotate(160)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-165", href: "#axis-0", transform: "rotate(165)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-170", href: "#axis-0", transform: "rotate(170)" }), /* @__PURE__ */ React14.createElement("use", { id: "axis-175", href: "#axis-0", transform: "rotate(175)" })));
-var ForwardRef = (0, import_react10.forwardRef)(SvgCimcSunburst);
+var ForwardRef = (0, import_react12.forwardRef)(SvgCimcSunburst);
 var CIMCSunburstLogoSVG = dt(ForwardRef).withConfig({
   displayName: "CIMCSunburstLogo__CIMCSunburstLogoSVG",
   componentId: "sc-1h1pjbs-0"
@@ -118247,11 +118538,8 @@ var PageHeroLogo = dt.div.withConfig({
   componentId: "sc-pqtwxp-1"
 })(["position:absolute;left:50%;top:0;width:1600px;height:1600px;transform:translateX(-50%) translateY(-23%);pointer-events:none;z-index:0;"]);
 function PageHeroGraphic() {
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PageHeroGraphicContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PageHeroLogo, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(CIMCSunburstLogoSVG, { strokeWidth: 0.3 }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(PageHeroGraphicContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(PageHeroLogo, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CIMCSunburstLogoSVG, { strokeWidth: 0.3 }) }) });
 }
-var publicationCitationAuthors = {
-  "research-program-whitepaper": [{ "type": "Organization", "name": "CIMC", "url": "https://cimc.ai" }]
-};
 var PDF_REQUEST_TYPE = "cimc:open-canonical-pdf";
 function createPdfClickBridge(pdfUrl) {
   const serializedUrl = JSON.stringify(pdfUrl).replace(/</g, "\\u003c");
@@ -118281,11 +118569,11 @@ navigation.push({
 function Archive({
   articles
 }) {
-  const [query, setQuery] = (0, import_react10.useState)("");
-  const [tag, setTag] = (0, import_react10.useState)("");
-  const [sort, setSort] = (0, import_react10.useState)("newest");
-  const [page, setPage] = (0, import_react10.useState)(1);
-  (0, import_react10.useEffect)(() => {
+  const [query, setQuery] = (0, import_react12.useState)("");
+  const [tag, setTag] = (0, import_react12.useState)("");
+  const [sort, setSort] = (0, import_react12.useState)("newest");
+  const [page, setPage] = (0, import_react12.useState)(1);
+  (0, import_react12.useEffect)(() => {
     const params = new URLSearchParams(window.location.search);
     setTag(params.get("tag") || "");
     setQuery(params.get("q") || "");
@@ -118293,63 +118581,63 @@ function Archive({
   }, []);
   const filtered = articles.filter((article) => (!tag || article.tags.includes(tag)) && [article.title, article.summary, ...article.tags, ...article.authors.map((a2) => a2.name)].join(" ").toLowerCase().includes(query.toLowerCase().trim())).sort((a2, b) => sort === "newest" ? b.publishedAt.localeCompare(a2.publishedAt) : a2.publishedAt.localeCompare(b.publishedAt));
   const tags = [...new Set(articles.flatMap((article) => article.tags))].sort();
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("main", { className: "writing-page", id: "writing", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(PageHeroGraphic, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "writing-content", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("header", { className: "writing-header", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h1", { className: "writing-title", children: "Publications" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "writing-tagline", children: "Research papers, essays, and articles from CIMC." })
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("main", { className: "writing-page", id: "writing", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(PageHeroGraphic, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "writing-content", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("header", { className: "writing-header", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h1", { className: "writing-title", children: "Publications" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "writing-tagline", children: "Research papers, essays, and articles from CIMC." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { className: "writing-rss", href: "/pub/feed.xml", target: "_blank", rel: "noreferrer", children: "RSS Feed" })
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { className: "writing-rss", href: "/pub/feed.xml", target: "_blank", rel: "noreferrer", children: "RSS Feed" })
       ] }),
-      tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("fieldset", { className: "writing-tags", "aria-label": "Filter by topic", children: tags.map((name) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", className: `writing-tag${tag === name ? " is-active" : ""}`, "aria-pressed": tag === name, onClick: () => {
+      tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("fieldset", { className: "writing-tags", "aria-label": "Filter by topic", children: tags.map((name) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", className: `writing-tag${tag === name ? " is-active" : ""}`, "aria-pressed": tag === name, onClick: () => {
         setTag(tag === name ? "" : name);
         setPage(1);
       }, children: name }, name)) }),
-      articles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "writing-controls", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("label", { className: "writing-search", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { children: "Search" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("input", { type: "search", "aria-label": "Search articles, authors, or topics", placeholder: "Titles, authors, topics", value: query, onChange: (event) => {
+      articles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "writing-controls", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("label", { className: "writing-search", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: "Search" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("input", { type: "search", "aria-label": "Search articles, authors, or topics", placeholder: "Titles, authors, topics", value: query, onChange: (event) => {
             setQuery(event.target.value);
             setPage(1);
           } })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("label", { className: "writing-sort", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { children: "Sort" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("select", { "aria-label": "Sort articles", value: sort, onChange: (event) => {
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("label", { className: "writing-sort", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: "Sort" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("select", { "aria-label": "Sort articles", value: sort, onChange: (event) => {
             setSort(event.target.value);
             setPage(1);
           }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "newest", children: "Newest first" }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: "oldest", children: "Oldest first" })
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: "newest", children: "Newest first" }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: "oldest", children: "Oldest first" })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("output", { className: "writing-sr-only", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("output", { className: "writing-sr-only", children: [
         filtered.length,
         " ",
         filtered.length === 1 ? "article" : "articles",
         " ",
         "found."
       ] }),
-      articles.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "writing-empty", children: "First essays are on their way." }) : filtered.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("p", { className: "writing-empty", children: [
+      articles.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "writing-empty", children: "First essays are on their way." }) : filtered.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", { className: "writing-empty", children: [
         "No essays match.",
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", onClick: () => {
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", onClick: () => {
           setQuery("");
           setTag("");
           setPage(1);
         }, children: "Show all publications" })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "writing-list", children: filtered.slice(0, page * 50).map((article) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("article", { className: "writing-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "writing-row-main", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("a", { className: "writing-row-main", href: `/publications/${article.slug}/`, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { className: "writing-row-title", children: article.title }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { className: "writing-row-summary", children: article.summary })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "writing-list", children: filtered.slice(0, page * 50).map((article) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("article", { className: "writing-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "writing-row-main", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("a", { className: "writing-row-main", href: `/publications/${article.slug}/`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "writing-row-title", children: article.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "writing-row-summary", children: article.summary })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "writing-row-byline", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "writing-row-authors", children: article.authors.map((a2) => a2.name).join(", ") }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "writing-row-details", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("time", { dateTime: article.publishedAt, children: (/* @__PURE__ */ new Date(`${article.publishedAt}T12:00:00Z`)).toLocaleDateString("en-US", {
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "writing-row-byline", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "writing-row-authors", children: article.authors.map((a2) => a2.name).join(", ") }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "writing-row-details", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("time", { dateTime: article.publishedAt, children: (/* @__PURE__ */ new Date(`${article.publishedAt}T12:00:00Z`)).toLocaleDateString("en-US", {
                 timeZone: "UTC",
                 year: "numeric",
                 month: "long",
@@ -118362,9 +118650,9 @@ function Archive({
             ] })
           ] })
         ] }),
-        article.heroImage && safeThumbnailUrl(article.heroImage) && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { className: "writing-row-thumb", href: `/publications/${article.slug}/`, "aria-label": `Read ${article.title}`, tabIndex: -1, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("img", { src: article.heroImage, alt: "", loading: "lazy" }) })
+        article.heroImage && safeThumbnailUrl(article.heroImage) && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { className: "writing-row-thumb", href: `/publications/${article.slug}/`, "aria-label": `Read ${article.title}`, tabIndex: -1, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("img", { src: article.heroImage, alt: "", loading: "lazy" }) })
       ] }, article.slug)) }),
-      filtered.length > page * 50 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { className: "pub-btn", type: "button", onClick: () => setPage(page + 1), children: "Show more publications" })
+      filtered.length > page * 50 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { className: "pub-btn", type: "button", onClick: () => setPage(page + 1), children: "Show more publications" })
     ] })
   ] });
 }
@@ -118386,10 +118674,9 @@ function StaticPublicationPage({
     feedUrl: "/pub/feed.xml"
   });
   const article = data2.article;
-  const citationAuthors = article ? publicationCitationAuthors[article.meta.slug] : void 0;
-  const editionFrame = (0, import_react10.useRef)(null);
-  const pdfUrl = article ? canonicalPdfUrl(getManuscript(article.doc)?.pdf?.filename) : void 0;
-  (0, import_react10.useEffect)(() => {
+  const editionFrame = (0, import_react12.useRef)(null);
+  const pdfUrl = article?.doc ? canonicalPdfUrl(getManuscript(article.doc)?.pdf?.filename) : void 0;
+  (0, import_react12.useEffect)(() => {
     if (!data2.editionUrl || !pdfUrl) return;
     const openPdf = (event) => {
       if (isCanonicalPdfRequest(event, editionFrame.current?.contentWindow ?? null) && navigator.userActivation?.isActive !== false) {
@@ -118399,14 +118686,14 @@ function StaticPublicationPage({
     window.addEventListener("message", openPdf);
     return () => window.removeEventListener("message", openPdf);
   }, [data2.editionUrl, pdfUrl]);
-  const plainDoc = article ? {
+  const plainDoc = article?.doc ? {
     ...article.doc,
     attrs: {
       ...article.doc.attrs,
       webEdition: void 0
     }
   } : void 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { onClickCapture: (event) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { onClickCapture: (event) => {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const anchor = event.target.closest("a");
     if (!anchor || anchor.target === "_blank" || anchor.hasAttribute("download")) return;
@@ -118417,30 +118704,38 @@ function StaticPublicationPage({
       window.location.assign(url.href);
     }
   }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Navbar, { routes: navigation }),
-    article ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "pub-page-wrapper pub-scope", style: {
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Navbar, { routes: navigation }),
+    article ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "pub-page-wrapper pub-scope", style: {
       paddingTop: 96
     }, children: [
-      data2.editionUrl ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("iframe", { ref: editionFrame, title: article.meta.title, src: data2.editionUrl, sandbox: "allow-scripts", className: "static-edition" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("noscript", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("style", { children: ".static-edition{display:none}" }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArticleReadingView, { meta: article.meta, citationAuthors, doc: plainDoc || article.doc })
+      data2.rendering !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        "div",
+        {
+          className: "pub-stored-article",
+          dangerouslySetInnerHTML: {
+            __html: data2.rendering
+          }
+        }
+      ) : data2.editionUrl ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("iframe", { ref: editionFrame, title: article.meta.title, src: data2.editionUrl, sandbox: "allow-scripts", className: "static-edition" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("noscript", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("style", { children: ".static-edition{display:none}" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(ArticleReadingView, { meta: article.meta, doc: plainDoc || article.doc })
         ] })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ArticleReadingView, { meta: article.meta, citationAuthors, doc: article.doc }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("section", { className: "static-related", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h2", { children: "Related publications" }),
-        data2.articles.filter((a2) => a2.slug !== article.meta.slug).slice(0, 3).map((a2) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: `/publications/${a2.slug}/`, children: a2.title }) }, a2.slug))
+      ] }) : null,
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { className: "static-related", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { children: "Related publications" }),
+        data2.articles.filter((a2) => a2.slug !== article.meta.slug).slice(0, 3).map((a2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { href: `/publications/${a2.slug}/`, children: a2.title }) }, a2.slug))
       ] })
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Archive, { articles: data2.articles }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Footer, { routes: navigation })
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Archive, { articles: data2.articles }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Footer, { routes: navigation })
   ] });
 }
-var readingStyles = '/* Draw the external PDF arrow so mobile fonts cannot replace it with emoji. */\n.pub-pdf-actions .pub-resource-link > span[aria-hidden="true"] {\n  position: relative;\n  display: inline-block;\n  width: 0.75rem;\n  height: 0.75rem;\n  font-size: 0;\n  line-height: 0;\n  flex-shrink: 0;\n}\n\n.pub-pdf-actions .pub-resource-link > span[aria-hidden="true"]::before {\n  content: "";\n  position: absolute;\n  top: 0.0625rem;\n  right: 0.0625rem;\n  width: 0.4375rem;\n  height: 0.4375rem;\n  border-top: 1px solid currentColor;\n  border-right: 1px solid currentColor;\n}\n\n.pub-pdf-actions .pub-resource-link > span[aria-hidden="true"]::after {\n  content: "";\n  position: absolute;\n  top: 0.0625rem;\n  right: 0.0625rem;\n  width: 0.8125rem;\n  height: 1px;\n  background: currentColor;\n  transform: rotate(-45deg);\n  transform-origin: right center;\n}\n\n/* Screen reading sizes shared by native articles and hosted custom editions. */\n@media screen {\n  .pub-reading-view .pub-article-body,\n  .pub-reading-view .pub-article-body blockquote,\n  .essay,\n  .essay blockquote {\n    font-size: 18px;\n  }\n\n  .introduction,\n  .genesis-passage {\n    font-size: 17px;\n  }\n\n  @container publication (max-width: 600px) {\n    .pub-reading-view .pub-article-body,\n    .pub-reading-view .pub-article-body blockquote {\n      font-size: 16px;\n    }\n  }\n}\n\n@media screen and (max-width: 900px) {\n  .introduction {\n    font-size: 16px;\n  }\n}\n\n@media screen and (max-width: 600px) {\n  .essay,\n  .essay blockquote,\n  .genesis-passage {\n    font-size: 16px;\n  }\n}\n';
+var readingStyles = "/*\n * Screen reading sizes for hosted custom editions. Native articles bring\n * theirs with the reader that rendered them (since reader 0.9.28).\n */\n@media screen {\n  .essay,\n  .essay blockquote {\n    font-size: 18px;\n  }\n\n  .introduction,\n  .genesis-passage {\n    font-size: 17px;\n  }\n}\n\n@media screen and (max-width: 900px) {\n  .introduction {\n    font-size: 16px;\n  }\n}\n\n@media screen and (max-width: 600px) {\n  .essay,\n  .essay blockquote,\n  .genesis-passage {\n    font-size: 16px;\n  }\n}\n";
 function renderPublication(data2) {
   const sheet = new gt();
   try {
-    const html = (0, import_server.renderToString)(sheet.collectStyles(/* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_react_router_dom2.MemoryRouter, { initialEntries: [data2.path], children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(StaticPublicationPage, { data: data2 }) })));
+    const html = (0, import_server.renderToString)(sheet.collectStyles(/* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_react_router_dom2.MemoryRouter, { initialEntries: [data2.path], children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(StaticPublicationPage, { data: data2 }) })));
     return {
       html,
       styles: sheet.getStyleTags()
@@ -118457,6 +118752,7 @@ function prepareEdition(html, origin, pdf) {
   return prepareWebEditionHtml(html, void 0, pdf, true).replace('<base href="about:srcdoc">', "").replace("</head>", `<style>${readingStyles}</style>${pdf ? `<script>${createPdfClickBridge(pdf.url)}</script>` : ""}</head>`);
 }
 export {
+  checkStoredRendering,
   getWebEdition,
   managedAssetPath,
   prepareEdition,

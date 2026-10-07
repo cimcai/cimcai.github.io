@@ -3,10 +3,22 @@
   "version": 1,
   "pdfs": [
     {
+      "filename": "against-intrinsic-properties.pdf",
+      "sha256": "8b04b1b988f599538802869ecb8ec43b3d4868c64551aa4f5cd3aee5ba9211e3",
+      "bytes": 82003,
+      "articleSlug": "against-intrinsic-properties"
+    },
+    {
       "filename": "cimc-whitepaper.pdf",
       "sha256": "52d49969df5be29d8603a623101135932868c8a350f8f51b168ac1e4cfed80cf",
       "bytes": 182562,
       "articleSlug": "research-program-whitepaper"
+    },
+    {
+      "filename": "prime-hypostasis.pdf",
+      "sha256": "84b2f341d79c4b7b68f3470e2471514a2bf21024e6dac6a75a450756dca0bc7c",
+      "bytes": 167737,
+      "articleSlug": "prime-hypostasis"
     }
   ]
 }

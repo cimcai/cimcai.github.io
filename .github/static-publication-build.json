@@ -1,16 +1,8 @@
 {
-  "client": "/assets/staticPublication-CbaCC3nV.js",
+  "client": "/assets/staticPublication-Dmfn5Jwl.js",
   "css": [
-    "/assets/staticPublication-BWWmaTT6.css",
+    "/assets/staticPublication-Bdup2I4z.css",
     "/assets/index-wPMHzCeI.css"
   ],
-  "citationAuthors": {
-    "research-program-whitepaper": [
-      {
-        "type": "Organization",
-        "name": "CIMC",
-        "url": "https://cimc.ai"
-      }
-    ]
-  }
+  "readerCss": "/assets/readerStyles-C46evcT7.css"
 }

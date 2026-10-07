@@ -2,6 +2,8 @@
   "managedBy": "cimc-static-publications",
   "version": 1,
   "articles": [
+    "against-intrinsic-properties",
+    "prime-hypostasis",
     "research-program-whitepaper",
     "the-machine-consciousness-hypothesis"
   ],
@@ -13,19 +15,149 @@
       "bytes": 399551
     },
     {
-      "path": "pub/static-editions/722e07dbc75aca04a73b1155c8203431580677db2bd2e63c2065adf4adcf51b9.html",
-      "sha256": "722e07dbc75aca04a73b1155c8203431580677db2bd2e63c2065adf4adcf51b9",
-      "bytes": 1259748
+      "path": "pub/static-editions/3f48a9269e264768edd9006282504711a2429143d7011c9aaabac55e91f60a86.html",
+      "sha256": "3f48a9269e264768edd9006282504711a2429143d7011c9aaabac55e91f60a86",
+      "bytes": 1258723
+    },
+    {
+      "path": "pub/static-assets/0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308.woff2",
+      "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+      "bytes": 28076
+    },
+    {
+      "path": "pub/static-assets/de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c.woff2",
+      "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+      "bytes": 6912
+    },
+    {
+      "path": "pub/static-assets/5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b.woff2",
+      "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+      "bytes": 6908
+    },
+    {
+      "path": "pub/static-assets/74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f.woff2",
+      "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+      "bytes": 11348
+    },
+    {
+      "path": "pub/static-assets/51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc.woff2",
+      "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+      "bytes": 11316
+    },
+    {
+      "path": "pub/static-assets/0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021.woff2",
+      "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+      "bytes": 25324
+    },
+    {
+      "path": "pub/static-assets/99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b.woff2",
+      "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+      "bytes": 16780
+    },
+    {
+      "path": "pub/static-assets/97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267.woff2",
+      "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+      "bytes": 16988
+    },
+    {
+      "path": "pub/static-assets/c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866.woff2",
+      "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+      "bytes": 26272
+    },
+    {
+      "path": "pub/static-assets/dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1.woff2",
+      "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+      "bytes": 16400
+    },
+    {
+      "path": "pub/static-assets/7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264.woff2",
+      "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+      "bytes": 16440
+    },
+    {
+      "path": "pub/static-assets/e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62.woff2",
+      "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+      "bytes": 12216
+    },
+    {
+      "path": "pub/static-assets/00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a.woff2",
+      "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+      "bytes": 12028
+    },
+    {
+      "path": "pub/static-assets/68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342.woff2",
+      "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+      "bytes": 10344
+    },
+    {
+      "path": "pub/static-assets/036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b.woff2",
+      "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+      "bytes": 9644
+    },
+    {
+      "path": "pub/static-assets/6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe.woff2",
+      "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+      "bytes": 5468
+    },
+    {
+      "path": "pub/static-assets/d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd.woff2",
+      "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+      "bytes": 5208
+    },
+    {
+      "path": "pub/static-assets/73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995.woff2",
+      "sha256": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+      "bytes": 3624
+    },
+    {
+      "path": "pub/static-assets/a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0.woff2",
+      "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+      "bytes": 4928
+    },
+    {
+      "path": "pub/static-assets/71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b.woff2",
+      "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+      "bytes": 13568
+    },
+    {
+      "path": "pub/static-assets/0f04fba32c60c6dd3463b2289df1df0690fb055a07f5eb8a928748e9859c407b.woff2",
+      "sha256": "0f04fba32c60c6dd3463b2289df1df0690fb055a07f5eb8a928748e9859c407b",
+      "bytes": 13076
+    },
+    {
+      "path": "pub/static-assets/c11809dbfd5445886293d89b32bfc2584075c80e77750cf1c284113e36b8b3f4.ttf",
+      "sha256": "c11809dbfd5445886293d89b32bfc2584075c80e77750cf1c284113e36b8b3f4",
+      "bytes": 126876
+    },
+    {
+      "path": "pub/static-assets/60ca1a3aade61c8c381800ca85b9b2f0fb341d89ebe065e12cd6ec2ee2e53e54.ttf",
+      "sha256": "60ca1a3aade61c8c381800ca85b9b2f0fb341d89ebe065e12cd6ec2ee2e53e54",
+      "bytes": 176200
+    },
+    {
+      "path": "pub/static-assets/64fdca823c2500573451785070ae91ebb96292427af21096febe5f1545676468.css",
+      "sha256": "64fdca823c2500573451785070ae91ebb96292427af21096febe5f1545676468",
+      "bytes": 67940
+    },
+    {
+      "path": "pub/static-assets/ae5360349481ff3f6102c03fcb819e3191621904d34f7e98cd943ffda098785d.js",
+      "sha256": "ae5360349481ff3f6102c03fcb819e3191621904d34f7e98cd943ffda098785d",
+      "bytes": 171682
+    },
+    {
+      "path": "pub/static-assets/dcce83b9af2f5c12c2f1cece5c678aba5202f9c753218660c58f013e0b4813c5.js",
+      "sha256": "dcce83b9af2f5c12c2f1cece5c678aba5202f9c753218660c58f013e0b4813c5",
+      "bytes": 171682
     },
     {
       "path": "publications/index.html",
-      "sha256": "e17c05eabbc698ff0521a212d3198e909b3211a4bf390cd882afa2956793c19b",
-      "bytes": 87122
+      "sha256": "0d66833ad496db7ab6b356ee43bb202cb85ff3fa54fe0ee30f2e5000ce43520d",
+      "bytes": 89649
     },
     {
       "path": "publications/research-program-whitepaper/index.html",
-      "sha256": "99d11b7b5ff27a31a1a19249398aa953d7830d08d96abe91d6538df098676fb5",
-      "bytes": 411584
+      "sha256": "f9a2db27ad03f21d8a1ffe7a22beb5310767af9957203ea9808209a2df12e8f8",
+      "bytes": 261195
     },
     {
       "path": "writing/research-program-whitepaper/index.html",
@@ -33,9 +165,29 @@
       "bytes": 526
     },
     {
+      "path": "publications/against-intrinsic-properties/index.html",
+      "sha256": "9418957b561e1d7097c980633fe2beedea7bacd3ebb1354eceb105d701babcdb",
+      "bytes": 167830
+    },
+    {
+      "path": "writing/against-intrinsic-properties/index.html",
+      "sha256": "fcecaf3cbdf5c0bc2e5fcc4fc387c7ed5b4e18bc9997712b30e93425f0da7d36",
+      "bytes": 429
+    },
+    {
+      "path": "publications/prime-hypostasis/index.html",
+      "sha256": "8c529d258769c416d88fc0bb3002224ee2c045f4b525b4b847792bfa484bbcfa",
+      "bytes": 128390
+    },
+    {
+      "path": "writing/prime-hypostasis/index.html",
+      "sha256": "289c79faec4b5f425149d8ece0f9d9185cab42c30be413e2d69c23b2e2462922",
+      "bytes": 369
+    },
+    {
       "path": "publications/the-machine-consciousness-hypothesis/index.html",
-      "sha256": "d183a1b70c528f2efbdccc65fa0d8c81946fb9898503aff728e07d48dd99c195",
-      "bytes": 232614
+      "sha256": "87f168a48e365d3c17d6ee2113930149bb64c2b1458280e1eeec92d3130c683c",
+      "bytes": 233970
     },
     {
       "path": "writing/the-machine-consciousness-hypothesis/index.html",
@@ -49,8 +201,8 @@
     },
     {
       "path": "pub/feed.xml",
-      "sha256": "1c13d70fca7c047385006f87dcf488c6003c7f4e541109bd7b8953a7fe1aba67",
-      "bytes": 887
+      "sha256": "c08cbdad32b1d2f1432ac39387cb61dee4aa9330038e63bfde3a002a51558cdf",
+      "bytes": 1605
     }
   ]
 }
