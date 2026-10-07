@@ -78022,7 +78022,7 @@ function PublishingEmbed({
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 var import_react7 = __toESM(require_react(), 1);
 
-// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-CYCew4UM.js
+// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-BqvNskZa.js
 var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
 
 // node_modules/katex/dist/katex.mjs
@@ -106045,7 +106045,7 @@ var HastEmitter = class {
   }
 };
 
-// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-CYCew4UM.js
+// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-BqvNskZa.js
 var import_react5 = __toESM(require_react(), 1);
 
 // node_modules/@cimc/publishing-reader/dist/sidenotes-Faem4g_d.js
@@ -106932,7 +106932,7 @@ function validateRichDocument(doc, complete = false) {
   return errors;
 }
 
-// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-CYCew4UM.js
+// node_modules/@cimc/publishing-reader/dist/ArticleRenderer-BqvNskZa.js
 var STANDALONE = /* @__PURE__ */ new Set([
   "book",
   "booklet",
@@ -106996,12 +106996,17 @@ function apaEdition(edition) {
   if (number === 1) return "";
   return number ? `${ordinal(number)} ed.` : text2;
 }
+function bibtexText(value = "") {
+  return referenceText(
+    value.replace(/\\([&%_$#])/g, "$1").replace(/[{}]/g, "").replace(/\s+/g, " ")
+  );
+}
 function sentence(text2) {
   return text2 ? `${text2}${referenceSentenceEnding(text2)}` : "";
 }
 function formatApaReference(reference, year) {
   const fields = reference.fields || {};
-  const field = (name) => referenceText(fields[name] || "");
+  const field = (name) => bibtexText(fields[name]);
   const parts = [];
   const add = (text2, options = {}) => {
     if (text2) parts.push({ text: text2, ...options });
@@ -107013,7 +107018,7 @@ function formatApaReference(reference, year) {
     byline += names.length > 1 || contributors.abbreviated ? " (Eds.)" : " (Ed.)";
   const type = reference.type.toLowerCase();
   const standalone = STANDALONE.has(type);
-  const title = referenceText(reference.title);
+  const title = bibtexText(reference.title);
   const translators = referenceNameList(fields.translator || "").map(directName);
   const editors = contributors.role === "author" ? referenceNameList(fields.editor || "").map(directName) : [];
   const inCollection = IN_COLLECTION.has(type);
@@ -107054,7 +107059,7 @@ function formatApaReference(reference, year) {
     add(` ${date}`);
   }
   const publisher = field("publisher") || field("institution");
-  const venue = referenceText(
+  const venue = bibtexText(
     reference.venue || fields.journal || fields.booktitle || ""
   );
   if (type === "article") {
@@ -107073,7 +107078,7 @@ function formatApaReference(reference, year) {
       add(".");
     }
   } else if (inCollection) {
-    const book = referenceText(fields.booktitle || reference.venue || "");
+    const book = bibtexText(fields.booktitle || reference.venue);
     const pages = field("pages");
     add(" In ");
     if (editors.length)
@@ -108566,16 +108571,7 @@ function ArticleHeader({
   linkTags = true,
   preview = false
 }) {
-  const {
-    title,
-    subtitle,
-    authors,
-    publishedAt,
-    updatedAt,
-    tags,
-    readingTimeMin,
-    heroImage
-  } = meta;
+  const { title, subtitle, authors, publishedAt, updatedAt, tags, heroImage } = meta;
   const heroSrc = safeMediaUrl(heroImage);
   return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "pub-article-header", children: [
     /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { className: "pub-title", children: title }),
@@ -108600,11 +108596,6 @@ function ArticleHeader({
     ] }, `${author.name}-${i2}`)) }),
     /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "pub-meta-row", children: [
       preview ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: "Draft preview" }) : publishedAt ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("time", { dateTime: publishedAt, children: formatPubDate(publishedAt) }) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
-        " \xB7 ",
-        readingTimeMin,
-        " min read"
-      ] }),
       !preview && updatedAt && updatedAt !== publishedAt && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
         " \xB7 Updated ",
         formatPubDate(updatedAt)
@@ -118636,18 +118627,12 @@ function Archive({
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "writing-row-byline", children: [
             /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "writing-row-authors", children: article.authors.map((a2) => a2.name).join(", ") }),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "writing-row-details", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("time", { dateTime: article.publishedAt, children: (/* @__PURE__ */ new Date(`${article.publishedAt}T12:00:00Z`)).toLocaleDateString("en-US", {
-                timeZone: "UTC",
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-              }) }),
-              " ",
-              "\xB7 ",
-              article.readingTimeMin,
-              " min read"
-            ] })
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "writing-row-details", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("time", { dateTime: article.publishedAt, children: (/* @__PURE__ */ new Date(`${article.publishedAt}T12:00:00Z`)).toLocaleDateString("en-US", {
+              timeZone: "UTC",
+              year: "numeric",
+              month: "long",
+              day: "numeric"
+            }) }) })
           ] })
         ] }),
         article.heroImage && safeThumbnailUrl(article.heroImage) && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { className: "writing-row-thumb", href: `/publications/${article.slug}/`, "aria-label": `Read ${article.title}`, tabIndex: -1, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("img", { src: article.heroImage, alt: "", loading: "lazy" }) })

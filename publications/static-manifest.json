@@ -140,24 +140,19 @@
       "bytes": 67940
     },
     {
-      "path": "pub/static-assets/ae5360349481ff3f6102c03fcb819e3191621904d34f7e98cd943ffda098785d.js",
-      "sha256": "ae5360349481ff3f6102c03fcb819e3191621904d34f7e98cd943ffda098785d",
-      "bytes": 171682
-    },
-    {
-      "path": "pub/static-assets/dcce83b9af2f5c12c2f1cece5c678aba5202f9c753218660c58f013e0b4813c5.js",
-      "sha256": "dcce83b9af2f5c12c2f1cece5c678aba5202f9c753218660c58f013e0b4813c5",
+      "path": "pub/static-assets/cd9d010018bc8c3f1064d962a4e9f4f24d559420fe69b6c422016727e4c8d716.js",
+      "sha256": "cd9d010018bc8c3f1064d962a4e9f4f24d559420fe69b6c422016727e4c8d716",
       "bytes": 171682
     },
     {
       "path": "publications/index.html",
-      "sha256": "0d66833ad496db7ab6b356ee43bb202cb85ff3fa54fe0ee30f2e5000ce43520d",
-      "bytes": 89649
+      "sha256": "ba864b6abcb0bb54661e9651bd524ff08c0394b166cce71a802cf5eeef5be1a5",
+      "bytes": 89493
     },
     {
       "path": "publications/research-program-whitepaper/index.html",
-      "sha256": "f9a2db27ad03f21d8a1ffe7a22beb5310767af9957203ea9808209a2df12e8f8",
-      "bytes": 261195
+      "sha256": "96e198b6306b7464404212c6eaee3de2d60411bb431d25388cd63b01d23738c5",
+      "bytes": 261151
     },
     {
       "path": "writing/research-program-whitepaper/index.html",
@@ -166,8 +161,8 @@
     },
     {
       "path": "publications/against-intrinsic-properties/index.html",
-      "sha256": "9418957b561e1d7097c980633fe2beedea7bacd3ebb1354eceb105d701babcdb",
-      "bytes": 167830
+      "sha256": "1b0f695ddd23a3701dfcf6633a1656ff4457c21e5895b4234da0d281cb37b772",
+      "bytes": 167786
     },
     {
       "path": "writing/against-intrinsic-properties/index.html",
@@ -176,8 +171,8 @@
     },
     {
       "path": "publications/prime-hypostasis/index.html",
-      "sha256": "8c529d258769c416d88fc0bb3002224ee2c045f4b525b4b847792bfa484bbcfa",
-      "bytes": 128390
+      "sha256": "61108169202bb4bb8967b747b52dd5e8ef5d6542aee53576fdc61429a8a87f6d",
+      "bytes": 128346
     },
     {
       "path": "writing/prime-hypostasis/index.html",
@@ -186,8 +181,8 @@
     },
     {
       "path": "publications/the-machine-consciousness-hypothesis/index.html",
-      "sha256": "87f168a48e365d3c17d6ee2113930149bb64c2b1458280e1eeec92d3130c683c",
-      "bytes": 233970
+      "sha256": "a7c209c1cbc7b3a3d9d33376732eb4e082b5ef339377f05ee78ddecdd09f3d1a",
+      "bytes": 233926
     },
     {
       "path": "writing/the-machine-consciousness-hypothesis/index.html",
