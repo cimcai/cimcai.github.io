@@ -118548,6 +118548,8 @@ function createPdfClickBridge(pdfUrl) {
 function isCanonicalPdfRequest(event, expectedSource) {
   return expectedSource !== null && event.source === expectedSource && typeof event.data === "object" && event.data !== null && !Array.isArray(event.data) && event.data.type === PDF_REQUEST_TYPE;
 }
+var topicKey = (tag) => tag.trim().toLocaleLowerCase("en");
+var topicLabels = (articles) => [...new Set(articles.flatMap((article) => article.tags.map(topicKey).filter(Boolean)))].sort((a2, b) => a2.localeCompare(b));
 var navigation = [["/", "Home"], ["/mission", "Mission"], ["/research", "Research"], ["/publications/", "Publications"], ["/team", "Team"], ["/library", "Library"], ["/events", "Events"]].map(([path2, name]) => ({
   path: path2,
   name
@@ -118570,8 +118572,9 @@ function Archive({
     setQuery(params.get("q") || "");
     setSort(params.get("sort") || "newest");
   }, []);
-  const filtered = articles.filter((article) => (!tag || article.tags.includes(tag)) && [article.title, article.summary, ...article.tags, ...article.authors.map((a2) => a2.name)].join(" ").toLowerCase().includes(query.toLowerCase().trim())).sort((a2, b) => sort === "newest" ? b.publishedAt.localeCompare(a2.publishedAt) : a2.publishedAt.localeCompare(b.publishedAt));
-  const tags = [...new Set(articles.flatMap((article) => article.tags))].sort();
+  const filtered = articles.filter((article) => (!tag || article.tags.some((value) => topicKey(value) === topicKey(tag))) && [article.title, article.summary, ...article.tags, ...article.authors.map((a2) => a2.name)].join(" ").toLowerCase().includes(query.toLowerCase().trim())).sort((a2, b) => sort === "newest" ? b.publishedAt.localeCompare(a2.publishedAt) : a2.publishedAt.localeCompare(b.publishedAt));
+  const tags = topicLabels(articles);
+  const active = (name) => Boolean(tag) && topicKey(tag) === topicKey(name);
   return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("main", { className: "writing-page", id: "writing", children: [
     /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(PageHeroGraphic, {}),
     /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "writing-content", children: [
@@ -118582,8 +118585,8 @@ function Archive({
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { className: "writing-rss", href: "/pub/feed.xml", target: "_blank", rel: "noreferrer", children: "RSS Feed" })
       ] }),
-      tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("fieldset", { className: "writing-tags", "aria-label": "Filter by topic", children: tags.map((name) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", className: `writing-tag${tag === name ? " is-active" : ""}`, "aria-pressed": tag === name, onClick: () => {
-        setTag(tag === name ? "" : name);
+      tags.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("fieldset", { className: "writing-tags", "aria-label": "Filter by topic", children: tags.map((name) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", className: `writing-tag${active(name) ? " is-active" : ""}`, "aria-pressed": active(name), onClick: () => {
+        setTag(active(name) ? "" : name);
         setPage(1);
       }, children: name }, name)) }),
       articles.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "writing-controls", children: [
