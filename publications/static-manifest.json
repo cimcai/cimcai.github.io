@@ -146,12 +146,12 @@
     },
     {
       "path": "publications/index.html",
-      "sha256": "a23e39544925cda5f41636fbf27474a2300af0415fb27ce3f1fab600f50cd164",
+      "sha256": "5f275484902a32dc5e2fd02e8bb0de859a2faf6c0d3091843142093456a17543",
       "bytes": 89411
     },
     {
       "path": "publications/research-program-whitepaper/index.html",
-      "sha256": "18d5cdbdf62a220b2922603d730cd1180444f044d1125db95668cff14d08a991",
+      "sha256": "e6aa467915cd40b57541876f9df162e372f1d38867faf23d52ea0610a4323e26",
       "bytes": 261151
     },
     {
@@ -161,7 +161,7 @@
     },
     {
       "path": "publications/against-intrinsic-properties/index.html",
-      "sha256": "6fc8fe7aa4eca6739b3eefdfaa4c540baea8b7980afc04e4ea684f7b25dd83b5",
+      "sha256": "933e1e9350b0fb9eec2afb21195e7b733d1b25659e3accb20a75315ddc3c290d",
       "bytes": 167786
     },
     {
@@ -171,7 +171,7 @@
     },
     {
       "path": "publications/prime-hypostasis/index.html",
-      "sha256": "e5c7f27c0dd48cce1d01884832fa5eba1d7a9d140d9d22da4c2ce82a4b1b3f36",
+      "sha256": "c919a284ccfee56038297f8529bc88186d4e80125defdcd82554a4e8645e1897",
       "bytes": 128346
     },
     {
@@ -181,7 +181,7 @@
     },
     {
       "path": "publications/the-machine-consciousness-hypothesis/index.html",
-      "sha256": "532fa6af3507bad3344612c7f5345f1b8b5a5521a2fb9a41bd608ba8df2c63c3",
+      "sha256": "3bf0a5411fa6f8d2192e760830edcce7886a9f68affa91e5d7fa97eb83e7c6bf",
       "bytes": 233926
     },
     {
