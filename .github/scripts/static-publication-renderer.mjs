@@ -118076,6 +118076,10 @@ var LumaIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("svg", 
   /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("title", { children: "Luma" }),
   /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { fill: "currentColor", d: "M133 67C96.282 67 66.5 36.994 66.5 0c0 36.994-29.782 67-66.5 67 36.718 0 66.5 30.006 66.5 67 0-36.994 29.782-67 66.5-67" })
 ] });
+var SubstackIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("svg", { width: "20", height: "22", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("title", { children: "Substack" }),
+  /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { fill: "currentColor", d: "M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" })
+] });
 var XIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("svg", { width: "24", height: "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props, children: [
   /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("title", { children: "X (Twitter)" }),
   /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M15.9455 23.9648L10.396 16.0549L3.44886 23.9648H0.509766L9.09209 14.1959L0.509766 1.96484H8.05571L13.286 9.41986L19.8393 1.96484H22.7784L14.5943 11.2813L23.4914 23.9648H15.9455ZM19.2185 21.7349H17.2398L4.71811 4.19484H6.6971L11.7121 11.218L12.5793 12.4367L19.2185 21.7349Z", fill: "currentColor" })
@@ -118207,12 +118211,13 @@ function Footer({
   return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(FooterContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterLayout, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterContent, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterCol, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CIMCWordmark, { color: "white" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_react_router_dom2.NavLink, { to: "/", "aria-label": "CIMC home", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CIMCWordmark, { color: "white" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(SocialRow, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://x.com/CIMCAI", "aria-label": "X", title: "X (Twitter)", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(XIcon, {}) }),
           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://www.youtube.com/@CIMCAIYT", "aria-label": "YouTube", title: "YouTube", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(YouTubeIcon, {}) }),
           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://www.linkedin.com/company/cimc-ai", "aria-label": "LinkedIn", title: "LinkedIn", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LinkedInIcon, {}) }),
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://lu.ma/cimc", "aria-label": "Luma", title: "Luma", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LumaIcon, {}) })
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://lu.ma/cimc", "aria-label": "Luma", title: "Luma", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LumaIcon, {}) }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("a", { target: "_blank", href: "https://cimcai.substack.com/", "aria-label": "Substack", title: "Substack", className: "hover:opacity-80", rel: "noreferrer noopener", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SubstackIcon, {}) })
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(FooterContent, { children: [
@@ -118474,7 +118479,7 @@ function Navbar({
         isOpen ? "CLOSE" : "MENU",
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(MenuButton, { isOpen })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarLogoContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CIMCWordmark, { width: 108 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarLogoContainer, { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_react_router_dom2.NavLink, { to: "/", "aria-label": "CIMC home", onClick: closeMenu, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(CIMCWordmark, { width: 108 }) }) }),
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarStyle, { isOpen, children: routes.map((route) => route.externalUrl ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarExternalLink, { href: route.externalUrl, target: "_blank", rel: "noreferrer", onClick: closeMenu, children: route.name }, route.path) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(NavbarInternalLink, { to: route.path, reloadDocument: route.path.startsWith("/publications"), style: ({
         isActive,
         isPending,
